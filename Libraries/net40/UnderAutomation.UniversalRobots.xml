@@ -1,0 +1,1397 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+UnderAutomation.UniversalRobots
+</name>
+</assembly>
+<members>
+<member name="T:UnderAutomation.UniversalRobots.UR">
+ <summary>
+ A connection to a Universal Robot.
+ Allow to retrieve the robot state (position, diagnostic information, state, ...) and also to send commands.
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.InternalErrorOccured">
+ <summary>
+ Event raised when an error occured during robot communication
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.RobotModeDataReceived">
+ <summary>
+ Robot mode data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.JointDataReceived">
+ <summary>
+ Joint data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.ToolDataReceived">
+ <summary>
+ Tool data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.MasterboardDataReceived">
+ <summary>
+ Masterboard data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.CartesianInfoReceived">
+ <summary>
+ Cartesian inforlation (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.KinematicsInfoReceived">
+ <summary>
+ Kinematics information data (Raised when connection opened)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.ConfigurationDataReceived">
+ <summary>
+ Configuration data (Raised when connection opened)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.ForceModeDataReceived">
+ <summary>
+ Force mode data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.AdditionalInfoReceived">
+ <summary>
+ Additional (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.CalibrationDataReceived">
+ <summary>
+ Calibration data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.SafetyDataReceived">
+ <summary>
+ Safety data (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.ToolCommunicationInfoReceived">
+ <summary>
+ Tool communication information (Raised every 100ms)
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.ToolModeInfoReceived">
+ <summary>
+ Tool mode information (Raised every 100ms)
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.RobotModeData">
+ <summary>
+ Last Robot mode data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.JointData">
+ <summary>
+ Last joint data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.ToolData">
+ <summary>
+ Last tool data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.MasterboardData">
+ <summary>
+ Last masterboard data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.CartesianInfo">
+ <summary>
+ Last cartesian information received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.KinematicsInfo">
+ <summary>
+ Last kinematics information received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.ConfigurationData">
+ <summary>
+ Last configuration data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.ForceModeData">
+ <summary>
+ Last force mode data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.AdditionalInfo">
+ <summary>
+ Last additional information received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.CalibrationData">
+ <summary>
+ Last calibration data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.SafetyData">
+ <summary>
+ Last safety data received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.ToolCommunicationInfo">
+ <summary>
+ Last tool communication information received
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.ToolModeInfo">
+ <summary>
+ Last tool mode infotmation received
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.RegisterLicense(System.String,System.String)">
+ <summary>
+ If you have a license and a key, please call this static method to register the product and exit the trial period
+ You can register a product even if the trial period has ended
+ </summary>
+ <param name="licensee">Your organization name</param>
+ <param name="key">The associated key supplied by UnderAutomation</param>
+ <returns>Information about the supplied license</returns>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.LicenseInfo">
+ <summary>
+ Return information about your license
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.#ctor">
+ <summary>
+ Create a new instance of UR
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Send(System.String)">
+ <summary>
+ Remotly execute script.Please see the Universal Robot Script documentation : https://www.universal-robots.com/download/.
+ </summary>
+ <param name="command">The script command to execute. You can for example move the robot at a specified coordinate with the command : movej([0,1.57,-1.57,3.14,-1.57,1.57],a=1.4, v=1.05, t=0, r=0)</param>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Connect(System.String,UnderAutomation.UniversalRobots.UniversalRobotPorts)">
+ <summary>
+ Connect the robot.
+ </summary>
+ <param name="ip">Address of the robot</param>
+ <param name="port">(Optional) Connection port on the robot. Default : 30001</param>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Disconnect">
+ <summary>
+ End the connection with the robot.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.Connected">
+ <summary>
+ Return True if the connection to the robot is active
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.StatusCode">
+ <summary>
+ Status code that describes an internal error or an internal action
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.OK">
+ <summary>
+ The action succeeded
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.ReadThreadAborted">
+ <summary>
+ The read threat has stopped due to an internal exception. No more data event will be raised.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.DecodageError">
+ <summary>
+ The data received are inconsistent and it not possible to decode it.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.SendCommandInternalError">
+ <summary>
+ Unable to send URScript because of an internal error.
+ </summary>
+ 
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.SentCommandIsEmpty">
+ <summary>
+ Unable to send URScript because the script sent is empty.
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.UniversalRobotPorts">
+ <summary>
+ TCP ports to communicate with an UR controller
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UniversalRobotPorts.PrimaryClient">
+ <summary>
+ The default port that allow reading data and sending URScript
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UniversalRobotPorts.SecondaryClient">
+ <summary>
+ The secondary port with same features as PrimaryClient
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UniversalRobotPorts.PrimaryClientReadOnly">
+ <summary>
+ This port can only read data. It is unable to send URScript.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UniversalRobotPorts.SecondaryClientReadOnly">
+ <summary>
+ A secondary port that can only read data. It is unable to send URScript.
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.InternalErrorEventArgs">
+ <summary>
+ Describes an internal error
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.InternalErrorEventArgs.Exception">
+ <summary>
+ The exception thrown that causes an internal error
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.InternalErrorEventArgs.Message">
+ <summary>
+ Explicit message that explains what happened
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.InternalErrorEventArgs.Status">
+ <summary>
+ Context status associated to this internal error
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.PackageEventArgs">
+ <summary>
+ Base class of all received data packages
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.PackageEventArgs.ReceiveDate">
+ <summary>
+ The date the data has been received
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs">
+ <summary>
+ Information about current robot mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.Timestamp">
+ <summary>
+ Timespan since the robot controller as started
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.PhysicalRobotConnected">
+ <summary>
+ Robot is connected to its controller
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.RealRobotEnabled">
+ <summary>
+ Real robot mode active. False if robot is in simulation
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.RobotPowerOn">
+ <summary>
+ Robot is powered on and boot is completed. If false, you need to press "ON" button to power it on.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.EmergencyStopped">
+ <summary>
+ The button Emergency Stop is pressed
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.ProtectiveStopped">
+ <summary>
+ A stop occured due to a fault detection.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.ProgramRunning">
+ <summary>
+ A program is running
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.ProgramPaused">
+ <summary>
+ The running program is paused
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.RobotMode">
+ <summary>
+ Current robot running mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.ControlMode">
+ <summary>
+ Current robot control mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.TargetSpeedFraction">
+ <summary>
+ Overriden speed ratio between 0 (0%) and 1 (100%)
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.SpeedScaling">
+ <summary>
+ Speed scaling
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.TargetSpeedFractionLimit">
+ <summary>
+ Maximum target speed fraction
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.RobotModes">
+ <summary>
+ Robot running modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.Disconnected">
+ <summary>
+ Robot is not connected to its controller
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.ConfirmSafety">
+ <summary>
+ Robot has stopped due to a Safety Stop
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.Booting">
+ <summary>
+ The robot controller is booting
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.PowerOff">
+ <summary>
+ The robot is powered off
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.PowerOn">
+ <summary>
+ The robot is powered on
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.Idle">
+ <summary>
+ Power is on but breaks are not released
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.BackDrive">
+ <summary>
+ The robot is hand guided  by pushing teached button
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.Running">
+ <summary>
+ Robot is in normal mode
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.UpdatingFirmware">
+ <summary>
+ Firmware is upgrading
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ControlModes">
+ <summary>
+ Robot control modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControlModes.Position">
+ <summary>
+ Robot is position controlled
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControlModes.Teach">
+ <summary>
+ The robot is hand guided  by pushing teached button
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControlModes.Force">
+ <summary>
+ Robot is force controlled. (For example : URScript force_mode() function is called)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControlModes.Torque">
+ <summary>
+ Robot is torque controlled
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.JointDataPackageEventArgs">
+ <summary>
+ Status of each joints
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Base">
+ <summary>
+ Base joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Shoulder">
+ <summary>
+ Shoulder joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Elbow">
+ <summary>
+ Elbow joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Wrist1">
+ <summary>
+ Wrist1 joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Wrist2">
+ <summary>
+ Wrist2 joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Wrist3">
+ <summary>
+ Wrist3 (Tool) joint data
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.JointData">
+ <summary>
+ Joint data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.Position">
+ <summary>
+ Angular joint position in radians
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.TargetPosition">
+ <summary>
+ Angular target position in radians
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.ActualSpeed">
+ <summary>
+ Joint rotation speed in rad/s
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.Current">
+ <summary>
+ Motor current in Amps
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.Voltage">
+ <summary>
+ Motor votage in Volts
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.Temperature">
+ <summary>
+ Joint temperature in °C
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointData.JointMode">
+ <summary>
+ Joint mode
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.JointModes">
+ <summary>
+ Joint modes
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs">
+ <summary>
+ Tool data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.AnalogInputRange2">
+ <summary>
+ Unit of analog input 2 (analog_in[2])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.AnalogInputRange3">
+ <summary>
+ Unit of analog input 3 (analog_in[3])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.AnalogInput2">
+ <summary>
+ Value of Analog input 2 (analog_in[2])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.AnalogInput3">
+ <summary>
+ Value of Analog input 3 (analog_in[3])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.ToolVoltage48V">
+ <summary>
+ Actual robot voltage power supply
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.ToolOutputVoltage">
+ <summary>
+ Tool output voltage
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.ToolCurrent">
+ <summary>
+ Tool current in Amps
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.ToolTemperature">
+ <summary>
+ Tool Temperature in °C
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.ToolMode">
+ <summary>
+ Tool mode
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.AnalogRanges">
+ <summary>
+ Analog units of analog inputs and outputs
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.AnalogRanges.Current">
+ <summary>
+ The analog value is in Amps (A)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.AnalogRanges.Voltage">
+ <summary>
+ The analog value is in Volts (V)
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ToolModes">
+ <summary>
+ Tool modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ToolModes.Bootloader">
+ <summary>
+ Bootloader
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ToolModes.Running">
+ <summary>
+ Running
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ToolModes.Idle">
+ <summary>
+ Idle
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs">
+ <summary>
+ Masterboard data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogInputRange0">
+ <summary>
+ Unit of analog input 0 (analog_in[0])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogInputRange1">
+ <summary>
+ Unit of analog input 1 (analog_in[1])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogInput0">
+ <summary>
+ Value of analog input 0 (analog_in[0])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogInput1">
+ <summary>
+ Value of analog input 1 (analog_in[1])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogOutputDomain0">
+ <summary>
+ Unit of analog output 0 (analog_out[0])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogOutputDomain1">
+ <summary>
+ Unit of analog output 1 (analog_out[1)
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogOutput0">
+ <summary>
+ Value of analog output 0 (analog_out[0])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogOutput1">
+ <summary>
+ Value of analog output 1 (analog_out[1])
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.MasterboardTemperature">
+ <summary>
+ Temperature of masterboard in °C
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.RobotVoltage48V">
+ <summary>
+ Voltage of internal 48V power supply
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.RobotCurrent">
+ <summary>
+ Robot current consumption in Amps
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.MasterIOCurrent">
+ <summary>
+ Current of all digital and analog inputs and outputs
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.Safetymode">
+ <summary>
+ Masterboard safety mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.InReducedMode">
+ <summary>
+ Robot is in reduced speed mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.OperationalModeSelectorInput">
+ <summary>
+ Position of operational mode selector input switch
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.ThreePositionEnablingDeviceInput">
+ <summary>
+ Position of the 3-position enabling device
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.DigitalInputs">
+ <summary>
+ Register where each bit is a digital input value
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.DigitalOutputs">
+ <summary>
+ Register where each bit is a digital output value
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.Euromap67Installed">
+ <summary>
+ The robot is interfaced to injection molding machines Euromap 67
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.EuromapInputBits">
+ <summary>
+ Register where each bit is a digital Euromap input
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.EuromapOutputBits">
+ <summary>
+ Register where each bit is a digital Euromap output
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.EuromapVoltage">
+ <summary>
+ Euromap votage
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.EuromapCurrent">
+ <summary>
+ Euromap current
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDigitalIO.Value">
+ <summary>
+ Register value
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.MasterboardDigitalIO.BitArray">
+ <summary>
+ Register value seen as a bool array
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.SafetyModes">
+ <summary>
+ Safety modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Normal">
+ <summary>
+ Safety is in normal operating conditions
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Reduced">
+ <summary>
+ Speed is reduced
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.ProtectiveStop">
+ <summary>
+ Protective safeguard Stop. This safety function is triggeredby an external protective device using safety inputs which will trigger a Cat 2 stop3per IEC 60204-1.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Recovery">
+ <summary>
+ When a safety limit is violated, the safety system must be restarted.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.SafeguardStop">
+ <summary>
+ (SI0 + SI1 + SBUS) Physical s-stop interface input	
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.SystemEmergencyStop">
+ <summary>
+ (EA + EB + SBUS->Euromap67) Physical e-stop interface input activated		
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.RobotEmergencyStop">
+ <summary>
+ (EA + EB + SBUS->Screen) Physical e-stop interface input activated		
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Violation">
+ <summary>
+ Safety is in violation mode (for example, violation of the allowed delay between redundant signals)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Fault">
+ <summary>
+ Safety is in fault mode 
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.X">
+ <summary>
+ X axis coordinate in mm of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.Y">
+ <summary>
+ Y axis coordinate in mm of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.Z">
+ <summary>
+ Z axis coordinate in mm of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.Rx">
+ <summary>
+ RX axis coordinate in degrees of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.Ry">
+ <summary>
+ RY axis coordinate in degrees of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.Rz">
+ <summary>
+ RZ axis coordinate in degrees of the TCP in the current frame 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetX">
+ <summary>
+ X position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetY">
+ <summary>
+ Y position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetZ">
+ <summary>
+ Z position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetRX">
+ <summary>
+ RX position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetRY">
+ <summary>
+ RY position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetRZ">
+ <summary>
+ RZ position of the TCP in the flange frame
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs">
+ <summary>
+ Kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.CalibrationStatus">
+ <summary>
+ Calibration status (0 : OK)
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Base">
+ <summary>
+ Base kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Shoulder">
+ <summary>
+ Shoulder kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Elbow">
+ <summary>
+ Elbow kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Wrist1">
+ <summary>
+ Wrist1 kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Wrist2">
+ <summary>
+ Wrist2 kinematics info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Wrist3">
+ <summary>
+ Wrist3 (Tool) kinematics info
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.JointKinematicsInfo">
+ <summary>
+ Joint kinematics info, Denavit–Hartenberg (DH) parameters 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.Checksum">
+ <summary>
+ Joint checksum
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.DHtheta">
+ <summary>
+ DH convention theta parameter
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.DHa">
+ <summary>
+ DH convention a parameter
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.DHd">
+ <summary>
+ DH convention d parameter
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.Dhalpha">
+ <summary>
+ DH convention alpha parameter
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.JointConfiguration">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.JointMinLimit">
+ <summary>
+ Minimum angular position in rad
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.JointMaxLimit">
+ <summary>
+ Maximum angular position in rad
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.JointMaxSpeed">
+ <summary>
+ Maximum rotation speed in rad/s
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.JointMaxAcceleration">
+ <summary>
+ Maximum rotation speed in rad/s²
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.DHa">
+ <summary>
+ "a" parameter of Denavit–Hartenberg (DH) convention 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.DHd">
+ <summary>
+ d parameter of Denavit–Hartenberg (DH) convention 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.DHalpha">
+ <summary>
+ Alpha parameter of Denavit–Hartenberg (DH) convention 
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.JointConfiguration.DHtheta">
+ <summary>
+ Theta parameter of Denavit–Hartenberg (DH) convention 
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs">
+ <summary>
+ Joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.VJointDefault">
+ <summary>
+ Default joint angular speed in rad/s
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.AJointDefault">
+ <summary>
+ Default joint acceleration speed in rad/s²
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.VToolDefault">
+ <summary>
+ Default TCP speed speed in mm/s
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.AToolDefault">
+ <summary>
+ Default TCP acceleration speed in mm/s²
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.EqRadius">
+ <summary>
+ Equipment radius in m
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.MasterboardVersion">
+ <summary>
+ Masterboard version
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.ControllerBoxType">
+ <summary>
+ Controller box type
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.RobotType">
+ <summary>
+ Robot type
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.RobotSubType">
+ <summary>
+ Robot serie
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Base">
+ <summary>
+ Base joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Shoulder">
+ <summary>
+ Shoulder joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Elbow">
+ <summary>
+ Elbow joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Wrist1">
+ <summary>
+ Wrist1 joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Wrist2">
+ <summary>
+ Wrist2 joint configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.Wrist3">
+ <summary>
+ Wrist3 (Tool) joint configuration
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ControllerBoxTypes">
+ <summary>
+ Controller box types
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControllerBoxTypes.UR3">
+ <summary>
+ UR3 controller box
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControllerBoxTypes.UR5">
+ <summary>
+ UR5 controller box
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControllerBoxTypes.UR10">
+ <summary>
+ UR10 controller box
+ </summary> 
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ControllerBoxTypes.UR16">
+ <summary>
+ UR16 controller box
+ </summary> 
+</member>
+<member name="T:UnderAutomation.UniversalRobots.RobotSubTypes">
+ <summary>
+ Robot sub type (e-Serie or CB-Serie)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotSubTypes.CB2Serie">
+ <summary>
+ CB2-series (Firmware 1.x)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotSubTypes.CB3Serie">
+ <summary>
+ CB3-series (Firmware 3.x)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotSubTypes.ESerie">
+ <summary>
+ e-series (Firmware 5.x)
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.RobotTypes">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs">
+ <summary>
+ Force mode data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.X">
+ <summary>
+ X force in tool frame in N
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.Y">
+ <summary>
+ Y force in tool frame in N
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.Z">
+ <summary>
+ Z force in tool frame in N
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.Rx">
+ <summary>
+ Rx torque in tool frame in Nm
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.Ry">
+ <summary>
+ Ry torque in tool frame in Nm
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.Rz">
+ <summary>
+ Rz torque in tool frame in Nm
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.RobotDexterity">
+ <summary>
+ Dexterity of the robot
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs">
+ <summary>
+ Additional information
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs.FreedriveButtonPressed">
+ <summary>
+ The free drive button is pressed
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs.FreedriveButtonEnabled">
+ <summary>
+ The free drive button is enabled
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs.IOEnabledFreedrive">
+ <summary>
+ Free drive is enable via IO
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs">
+ <summary>
+ Calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Fx">
+ <summary>
+ Fx calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Fy">
+ <summary>
+ Fy calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Fz">
+ <summary>
+ Fz calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Frx">
+ <summary>
+ Frx calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Fry">
+ <summary>
+ Fry calibration data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Frz">
+ <summary>
+ Frz calibration data
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.SafetyDataPackageEventArgs">
+ <summary>
+ Safety internal data
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.SafetyDataPackageEventArgs.Data">
+ <summary>
+ Irrelevent (Internal use only)
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs">
+ <summary>
+ Tool communication info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.ToolCommunicationIsEnabled">
+ <summary>
+ Is the tool communication interface enabled
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.BaudRate">
+ <summary>
+ Baude rate
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.Parity">
+ <summary>
+ Parity
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.StopBits">
+ <summary>
+ Stop bits
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.RxIdleChars">
+ <summary>
+ RX Idle Chars
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.TxIdleChars">
+ <summary>
+ TX Idle Chars
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs">
+ <summary>
+ Tool mode info
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs.OutputMode">
+ <summary>
+ Digital output mode
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs.DigitalOutputMode0">
+ <summary>
+ Digital output 0 configuration
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs.DigitalOutputMode1">
+ <summary>
+ Digital output 1 configuration
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.OutputModes">
+ <summary>
+ Digital output modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.OutputModes.StandardOutput">
+ <summary>
+ Standard output
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.OutputModes.DualPinPower">
+ <summary>
+ Dual Pin Power
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.DigitalOutputConfigurations">
+ <summary>
+ Digital output configuration (NPN, PNP, Push/Pull)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.DigitalOutputConfigurations.SinkingNPN">
+ <summary>
+ Sinking (NOPN)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.DigitalOutputConfigurations.SourcingPNP">
+ <summary>
+ Sourcing (PNP)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.DigitalOutputConfigurations.PushPull">
+ <summary>
+ Push / Pull
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.LicenseInfo">
+ <summary>
+ 
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.LicenseInfo.#ctor(System.String,System.String)">
+ <summary>
+ Create a new LicenseInfo instance to retrieve informations about a pair of identifier/key
+ This class should not be used to register your product. Please use static function UnderAutomation.UniversalRobot.UniversalRobotInterface.RegisterLicense to register a license.
+ </summary>
+ <param name="licenseIdentifier">The name of your organization (null for trial version)</param>
+ <param name="licenseKey">The key, associated to the identifier, supplied by UnderAutomation (null for trial version)</param>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.LicenseInfo.AssertIsLicensed">
+ <summary>
+ Throw a InvalidLicenseException if the license is Invalid or Expired
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.LicenseKey">
+ <summary>
+ The license key supplied by UnderAutomation (null for trial period)
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.Product">
+ <summary>
+ Commercial name of this .NET Software library
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.EvaluationDaysLeft">
+ <summary>
+ Remaining days of the trial period. Null if the product is licensed. It could be negative if the trial period is ended since several days.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.EvaluationStartDate">
+ <summary>
+ The date the trial period starts. If the product is licensed, the date of the library first use.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.Licensee">
+ <summary>
+ Name of your organisation
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.TrialPeriodExpirationDate">
+ <summary>
+ The date the product will expire. Null if the product is licensed.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.State">
+ <summary>
+ The current license state
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.ProductReleaseDate">
+ <summary>
+ The date this version of the product was released.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.MaintenanceYears">
+ <summary>
+ Number of maintenance years included in your license
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.LicenseIssuedDate">
+ <summary>
+ The date you get the license
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.LicenseInfo.MaintenanceExpirationDate">
+ <summary>
+ The date your maintenance contract end and you no longer can use this license with newer versions.
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.LicenseInfo.ToString">
+ <summary>
+ A human description of the license
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.LicenseState">
+ <summary>
+ States that can take a license
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.Invalid">
+ <summary>
+ The pair License Identifier and License Key are incompatible, you cannot use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.Trial">
+ <summary>
+ The library is in a trial period, you can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.ExtraTrial">
+ <summary>
+ The library is in an extra trial period, you can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.Expired">
+ <summary>
+ The trial period as expired, you no more can use the library
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.MaintenanceNeeded">
+ <summary>
+ Your license does not allow you to use such a recent release. Please buy maintenance to use this version
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.LicenseState.Licensed">
+ <summary>
+ Congratulations, the library is licensed.
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.InvalidLicenseException">
+ <summary>
+ Exception thrown while using the product if the license is not valid.
+ </summary>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.InvalidLicenseException.LicenseInfo">
+ <summary>
+ The license that causes this exception
+ </summary>
+</member>
+</members>
+</doc>
