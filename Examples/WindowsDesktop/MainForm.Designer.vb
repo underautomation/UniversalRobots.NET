@@ -36,8 +36,8 @@ Partial Class MainForm
         Me.btnSend = New System.Windows.Forms.Button()
         Me.txtScript = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.linkDoc = New System.Windows.Forms.LinkLabel()
         Me.txtLicense = New System.Windows.Forms.RichTextBox()
-        Me.licGrid = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.pnl = New System.Windows.Forms.FlowLayoutPanel()
         Me.gridRobotMode = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridCartesian = New Underautomation.UniversalRobots.Example.RobotStateControl()
@@ -50,7 +50,7 @@ Partial Class MainForm
         Me.gridConfiguration = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridJointData = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridKinematicsData = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.linkDoc = New System.Windows.Forms.LinkLabel()
+        Me.licGrid = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
         Me.SuspendLayout()
@@ -172,6 +172,16 @@ Partial Class MainForm
         Me.Panel1.Size = New System.Drawing.Size(1610, 143)
         Me.Panel1.TabIndex = 7
         '
+        'linkDoc
+        '
+        Me.linkDoc.AutoSize = True
+        Me.linkDoc.Location = New System.Drawing.Point(12, 105)
+        Me.linkDoc.Name = "linkDoc"
+        Me.linkDoc.Size = New System.Drawing.Size(111, 13)
+        Me.linkDoc.TabIndex = 8
+        Me.linkDoc.TabStop = True
+        Me.linkDoc.Text = "See documentation ..."
+        '
         'txtLicense
         '
         Me.txtLicense.BackColor = System.Drawing.SystemColors.ControlLight
@@ -181,14 +191,6 @@ Partial Class MainForm
         Me.txtLicense.Size = New System.Drawing.Size(149, 85)
         Me.txtLicense.TabIndex = 5
         Me.txtLicense.Text = ""
-        '
-        'licGrid
-        '
-        Me.licGrid.LabelText = "License info"
-        Me.licGrid.Location = New System.Drawing.Point(902, 3)
-        Me.licGrid.Name = "licGrid"
-        Me.licGrid.Size = New System.Drawing.Size(272, 120)
-        Me.licGrid.TabIndex = 7
         '
         'pnl
         '
@@ -301,15 +303,13 @@ Partial Class MainForm
         Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
         Me.gridKinematicsData.TabIndex = 9
         '
-        'linkDoc
+        'licGrid
         '
-        Me.linkDoc.AutoSize = True
-        Me.linkDoc.Location = New System.Drawing.Point(12, 105)
-        Me.linkDoc.Name = "linkDoc"
-        Me.linkDoc.Size = New System.Drawing.Size(111, 13)
-        Me.linkDoc.TabIndex = 8
-        Me.linkDoc.TabStop = True
-        Me.linkDoc.Text = "See documentation ..."
+        Me.licGrid.LabelText = "License info"
+        Me.licGrid.Location = New System.Drawing.Point(902, 3)
+        Me.licGrid.Name = "licGrid"
+        Me.licGrid.Size = New System.Drawing.Size(272, 120)
+        Me.licGrid.TabIndex = 7
         '
         'MainForm
         '
@@ -320,7 +320,8 @@ Partial Class MainForm
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
-        Me.Text = "Universal Robots API example - UnderAutomation"
+        Me.Text = "Universal Robots SDK example - UnderAutomation"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnl.ResumeLayout(False)
