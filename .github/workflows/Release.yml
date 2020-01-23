@@ -17,9 +17,8 @@ jobs:
         cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\WindowsDesktop_VS2019.sln -p:Configuration=Release
         rm $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\obj -r -fo
-    - uses: edgarrc/action-7zip@v1.0.4
-      with:
-        args: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_UnderAutomation.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
+    - name: Build Windows Desktop
+      run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_UnderAutomation.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "UniversalRobotsSDK_UnderAutomation.zip"
