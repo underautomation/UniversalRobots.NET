@@ -16,7 +16,7 @@ jobs:
       run: |
         cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\WindowsDesktop_VS2019.sln -p:Configuration=Release
-        rmdir /Q /S $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\obj
+        rm $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\obj -r -fo
     - uses: montudor/action-zip@v0.1.0
       with:
         args: zip -qq -r $Env:GITHUB_WORKSPACE\..\UniversalRobotsSDK_UnderAutomation.zip $Env:GITHUB_WORKSPACE
