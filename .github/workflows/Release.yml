@@ -22,6 +22,6 @@ jobs:
         args: zip -qq -r $Env:GITHUB_WORKSPACE\..\UniversalRobotsSDK_UnderAutomation.zip $Env:GITHUB_WORKSPACE
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "$Env:GITHUB_WORKSPACE\..\UniversalRobotsSDK_UnderAutomation.zip"
+        artifacts: "$Env:GITHUB_WORKSPACE/../UniversalRobotsSDK_UnderAutomation.zip"
         bodyFile: "whatsNew.md"
         token: ${{ secrets.GITHUB_TOKEN }}
