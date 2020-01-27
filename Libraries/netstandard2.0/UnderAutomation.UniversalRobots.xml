@@ -170,14 +170,15 @@ UnderAutomation.UniversalRobots
  <summary>
  Remotly execute script.Please see the Universal Robot Script documentation : https://www.universal-robots.com/download/.
  </summary>
- <param name="command">The script command to execute. You can for example move the robot at a specified coordinate with the command : movej([0,1.57,-1.57,3.14,-1.57,1.57],a=1.4, v=1.05, t=0, r=0)</param>
+ <param name="command">The script command to execute. You can for example move the robot at a specified joint coordinate with the command : movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)</param>
 </member>
-<member name="M:UnderAutomation.UniversalRobots.UR.Connect(System.String,UnderAutomation.UniversalRobots.UniversalRobotPorts)">
+<member name="M:UnderAutomation.UniversalRobots.UR.Connect(System.String,UnderAutomation.UniversalRobots.UniversalRobotPorts,System.Boolean)">
  <summary>
  Connect the robot.
  </summary>
  <param name="ip">Address of the robot</param>
  <param name="port">(Optional) Connection port on the robot. Default : 30001</param>
+ <param name="listenStreamingInterface">(Optional) Receive data from streaming interface</param>
 </member>
 <member name="M:UnderAutomation.UniversalRobots.UR.Disconnect">
  <summary>
@@ -187,6 +188,298 @@ UnderAutomation.UniversalRobots
 <member name="P:UnderAutomation.UniversalRobots.UR.Connected">
  <summary>
  Return True if the connection to the robot is active
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.LoadProgram(System.String)">
+ <summary>
+ Start loading the specified program. (From FW 1.4)
+ </summary>
+ <param name="programName">The name of the program to load with its extension .urp</param>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Play">
+ <summary>
+ Starts program, if any program is loaded and robot is ready. (From FW 1.4)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Stop">
+ <summary>
+ Stops running program. (From FW 1.4)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Pause">
+ <summary>
+ Pauses the running program . (From FW 1.4)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.Shutdown">
+ <summary>
+ Shuts down and turns off robot and controller. Closes the connection. (From FW 1.4)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.IsProgramRunning">
+ <summary>
+ Returns a True value is a program is running. (From FW 1.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetRobotMode">
+ <summary>
+ Returns the current robot state. (From FW 1.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetLoadedProgram">
+ <summary>
+ Returns the path of the loaded program. If not program is loaded, Value member is null. (From FW 1.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.ShowPopup(System.String)">
+ <summary>
+ Shows a popup on Polyscope with the specified message. The popup-text will be translated to the selected language, if the text exists in the language file. (From FW 1.6)
+ </summary>
+ <param name="message">Message to show</param>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.ClosePopup">
+ <summary>
+ Closes the popup (From FW 1.6)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.AddToLog(System.String)">
+ <summary>
+ Adds log-message to the Log history. (From FW 1.8.11657)
+ </summary>
+ <param name="message">Message to add in logs</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.IsProgramSaved">
+ <summary>
+ Returns the save state of the active program and path to loaded program file. (From FW 1.8.11997)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetProgramState">
+ <summary>
+ Returns the state of the active program and path to loaded program file, or STOPPED if no program is loaded
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetPolyscopeVersion">
+ <summary>
+ Returns the version of the Polyscope software (From FW 1.8.14035)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.SetUserRole(UnderAutomation.UniversalRobots.UserRoles)">
+ <summary>
+ Controls the available options on the Welcome screen (From FW 1.8.14035 to 3.12.0)
+ </summary>
+ <param name="role">Role to set</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.SetOperationalMode(UnderAutomation.UniversalRobots.OperationalModes)">
+ <summary>
+ Controls the operational mode. See User manual for details. If this function is called the operational mode cannot be changed from PolyScope, and the user password is disabled. OperationalModes.None is not a valid operational mode. (From FW 5.0.0)
+ </summary>
+ <param name="mode">The new operational mode. OperationalModes.None is not a valid operational mode.</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.ClearOperationalMode">
+ <summary>
+ The operational mode can again be changed from PolyScope, and the user password is enabled. (From FW 5.0.0)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetOperationalMode">
+ <summary>
+ Returns the operational mode. (From FW 5.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.IsInRemoteControl">
+ <summary>
+ Returns the remote control status of the robot. If the robot Is In remote control it returns False And If remote control Is disabled Or robot Is in local control it returns false. (From FW 5.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.PowerOn">
+ <summary>
+ Powers on the robot arm. (From FW 3.0)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.PowerOff">
+ <summary>
+ Powers off the robot arm. (From FW 3.0)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.ReleaseBrake">
+ <summary>
+ Releases the brakes. (From FW 3.0)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.UnlockProtectiveStop">
+ <summary>
+ Closes the current popup and unlocks protective stop. (From FW 3.1)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.CloseSafetyPopup">
+ <summary>
+ Closes a safety popup. (From FW 3.1)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.LoadInstallation(System.String)">
+ <summary>
+ Loads the specified installation file (From FW 3.2.18654)
+ </summary>
+ <param name="installation">The installation to load with ist extension .installation.</param>
+ <returns></returns>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.RestartSafety">
+ <summary>
+ Restarts the safety. Used when robot gets a safety fault or violation to restart the safety. After safety has been rebooted the robot will be in Power Off. (From FW 3.7 to 3.12.0 and from 5.1.0)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetSafetyStatus">
+ <summary>
+ Returns the current safety status. (From FW 3.11 to 3.12 and from FW 5.5)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetSerialNumber">
+ <summary>
+ Returns serial number of the robot (FW 3.12 and from FW 5.6)
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.UR.GetRobotModel">
+ <summary>
+ Returns the robot model (UR3, UR5, UR10 or UR16). (FW 3.12 and from FW 5.6)
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.OperationalModes">
+ <summary>
+ Enumerates all robot operational modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.OperationalModes.Manual">
+ <summary>
+ Loading and editing programs is allowed
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.OperationalModes.Automatic">
+ <summary>
+ Loading and editing programs and installations is not allowed, only playing programs
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.OperationalModes.None">
+ <summary>
+ The password has not been set.
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.UserRoles">
+ <summary>
+ Enumerates all user roles
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UserRoles.Programmer">
+ <summary>
+ In Setup Robot, buttons "Update", "Set Password", "Network", "Time" and "URCaps" are disabled, "Expert Mode" is available (if correct password is supplied)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UserRoles.Operator">
+ <summary>
+ Only "RUN Program" And "SHUTDOWN Robot" buttons are enabled, "Expert Mode" cannot be activated
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UserRoles.None">
+ <summary>
+ All buttons enabled, "Expert Mode" is available (if correct password is supplied)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UserRoles.Locked">
+ <summary>
+ All buttons disabled and "Expert Mode" cannot be activated
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.UserRoles.restricted">
+ <summary>
+ Works like "operator" but does not give access to the move tab. (From FW 3.1.17136)
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ProgramState">
+ <summary>
+ Describes a program state (its running state and its name)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramState.State">
+ <summary>
+ Running state of the loaded program
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramState.Name">
+ <summary>
+ Name of the loaded program
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ProgramSaveState">
+ <summary>
+ Describes a program save state (its save state and its name)
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramSaveState.IsSaved">
+ <summary>
+ Is the program saved
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramSaveState.Name">
+ <summary>
+ Name of the loaded program
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.ProgramStates">
+ <summary>
+ Enumerate possible states of a program.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramStates.Stopped">
+ <summary>
+ No program is running.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramStates.Playing">
+ <summary>
+ Program is running.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.ProgramStates.Paused">
+ <summary>
+ Program is paused.
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.CommandResponse">
+ <summary>
+ Generic answer returned by a command
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.CommandResponse.Succeed">
+ <summary>
+ The command as succeeded
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.CommandResponse.Message">
+ <summary>
+ A message that described the error or the action done
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.CommandResponse.ToString">
+ <summary>
+ A human readable answer
+ </summary>
+</member>
+<member name="T:UnderAutomation.UniversalRobots.CommandResponse`1">
+ <summary>
+ Answer return by a command which contains a value
+ </summary>
+ <typeparam name="T"></typeparam>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.CommandResponse`1.Value">
+ <summary>
+ Value return by the command
+ </summary>
+</member>
+<member name="M:UnderAutomation.UniversalRobots.CommandResponse`1.ToString">
+ <summary>
+ A human readable answer
  </summary>
 </member>
 <member name="T:UnderAutomation.UniversalRobots.StatusCode">
@@ -218,6 +511,11 @@ UnderAutomation.UniversalRobots
 <member name="F:UnderAutomation.UniversalRobots.StatusCode.SentCommandIsEmpty">
  <summary>
  Unable to send URScript because the script sent is empty.
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.StatusCode.StreamingInterfaceNotConnected">
+ <summary>
+ Streaming interface is not connected
  </summary>
 </member>
 <member name="T:UnderAutomation.UniversalRobots.UniversalRobotPorts">
@@ -348,6 +646,11 @@ UnderAutomation.UniversalRobots
 <member name="T:UnderAutomation.UniversalRobots.RobotModes">
  <summary>
  Robot running modes
+ </summary>
+</member>
+<member name="F:UnderAutomation.UniversalRobots.RobotModes.Other">
+ <summary>
+ Robot is in an obsolete CB2 mode
  </summary>
 </member>
 <member name="F:UnderAutomation.UniversalRobots.RobotModes.Disconnected">
@@ -715,52 +1018,52 @@ UnderAutomation.UniversalRobots
  Register value seen as a bool array
  </summary>
 </member>
-<member name="T:UnderAutomation.UniversalRobots.SafetyModes">
+<member name="T:UnderAutomation.UniversalRobots.SafetyStatus">
  <summary>
  Safety modes
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Normal">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.Normal">
  <summary>
  Safety is in normal operating conditions
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Reduced">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.Reduced">
  <summary>
  Speed is reduced
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.ProtectiveStop">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.ProtectiveStop">
  <summary>
  Protective safeguard Stop. This safety function is triggeredby an external protective device using safety inputs which will trigger a Cat 2 stop3per IEC 60204-1.
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Recovery">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.Recovery">
  <summary>
  When a safety limit is violated, the safety system must be restarted.
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.SafeguardStop">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.SafeguardStop">
  <summary>
  (SI0 + SI1 + SBUS) Physical s-stop interface input	
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.SystemEmergencyStop">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.SystemEmergencyStop">
  <summary>
  (EA + EB + SBUS->Euromap67) Physical e-stop interface input activated		
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.RobotEmergencyStop">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.RobotEmergencyStop">
  <summary>
  (EA + EB + SBUS->Screen) Physical e-stop interface input activated		
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Violation">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.Violation">
  <summary>
  Safety is in violation mode (for example, violation of the allowed delay between redundant signals)
  </summary>
 </member>
-<member name="F:UnderAutomation.UniversalRobots.SafetyModes.Fault">
+<member name="F:UnderAutomation.UniversalRobots.SafetyStatus.Fault">
  <summary>
  Safety is in fault mode 
  </summary>
@@ -987,7 +1290,7 @@ UnderAutomation.UniversalRobots
 </member>
 <member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.RobotType">
  <summary>
- Robot type
+ Model of the robot (UR3, UR5, UR10, UR16)
  </summary>
 </member>
 <member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.RobotSubType">
@@ -1070,9 +1373,9 @@ UnderAutomation.UniversalRobots
  e-series (Firmware 5.x)
  </summary>
 </member>
-<member name="T:UnderAutomation.UniversalRobots.RobotTypes">
+<member name="T:UnderAutomation.UniversalRobots.RobotModels">
  <summary>
- 
+ Model of a UR robot
  </summary>
 </member>
 <member name="T:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs">
