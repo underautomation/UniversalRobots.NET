@@ -44,7 +44,7 @@ Public Class RobotStateControl
             grid.SelectedObject = value
             grid.ExpandAllGridItems()
 
-            If _vscroll IsNot Nothing Then _vscroll.Value = vScrollValue
+            If _vscroll IsNot Nothing Then _vscroll.Value = If(vScrollValue.HasValue, vScrollValue.Value, 0)
             Me.ResumeLayout()
         End If
     End Sub

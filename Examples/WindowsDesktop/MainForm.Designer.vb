@@ -38,6 +38,7 @@ Partial Class MainForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.linkDoc = New System.Windows.Forms.LinkLabel()
         Me.txtLicense = New System.Windows.Forms.RichTextBox()
+        Me.licGrid = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.pnl = New System.Windows.Forms.FlowLayoutPanel()
         Me.gridRobotMode = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridCartesian = New Underautomation.UniversalRobots.Example.RobotStateControl()
@@ -50,9 +51,68 @@ Partial Class MainForm
         Me.gridConfiguration = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridJointData = New Underautomation.UniversalRobots.Example.RobotStateControl()
         Me.gridKinematicsData = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.licGrid = New Underautomation.UniversalRobots.Example.RobotStateControl()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.txtConsole = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.cbOperationalMode = New System.Windows.Forms.ComboBox()
+        Me.cbUserRoles = New System.Windows.Forms.ComboBox()
+        Me.btnIsInRemoteControl = New System.Windows.Forms.Button()
+        Me.btnSetUserRole = New System.Windows.Forms.Button()
+        Me.btnSetOperationalMode = New System.Windows.Forms.Button()
+        Me.btnClearOIperationalMode = New System.Windows.Forms.Button()
+        Me.btnGetOperationalMode = New System.Windows.Forms.Button()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.btnClosePopup = New System.Windows.Forms.Button()
+        Me.btnShowPopup = New System.Windows.Forms.Button()
+        Me.txtPopup = New System.Windows.Forms.TextBox()
+        Me.btnAddToLog = New System.Windows.Forms.Button()
+        Me.txtLog = New System.Windows.Forms.TextBox()
+        Me.btnPolyscopeVersion = New System.Windows.Forms.Button()
+        Me.txtInstallation = New System.Windows.Forms.TextBox()
+        Me.btnGetSerialNumber = New System.Windows.Forms.Button()
+        Me.btnGetRobotModel = New System.Windows.Forms.Button()
+        Me.btnLoadInstallation = New System.Windows.Forms.Button()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.btnCloseSafetyPopup = New System.Windows.Forms.Button()
+        Me.btnSafetyStatus = New System.Windows.Forms.Button()
+        Me.btnRestartSafety = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.btnPlay = New System.Windows.Forms.Button()
+        Me.btnStop = New System.Windows.Forms.Button()
+        Me.btnPause = New System.Windows.Forms.Button()
+        Me.btnLoadProgram = New System.Windows.Forms.Button()
+        Me.txtProgram = New System.Windows.Forms.TextBox()
+        Me.btnIsProgramSaved = New System.Windows.Forms.Button()
+        Me.btnProgrammRunning = New System.Windows.Forms.Button()
+        Me.btnGetProgramState = New System.Windows.Forms.Button()
+        Me.btnGetLoadedProgram = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnPowerOn = New System.Windows.Forms.Button()
+        Me.btnPowerOff = New System.Windows.Forms.Button()
+        Me.ReaseBrake = New System.Windows.Forms.Button()
+        Me.btnUnlockProtectiveStop = New System.Windows.Forms.Button()
+        Me.btnGetRobotMode = New System.Windows.Forms.Button()
+        Me.btnShutdown = New System.Windows.Forms.Button()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.docBrowser = New System.Windows.Forms.WebBrowser()
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.TabPage3.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtIP
@@ -149,7 +209,7 @@ Partial Class MainForm
         Me.txtScript.Name = "txtScript"
         Me.txtScript.Size = New System.Drawing.Size(293, 79)
         Me.txtScript.TabIndex = 6
-        Me.txtScript.Text = "movej([0,1.57,-1.57,3.14,-1.57,1.57],a=1.4, v=1.05, t=0, r=0)"
+        Me.txtScript.Text = "movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)"
         '
         'Panel1
         '
@@ -188,9 +248,17 @@ Partial Class MainForm
         Me.txtLicense.Location = New System.Drawing.Point(1180, 38)
         Me.txtLicense.Name = "txtLicense"
         Me.txtLicense.ReadOnly = True
-        Me.txtLicense.Size = New System.Drawing.Size(149, 85)
+        Me.txtLicense.Size = New System.Drawing.Size(365, 85)
         Me.txtLicense.TabIndex = 5
         Me.txtLicense.Text = ""
+        '
+        'licGrid
+        '
+        Me.licGrid.LabelText = "License info"
+        Me.licGrid.Location = New System.Drawing.Point(902, 3)
+        Me.licGrid.Name = "licGrid"
+        Me.licGrid.Size = New System.Drawing.Size(272, 120)
+        Me.licGrid.TabIndex = 7
         '
         'pnl
         '
@@ -210,9 +278,9 @@ Partial Class MainForm
         Me.pnl.Controls.Add(Me.gridKinematicsData)
         Me.pnl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.pnl.Location = New System.Drawing.Point(0, 143)
+        Me.pnl.Location = New System.Drawing.Point(3, 3)
         Me.pnl.Name = "pnl"
-        Me.pnl.Size = New System.Drawing.Size(1610, 852)
+        Me.pnl.Size = New System.Drawing.Size(1596, 887)
         Me.pnl.TabIndex = 7
         '
         'gridRobotMode
@@ -303,28 +371,517 @@ Partial Class MainForm
         Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
         Me.gridKinematicsData.TabIndex = 9
         '
-        'licGrid
+        'TabControl1
         '
-        Me.licGrid.LabelText = "License info"
-        Me.licGrid.Location = New System.Drawing.Point(902, 3)
-        Me.licGrid.Name = "licGrid"
-        Me.licGrid.Size = New System.Drawing.Size(272, 120)
-        Me.licGrid.TabIndex = 7
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 143)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(1610, 919)
+        Me.TabControl1.TabIndex = 8
+        '
+        'TabPage1
+        '
+        Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage1.Controls.Add(Me.pnl)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Streaming data"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage2.Controls.Add(Me.SplitContainer1)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Commands"
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 3)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.txtConsole)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.AutoScroll = True
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox6)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox5)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox4)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 887)
+        Me.SplitContainer1.SplitterDistance = 532
+        Me.SplitContainer1.TabIndex = 0
+        '
+        'txtConsole
+        '
+        Me.txtConsole.BackColor = System.Drawing.Color.Black
+        Me.txtConsole.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtConsole.ForeColor = System.Drawing.Color.White
+        Me.txtConsole.Location = New System.Drawing.Point(0, 0)
+        Me.txtConsole.Name = "txtConsole"
+        Me.txtConsole.ReadOnly = True
+        Me.txtConsole.Size = New System.Drawing.Size(532, 887)
+        Me.txtConsole.TabIndex = 0
+        Me.txtConsole.Text = "Please use commands on the right panel." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "> "
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.cbOperationalMode)
+        Me.GroupBox6.Controls.Add(Me.cbUserRoles)
+        Me.GroupBox6.Controls.Add(Me.btnIsInRemoteControl)
+        Me.GroupBox6.Controls.Add(Me.btnSetUserRole)
+        Me.GroupBox6.Controls.Add(Me.btnSetOperationalMode)
+        Me.GroupBox6.Controls.Add(Me.btnClearOIperationalMode)
+        Me.GroupBox6.Controls.Add(Me.btnGetOperationalMode)
+        Me.GroupBox6.Location = New System.Drawing.Point(394, 258)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(342, 178)
+        Me.GroupBox6.TabIndex = 8
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Operational modes"
+        '
+        'cbOperationalMode
+        '
+        Me.cbOperationalMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbOperationalMode.FormattingEnabled = True
+        Me.cbOperationalMode.Location = New System.Drawing.Point(6, 76)
+        Me.cbOperationalMode.Name = "cbOperationalMode"
+        Me.cbOperationalMode.Size = New System.Drawing.Size(201, 21)
+        Me.cbOperationalMode.TabIndex = 3
+        '
+        'cbUserRoles
+        '
+        Me.cbUserRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbUserRoles.FormattingEnabled = True
+        Me.cbUserRoles.Location = New System.Drawing.Point(6, 107)
+        Me.cbUserRoles.Name = "cbUserRoles"
+        Me.cbUserRoles.Size = New System.Drawing.Size(201, 21)
+        Me.cbUserRoles.TabIndex = 2
+        '
+        'btnIsInRemoteControl
+        '
+        Me.btnIsInRemoteControl.Location = New System.Drawing.Point(6, 134)
+        Me.btnIsInRemoteControl.Name = "btnIsInRemoteControl"
+        Me.btnIsInRemoteControl.Size = New System.Drawing.Size(318, 23)
+        Me.btnIsInRemoteControl.TabIndex = 0
+        Me.btnIsInRemoteControl.Text = "Is robot in remote control ?"
+        Me.btnIsInRemoteControl.UseVisualStyleBackColor = True
+        '
+        'btnSetUserRole
+        '
+        Me.btnSetUserRole.Location = New System.Drawing.Point(213, 105)
+        Me.btnSetUserRole.Name = "btnSetUserRole"
+        Me.btnSetUserRole.Size = New System.Drawing.Size(111, 23)
+        Me.btnSetUserRole.TabIndex = 0
+        Me.btnSetUserRole.Text = "Set role (old FW)"
+        Me.btnSetUserRole.UseVisualStyleBackColor = True
+        '
+        'btnSetOperationalMode
+        '
+        Me.btnSetOperationalMode.Location = New System.Drawing.Point(213, 76)
+        Me.btnSetOperationalMode.Name = "btnSetOperationalMode"
+        Me.btnSetOperationalMode.Size = New System.Drawing.Size(111, 23)
+        Me.btnSetOperationalMode.TabIndex = 0
+        Me.btnSetOperationalMode.Text = "Set operational mode"
+        Me.btnSetOperationalMode.UseVisualStyleBackColor = True
+        '
+        'btnClearOIperationalMode
+        '
+        Me.btnClearOIperationalMode.Location = New System.Drawing.Point(6, 48)
+        Me.btnClearOIperationalMode.Name = "btnClearOIperationalMode"
+        Me.btnClearOIperationalMode.Size = New System.Drawing.Size(318, 23)
+        Me.btnClearOIperationalMode.TabIndex = 0
+        Me.btnClearOIperationalMode.Text = "Clear operational mode"
+        Me.btnClearOIperationalMode.UseVisualStyleBackColor = True
+        '
+        'btnGetOperationalMode
+        '
+        Me.btnGetOperationalMode.Location = New System.Drawing.Point(6, 19)
+        Me.btnGetOperationalMode.Name = "btnGetOperationalMode"
+        Me.btnGetOperationalMode.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetOperationalMode.TabIndex = 0
+        Me.btnGetOperationalMode.Text = "Get operational mode"
+        Me.btnGetOperationalMode.UseVisualStyleBackColor = True
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.btnClosePopup)
+        Me.GroupBox5.Controls.Add(Me.btnShowPopup)
+        Me.GroupBox5.Controls.Add(Me.txtPopup)
+        Me.GroupBox5.Controls.Add(Me.btnAddToLog)
+        Me.GroupBox5.Controls.Add(Me.txtLog)
+        Me.GroupBox5.Controls.Add(Me.btnPolyscopeVersion)
+        Me.GroupBox5.Controls.Add(Me.txtInstallation)
+        Me.GroupBox5.Controls.Add(Me.btnGetSerialNumber)
+        Me.GroupBox5.Controls.Add(Me.btnGetRobotModel)
+        Me.GroupBox5.Controls.Add(Me.btnLoadInstallation)
+        Me.GroupBox5.Location = New System.Drawing.Point(394, 15)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(342, 237)
+        Me.GroupBox5.TabIndex = 7
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Information"
+        '
+        'btnClosePopup
+        '
+        Me.btnClosePopup.Location = New System.Drawing.Point(8, 48)
+        Me.btnClosePopup.Name = "btnClosePopup"
+        Me.btnClosePopup.Size = New System.Drawing.Size(318, 23)
+        Me.btnClosePopup.TabIndex = 0
+        Me.btnClosePopup.Text = "Close popup"
+        Me.btnClosePopup.UseVisualStyleBackColor = True
+        '
+        'btnShowPopup
+        '
+        Me.btnShowPopup.Location = New System.Drawing.Point(215, 19)
+        Me.btnShowPopup.Name = "btnShowPopup"
+        Me.btnShowPopup.Size = New System.Drawing.Size(111, 23)
+        Me.btnShowPopup.TabIndex = 0
+        Me.btnShowPopup.Text = "Show popup"
+        Me.btnShowPopup.UseVisualStyleBackColor = True
+        '
+        'txtPopup
+        '
+        Me.txtPopup.Location = New System.Drawing.Point(8, 22)
+        Me.txtPopup.Name = "txtPopup"
+        Me.txtPopup.Size = New System.Drawing.Size(201, 20)
+        Me.txtPopup.TabIndex = 1
+        Me.txtPopup.Text = "This is a popup message !"
+        '
+        'btnAddToLog
+        '
+        Me.btnAddToLog.Location = New System.Drawing.Point(215, 77)
+        Me.btnAddToLog.Name = "btnAddToLog"
+        Me.btnAddToLog.Size = New System.Drawing.Size(111, 23)
+        Me.btnAddToLog.TabIndex = 0
+        Me.btnAddToLog.Text = "Add to log"
+        Me.btnAddToLog.UseVisualStyleBackColor = True
+        '
+        'txtLog
+        '
+        Me.txtLog.Location = New System.Drawing.Point(8, 80)
+        Me.txtLog.Name = "txtLog"
+        Me.txtLog.Size = New System.Drawing.Size(201, 20)
+        Me.txtLog.TabIndex = 1
+        Me.txtLog.Text = "This is a log message !"
+        '
+        'btnPolyscopeVersion
+        '
+        Me.btnPolyscopeVersion.Location = New System.Drawing.Point(8, 106)
+        Me.btnPolyscopeVersion.Name = "btnPolyscopeVersion"
+        Me.btnPolyscopeVersion.Size = New System.Drawing.Size(318, 23)
+        Me.btnPolyscopeVersion.TabIndex = 0
+        Me.btnPolyscopeVersion.Text = "Get Polyscope version"
+        Me.btnPolyscopeVersion.UseVisualStyleBackColor = True
+        '
+        'txtInstallation
+        '
+        Me.txtInstallation.Location = New System.Drawing.Point(6, 138)
+        Me.txtInstallation.Name = "txtInstallation"
+        Me.txtInstallation.Size = New System.Drawing.Size(201, 20)
+        Me.txtInstallation.TabIndex = 1
+        Me.txtInstallation.Text = "default.installation"
+        '
+        'btnGetSerialNumber
+        '
+        Me.btnGetSerialNumber.Location = New System.Drawing.Point(6, 164)
+        Me.btnGetSerialNumber.Name = "btnGetSerialNumber"
+        Me.btnGetSerialNumber.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetSerialNumber.TabIndex = 0
+        Me.btnGetSerialNumber.Text = "Get serial number"
+        Me.btnGetSerialNumber.UseVisualStyleBackColor = True
+        '
+        'btnGetRobotModel
+        '
+        Me.btnGetRobotModel.Location = New System.Drawing.Point(6, 193)
+        Me.btnGetRobotModel.Name = "btnGetRobotModel"
+        Me.btnGetRobotModel.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetRobotModel.TabIndex = 0
+        Me.btnGetRobotModel.Text = "Get robot model"
+        Me.btnGetRobotModel.UseVisualStyleBackColor = True
+        '
+        'btnLoadInstallation
+        '
+        Me.btnLoadInstallation.Location = New System.Drawing.Point(213, 135)
+        Me.btnLoadInstallation.Name = "btnLoadInstallation"
+        Me.btnLoadInstallation.Size = New System.Drawing.Size(111, 23)
+        Me.btnLoadInstallation.TabIndex = 0
+        Me.btnLoadInstallation.Text = "Load installation"
+        Me.btnLoadInstallation.UseVisualStyleBackColor = True
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.btnCloseSafetyPopup)
+        Me.GroupBox4.Controls.Add(Me.btnSafetyStatus)
+        Me.GroupBox4.Controls.Add(Me.btnRestartSafety)
+        Me.GroupBox4.Location = New System.Drawing.Point(394, 443)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(342, 117)
+        Me.GroupBox4.TabIndex = 6
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Safety"
+        '
+        'btnCloseSafetyPopup
+        '
+        Me.btnCloseSafetyPopup.Location = New System.Drawing.Point(8, 48)
+        Me.btnCloseSafetyPopup.Name = "btnCloseSafetyPopup"
+        Me.btnCloseSafetyPopup.Size = New System.Drawing.Size(318, 23)
+        Me.btnCloseSafetyPopup.TabIndex = 0
+        Me.btnCloseSafetyPopup.Text = "Close safety popup"
+        Me.btnCloseSafetyPopup.UseVisualStyleBackColor = True
+        '
+        'btnSafetyStatus
+        '
+        Me.btnSafetyStatus.Location = New System.Drawing.Point(6, 19)
+        Me.btnSafetyStatus.Name = "btnSafetyStatus"
+        Me.btnSafetyStatus.Size = New System.Drawing.Size(318, 23)
+        Me.btnSafetyStatus.TabIndex = 0
+        Me.btnSafetyStatus.Text = "Get safety status"
+        Me.btnSafetyStatus.UseVisualStyleBackColor = True
+        '
+        'btnRestartSafety
+        '
+        Me.btnRestartSafety.Location = New System.Drawing.Point(8, 77)
+        Me.btnRestartSafety.Name = "btnRestartSafety"
+        Me.btnRestartSafety.Size = New System.Drawing.Size(318, 23)
+        Me.btnRestartSafety.TabIndex = 0
+        Me.btnRestartSafety.Text = "Restart safety"
+        Me.btnRestartSafety.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.btnPlay)
+        Me.GroupBox3.Controls.Add(Me.btnStop)
+        Me.GroupBox3.Controls.Add(Me.btnPause)
+        Me.GroupBox3.Controls.Add(Me.btnLoadProgram)
+        Me.GroupBox3.Controls.Add(Me.txtProgram)
+        Me.GroupBox3.Controls.Add(Me.btnIsProgramSaved)
+        Me.GroupBox3.Controls.Add(Me.btnProgrammRunning)
+        Me.GroupBox3.Controls.Add(Me.btnGetProgramState)
+        Me.GroupBox3.Controls.Add(Me.btnGetLoadedProgram)
+        Me.GroupBox3.Location = New System.Drawing.Point(21, 275)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(341, 285)
+        Me.GroupBox3.TabIndex = 5
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Programs"
+        '
+        'btnPlay
+        '
+        Me.btnPlay.Location = New System.Drawing.Point(6, 80)
+        Me.btnPlay.Name = "btnPlay"
+        Me.btnPlay.Size = New System.Drawing.Size(318, 23)
+        Me.btnPlay.TabIndex = 0
+        Me.btnPlay.Text = "Play program"
+        Me.btnPlay.UseVisualStyleBackColor = True
+        '
+        'btnStop
+        '
+        Me.btnStop.Location = New System.Drawing.Point(6, 109)
+        Me.btnStop.Name = "btnStop"
+        Me.btnStop.Size = New System.Drawing.Size(318, 23)
+        Me.btnStop.TabIndex = 0
+        Me.btnStop.Text = "Stop program"
+        Me.btnStop.UseVisualStyleBackColor = True
+        '
+        'btnPause
+        '
+        Me.btnPause.Location = New System.Drawing.Point(6, 138)
+        Me.btnPause.Name = "btnPause"
+        Me.btnPause.Size = New System.Drawing.Size(318, 23)
+        Me.btnPause.TabIndex = 0
+        Me.btnPause.Text = "Pause program"
+        Me.btnPause.UseVisualStyleBackColor = True
+        '
+        'btnLoadProgram
+        '
+        Me.btnLoadProgram.Location = New System.Drawing.Point(213, 22)
+        Me.btnLoadProgram.Name = "btnLoadProgram"
+        Me.btnLoadProgram.Size = New System.Drawing.Size(111, 23)
+        Me.btnLoadProgram.TabIndex = 0
+        Me.btnLoadProgram.Text = "Load program"
+        Me.btnLoadProgram.UseVisualStyleBackColor = True
+        '
+        'txtProgram
+        '
+        Me.txtProgram.Location = New System.Drawing.Point(6, 25)
+        Me.txtProgram.Name = "txtProgram"
+        Me.txtProgram.Size = New System.Drawing.Size(201, 20)
+        Me.txtProgram.TabIndex = 1
+        Me.txtProgram.Text = "default.urp"
+        '
+        'btnIsProgramSaved
+        '
+        Me.btnIsProgramSaved.Location = New System.Drawing.Point(6, 225)
+        Me.btnIsProgramSaved.Name = "btnIsProgramSaved"
+        Me.btnIsProgramSaved.Size = New System.Drawing.Size(318, 23)
+        Me.btnIsProgramSaved.TabIndex = 0
+        Me.btnIsProgramSaved.Text = "Is program saved ?"
+        Me.btnIsProgramSaved.UseVisualStyleBackColor = True
+        '
+        'btnProgrammRunning
+        '
+        Me.btnProgrammRunning.Location = New System.Drawing.Point(6, 167)
+        Me.btnProgrammRunning.Name = "btnProgrammRunning"
+        Me.btnProgrammRunning.Size = New System.Drawing.Size(318, 23)
+        Me.btnProgrammRunning.TabIndex = 0
+        Me.btnProgrammRunning.Text = "Is program running ?"
+        Me.btnProgrammRunning.UseVisualStyleBackColor = True
+        '
+        'btnGetProgramState
+        '
+        Me.btnGetProgramState.Location = New System.Drawing.Point(6, 196)
+        Me.btnGetProgramState.Name = "btnGetProgramState"
+        Me.btnGetProgramState.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetProgramState.TabIndex = 0
+        Me.btnGetProgramState.Text = "Get program state"
+        Me.btnGetProgramState.UseVisualStyleBackColor = True
+        '
+        'btnGetLoadedProgram
+        '
+        Me.btnGetLoadedProgram.Location = New System.Drawing.Point(6, 51)
+        Me.btnGetLoadedProgram.Name = "btnGetLoadedProgram"
+        Me.btnGetLoadedProgram.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetLoadedProgram.TabIndex = 0
+        Me.btnGetLoadedProgram.Text = "Get loaded program"
+        Me.btnGetLoadedProgram.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.btnPowerOn)
+        Me.GroupBox1.Controls.Add(Me.btnPowerOff)
+        Me.GroupBox1.Controls.Add(Me.ReaseBrake)
+        Me.GroupBox1.Controls.Add(Me.btnUnlockProtectiveStop)
+        Me.GroupBox1.Controls.Add(Me.btnGetRobotMode)
+        Me.GroupBox1.Controls.Add(Me.btnShutdown)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 15)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(342, 254)
+        Me.GroupBox1.TabIndex = 4
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Power commands"
+        '
+        'btnPowerOn
+        '
+        Me.btnPowerOn.Location = New System.Drawing.Point(8, 48)
+        Me.btnPowerOn.Name = "btnPowerOn"
+        Me.btnPowerOn.Size = New System.Drawing.Size(318, 23)
+        Me.btnPowerOn.TabIndex = 0
+        Me.btnPowerOn.Text = "Power on"
+        Me.btnPowerOn.UseVisualStyleBackColor = True
+        '
+        'btnPowerOff
+        '
+        Me.btnPowerOff.Location = New System.Drawing.Point(8, 77)
+        Me.btnPowerOff.Name = "btnPowerOff"
+        Me.btnPowerOff.Size = New System.Drawing.Size(318, 23)
+        Me.btnPowerOff.TabIndex = 0
+        Me.btnPowerOff.Text = "Power off"
+        Me.btnPowerOff.UseVisualStyleBackColor = True
+        '
+        'ReaseBrake
+        '
+        Me.ReaseBrake.Location = New System.Drawing.Point(8, 106)
+        Me.ReaseBrake.Name = "ReaseBrake"
+        Me.ReaseBrake.Size = New System.Drawing.Size(318, 23)
+        Me.ReaseBrake.TabIndex = 0
+        Me.ReaseBrake.Text = "Release brake"
+        Me.ReaseBrake.UseVisualStyleBackColor = True
+        '
+        'btnUnlockProtectiveStop
+        '
+        Me.btnUnlockProtectiveStop.Location = New System.Drawing.Point(8, 135)
+        Me.btnUnlockProtectiveStop.Name = "btnUnlockProtectiveStop"
+        Me.btnUnlockProtectiveStop.Size = New System.Drawing.Size(318, 23)
+        Me.btnUnlockProtectiveStop.TabIndex = 0
+        Me.btnUnlockProtectiveStop.Text = "Unlock protective stop"
+        Me.btnUnlockProtectiveStop.UseVisualStyleBackColor = True
+        '
+        'btnGetRobotMode
+        '
+        Me.btnGetRobotMode.Location = New System.Drawing.Point(8, 19)
+        Me.btnGetRobotMode.Name = "btnGetRobotMode"
+        Me.btnGetRobotMode.Size = New System.Drawing.Size(318, 23)
+        Me.btnGetRobotMode.TabIndex = 0
+        Me.btnGetRobotMode.Text = "Get robot mode"
+        Me.btnGetRobotMode.UseVisualStyleBackColor = True
+        '
+        'btnShutdown
+        '
+        Me.btnShutdown.Location = New System.Drawing.Point(8, 164)
+        Me.btnShutdown.Name = "btnShutdown"
+        Me.btnShutdown.Size = New System.Drawing.Size(318, 23)
+        Me.btnShutdown.TabIndex = 0
+        Me.btnShutdown.Text = "Shutdown robot"
+        Me.btnShutdown.UseVisualStyleBackColor = True
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.docBrowser)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Documentation"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'docBrowser
+        '
+        Me.docBrowser.AllowWebBrowserDrop = False
+        Me.docBrowser.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.docBrowser.IsWebBrowserContextMenuEnabled = False
+        Me.docBrowser.Location = New System.Drawing.Point(0, 0)
+        Me.docBrowser.MinimumSize = New System.Drawing.Size(20, 20)
+        Me.docBrowser.Name = "docBrowser"
+        Me.docBrowser.ScriptErrorsSuppressed = True
+        Me.docBrowser.Size = New System.Drawing.Size(1602, 893)
+        Me.docBrowser.TabIndex = 0
+        Me.docBrowser.Url = New System.Uri("https://underautomation.com/documentation?e", System.UriKind.Absolute)
         '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1610, 995)
-        Me.Controls.Add(Me.pnl)
+        Me.ClientSize = New System.Drawing.Size(1610, 1062)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
-        Me.Text = "Universal Robots SDK example - UnderAutomation"
+        Me.Text = "Universal Robots SDK - UnderAutomation"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnl.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.TabPage3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -357,4 +914,51 @@ Partial Class MainForm
     Friend WithEvents txtLicense As RichTextBox
     Friend WithEvents licGrid As RobotStateControl
     Friend WithEvents linkDoc As LinkLabel
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents txtConsole As RichTextBox
+    Friend WithEvents btnPlay As Button
+    Friend WithEvents btnGetRobotMode As Button
+    Friend WithEvents btnProgrammRunning As Button
+    Friend WithEvents txtProgram As TextBox
+    Friend WithEvents btnLoadProgram As Button
+    Friend WithEvents cbUserRoles As ComboBox
+    Friend WithEvents txtInstallation As TextBox
+    Friend WithEvents txtLog As TextBox
+    Friend WithEvents txtPopup As TextBox
+    Friend WithEvents btnSetUserRole As Button
+    Friend WithEvents btnLoadInstallation As Button
+    Friend WithEvents btnAddToLog As Button
+    Friend WithEvents btnShowPopup As Button
+    Friend WithEvents btnShutdown As Button
+    Friend WithEvents btnPause As Button
+    Friend WithEvents btnStop As Button
+    Friend WithEvents btnClosePopup As Button
+    Friend WithEvents btnGetLoadedProgram As Button
+    Friend WithEvents btnGetRobotModel As Button
+    Friend WithEvents btnGetSerialNumber As Button
+    Friend WithEvents btnSafetyStatus As Button
+    Friend WithEvents btnRestartSafety As Button
+    Friend WithEvents btnCloseSafetyPopup As Button
+    Friend WithEvents btnUnlockProtectiveStop As Button
+    Friend WithEvents ReaseBrake As Button
+    Friend WithEvents btnPowerOff As Button
+    Friend WithEvents btnPowerOn As Button
+    Friend WithEvents btnPolyscopeVersion As Button
+    Friend WithEvents btnGetProgramState As Button
+    Friend WithEvents btnIsProgramSaved As Button
+    Friend WithEvents btnIsInRemoteControl As Button
+    Friend WithEvents cbOperationalMode As ComboBox
+    Friend WithEvents btnSetOperationalMode As Button
+    Friend WithEvents btnClearOIperationalMode As Button
+    Friend WithEvents btnGetOperationalMode As Button
+    Friend WithEvents TabPage3 As TabPage
+    Friend WithEvents docBrowser As WebBrowser
+    Friend WithEvents GroupBox5 As GroupBox
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox6 As GroupBox
 End Class
