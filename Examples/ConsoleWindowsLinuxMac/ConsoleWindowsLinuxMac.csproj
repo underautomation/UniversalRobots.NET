@@ -6,7 +6,8 @@
     <AssemblyName>ConsoleURExample</AssemblyName>
     <RootNamespace>UnderAutomation.UniversalRobots.Example</RootNamespace>
     <ApplicationIcon>ua.ico</ApplicationIcon>
-    <Version>1.1.1</Version>
+    <Version>2.0.0</Version>
+    <RuntimeIdentifiers>win-x86;win-x64;win-arm;linux-arm;linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>

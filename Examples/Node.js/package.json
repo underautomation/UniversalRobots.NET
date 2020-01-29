@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-ur-example",
+  "version": "1.0.0",
+  "description": "A UnderAutomation Universal Robots SDK Node.js example",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underautomation/UniversalRobots.git"
+  },
+  "keywords": [
+    "Universal",
+    "Robots",
+    "UR",
+    "Underautomation",
+    ".NET"
+  ],
+  "author": "AlfredTouring",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/underautomation/UniversalRobots/issues"
+  },
+  "homepage": "https://github.com/underautomation/UniversalRobots#readme",
+  "dependencies": {
+    "edge-js": "^13.0.1"
+  }
+}
