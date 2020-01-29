@@ -12,6 +12,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - uses: nuget/setup-nuget@v1
+    - run: nuget restore $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac_VS2019.sln
     - name: Build Windows Desktop
       run: |
         cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
