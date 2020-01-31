@@ -98,6 +98,8 @@ Partial Class MainForm
         Me.btnShutdown = New System.Windows.Forms.Button()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.docBrowser = New System.Windows.Forms.WebBrowser()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -113,6 +115,7 @@ Partial Class MainForm
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtIP
@@ -121,7 +124,6 @@ Partial Class MainForm
         Me.txtIP.Name = "txtIP"
         Me.txtIP.Size = New System.Drawing.Size(180, 20)
         Me.txtIP.TabIndex = 0
-        Me.txtIP.Text = "192.168.0.1"
         '
         'btnConnect
         '
@@ -280,7 +282,7 @@ Partial Class MainForm
         Me.pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.pnl.Location = New System.Drawing.Point(3, 3)
         Me.pnl.Name = "pnl"
-        Me.pnl.Size = New System.Drawing.Size(1596, 887)
+        Me.pnl.Size = New System.Drawing.Size(1596, 886)
         Me.pnl.TabIndex = 7
         '
         'gridRobotMode
@@ -288,7 +290,7 @@ Partial Class MainForm
         Me.gridRobotMode.LabelText = "Robot mode"
         Me.gridRobotMode.Location = New System.Drawing.Point(3, 3)
         Me.gridRobotMode.Name = "gridRobotMode"
-        Me.gridRobotMode.Size = New System.Drawing.Size(293, 266)
+        Me.gridRobotMode.Size = New System.Drawing.Size(342, 266)
         Me.gridRobotMode.TabIndex = 1
         '
         'gridCartesian
@@ -296,7 +298,7 @@ Partial Class MainForm
         Me.gridCartesian.LabelText = "Cartesian"
         Me.gridCartesian.Location = New System.Drawing.Point(3, 275)
         Me.gridCartesian.Name = "gridCartesian"
-        Me.gridCartesian.Size = New System.Drawing.Size(293, 341)
+        Me.gridCartesian.Size = New System.Drawing.Size(342, 341)
         Me.gridCartesian.TabIndex = 2
         '
         'gridForce
@@ -304,71 +306,71 @@ Partial Class MainForm
         Me.gridForce.LabelText = "Force mode"
         Me.gridForce.Location = New System.Drawing.Point(3, 622)
         Me.gridForce.Name = "gridForce"
-        Me.gridForce.Size = New System.Drawing.Size(293, 201)
+        Me.gridForce.Size = New System.Drawing.Size(342, 201)
         Me.gridForce.TabIndex = 1
         '
         'gridTool
         '
         Me.gridTool.LabelText = "Tool"
-        Me.gridTool.Location = New System.Drawing.Point(302, 3)
+        Me.gridTool.Location = New System.Drawing.Point(351, 3)
         Me.gridTool.Name = "gridTool"
-        Me.gridTool.Size = New System.Drawing.Size(293, 266)
+        Me.gridTool.Size = New System.Drawing.Size(342, 266)
         Me.gridTool.TabIndex = 1
         '
         'gridToolModeInfo
         '
         Me.gridToolModeInfo.LabelText = "Tool mode Info"
-        Me.gridToolModeInfo.Location = New System.Drawing.Point(302, 275)
+        Me.gridToolModeInfo.Location = New System.Drawing.Point(351, 275)
         Me.gridToolModeInfo.Name = "gridToolModeInfo"
-        Me.gridToolModeInfo.Size = New System.Drawing.Size(293, 141)
+        Me.gridToolModeInfo.Size = New System.Drawing.Size(342, 141)
         Me.gridToolModeInfo.TabIndex = 6
         '
         'GridToolCommunication
         '
         Me.GridToolCommunication.LabelText = "Tool Communication Info"
-        Me.GridToolCommunication.Location = New System.Drawing.Point(302, 422)
+        Me.GridToolCommunication.Location = New System.Drawing.Point(351, 422)
         Me.GridToolCommunication.Name = "GridToolCommunication"
-        Me.GridToolCommunication.Size = New System.Drawing.Size(293, 194)
+        Me.GridToolCommunication.Size = New System.Drawing.Size(342, 194)
         Me.GridToolCommunication.TabIndex = 7
         '
         'gridAdditionnalInfo
         '
         Me.gridAdditionnalInfo.LabelText = "Additionnal info"
-        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(302, 622)
+        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(351, 622)
         Me.gridAdditionnalInfo.Name = "gridAdditionnalInfo"
-        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(293, 201)
+        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(342, 201)
         Me.gridAdditionnalInfo.TabIndex = 4
         '
         'gridMasterboard
         '
         Me.gridMasterboard.LabelText = "Masterboard"
-        Me.gridMasterboard.Location = New System.Drawing.Point(601, 3)
+        Me.gridMasterboard.Location = New System.Drawing.Point(699, 3)
         Me.gridMasterboard.Name = "gridMasterboard"
-        Me.gridMasterboard.Size = New System.Drawing.Size(293, 820)
+        Me.gridMasterboard.Size = New System.Drawing.Size(342, 820)
         Me.gridMasterboard.TabIndex = 3
         '
         'gridConfiguration
         '
         Me.gridConfiguration.LabelText = "Configuration"
-        Me.gridConfiguration.Location = New System.Drawing.Point(900, 3)
+        Me.gridConfiguration.Location = New System.Drawing.Point(1047, 3)
         Me.gridConfiguration.Name = "gridConfiguration"
-        Me.gridConfiguration.Size = New System.Drawing.Size(294, 820)
+        Me.gridConfiguration.Size = New System.Drawing.Size(343, 820)
         Me.gridConfiguration.TabIndex = 5
         '
         'gridJointData
         '
         Me.gridJointData.LabelText = "Joint"
-        Me.gridJointData.Location = New System.Drawing.Point(1200, 3)
+        Me.gridJointData.Location = New System.Drawing.Point(1396, 3)
         Me.gridJointData.Name = "gridJointData"
-        Me.gridJointData.Size = New System.Drawing.Size(293, 820)
+        Me.gridJointData.Size = New System.Drawing.Size(342, 820)
         Me.gridJointData.TabIndex = 8
         '
         'gridKinematicsData
         '
         Me.gridKinematicsData.LabelText = "Kinematics"
-        Me.gridKinematicsData.Location = New System.Drawing.Point(1499, 3)
+        Me.gridKinematicsData.Location = New System.Drawing.Point(1744, 3)
         Me.gridKinematicsData.Name = "gridKinematicsData"
-        Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
+        Me.gridKinematicsData.Size = New System.Drawing.Size(342, 820)
         Me.gridKinematicsData.TabIndex = 9
         '
         'TabControl1
@@ -377,6 +379,7 @@ Partial Class MainForm
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.ImageList = Me.ImageList1
         Me.TabControl1.Location = New System.Drawing.Point(0, 143)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -387,10 +390,10 @@ Partial Class MainForm
         '
         Me.TabPage1.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage1.Controls.Add(Me.pnl)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 23)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage1.Size = New System.Drawing.Size(1602, 892)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Streaming data"
         '
@@ -398,10 +401,11 @@ Partial Class MainForm
         '
         Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage2.Controls.Add(Me.SplitContainer1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.ImageIndex = 0
+        Me.TabPage2.Location = New System.Drawing.Point(4, 23)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage2.Size = New System.Drawing.Size(1602, 892)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Commands"
         '
@@ -423,7 +427,7 @@ Partial Class MainForm
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 887)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 886)
         Me.SplitContainer1.SplitterDistance = 532
         Me.SplitContainer1.TabIndex = 0
         '
@@ -435,7 +439,7 @@ Partial Class MainForm
         Me.txtConsole.Location = New System.Drawing.Point(0, 0)
         Me.txtConsole.Name = "txtConsole"
         Me.txtConsole.ReadOnly = True
-        Me.txtConsole.Size = New System.Drawing.Size(532, 887)
+        Me.txtConsole.Size = New System.Drawing.Size(532, 886)
         Me.txtConsole.TabIndex = 0
         Me.txtConsole.Text = "Please use commands on the right panel." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "> "
         '
@@ -833,9 +837,9 @@ Partial Class MainForm
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.docBrowser)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 23)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1602, 893)
+        Me.TabPage3.Size = New System.Drawing.Size(1602, 892)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Documentation"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -849,9 +853,20 @@ Partial Class MainForm
         Me.docBrowser.MinimumSize = New System.Drawing.Size(20, 20)
         Me.docBrowser.Name = "docBrowser"
         Me.docBrowser.ScriptErrorsSuppressed = True
-        Me.docBrowser.Size = New System.Drawing.Size(1602, 893)
+        Me.docBrowser.Size = New System.Drawing.Size(1602, 892)
         Me.docBrowser.TabIndex = 0
         Me.docBrowser.Url = New System.Uri("https://underautomation.com/documentation?e", System.UriKind.Absolute)
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "ua.ico")
+        Me.ImageList1.Images.SetKeyName(1, "blank.gif")
+        '
+        'errProvider
+        '
+        Me.errProvider.ContainerControl = Me
         '
         'MainForm
         '
@@ -882,6 +897,7 @@ Partial Class MainForm
         Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
+        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -961,4 +977,6 @@ Partial Class MainForm
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents errProvider As ErrorProvider
+    Friend WithEvents ImageList1 As ImageList
 End Class

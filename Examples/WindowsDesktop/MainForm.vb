@@ -27,9 +27,12 @@ Public Class MainForm
 
         txtIP.Text = My.Settings.ip
         If String.IsNullOrEmpty(txtIP.Text) Then
-            txtIP.Text = "192.168.0.1"
+            txtIP.Text = "192.168.0.56"
         End If
+
+        errProvider.SetError(TabPage2, "")
     End Sub
+
 
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
         Try
@@ -56,6 +59,7 @@ Public Class MainForm
         End Try
     End Sub
 
+
     Private Sub tmrConnected_Tick(sender As Object, e As EventArgs) Handles tmrConnected.Tick
         Try
             If _ur.Connected Then
@@ -64,6 +68,11 @@ Public Class MainForm
             Else
                 lblConnected.Text = "Disconnected"
                 lblConnected.ForeColor = Color.Red
+            End If
+
+            ' blink command icon
+            If TabControl1.ImageList IsNot Nothing Then
+                TabPage2.ImageIndex = -TabPage2.ImageIndex + 3
             End If
         Catch
         End Try
@@ -506,4 +515,8 @@ Public Class MainForm
 
     End Sub
 
+    ' set command tab as visited
+    Private Sub TabPage2_Enter(sender As Object, e As EventArgs) Handles TabPage2.Enter
+        TabControl1.ImageList = Nothing
+    End Sub
 End Class
