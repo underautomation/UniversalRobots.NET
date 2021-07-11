@@ -429,9 +429,15 @@ UnderAutomation.UniversalRobots
  Last tool mode infotmation received
  </summary>
 </member>
+<member name="M:UnderAutomation.UniversalRobots.UR.EnableDataStreaming(UnderAutomation.UniversalRobots.DataStreamingPorts)">
+ <summary>
+ Starts data streaming and the possibility to send scripts to the robot.
+ </summary>
+ <param name="port">Port on which to start streaming data</param>
+</member>
 <member name="M:UnderAutomation.UniversalRobots.UR.DisableDataStreaming">
  <summary>
- End the connection with the robot.
+ Stops data streaming and the possibility to send scripts to the robot.
  </summary>
 </member>
 <member name="P:UnderAutomation.UniversalRobots.UR.DataStreamingEnabled">
@@ -444,6 +450,11 @@ UnderAutomation.UniversalRobots
  Remotly execute script.Please see the Universal Robot Script documentation : https://www.universal-robots.com/download/.
  </summary>
  <param name="command">The script command to execute. You can for example move the robot at a specified joint coordinate with the command : movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)</param>
+</member>
+<member name="P:UnderAutomation.UniversalRobots.UR.DataStreamingLocalEndPoint">
+ <summary>
+ Indicates the current local endpoint (i.e. IP Address) used to communicate with the robot. You can use this IP in your UR script in the function rpc_factory()
+ </summary>
 </member>
 <member name="M:UnderAutomation.UniversalRobots.UR.RegisterLicense(System.String,System.String)">
  <summary>
@@ -493,12 +504,17 @@ UnderAutomation.UniversalRobots
 </member>
 <member name="M:UnderAutomation.UniversalRobots.UR.DisableXmlRpcServer">
  <summary>
- Disable ansd close the socket used for the XML-RPC server
+ Disable and close the socket used for the XML-RPC server
  </summary>
 </member>
 <member name="P:UnderAutomation.UniversalRobots.UR.XmlRpcServerEnabled">
  <summary>
  Is the XML-RPC server enabled
+ </summary>
+</member>
+<member name="E:UnderAutomation.UniversalRobots.UR.XmlRpcServerRequest">
+ <summary>
+ Event raised when a XML-RPC request has been sent from the robot to this machine. You should answer to the robot in this event via the property request.Answer
  </summary>
 </member>
 <member name="T:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs">
