@@ -1,12 +1,17 @@
 ﻿Imports System.IO
 Imports System.Runtime.CompilerServices
 Imports System.Text
-Imports Underautomation.UniversalRobots
+Imports UnderAutomation.UniversalRobots
 Imports System.Linq
+Imports System.Text.RegularExpressions
+Imports System.Threading
 
 Public Class MainForm
+
+    ' instance of the UR connection
     Private WithEvents _ur As New UR()
 
+#Region "Initialization"
     Public Sub New()
         InitializeComponent()
 
@@ -14,8 +19,10 @@ Public Class MainForm
         Dim license = New LicenseInfo(licenseIdentifier:=Nothing, licenseKey:=Nothing)
         txtLicense.Text = license.ToString
 
+        ' show current license state
         licGrid.SetSelectedObject(license)
 
+        ' fill enums
         For Each value In [Enum].GetValues(GetType(UserRoles))
             cbUserRoles.Items.Add(value)
         Next
@@ -27,25 +34,64 @@ Public Class MainForm
 
         txtIP.Text = My.Settings.ip
         If String.IsNullOrEmpty(txtIP.Text) Then
-            txtIP.Text = "192.168.0.56"
+            txtIP.Text = "192.168.0.1"
         End If
-
-        errProvider.SetError(TabPage2, "")
     End Sub
 
+    ' Disconnect robot on form closing
+    Protected Overrides Sub OnFormClosing(e As FormClosingEventArgs)
+        MyBase.OnFormClosing(e)
 
+        Try
+            _ur.Disconnect()
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+#End Region
+
+
+#Region "Errors"
+    Private Sub HandleEx(message As String)
+        If InvokeRequired Then
+            Invoke(Sub() HandleEx(message))
+        Else
+            txtErrors.AppendText(message)
+            txtErrors.AppendText(vbNewLine)
+            txtErrors.AppendText(vbNewLine)
+            txtErrors.ScrollToCaret()
+        End If
+    End Sub
+
+    Private Sub HandleEx(ex As Exception)
+        HandleEx(ex.Message)
+    End Sub
+
+    Private Sub btnAck_Click(sender As Object, e As EventArgs) Handles btnAck.Click
+        txtErrors.Clear()
+    End Sub
+
+#End Region
+
+
+#Region "Header info"
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
         Try
+            ' connect to the robot
             _ur.Connect(txtIP.Text)
 
-            My.Settings.Ip = txtIP.Text
+            My.Settings.ip = txtIP.Text
             My.Settings.Save()
+
+            ' get IP of the local network interface connected to the robot
+            txtLocalIP.Text = _ur.DataStreamingLocalEndPoint.Address.ToString()
+            udXmlRpcPort.Value = 50000
         Catch ex As Exception
             HandleEx(ex)
         End Try
     End Sub
 
-    Private Sub txtIP_KeyDown(sender As Object, e As KeyEventArgs) Handles txtIP.KeyDown
+    Private Sub txtIP_KeyDown(sender As Object, e As KeyEventArgs) Handles txtIP.KeyDown, txtLocalIP.KeyDown, txtXmlRpcPort.KeyDown
         If e.KeyData = Keys.Enter Then
             btnConnect_Click(sender, e)
         End If
@@ -57,89 +103,6 @@ Public Class MainForm
         Catch ex As Exception
             HandleEx(ex)
         End Try
-    End Sub
-
-
-    Private Sub tmrConnected_Tick(sender As Object, e As EventArgs) Handles tmrConnected.Tick
-        Try
-            If _ur.Connected Then
-                lblConnected.Text = "Connected"
-                lblConnected.ForeColor = Color.Green
-            Else
-                lblConnected.Text = "Disconnected"
-                lblConnected.ForeColor = Color.Red
-            End If
-
-            ' blink command icon
-            If TabControl1.ImageList IsNot Nothing Then
-                TabPage2.ImageIndex = -TabPage2.ImageIndex + 3
-            End If
-        Catch
-        End Try
-    End Sub
-
-    Private Sub _interface_InternalErrorOccured(sender As Object, e As InternalErrorEventArgs) Handles _ur.InternalErrorOccured
-        HandleEx(e.ToString())
-    End Sub
-
-    Private Sub _interface_AdditionalInfoReceived(sender As Object, e As AdditionalInfoPackageEventArgs) Handles _ur.AdditionalInfoReceived
-        gridAdditionnalInfo.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_CartesianInfoReceived(sender As Object, e As CartesianInfoPackageEventArgs) Handles _ur.CartesianInfoReceived
-        gridCartesian.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_ConfigurationDataReceived(sender As Object, e As ConfigurationDataPackageEventArgs) Handles _ur.ConfigurationDataReceived
-        gridConfiguration.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_ForceModeDataReceived(sender As Object, e As ForceModeDataPackageEventArgs) Handles _ur.ForceModeDataReceived
-        gridForce.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_JointDataReceived(sender As Object, e As JointDataPackageEventArgs) Handles _ur.JointDataReceived
-        gridJointData.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_MasterboardDataReceived(sender As Object, e As MasterboardDataPackageEventArgs) Handles _ur.MasterboardDataReceived
-        gridMasterboard.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_RobotModeDataReceived(sender As Object, e As RobotModeDataPackageEventArgs) Handles _ur.RobotModeDataReceived
-        gridRobotMode.SetSelectedObject(e)
-    End Sub
-    Private Sub _interface_ToolCommunicationInfoReceived(sender As Object, e As ToolCommunicationInfoPackageEventArgs) Handles _ur.ToolCommunicationInfoReceived
-        GridToolCommunication.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_ToolDataReceived(sender As Object, e As ToolDataPackageEventArgs) Handles _ur.ToolDataReceived
-        gridTool.SetSelectedObject(e)
-    End Sub
-    Private Sub _interface_ToolDataReceived(sender As Object, e As ToolModeInfoPackageEventArgs) Handles _ur.ToolModeInfoReceived
-        gridToolModeInfo.SetSelectedObject(e)
-    End Sub
-
-    Private Sub _interface_KinematicsInfoReceived(sender As Object, e As KinematicsInfoPackageEventArgs) Handles _ur.KinematicsInfoReceived
-        gridKinematicsData.SetSelectedObject(e)
-    End Sub
-
-    Private Sub btnAck_Click(sender As Object, e As EventArgs) Handles btnAck.Click
-        txtErrors.Clear()
-    End Sub
-
-    Private Sub HandleEx(message As String)
-        If InvokeRequired Then
-            Invoke(Sub() HandleEx(message))
-        Else
-            txtErrors.AppendText(message)
-            txtErrors.AppendText(vbNewLine)
-            txtErrors.AppendText(vbNewLine)
-            txtErrors.ScrollToCaret()
-        End If
-    End Sub
-    Private Sub HandleEx(ex As Exception)
-        HandleEx(ex.Message)
     End Sub
 
     Private Sub btnSend_Click(sender As Object, e As EventArgs) Handles btnSend.Click
@@ -157,46 +120,96 @@ Public Class MainForm
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
+    ' refresh status labels
+    Private Sub tmrConnected_Tick(sender As Object, e As EventArgs) Handles tmrConnected.Tick
+        Try
+            Dim dataStreamingEnabled = _ur.DataStreamingEnabled
+            If dataStreamingEnabled Then
+                lblConnected.Text = "Connected"
+                lblConnected.ForeColor = Color.Green
+            Else
+                lblConnected.Text = "Disconnected"
+                lblConnected.ForeColor = Color.Red
+            End If
 
-        Dim str = "bla"
+            txtIP.Enabled = Not dataStreamingEnabled
+            btnConnect.Enabled = Not dataStreamingEnabled
+            btnDisconnect.Enabled = dataStreamingEnabled
+        Catch
+        End Try
 
-        Dim start = str.StartsWith("")
+        Try
+            Dim xmlRpcServerEnabled = _ur.XmlRpcServerEnabled
+            If xmlRpcServerEnabled Then
+                txtXmlRpcStatus.Text = "Enabled"
+                txtXmlRpcStatus.ForeColor = Color.Green
+            Else
+                txtXmlRpcStatus.Text = "Disabled"
+                txtXmlRpcStatus.ForeColor = Color.Red
+            End If
 
+            udXmlRpcPort.Enabled = Not xmlRpcServerEnabled
+            btnEnableXmlRpcServer.Enabled = Not xmlRpcServerEnabled
+            btnDisableXmlRpcServer.Enabled = xmlRpcServerEnabled
+        Catch
+        End Try
+
+        ' blink tab icon
+        tabCommands.ImageIndex = (tabCommands.ImageIndex + 1) Mod 2
     End Sub
 
-    Private tcp As Net.Sockets.TcpClient
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        Dim tick = Stopwatch.StartNew
-        tcp = New Net.Sockets.TcpClient()
-        tcp.ReceiveTimeout = 500
-        tcp.SendTimeout = 500
+    Private Sub tabCommands_Click(sender As Object, e As EventArgs) Handles mainTabControl.Selected
+        ' stop tab icon blinking
+        If mainTabControl.SelectedTab Is tabCommands Then mainTabControl.ImageList = Nothing
+    End Sub
+#End Region
 
-        tcp.Connect("192.168.0.55", 29999)
-
-        Dim str2 As String
-
-        Using stream = tcp.GetStream()
-
-            Using reader = New StreamReader(stream)
-
-                reader.ReadLine()
-
-                Dim bytes = Encoding.UTF8.GetBytes($"safetystatus{vbNewLine}")
-
-                stream.Write(bytes, 0, bytes.Length)
-
-                str2 = reader.ReadLine()
-
-            End Using
-        End Using
-        tcp.Close()
-
-        Dim ellapsed = tick.ElapsedMilliseconds
-
-
+#Region "Data streaming"
+    Private Sub ur_AdditionalInfoReceived(sender As Object, e As AdditionalInfoPackageEventArgs) Handles _ur.AdditionalInfoReceived
+        gridAdditionnalInfo.SetSelectedObject(e)
     End Sub
 
+    Private Sub ur_CartesianInfoReceived(sender As Object, e As CartesianInfoPackageEventArgs) Handles _ur.CartesianInfoReceived
+        gridCartesian.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_ConfigurationDataReceived(sender As Object, e As ConfigurationDataPackageEventArgs) Handles _ur.ConfigurationDataReceived
+        gridConfiguration.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_ForceModeDataReceived(sender As Object, e As ForceModeDataPackageEventArgs) Handles _ur.ForceModeDataReceived
+        gridForce.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_JointDataReceived(sender As Object, e As JointDataPackageEventArgs) Handles _ur.JointDataReceived
+        gridJointData.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_MasterboardDataReceived(sender As Object, e As MasterboardDataPackageEventArgs) Handles _ur.MasterboardDataReceived
+        gridMasterboard.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_RobotModeDataReceived(sender As Object, e As RobotModeDataPackageEventArgs) Handles _ur.RobotModeDataReceived
+        gridRobotMode.SetSelectedObject(e)
+    End Sub
+    Private Sub ur_ToolCommunicationInfoReceived(sender As Object, e As ToolCommunicationInfoPackageEventArgs) Handles _ur.ToolCommunicationInfoReceived
+        GridToolCommunication.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_ToolDataReceived(sender As Object, e As ToolDataPackageEventArgs) Handles _ur.ToolDataReceived
+        gridTool.SetSelectedObject(e)
+    End Sub
+    Private Sub ur_ToolDataReceived(sender As Object, e As ToolModeInfoPackageEventArgs) Handles _ur.ToolModeInfoReceived
+        gridToolModeInfo.SetSelectedObject(e)
+    End Sub
+
+    Private Sub ur_KinematicsInfoReceived(sender As Object, e As KinematicsInfoPackageEventArgs) Handles _ur.KinematicsInfoReceived
+        gridKinematicsData.SetSelectedObject(e)
+    End Sub
+#End Region
+
+
+#Region "Commands"
     Private Sub LogCommand(action As Func(Of CommandResponse), command As String)
         Try
             txtConsole.AppendText(command)
@@ -514,9 +527,78 @@ Public Class MainForm
                    "SetOperationalMode")
 
     End Sub
+#End Region
 
-    ' set command tab as visited
-    Private Sub TabPage2_Enter(sender As Object, e As EventArgs) Handles TabPage2.Enter
-        TabControl1.ImageList = Nothing
+#Region "XML-RPC"
+    Private Sub _ur_OnXmlRpcServerRequest(sender As Object, request As XmlRpcEventArg) Handles _ur.XmlRpcServerRequest
+
+        Dim waitHandle = New AutoResetEvent(False)
+
+        Me.Invoke(Sub()
+                      Dim dlg = New XmlRpcPopup(request, waitHandle)
+
+                      dlg.ShowDialog()
+                  End Sub)
+
+        waitHandle.WaitOne()
     End Sub
+
+    Private Sub btnEnableXmlRpcServer_Click(sender As Object, e As EventArgs) Handles btnEnableXmlRpcServer.Click
+        Try
+            _ur.EnableXmlRpcServer(CInt(udXmlRpcPort.Value))
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+
+    Private Sub btnDisableXmlRpcServer_Click(sender As Object, e As EventArgs) Handles btnDisableXmlRpcServer.Click
+        Try
+            _ur.DisableXmlRpcServer()
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+
+    Private Sub udXmlRpcPort_ValueChanged(sender As Object, e As EventArgs) Handles udXmlRpcPort.ValueChanged
+        txtXmlRpcPort.Text = udXmlRpcPort.Value.ToString
+    End Sub
+
+    Private Sub linkXmlRpcSample_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkXmlRpcSample.LinkClicked
+        Dim samplePath = Path.Combine(Path.GetDirectoryName(GetType(MainForm).Assembly.Location), "Samples", "xml_rpc_sample.urp")
+        Process.Start("explorer.exe", $"/select,""{samplePath}""")
+    End Sub
+#End Region
+
+#Region "Tools"
+    ' convert poses types
+    Private Sub radioRPYToRotationVector_CheckedChanged(sender As Object, e As EventArgs) Handles radioRPYToRotationVector.CheckedChanged, udRx.ValueChanged, udRy.ValueChanged, udRz.ValueChanged
+
+        Dim inPose = New Pose(0, 0, 0, udRx.Value, udRy.Value, udRz.Value)
+
+        Dim outPose As Pose = Nothing
+
+        If radioRPYToRotationVector.Checked Then
+
+            ' Convert from RPY to Rotation vector
+            outPose = inPose.FromRPYToRotationVector
+
+            txtIn.Text = "RPY"
+            txtOut.Text = "Rotation Vector"
+        Else
+
+            ' Convert from Rotation vector to RPY
+            outPose = inPose.FromRotationVectorToRPY
+
+            txtIn.Text = "Rotation Vector"
+            txtOut.Text = "RPY"
+        End If
+
+        txtRx.Text = $"{outPose.Rx} rad"
+        txtRy.Text = $"{outPose.Ry} rad"
+        txtRz.Text = $"{outPose.Rz} rad"
+    End Sub
+
+
+#End Region
+
 End Class

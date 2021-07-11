@@ -21,7 +21,6 @@ Public Class RobotStateControl
 
         ' get scroll bar
         _vscroll = grid.Controls.OfType(Of Control).FirstOrDefault(Function(ctl) ctl.AccessibilityObject.Role = AccessibleRole.Table)?.Controls?.OfType(Of VScrollBar)?.FirstOrDefault()
-
     End Sub
 
     Public Property LabelText As String
@@ -39,6 +38,7 @@ Public Class RobotStateControl
         Else
             Me.SuspendLayout()
 
+            ' conserve scroll bar position after a refresh
             Dim vScrollValue = _vscroll?.Value
 
             grid.SelectedObject = value

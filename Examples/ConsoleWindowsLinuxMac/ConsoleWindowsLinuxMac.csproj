@@ -10,7 +10,11 @@
     <RuntimeIdentifiers>win-x86;win-x64;win-arm;linux-arm;linux-x64;osx-x64</RuntimeIdentifiers>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="$(SolutionName.EndsWith(`Dev`))">
+    <ProjectReference Include="..\..\..\..\UniversalRobots\UniversalRobots.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!$(SolutionName.EndsWith(`Dev`))">
     <Reference Include="UnderAutomation.UniversalRobots">
       <HintPath>..\..\Libraries\netstandard2.0\UnderAutomation.UniversalRobots.dll</HintPath>
     </Reference>

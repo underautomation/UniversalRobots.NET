@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Underautomation.UniversalRobots.Example.MainForm
+            Me.MainForm = Global.UniversalRobotWinformsExample.MainForm
         End Sub
     End Class
 End Namespace

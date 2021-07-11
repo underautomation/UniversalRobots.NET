@@ -38,22 +38,22 @@ Partial Class MainForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.linkDoc = New System.Windows.Forms.LinkLabel()
         Me.txtLicense = New System.Windows.Forms.RichTextBox()
-        Me.licGrid = New Underautomation.UniversalRobots.Example.RobotStateControl()
+        Me.licGrid = New UniversalRobotWinformsExample.RobotStateControl()
         Me.pnl = New System.Windows.Forms.FlowLayoutPanel()
-        Me.gridRobotMode = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridCartesian = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridForce = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridTool = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridToolModeInfo = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.GridToolCommunication = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridAdditionnalInfo = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridMasterboard = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridConfiguration = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridJointData = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.gridKinematicsData = New Underautomation.UniversalRobots.Example.RobotStateControl()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.gridRobotMode = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridCartesian = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridForce = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridTool = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridToolModeInfo = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.GridToolCommunication = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridAdditionnalInfo = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridMasterboard = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridConfiguration = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridJointData = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridKinematicsData = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tabCommands = New System.Windows.Forms.TabPage()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.txtConsole = New System.Windows.Forms.RichTextBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
@@ -96,15 +96,47 @@ Partial Class MainForm
         Me.btnUnlockProtectiveStop = New System.Windows.Forms.Button()
         Me.btnGetRobotMode = New System.Windows.Forms.Button()
         Me.btnShutdown = New System.Windows.Forms.Button()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.linkXmlRpcSample = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.udXmlRpcPort = New System.Windows.Forms.NumericUpDown()
+        Me.txtXmlRpcPort = New System.Windows.Forms.TextBox()
+        Me.txtLocalIP = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtXmlRpcStatus = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.btnDisableXmlRpcServer = New System.Windows.Forms.Button()
+        Me.btnEnableXmlRpcServer = New System.Windows.Forms.Button()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.radioRPYToRotationVector = New System.Windows.Forms.RadioButton()
+        Me.txtRz = New System.Windows.Forms.TextBox()
+        Me.txtRy = New System.Windows.Forms.TextBox()
+        Me.txtRx = New System.Windows.Forms.TextBox()
+        Me.udRz = New System.Windows.Forms.NumericUpDown()
+        Me.udRy = New System.Windows.Forms.NumericUpDown()
+        Me.udRx = New System.Windows.Forms.NumericUpDown()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtOut = New System.Windows.Forms.Label()
+        Me.txtIn = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.docBrowser = New System.Windows.Forms.WebBrowser()
-        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.errProvider = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.blinkImg = New System.Windows.Forms.ImageList(Me.components)
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
-        Me.TabControl1.SuspendLayout()
+        Me.mainTabControl.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
+        Me.tabCommands.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -114,8 +146,15 @@ Partial Class MainForm
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.TabPage4.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage5.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
+        CType(Me.udRz, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.udRy, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.udRx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
-        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtIP
@@ -124,6 +163,7 @@ Partial Class MainForm
         Me.txtIP.Name = "txtIP"
         Me.txtIP.Size = New System.Drawing.Size(180, 20)
         Me.txtIP.TabIndex = 0
+        Me.txtIP.Text = "192.168.0.1"
         '
         'btnConnect
         '
@@ -201,7 +241,7 @@ Partial Class MainForm
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(293, 23)
         Me.btnSend.TabIndex = 4
-        Me.btnSend.Text = "Send"
+        Me.btnSend.Text = "Send script and execute"
         Me.btnSend.UseVisualStyleBackColor = True
         '
         'txtScript
@@ -250,7 +290,7 @@ Partial Class MainForm
         Me.txtLicense.Location = New System.Drawing.Point(1180, 38)
         Me.txtLicense.Name = "txtLicense"
         Me.txtLicense.ReadOnly = True
-        Me.txtLicense.Size = New System.Drawing.Size(365, 85)
+        Me.txtLicense.Size = New System.Drawing.Size(149, 85)
         Me.txtLicense.TabIndex = 5
         Me.txtLicense.Text = ""
         '
@@ -282,7 +322,7 @@ Partial Class MainForm
         Me.pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.pnl.Location = New System.Drawing.Point(3, 3)
         Me.pnl.Name = "pnl"
-        Me.pnl.Size = New System.Drawing.Size(1596, 886)
+        Me.pnl.Size = New System.Drawing.Size(1596, 885)
         Me.pnl.TabIndex = 7
         '
         'gridRobotMode
@@ -290,7 +330,7 @@ Partial Class MainForm
         Me.gridRobotMode.LabelText = "Robot mode"
         Me.gridRobotMode.Location = New System.Drawing.Point(3, 3)
         Me.gridRobotMode.Name = "gridRobotMode"
-        Me.gridRobotMode.Size = New System.Drawing.Size(342, 266)
+        Me.gridRobotMode.Size = New System.Drawing.Size(293, 266)
         Me.gridRobotMode.TabIndex = 1
         '
         'gridCartesian
@@ -298,7 +338,7 @@ Partial Class MainForm
         Me.gridCartesian.LabelText = "Cartesian"
         Me.gridCartesian.Location = New System.Drawing.Point(3, 275)
         Me.gridCartesian.Name = "gridCartesian"
-        Me.gridCartesian.Size = New System.Drawing.Size(342, 341)
+        Me.gridCartesian.Size = New System.Drawing.Size(293, 341)
         Me.gridCartesian.TabIndex = 2
         '
         'gridForce
@@ -306,85 +346,87 @@ Partial Class MainForm
         Me.gridForce.LabelText = "Force mode"
         Me.gridForce.Location = New System.Drawing.Point(3, 622)
         Me.gridForce.Name = "gridForce"
-        Me.gridForce.Size = New System.Drawing.Size(342, 201)
+        Me.gridForce.Size = New System.Drawing.Size(293, 201)
         Me.gridForce.TabIndex = 1
         '
         'gridTool
         '
         Me.gridTool.LabelText = "Tool"
-        Me.gridTool.Location = New System.Drawing.Point(351, 3)
+        Me.gridTool.Location = New System.Drawing.Point(302, 3)
         Me.gridTool.Name = "gridTool"
-        Me.gridTool.Size = New System.Drawing.Size(342, 266)
+        Me.gridTool.Size = New System.Drawing.Size(293, 266)
         Me.gridTool.TabIndex = 1
         '
         'gridToolModeInfo
         '
         Me.gridToolModeInfo.LabelText = "Tool mode Info"
-        Me.gridToolModeInfo.Location = New System.Drawing.Point(351, 275)
+        Me.gridToolModeInfo.Location = New System.Drawing.Point(302, 275)
         Me.gridToolModeInfo.Name = "gridToolModeInfo"
-        Me.gridToolModeInfo.Size = New System.Drawing.Size(342, 141)
+        Me.gridToolModeInfo.Size = New System.Drawing.Size(293, 141)
         Me.gridToolModeInfo.TabIndex = 6
         '
         'GridToolCommunication
         '
         Me.GridToolCommunication.LabelText = "Tool Communication Info"
-        Me.GridToolCommunication.Location = New System.Drawing.Point(351, 422)
+        Me.GridToolCommunication.Location = New System.Drawing.Point(302, 422)
         Me.GridToolCommunication.Name = "GridToolCommunication"
-        Me.GridToolCommunication.Size = New System.Drawing.Size(342, 194)
+        Me.GridToolCommunication.Size = New System.Drawing.Size(293, 194)
         Me.GridToolCommunication.TabIndex = 7
         '
         'gridAdditionnalInfo
         '
         Me.gridAdditionnalInfo.LabelText = "Additionnal info"
-        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(351, 622)
+        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(302, 622)
         Me.gridAdditionnalInfo.Name = "gridAdditionnalInfo"
-        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(342, 201)
+        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(293, 201)
         Me.gridAdditionnalInfo.TabIndex = 4
         '
         'gridMasterboard
         '
         Me.gridMasterboard.LabelText = "Masterboard"
-        Me.gridMasterboard.Location = New System.Drawing.Point(699, 3)
+        Me.gridMasterboard.Location = New System.Drawing.Point(601, 3)
         Me.gridMasterboard.Name = "gridMasterboard"
-        Me.gridMasterboard.Size = New System.Drawing.Size(342, 820)
+        Me.gridMasterboard.Size = New System.Drawing.Size(293, 820)
         Me.gridMasterboard.TabIndex = 3
         '
         'gridConfiguration
         '
         Me.gridConfiguration.LabelText = "Configuration"
-        Me.gridConfiguration.Location = New System.Drawing.Point(1047, 3)
+        Me.gridConfiguration.Location = New System.Drawing.Point(900, 3)
         Me.gridConfiguration.Name = "gridConfiguration"
-        Me.gridConfiguration.Size = New System.Drawing.Size(343, 820)
+        Me.gridConfiguration.Size = New System.Drawing.Size(294, 820)
         Me.gridConfiguration.TabIndex = 5
         '
         'gridJointData
         '
         Me.gridJointData.LabelText = "Joint"
-        Me.gridJointData.Location = New System.Drawing.Point(1396, 3)
+        Me.gridJointData.Location = New System.Drawing.Point(1200, 3)
         Me.gridJointData.Name = "gridJointData"
-        Me.gridJointData.Size = New System.Drawing.Size(342, 820)
+        Me.gridJointData.Size = New System.Drawing.Size(293, 820)
         Me.gridJointData.TabIndex = 8
         '
         'gridKinematicsData
         '
         Me.gridKinematicsData.LabelText = "Kinematics"
-        Me.gridKinematicsData.Location = New System.Drawing.Point(1744, 3)
+        Me.gridKinematicsData.Location = New System.Drawing.Point(1499, 3)
         Me.gridKinematicsData.Name = "gridKinematicsData"
-        Me.gridKinematicsData.Size = New System.Drawing.Size(342, 820)
+        Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
         Me.gridKinematicsData.TabIndex = 9
         '
-        'TabControl1
+        'mainTabControl
         '
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl1.ImageList = Me.ImageList1
-        Me.TabControl1.Location = New System.Drawing.Point(0, 143)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1610, 919)
-        Me.TabControl1.TabIndex = 8
+        Me.mainTabControl.Controls.Add(Me.TabPage1)
+        Me.mainTabControl.Controls.Add(Me.tabCommands)
+        Me.mainTabControl.Controls.Add(Me.TabPage4)
+        Me.mainTabControl.Controls.Add(Me.TabPage5)
+        Me.mainTabControl.Controls.Add(Me.TabPage3)
+        Me.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.mainTabControl.ImageList = Me.blinkImg
+        Me.mainTabControl.Location = New System.Drawing.Point(0, 143)
+        Me.mainTabControl.Name = "mainTabControl"
+        Me.mainTabControl.SelectedIndex = 0
+        Me.mainTabControl.Size = New System.Drawing.Size(1610, 918)
+        Me.mainTabControl.TabIndex = 8
         '
         'TabPage1
         '
@@ -393,21 +435,21 @@ Partial Class MainForm
         Me.TabPage1.Location = New System.Drawing.Point(4, 23)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1602, 892)
+        Me.TabPage1.Size = New System.Drawing.Size(1602, 891)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Streaming data"
+        Me.TabPage1.Text = "Data streaming"
         '
-        'TabPage2
+        'tabCommands
         '
-        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage2.Controls.Add(Me.SplitContainer1)
-        Me.TabPage2.ImageIndex = 0
-        Me.TabPage2.Location = New System.Drawing.Point(4, 23)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1602, 892)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Commands"
+        Me.tabCommands.BackColor = System.Drawing.SystemColors.Control
+        Me.tabCommands.Controls.Add(Me.SplitContainer1)
+        Me.tabCommands.ImageIndex = 0
+        Me.tabCommands.Location = New System.Drawing.Point(4, 23)
+        Me.tabCommands.Name = "tabCommands"
+        Me.tabCommands.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabCommands.Size = New System.Drawing.Size(1602, 891)
+        Me.tabCommands.TabIndex = 1
+        Me.tabCommands.Text = "Commands"
         '
         'SplitContainer1
         '
@@ -427,7 +469,7 @@ Partial Class MainForm
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 886)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1596, 885)
         Me.SplitContainer1.SplitterDistance = 532
         Me.SplitContainer1.TabIndex = 0
         '
@@ -439,7 +481,7 @@ Partial Class MainForm
         Me.txtConsole.Location = New System.Drawing.Point(0, 0)
         Me.txtConsole.Name = "txtConsole"
         Me.txtConsole.ReadOnly = True
-        Me.txtConsole.Size = New System.Drawing.Size(532, 886)
+        Me.txtConsole.Size = New System.Drawing.Size(532, 885)
         Me.txtConsole.TabIndex = 0
         Me.txtConsole.Text = "Please use commands on the right panel." & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(10) & "> "
         '
@@ -834,10 +876,350 @@ Partial Class MainForm
         Me.btnShutdown.Text = "Shutdown robot"
         Me.btnShutdown.UseVisualStyleBackColor = True
         '
+        'TabPage4
+        '
+        Me.TabPage4.Controls.Add(Me.linkXmlRpcSample)
+        Me.TabPage4.Controls.Add(Me.PictureBox1)
+        Me.TabPage4.Controls.Add(Me.udXmlRpcPort)
+        Me.TabPage4.Controls.Add(Me.txtXmlRpcPort)
+        Me.TabPage4.Controls.Add(Me.txtLocalIP)
+        Me.TabPage4.Controls.Add(Me.Label11)
+        Me.TabPage4.Controls.Add(Me.Label12)
+        Me.TabPage4.Controls.Add(Me.Label2)
+        Me.TabPage4.Controls.Add(Me.txtXmlRpcStatus)
+        Me.TabPage4.Controls.Add(Me.Label10)
+        Me.TabPage4.Controls.Add(Me.Label14)
+        Me.TabPage4.Controls.Add(Me.Label13)
+        Me.TabPage4.Controls.Add(Me.Label9)
+        Me.TabPage4.Controls.Add(Me.Label8)
+        Me.TabPage4.Controls.Add(Me.btnDisableXmlRpcServer)
+        Me.TabPage4.Controls.Add(Me.btnEnableXmlRpcServer)
+        Me.TabPage4.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage4.Size = New System.Drawing.Size(1602, 891)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Bi-directionnal communication"
+        Me.TabPage4.UseVisualStyleBackColor = True
+        '
+        'linkXmlRpcSample
+        '
+        Me.linkXmlRpcSample.AutoSize = True
+        Me.linkXmlRpcSample.Location = New System.Drawing.Point(238, 143)
+        Me.linkXmlRpcSample.Name = "linkXmlRpcSample"
+        Me.linkXmlRpcSample.Size = New System.Drawing.Size(100, 13)
+        Me.linkXmlRpcSample.TabIndex = 9
+        Me.linkXmlRpcSample.TabStop = True
+        Me.linkXmlRpcSample.Text = "xml_rpc_sample.urp"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.xml_rpc_sample
+        Me.PictureBox1.Location = New System.Drawing.Point(33, 282)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(680, 184)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
+        'udXmlRpcPort
+        '
+        Me.udXmlRpcPort.Location = New System.Drawing.Point(137, 24)
+        Me.udXmlRpcPort.Maximum = New Decimal(New Integer() {65535, 0, 0, 0})
+        Me.udXmlRpcPort.Name = "udXmlRpcPort"
+        Me.udXmlRpcPort.Size = New System.Drawing.Size(98, 20)
+        Me.udXmlRpcPort.TabIndex = 7
+        Me.udXmlRpcPort.Value = New Decimal(New Integer() {50000, 0, 0, 0})
+        '
+        'txtXmlRpcPort
+        '
+        Me.txtXmlRpcPort.Location = New System.Drawing.Point(170, 218)
+        Me.txtXmlRpcPort.Name = "txtXmlRpcPort"
+        Me.txtXmlRpcPort.ReadOnly = True
+        Me.txtXmlRpcPort.Size = New System.Drawing.Size(98, 20)
+        Me.txtXmlRpcPort.TabIndex = 0
+        '
+        'txtLocalIP
+        '
+        Me.txtLocalIP.Location = New System.Drawing.Point(170, 192)
+        Me.txtLocalIP.Name = "txtLocalIP"
+        Me.txtLocalIP.ReadOnly = True
+        Me.txtLocalIP.Size = New System.Drawing.Size(98, 20)
+        Me.txtLocalIP.TabIndex = 0
+        '
+        'Label11
+        '
+        Me.Label11.Location = New System.Drawing.Point(30, 22)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(107, 20)
+        Me.Label11.TabIndex = 2
+        Me.Label11.Text = "XML-RPC local port :"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label12
+        '
+        Me.Label12.Location = New System.Drawing.Point(63, 218)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(107, 20)
+        Me.Label12.TabIndex = 2
+        Me.Label12.Text = "Your local port :"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(63, 192)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(107, 20)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Your local PC IP :"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtXmlRpcStatus
+        '
+        Me.txtXmlRpcStatus.Location = New System.Drawing.Point(345, 71)
+        Me.txtXmlRpcStatus.Name = "txtXmlRpcStatus"
+        Me.txtXmlRpcStatus.Size = New System.Drawing.Size(101, 20)
+        Me.txtXmlRpcStatus.TabIndex = 2
+        Me.txtXmlRpcStatus.Text = "Enabled"
+        Me.txtXmlRpcStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label10
+        '
+        Me.Label10.Location = New System.Drawing.Point(30, 171)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(275, 20)
+        Me.Label10.TabIndex = 2
+        Me.Label10.Text = "2. Replace IP and port with your local machine information :"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label14
+        '
+        Me.Label14.Location = New System.Drawing.Point(30, 487)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(407, 20)
+        Me.Label14.TabIndex = 2
+        Me.Label14.Text = "4. Wait here for a popup asking you what to answer the robot..."
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label13
+        '
+        Me.Label13.Location = New System.Drawing.Point(30, 259)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(205, 20)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "3. Run the program on your robot"
+        Me.Label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label9
+        '
+        Me.Label9.Location = New System.Drawing.Point(30, 139)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(205, 20)
+        Me.Label9.TabIndex = 2
+        Me.Label9.Text = "1. Upload this program on your UR robot : "
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label8
+        '
+        Me.Label8.Location = New System.Drawing.Point(282, 51)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(101, 20)
+        Me.Label8.TabIndex = 2
+        Me.Label8.Text = "XML-RPC status : "
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'btnDisableXmlRpcServer
+        '
+        Me.btnDisableXmlRpcServer.Location = New System.Drawing.Point(33, 79)
+        Me.btnDisableXmlRpcServer.Name = "btnDisableXmlRpcServer"
+        Me.btnDisableXmlRpcServer.Size = New System.Drawing.Size(202, 23)
+        Me.btnDisableXmlRpcServer.TabIndex = 1
+        Me.btnDisableXmlRpcServer.Text = "Disable"
+        Me.btnDisableXmlRpcServer.UseVisualStyleBackColor = True
+        '
+        'btnEnableXmlRpcServer
+        '
+        Me.btnEnableXmlRpcServer.Location = New System.Drawing.Point(33, 50)
+        Me.btnEnableXmlRpcServer.Name = "btnEnableXmlRpcServer"
+        Me.btnEnableXmlRpcServer.Size = New System.Drawing.Size(202, 23)
+        Me.btnEnableXmlRpcServer.TabIndex = 1
+        Me.btnEnableXmlRpcServer.Text = "Enable"
+        Me.btnEnableXmlRpcServer.UseVisualStyleBackColor = True
+        '
+        'TabPage5
+        '
+        Me.TabPage5.Controls.Add(Me.GroupBox7)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(1602, 892)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Tools"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'GroupBox7
+        '
+        Me.GroupBox7.Controls.Add(Me.RadioButton2)
+        Me.GroupBox7.Controls.Add(Me.radioRPYToRotationVector)
+        Me.GroupBox7.Controls.Add(Me.txtRz)
+        Me.GroupBox7.Controls.Add(Me.txtRy)
+        Me.GroupBox7.Controls.Add(Me.txtRx)
+        Me.GroupBox7.Controls.Add(Me.udRz)
+        Me.GroupBox7.Controls.Add(Me.udRy)
+        Me.GroupBox7.Controls.Add(Me.udRx)
+        Me.GroupBox7.Controls.Add(Me.Label6)
+        Me.GroupBox7.Controls.Add(Me.Label7)
+        Me.GroupBox7.Controls.Add(Me.Label5)
+        Me.GroupBox7.Controls.Add(Me.Label4)
+        Me.GroupBox7.Controls.Add(Me.txtOut)
+        Me.GroupBox7.Controls.Add(Me.txtIn)
+        Me.GroupBox7.Location = New System.Drawing.Point(27, 24)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(439, 191)
+        Me.GroupBox7.TabIndex = 4
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Convert angles"
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(260, 25)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(162, 17)
+        Me.RadioButton2.TabIndex = 7
+        Me.RadioButton2.Text = "From Rotation Vector to RPY"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'radioRPYToRotationVector
+        '
+        Me.radioRPYToRotationVector.AutoSize = True
+        Me.radioRPYToRotationVector.Checked = True
+        Me.radioRPYToRotationVector.Location = New System.Drawing.Point(72, 25)
+        Me.radioRPYToRotationVector.Name = "radioRPYToRotationVector"
+        Me.radioRPYToRotationVector.Size = New System.Drawing.Size(161, 17)
+        Me.radioRPYToRotationVector.TabIndex = 6
+        Me.radioRPYToRotationVector.TabStop = True
+        Me.radioRPYToRotationVector.Text = "From RPY to Rotation vector"
+        Me.radioRPYToRotationVector.UseVisualStyleBackColor = True
+        '
+        'txtRz
+        '
+        Me.txtRz.Location = New System.Drawing.Point(243, 145)
+        Me.txtRz.Name = "txtRz"
+        Me.txtRz.ReadOnly = True
+        Me.txtRz.Size = New System.Drawing.Size(100, 20)
+        Me.txtRz.TabIndex = 5
+        '
+        'txtRy
+        '
+        Me.txtRy.Location = New System.Drawing.Point(243, 119)
+        Me.txtRy.Name = "txtRy"
+        Me.txtRy.ReadOnly = True
+        Me.txtRy.Size = New System.Drawing.Size(100, 20)
+        Me.txtRy.TabIndex = 4
+        '
+        'txtRx
+        '
+        Me.txtRx.Location = New System.Drawing.Point(243, 93)
+        Me.txtRx.Name = "txtRx"
+        Me.txtRx.ReadOnly = True
+        Me.txtRx.Size = New System.Drawing.Size(100, 20)
+        Me.txtRx.TabIndex = 3
+        '
+        'udRz
+        '
+        Me.udRz.DecimalPlaces = 3
+        Me.udRz.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.udRz.Location = New System.Drawing.Point(72, 145)
+        Me.udRz.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.udRz.Minimum = New Decimal(New Integer() {9999, 0, 0, -2147483648})
+        Me.udRz.Name = "udRz"
+        Me.udRz.Size = New System.Drawing.Size(120, 20)
+        Me.udRz.TabIndex = 2
+        '
+        'udRy
+        '
+        Me.udRy.DecimalPlaces = 3
+        Me.udRy.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.udRy.Location = New System.Drawing.Point(72, 119)
+        Me.udRy.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.udRy.Minimum = New Decimal(New Integer() {9999, 0, 0, -2147483648})
+        Me.udRy.Name = "udRy"
+        Me.udRy.Size = New System.Drawing.Size(120, 20)
+        Me.udRy.TabIndex = 1
+        '
+        'udRx
+        '
+        Me.udRx.DecimalPlaces = 3
+        Me.udRx.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
+        Me.udRx.Location = New System.Drawing.Point(72, 93)
+        Me.udRx.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
+        Me.udRx.Minimum = New Decimal(New Integer() {9999, 0, 0, -2147483648})
+        Me.udRx.Name = "udRx"
+        Me.udRx.Size = New System.Drawing.Size(120, 20)
+        Me.udRx.TabIndex = 0
+        '
+        'Label6
+        '
+        Me.Label6.Location = New System.Drawing.Point(11, 147)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(63, 13)
+        Me.Label6.TabIndex = 1
+        Me.Label6.Text = "RZ (rad) :"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label7
+        '
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(198, 93)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(39, 72)
+        Me.Label7.TabIndex = 1
+        Me.Label7.Text = "="
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label5
+        '
+        Me.Label5.Location = New System.Drawing.Point(11, 121)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 13)
+        Me.Label5.TabIndex = 1
+        Me.Label5.Text = "RY (rad) :"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(11, 95)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(63, 13)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "RX (rad) :"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtOut
+        '
+        Me.txtOut.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtOut.Location = New System.Drawing.Point(224, 52)
+        Me.txtOut.Name = "txtOut"
+        Me.txtOut.Size = New System.Drawing.Size(142, 38)
+        Me.txtOut.TabIndex = 1
+        Me.txtOut.Text = "Rotation Vector"
+        Me.txtOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'txtIn
+        '
+        Me.txtIn.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIn.Location = New System.Drawing.Point(56, 52)
+        Me.txtIn.Name = "txtIn"
+        Me.txtIn.Size = New System.Drawing.Size(147, 38)
+        Me.txtIn.TabIndex = 1
+        Me.txtIn.Text = "RPY"
+        Me.txtIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.docBrowser)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(1602, 892)
         Me.TabPage3.TabIndex = 2
@@ -857,34 +1239,30 @@ Partial Class MainForm
         Me.docBrowser.TabIndex = 0
         Me.docBrowser.Url = New System.Uri("https://underautomation.com/documentation?e", System.UriKind.Absolute)
         '
-        'ImageList1
+        'blinkImg
         '
-        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
-        Me.ImageList1.Images.SetKeyName(0, "ua.ico")
-        Me.ImageList1.Images.SetKeyName(1, "blank.gif")
-        '
-        'errProvider
-        '
-        Me.errProvider.ContainerControl = Me
+        Me.blinkImg.ImageStream = CType(resources.GetObject("blinkImg.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.blinkImg.TransparentColor = System.Drawing.Color.Transparent
+        Me.blinkImg.Images.SetKeyName(0, "ua.ico")
+        Me.blinkImg.Images.SetKeyName(1, "empty.png")
         '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1610, 1062)
-        Me.Controls.Add(Me.TabControl1)
+        Me.ClientSize = New System.Drawing.Size(1610, 1061)
+        Me.Controls.Add(Me.mainTabControl)
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
-        Me.Text = "Universal Robots SDK - UnderAutomation"
+        Me.Text = "Universal Robots API example - UnderAutomation"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.pnl.ResumeLayout(False)
-        Me.TabControl1.ResumeLayout(False)
+        Me.mainTabControl.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
+        Me.tabCommands.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -896,8 +1274,17 @@ Partial Class MainForm
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        Me.TabPage4.ResumeLayout(False)
+        Me.TabPage4.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage5.ResumeLayout(False)
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
+        CType(Me.udRz, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.udRy, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.udRx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
-        CType(Me.errProvider, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -930,9 +1317,9 @@ Partial Class MainForm
     Friend WithEvents txtLicense As RichTextBox
     Friend WithEvents licGrid As RobotStateControl
     Friend WithEvents linkDoc As LinkLabel
-    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents mainTabControl As TabControl
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents tabCommands As TabPage
     Friend WithEvents SplitContainer1 As SplitContainer
     Friend WithEvents txtConsole As RichTextBox
     Friend WithEvents btnPlay As Button
@@ -977,6 +1364,38 @@ Partial Class MainForm
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents errProvider As ErrorProvider
-    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents RadioButton2 As RadioButton
+    Friend WithEvents radioRPYToRotationVector As RadioButton
+    Friend WithEvents txtRz As TextBox
+    Friend WithEvents txtRy As TextBox
+    Friend WithEvents txtRx As TextBox
+    Friend WithEvents udRz As NumericUpDown
+    Friend WithEvents udRy As NumericUpDown
+    Friend WithEvents udRx As NumericUpDown
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtOut As Label
+    Friend WithEvents txtIn As Label
+    Friend WithEvents txtLocalIP As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtXmlRpcStatus As Label
+    Friend WithEvents Label8 As Label
+    Friend WithEvents btnDisableXmlRpcServer As Button
+    Friend WithEvents btnEnableXmlRpcServer As Button
+    Friend WithEvents udXmlRpcPort As NumericUpDown
+    Friend WithEvents Label11 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents linkXmlRpcSample As LinkLabel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents txtXmlRpcPort As TextBox
+    Friend WithEvents Label12 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents blinkImg As ImageList
 End Class
