@@ -27,11 +27,11 @@ Public Class XmlRpcPopup
 
 
     Private Sub btnInteger_Click(sender As Object, e As EventArgs) Handles btnInteger.Click
-        _request.Answer = 12
+        _request.Answer = -12
     End Sub
 
     Private Sub btnDouble_Click(sender As Object, e As EventArgs) Handles btnDouble.Click
-        _request.Answer = -4.2
+        _request.Answer = 2.5
     End Sub
 
     Private Sub btnTrue_Click(sender As Object, e As EventArgs) Handles btnTrue.Click

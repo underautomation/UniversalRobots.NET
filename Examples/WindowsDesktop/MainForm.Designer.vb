@@ -38,19 +38,7 @@ Partial Class MainForm
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.linkDoc = New System.Windows.Forms.LinkLabel()
         Me.txtLicense = New System.Windows.Forms.RichTextBox()
-        Me.licGrid = New UniversalRobotWinformsExample.RobotStateControl()
         Me.pnl = New System.Windows.Forms.FlowLayoutPanel()
-        Me.gridRobotMode = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridCartesian = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridForce = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridTool = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridToolModeInfo = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.GridToolCommunication = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridAdditionnalInfo = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridMasterboard = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridConfiguration = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridJointData = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.gridKinematicsData = New UniversalRobotWinformsExample.RobotStateControl()
         Me.mainTabControl = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.tabCommands = New System.Windows.Forms.TabPage()
@@ -98,7 +86,6 @@ Partial Class MainForm
         Me.btnShutdown = New System.Windows.Forms.Button()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.linkXmlRpcSample = New System.Windows.Forms.LinkLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.udXmlRpcPort = New System.Windows.Forms.NumericUpDown()
         Me.txtXmlRpcPort = New System.Windows.Forms.TextBox()
         Me.txtLocalIP = New System.Windows.Forms.TextBox()
@@ -132,6 +119,19 @@ Partial Class MainForm
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.docBrowser = New System.Windows.Forms.WebBrowser()
         Me.blinkImg = New System.Windows.Forms.ImageList(Me.components)
+        Me.gridRobotMode = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridCartesian = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridForce = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridTool = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridToolModeInfo = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.GridToolCommunication = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridAdditionnalInfo = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridMasterboard = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridConfiguration = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridJointData = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.gridKinematicsData = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.licGrid = New UniversalRobotWinformsExample.RobotStateControl()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
         Me.mainTabControl.SuspendLayout()
@@ -147,7 +147,6 @@ Partial Class MainForm
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -155,6 +154,7 @@ Partial Class MainForm
         CType(Me.udRy, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.udRx, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage3.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtIP
@@ -294,14 +294,6 @@ Partial Class MainForm
         Me.txtLicense.TabIndex = 5
         Me.txtLicense.Text = ""
         '
-        'licGrid
-        '
-        Me.licGrid.LabelText = "License info"
-        Me.licGrid.Location = New System.Drawing.Point(902, 3)
-        Me.licGrid.Name = "licGrid"
-        Me.licGrid.Size = New System.Drawing.Size(272, 120)
-        Me.licGrid.TabIndex = 7
-        '
         'pnl
         '
         Me.pnl.AutoScroll = True
@@ -324,94 +316,6 @@ Partial Class MainForm
         Me.pnl.Name = "pnl"
         Me.pnl.Size = New System.Drawing.Size(1596, 885)
         Me.pnl.TabIndex = 7
-        '
-        'gridRobotMode
-        '
-        Me.gridRobotMode.LabelText = "Robot mode"
-        Me.gridRobotMode.Location = New System.Drawing.Point(3, 3)
-        Me.gridRobotMode.Name = "gridRobotMode"
-        Me.gridRobotMode.Size = New System.Drawing.Size(293, 266)
-        Me.gridRobotMode.TabIndex = 1
-        '
-        'gridCartesian
-        '
-        Me.gridCartesian.LabelText = "Cartesian"
-        Me.gridCartesian.Location = New System.Drawing.Point(3, 275)
-        Me.gridCartesian.Name = "gridCartesian"
-        Me.gridCartesian.Size = New System.Drawing.Size(293, 341)
-        Me.gridCartesian.TabIndex = 2
-        '
-        'gridForce
-        '
-        Me.gridForce.LabelText = "Force mode"
-        Me.gridForce.Location = New System.Drawing.Point(3, 622)
-        Me.gridForce.Name = "gridForce"
-        Me.gridForce.Size = New System.Drawing.Size(293, 201)
-        Me.gridForce.TabIndex = 1
-        '
-        'gridTool
-        '
-        Me.gridTool.LabelText = "Tool"
-        Me.gridTool.Location = New System.Drawing.Point(302, 3)
-        Me.gridTool.Name = "gridTool"
-        Me.gridTool.Size = New System.Drawing.Size(293, 266)
-        Me.gridTool.TabIndex = 1
-        '
-        'gridToolModeInfo
-        '
-        Me.gridToolModeInfo.LabelText = "Tool mode Info"
-        Me.gridToolModeInfo.Location = New System.Drawing.Point(302, 275)
-        Me.gridToolModeInfo.Name = "gridToolModeInfo"
-        Me.gridToolModeInfo.Size = New System.Drawing.Size(293, 141)
-        Me.gridToolModeInfo.TabIndex = 6
-        '
-        'GridToolCommunication
-        '
-        Me.GridToolCommunication.LabelText = "Tool Communication Info"
-        Me.GridToolCommunication.Location = New System.Drawing.Point(302, 422)
-        Me.GridToolCommunication.Name = "GridToolCommunication"
-        Me.GridToolCommunication.Size = New System.Drawing.Size(293, 194)
-        Me.GridToolCommunication.TabIndex = 7
-        '
-        'gridAdditionnalInfo
-        '
-        Me.gridAdditionnalInfo.LabelText = "Additionnal info"
-        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(302, 622)
-        Me.gridAdditionnalInfo.Name = "gridAdditionnalInfo"
-        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(293, 201)
-        Me.gridAdditionnalInfo.TabIndex = 4
-        '
-        'gridMasterboard
-        '
-        Me.gridMasterboard.LabelText = "Masterboard"
-        Me.gridMasterboard.Location = New System.Drawing.Point(601, 3)
-        Me.gridMasterboard.Name = "gridMasterboard"
-        Me.gridMasterboard.Size = New System.Drawing.Size(293, 820)
-        Me.gridMasterboard.TabIndex = 3
-        '
-        'gridConfiguration
-        '
-        Me.gridConfiguration.LabelText = "Configuration"
-        Me.gridConfiguration.Location = New System.Drawing.Point(900, 3)
-        Me.gridConfiguration.Name = "gridConfiguration"
-        Me.gridConfiguration.Size = New System.Drawing.Size(294, 820)
-        Me.gridConfiguration.TabIndex = 5
-        '
-        'gridJointData
-        '
-        Me.gridJointData.LabelText = "Joint"
-        Me.gridJointData.Location = New System.Drawing.Point(1200, 3)
-        Me.gridJointData.Name = "gridJointData"
-        Me.gridJointData.Size = New System.Drawing.Size(293, 820)
-        Me.gridJointData.TabIndex = 8
-        '
-        'gridKinematicsData
-        '
-        Me.gridKinematicsData.LabelText = "Kinematics"
-        Me.gridKinematicsData.Location = New System.Drawing.Point(1499, 3)
-        Me.gridKinematicsData.Name = "gridKinematicsData"
-        Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
-        Me.gridKinematicsData.TabIndex = 9
         '
         'mainTabControl
         '
@@ -899,7 +803,7 @@ Partial Class MainForm
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage4.Size = New System.Drawing.Size(1602, 891)
         Me.TabPage4.TabIndex = 3
-        Me.TabPage4.Text = "Bi-directionnal communication"
+        Me.TabPage4.Text = "Remote call from robot"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
         'linkXmlRpcSample
@@ -911,17 +815,6 @@ Partial Class MainForm
         Me.linkXmlRpcSample.TabIndex = 9
         Me.linkXmlRpcSample.TabStop = True
         Me.linkXmlRpcSample.Text = "xml_rpc_sample.urp"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.xml_rpc_sample
-        Me.PictureBox1.Location = New System.Drawing.Point(33, 282)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(680, 184)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
         '
         'udXmlRpcPort
         '
@@ -995,7 +888,7 @@ Partial Class MainForm
         '
         'Label14
         '
-        Me.Label14.Location = New System.Drawing.Point(30, 487)
+        Me.Label14.Location = New System.Drawing.Point(30, 712)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(407, 20)
         Me.Label14.TabIndex = 2
@@ -1050,9 +943,9 @@ Partial Class MainForm
         'TabPage5
         '
         Me.TabPage5.Controls.Add(Me.GroupBox7)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Location = New System.Drawing.Point(4, 23)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1602, 892)
+        Me.TabPage5.Size = New System.Drawing.Size(1602, 891)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Tools"
         Me.TabPage5.UseVisualStyleBackColor = True
@@ -1219,9 +1112,9 @@ Partial Class MainForm
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.docBrowser)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 23)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1602, 892)
+        Me.TabPage3.Size = New System.Drawing.Size(1602, 891)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Documentation"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1235,7 +1128,7 @@ Partial Class MainForm
         Me.docBrowser.MinimumSize = New System.Drawing.Size(20, 20)
         Me.docBrowser.Name = "docBrowser"
         Me.docBrowser.ScriptErrorsSuppressed = True
-        Me.docBrowser.Size = New System.Drawing.Size(1602, 892)
+        Me.docBrowser.Size = New System.Drawing.Size(1602, 891)
         Me.docBrowser.TabIndex = 0
         Me.docBrowser.Url = New System.Uri("https://underautomation.com/documentation?e", System.UriKind.Absolute)
         '
@@ -1245,6 +1138,113 @@ Partial Class MainForm
         Me.blinkImg.TransparentColor = System.Drawing.Color.Transparent
         Me.blinkImg.Images.SetKeyName(0, "ua.ico")
         Me.blinkImg.Images.SetKeyName(1, "empty.png")
+        '
+        'gridRobotMode
+        '
+        Me.gridRobotMode.LabelText = "Robot mode"
+        Me.gridRobotMode.Location = New System.Drawing.Point(3, 3)
+        Me.gridRobotMode.Name = "gridRobotMode"
+        Me.gridRobotMode.Size = New System.Drawing.Size(293, 266)
+        Me.gridRobotMode.TabIndex = 1
+        '
+        'gridCartesian
+        '
+        Me.gridCartesian.LabelText = "Cartesian"
+        Me.gridCartesian.Location = New System.Drawing.Point(3, 275)
+        Me.gridCartesian.Name = "gridCartesian"
+        Me.gridCartesian.Size = New System.Drawing.Size(293, 341)
+        Me.gridCartesian.TabIndex = 2
+        '
+        'gridForce
+        '
+        Me.gridForce.LabelText = "Force mode"
+        Me.gridForce.Location = New System.Drawing.Point(3, 622)
+        Me.gridForce.Name = "gridForce"
+        Me.gridForce.Size = New System.Drawing.Size(293, 201)
+        Me.gridForce.TabIndex = 1
+        '
+        'gridTool
+        '
+        Me.gridTool.LabelText = "Tool"
+        Me.gridTool.Location = New System.Drawing.Point(302, 3)
+        Me.gridTool.Name = "gridTool"
+        Me.gridTool.Size = New System.Drawing.Size(293, 266)
+        Me.gridTool.TabIndex = 1
+        '
+        'gridToolModeInfo
+        '
+        Me.gridToolModeInfo.LabelText = "Tool mode Info"
+        Me.gridToolModeInfo.Location = New System.Drawing.Point(302, 275)
+        Me.gridToolModeInfo.Name = "gridToolModeInfo"
+        Me.gridToolModeInfo.Size = New System.Drawing.Size(293, 141)
+        Me.gridToolModeInfo.TabIndex = 6
+        '
+        'GridToolCommunication
+        '
+        Me.GridToolCommunication.LabelText = "Tool Communication Info"
+        Me.GridToolCommunication.Location = New System.Drawing.Point(302, 422)
+        Me.GridToolCommunication.Name = "GridToolCommunication"
+        Me.GridToolCommunication.Size = New System.Drawing.Size(293, 194)
+        Me.GridToolCommunication.TabIndex = 7
+        '
+        'gridAdditionnalInfo
+        '
+        Me.gridAdditionnalInfo.LabelText = "Additionnal info"
+        Me.gridAdditionnalInfo.Location = New System.Drawing.Point(302, 622)
+        Me.gridAdditionnalInfo.Name = "gridAdditionnalInfo"
+        Me.gridAdditionnalInfo.Size = New System.Drawing.Size(293, 201)
+        Me.gridAdditionnalInfo.TabIndex = 4
+        '
+        'gridMasterboard
+        '
+        Me.gridMasterboard.LabelText = "Masterboard"
+        Me.gridMasterboard.Location = New System.Drawing.Point(601, 3)
+        Me.gridMasterboard.Name = "gridMasterboard"
+        Me.gridMasterboard.Size = New System.Drawing.Size(293, 820)
+        Me.gridMasterboard.TabIndex = 3
+        '
+        'gridConfiguration
+        '
+        Me.gridConfiguration.LabelText = "Configuration"
+        Me.gridConfiguration.Location = New System.Drawing.Point(900, 3)
+        Me.gridConfiguration.Name = "gridConfiguration"
+        Me.gridConfiguration.Size = New System.Drawing.Size(294, 820)
+        Me.gridConfiguration.TabIndex = 5
+        '
+        'gridJointData
+        '
+        Me.gridJointData.LabelText = "Joint"
+        Me.gridJointData.Location = New System.Drawing.Point(1200, 3)
+        Me.gridJointData.Name = "gridJointData"
+        Me.gridJointData.Size = New System.Drawing.Size(293, 820)
+        Me.gridJointData.TabIndex = 8
+        '
+        'gridKinematicsData
+        '
+        Me.gridKinematicsData.LabelText = "Kinematics"
+        Me.gridKinematicsData.Location = New System.Drawing.Point(1499, 3)
+        Me.gridKinematicsData.Name = "gridKinematicsData"
+        Me.gridKinematicsData.Size = New System.Drawing.Size(293, 820)
+        Me.gridKinematicsData.TabIndex = 9
+        '
+        'licGrid
+        '
+        Me.licGrid.LabelText = "License info"
+        Me.licGrid.Location = New System.Drawing.Point(902, 3)
+        Me.licGrid.Name = "licGrid"
+        Me.licGrid.Size = New System.Drawing.Size(272, 120)
+        Me.licGrid.TabIndex = 7
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.xml_rpc_sample
+        Me.PictureBox1.Location = New System.Drawing.Point(33, 282)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1300, 408)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'MainForm
         '
@@ -1276,7 +1276,6 @@ Partial Class MainForm
         Me.GroupBox1.ResumeLayout(False)
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
@@ -1285,6 +1284,7 @@ Partial Class MainForm
         CType(Me.udRy, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.udRx, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage3.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

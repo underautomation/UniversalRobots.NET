@@ -24,25 +24,25 @@ Partial Class XmlRpcPopup
     Private Sub InitializeComponent()
         Me.btnInteger = New System.Windows.Forms.Button()
         Me.lstArgs = New System.Windows.Forms.ListView()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnDouble = New System.Windows.Forms.Button()
-        Me.btnTrue = New System.Windows.Forms.Button()
-        Me.btnFalse = New System.Windows.Forms.Button()
-        Me.BtnString = New System.Windows.Forms.Button()
-        Me.btnArrayNumbers = New System.Windows.Forms.Button()
-        Me.btnPose = New System.Windows.Forms.Button()
-        Me.btnArrayPoses = New System.Windows.Forms.Button()
-        Me.btnNothing = New System.Windows.Forms.Button()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.txtMethodName = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtArgument = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtIp = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnPose = New System.Windows.Forms.Button()
+        Me.btnNothing = New System.Windows.Forms.Button()
+        Me.btnArrayPoses = New System.Windows.Forms.Button()
+        Me.BtnString = New System.Windows.Forms.Button()
+        Me.btnArrayNumbers = New System.Windows.Forms.Button()
+        Me.btnFalse = New System.Windows.Forms.Button()
+        Me.btnTrue = New System.Windows.Forms.Button()
+        Me.btnDouble = New System.Windows.Forms.Button()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
@@ -56,7 +56,7 @@ Partial Class XmlRpcPopup
         Me.btnInteger.Name = "btnInteger"
         Me.btnInteger.Size = New System.Drawing.Size(115, 23)
         Me.btnInteger.TabIndex = 0
-        Me.btnInteger.Text = "Integer : 12"
+        Me.btnInteger.Text = "Integer : -12"
         Me.btnInteger.UseVisualStyleBackColor = True
         '
         'lstArgs
@@ -71,6 +71,16 @@ Partial Class XmlRpcPopup
         Me.lstArgs.UseCompatibleStateImageBehavior = False
         Me.lstArgs.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "Type"
+        Me.ColumnHeader1.Width = 96
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Value"
+        Me.ColumnHeader2.Width = 382
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.txtMethodName)
@@ -83,134 +93,6 @@ Partial Class XmlRpcPopup
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(523, 86)
         Me.Panel1.TabIndex = 2
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Label3)
-        Me.Panel2.Controls.Add(Me.btnPose)
-        Me.Panel2.Controls.Add(Me.btnNothing)
-        Me.Panel2.Controls.Add(Me.btnArrayPoses)
-        Me.Panel2.Controls.Add(Me.BtnString)
-        Me.Panel2.Controls.Add(Me.btnArrayNumbers)
-        Me.Panel2.Controls.Add(Me.btnFalse)
-        Me.Panel2.Controls.Add(Me.btnTrue)
-        Me.Panel2.Controls.Add(Me.btnDouble)
-        Me.Panel2.Controls.Add(Me.btnInteger)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Location = New System.Drawing.Point(0, 318)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(523, 155)
-        Me.Panel2.TabIndex = 2
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "Type"
-        Me.ColumnHeader1.Width = 96
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Value"
-        Me.ColumnHeader2.Width = 382
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 10)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(275, 13)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Choose the object you would like to answer to the robot :"
-        '
-        'btnDouble
-        '
-        Me.btnDouble.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnDouble.Location = New System.Drawing.Point(135, 36)
-        Me.btnDouble.Name = "btnDouble"
-        Me.btnDouble.Size = New System.Drawing.Size(115, 23)
-        Me.btnDouble.TabIndex = 0
-        Me.btnDouble.Text = "Double : -4.2"
-        Me.btnDouble.UseVisualStyleBackColor = True
-        '
-        'btnTrue
-        '
-        Me.btnTrue.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnTrue.Location = New System.Drawing.Point(256, 36)
-        Me.btnTrue.Name = "btnTrue"
-        Me.btnTrue.Size = New System.Drawing.Size(115, 23)
-        Me.btnTrue.TabIndex = 0
-        Me.btnTrue.Text = "True"
-        Me.btnTrue.UseVisualStyleBackColor = True
-        '
-        'btnFalse
-        '
-        Me.btnFalse.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnFalse.Location = New System.Drawing.Point(376, 36)
-        Me.btnFalse.Name = "btnFalse"
-        Me.btnFalse.Size = New System.Drawing.Size(115, 23)
-        Me.btnFalse.TabIndex = 0
-        Me.btnFalse.Text = "False"
-        Me.btnFalse.UseVisualStyleBackColor = True
-        '
-        'BtnString
-        '
-        Me.BtnString.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.BtnString.Location = New System.Drawing.Point(256, 65)
-        Me.BtnString.Name = "BtnString"
-        Me.BtnString.Size = New System.Drawing.Size(235, 23)
-        Me.BtnString.TabIndex = 0
-        Me.BtnString.Text = "String : ""Hi Robot !"""
-        Me.BtnString.UseVisualStyleBackColor = True
-        '
-        'btnArrayNumbers
-        '
-        Me.btnArrayNumbers.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnArrayNumbers.Location = New System.Drawing.Point(256, 94)
-        Me.btnArrayNumbers.Name = "btnArrayNumbers"
-        Me.btnArrayNumbers.Size = New System.Drawing.Size(235, 23)
-        Me.btnArrayNumbers.TabIndex = 0
-        Me.btnArrayNumbers.Text = "Array of numbers : [-4, 2.3, 100]"
-        Me.btnArrayNumbers.UseVisualStyleBackColor = True
-        '
-        'btnPose
-        '
-        Me.btnPose.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnPose.Location = New System.Drawing.Point(15, 65)
-        Me.btnPose.Name = "btnPose"
-        Me.btnPose.Size = New System.Drawing.Size(235, 23)
-        Me.btnPose.TabIndex = 0
-        Me.btnPose.Text = "Pose : p[100,-100,120,0.2,0,-0.1]"
-        Me.btnPose.UseVisualStyleBackColor = True
-        '
-        'btnArrayPoses
-        '
-        Me.btnArrayPoses.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnArrayPoses.Location = New System.Drawing.Point(15, 94)
-        Me.btnArrayPoses.Name = "btnArrayPoses"
-        Me.btnArrayPoses.Size = New System.Drawing.Size(235, 23)
-        Me.btnArrayPoses.TabIndex = 0
-        Me.btnArrayPoses.Text = "Array of poses : [p[0,1,0,0,0,0], p[0,0,1,0,0,0]]"
-        Me.btnArrayPoses.UseVisualStyleBackColor = True
-        '
-        'btnNothing
-        '
-        Me.btnNothing.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnNothing.Location = New System.Drawing.Point(187, 123)
-        Me.btnNothing.Name = "btnNothing"
-        Me.btnNothing.Size = New System.Drawing.Size(128, 23)
-        Me.btnNothing.TabIndex = 0
-        Me.btnNothing.Text = "Nothing"
-        Me.btnNothing.UseVisualStyleBackColor = True
-        '
-        'Label10
-        '
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold)
-        Me.Label10.Location = New System.Drawing.Point(0, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(523, 37)
-        Me.Label10.TabIndex = 3
-        Me.Label10.Text = "Request :"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtMethodName
         '
@@ -258,6 +140,124 @@ Partial Class XmlRpcPopup
         Me.txtIp.Size = New System.Drawing.Size(22, 17)
         Me.txtIp.TabIndex = 5
         Me.txtIp.Text = "IP"
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Label3)
+        Me.Panel2.Controls.Add(Me.btnPose)
+        Me.Panel2.Controls.Add(Me.btnNothing)
+        Me.Panel2.Controls.Add(Me.btnArrayPoses)
+        Me.Panel2.Controls.Add(Me.BtnString)
+        Me.Panel2.Controls.Add(Me.btnArrayNumbers)
+        Me.Panel2.Controls.Add(Me.btnFalse)
+        Me.Panel2.Controls.Add(Me.btnTrue)
+        Me.Panel2.Controls.Add(Me.btnDouble)
+        Me.Panel2.Controls.Add(Me.btnInteger)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel2.Location = New System.Drawing.Point(0, 318)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(523, 155)
+        Me.Panel2.TabIndex = 2
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(12, 10)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(275, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Choose the object you would like to answer to the robot :"
+        '
+        'btnPose
+        '
+        Me.btnPose.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnPose.Location = New System.Drawing.Point(15, 65)
+        Me.btnPose.Name = "btnPose"
+        Me.btnPose.Size = New System.Drawing.Size(235, 23)
+        Me.btnPose.TabIndex = 0
+        Me.btnPose.Text = "Pose : p[100,-100,120,0.2,0,-0.1]"
+        Me.btnPose.UseVisualStyleBackColor = True
+        '
+        'btnNothing
+        '
+        Me.btnNothing.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnNothing.Location = New System.Drawing.Point(187, 123)
+        Me.btnNothing.Name = "btnNothing"
+        Me.btnNothing.Size = New System.Drawing.Size(128, 23)
+        Me.btnNothing.TabIndex = 0
+        Me.btnNothing.Text = "Nothing"
+        Me.btnNothing.UseVisualStyleBackColor = True
+        '
+        'btnArrayPoses
+        '
+        Me.btnArrayPoses.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnArrayPoses.Location = New System.Drawing.Point(15, 94)
+        Me.btnArrayPoses.Name = "btnArrayPoses"
+        Me.btnArrayPoses.Size = New System.Drawing.Size(235, 23)
+        Me.btnArrayPoses.TabIndex = 0
+        Me.btnArrayPoses.Text = "Array of poses : [p[0,1,0,0,0,0], p[0,0,1,0,0,0]]"
+        Me.btnArrayPoses.UseVisualStyleBackColor = True
+        '
+        'BtnString
+        '
+        Me.BtnString.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.BtnString.Location = New System.Drawing.Point(256, 65)
+        Me.BtnString.Name = "BtnString"
+        Me.BtnString.Size = New System.Drawing.Size(235, 23)
+        Me.BtnString.TabIndex = 0
+        Me.BtnString.Text = "String : ""Hi Robot !"""
+        Me.BtnString.UseVisualStyleBackColor = True
+        '
+        'btnArrayNumbers
+        '
+        Me.btnArrayNumbers.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnArrayNumbers.Location = New System.Drawing.Point(256, 94)
+        Me.btnArrayNumbers.Name = "btnArrayNumbers"
+        Me.btnArrayNumbers.Size = New System.Drawing.Size(235, 23)
+        Me.btnArrayNumbers.TabIndex = 0
+        Me.btnArrayNumbers.Text = "Array of numbers : [-4, 2.3, 100]"
+        Me.btnArrayNumbers.UseVisualStyleBackColor = True
+        '
+        'btnFalse
+        '
+        Me.btnFalse.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnFalse.Location = New System.Drawing.Point(376, 36)
+        Me.btnFalse.Name = "btnFalse"
+        Me.btnFalse.Size = New System.Drawing.Size(115, 23)
+        Me.btnFalse.TabIndex = 0
+        Me.btnFalse.Text = "False"
+        Me.btnFalse.UseVisualStyleBackColor = True
+        '
+        'btnTrue
+        '
+        Me.btnTrue.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnTrue.Location = New System.Drawing.Point(256, 36)
+        Me.btnTrue.Name = "btnTrue"
+        Me.btnTrue.Size = New System.Drawing.Size(115, 23)
+        Me.btnTrue.TabIndex = 0
+        Me.btnTrue.Text = "True"
+        Me.btnTrue.UseVisualStyleBackColor = True
+        '
+        'btnDouble
+        '
+        Me.btnDouble.DialogResult = System.Windows.Forms.DialogResult.OK
+        Me.btnDouble.Location = New System.Drawing.Point(135, 36)
+        Me.btnDouble.Name = "btnDouble"
+        Me.btnDouble.Size = New System.Drawing.Size(115, 23)
+        Me.btnDouble.TabIndex = 0
+        Me.btnDouble.Text = "Double : 2.5"
+        Me.btnDouble.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold)
+        Me.Label10.Location = New System.Drawing.Point(0, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(523, 37)
+        Me.Label10.TabIndex = 3
+        Me.Label10.Text = "Request :"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Label2
         '
