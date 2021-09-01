@@ -100,6 +100,7 @@ Partial Class MainForm
         Me.Label8 = New System.Windows.Forms.Label()
         Me.btnDisableXmlRpcServer = New System.Windows.Forms.Button()
         Me.btnEnableXmlRpcServer = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
@@ -116,9 +117,32 @@ Partial Class MainForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtOut = New System.Windows.Forms.Label()
         Me.txtIn = New System.Windows.Forms.Label()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.docBrowser = New System.Windows.Forms.WebBrowser()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.gridSSHResult = New System.Windows.Forms.PropertyGrid()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.btnSSHSend = New System.Windows.Forms.Button()
+        Me.btnSendShell = New System.Windows.Forms.Button()
+        Me.txtSSHCommand = New System.Windows.Forms.TextBox()
+        Me.txtShellCommand = New System.Windows.Forms.TextBox()
+        Me.txtShellHistory = New System.Windows.Forms.RichTextBox()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.lstFolder = New System.Windows.Forms.ListView()
+        Me.lstFolderImageList = New System.Windows.Forms.ImageList(Me.components)
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.btnPrevious = New System.Windows.Forms.ToolStripButton()
+        Me.txtPath = New System.Windows.Forms.ToolStripTextBox()
+        Me.btnOpenPath = New System.Windows.Forms.ToolStripButton()
+        Me.tsFolder = New System.Windows.Forms.ToolStrip()
+        Me.btnRefresh = New System.Windows.Forms.ToolStripButton()
+        Me.btnDelete = New System.Windows.Forms.ToolStripButton()
+        Me.btnRename = New System.Windows.Forms.ToolStripButton()
+        Me.btnUpload = New System.Windows.Forms.ToolStripButton()
+        Me.btnDownload = New System.Windows.Forms.ToolStripButton()
+        Me.gridFile = New System.Windows.Forms.PropertyGrid()
         Me.blinkImg = New System.Windows.Forms.ImageList(Me.components)
+        Me.dlgOpen = New System.Windows.Forms.OpenFileDialog()
+        Me.dlgSave = New System.Windows.Forms.SaveFileDialog()
         Me.gridRobotMode = New UniversalRobotWinformsExample.RobotStateControl()
         Me.gridCartesian = New UniversalRobotWinformsExample.RobotStateControl()
         Me.gridForce = New UniversalRobotWinformsExample.RobotStateControl()
@@ -131,7 +155,6 @@ Partial Class MainForm
         Me.gridJointData = New UniversalRobotWinformsExample.RobotStateControl()
         Me.gridKinematicsData = New UniversalRobotWinformsExample.RobotStateControl()
         Me.licGrid = New UniversalRobotWinformsExample.RobotStateControl()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         Me.pnl.SuspendLayout()
         Me.mainTabControl.SuspendLayout()
@@ -148,13 +171,20 @@ Partial Class MainForm
         Me.GroupBox1.SuspendLayout()
         Me.TabPage4.SuspendLayout()
         CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage5.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         CType(Me.udRz, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.udRy, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.udRx, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage3.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        Me.TabPage6.SuspendLayout()
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer2.Panel1.SuspendLayout()
+        Me.SplitContainer2.Panel2.SuspendLayout()
+        Me.SplitContainer2.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
+        Me.tsFolder.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtIP
@@ -277,12 +307,12 @@ Partial Class MainForm
         'linkDoc
         '
         Me.linkDoc.AutoSize = True
-        Me.linkDoc.Location = New System.Drawing.Point(12, 105)
+        Me.linkDoc.Location = New System.Drawing.Point(9, 126)
         Me.linkDoc.Name = "linkDoc"
-        Me.linkDoc.Size = New System.Drawing.Size(111, 13)
+        Me.linkDoc.Size = New System.Drawing.Size(400, 13)
         Me.linkDoc.TabIndex = 8
         Me.linkDoc.TabStop = True
-        Me.linkDoc.Text = "See documentation ..."
+        Me.linkDoc.Text = "See documentation : https://underautomation.com/universal-robots/documentation"
         '
         'txtLicense
         '
@@ -323,7 +353,8 @@ Partial Class MainForm
         Me.mainTabControl.Controls.Add(Me.tabCommands)
         Me.mainTabControl.Controls.Add(Me.TabPage4)
         Me.mainTabControl.Controls.Add(Me.TabPage5)
-        Me.mainTabControl.Controls.Add(Me.TabPage3)
+        Me.mainTabControl.Controls.Add(Me.TabPage2)
+        Me.mainTabControl.Controls.Add(Me.TabPage6)
         Me.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.mainTabControl.ImageList = Me.blinkImg
         Me.mainTabControl.Location = New System.Drawing.Point(0, 143)
@@ -783,7 +814,6 @@ Partial Class MainForm
         'TabPage4
         '
         Me.TabPage4.Controls.Add(Me.linkXmlRpcSample)
-        Me.TabPage4.Controls.Add(Me.PictureBox1)
         Me.TabPage4.Controls.Add(Me.udXmlRpcPort)
         Me.TabPage4.Controls.Add(Me.txtXmlRpcPort)
         Me.TabPage4.Controls.Add(Me.txtLocalIP)
@@ -798,6 +828,7 @@ Partial Class MainForm
         Me.TabPage4.Controls.Add(Me.Label8)
         Me.TabPage4.Controls.Add(Me.btnDisableXmlRpcServer)
         Me.TabPage4.Controls.Add(Me.btnEnableXmlRpcServer)
+        Me.TabPage4.Controls.Add(Me.PictureBox1)
         Me.TabPage4.Location = New System.Drawing.Point(4, 23)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
@@ -939,6 +970,17 @@ Partial Class MainForm
         Me.btnEnableXmlRpcServer.TabIndex = 1
         Me.btnEnableXmlRpcServer.Text = "Enable"
         Me.btnEnableXmlRpcServer.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.PictureBox1.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.xml_rpc_sample
+        Me.PictureBox1.Location = New System.Drawing.Point(33, 282)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(1300, 408)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'TabPage5
         '
@@ -1109,28 +1151,230 @@ Partial Class MainForm
         Me.txtIn.Text = "RPY"
         Me.txtIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'TabPage3
+        'TabPage2
         '
-        Me.TabPage3.Controls.Add(Me.docBrowser)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 23)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(1602, 891)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Documentation"
-        Me.TabPage3.UseVisualStyleBackColor = True
+        Me.TabPage2.Controls.Add(Me.gridSSHResult)
+        Me.TabPage2.Controls.Add(Me.Label15)
+        Me.TabPage2.Controls.Add(Me.btnSSHSend)
+        Me.TabPage2.Controls.Add(Me.btnSendShell)
+        Me.TabPage2.Controls.Add(Me.txtSSHCommand)
+        Me.TabPage2.Controls.Add(Me.txtShellCommand)
+        Me.TabPage2.Controls.Add(Me.txtShellHistory)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Size = New System.Drawing.Size(1602, 891)
+        Me.TabPage2.TabIndex = 5
+        Me.TabPage2.Text = "SSH command lines"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
-        'docBrowser
+        'gridSSHResult
         '
-        Me.docBrowser.AllowWebBrowserDrop = False
-        Me.docBrowser.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.docBrowser.IsWebBrowserContextMenuEnabled = False
-        Me.docBrowser.Location = New System.Drawing.Point(0, 0)
-        Me.docBrowser.MinimumSize = New System.Drawing.Size(20, 20)
-        Me.docBrowser.Name = "docBrowser"
-        Me.docBrowser.ScriptErrorsSuppressed = True
-        Me.docBrowser.Size = New System.Drawing.Size(1602, 891)
-        Me.docBrowser.TabIndex = 0
-        Me.docBrowser.Url = New System.Uri("https://underautomation.com/documentation?e", System.UriKind.Absolute)
+        Me.gridSSHResult.HelpVisible = False
+        Me.gridSSHResult.Location = New System.Drawing.Point(856, 155)
+        Me.gridSSHResult.Name = "gridSSHResult"
+        Me.gridSSHResult.PropertySort = System.Windows.Forms.PropertySort.NoSort
+        Me.gridSSHResult.Size = New System.Drawing.Size(624, 156)
+        Me.gridSSHResult.TabIndex = 4
+        Me.gridSSHResult.ToolbarVisible = False
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
+        Me.Label15.Location = New System.Drawing.Point(22, 432)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(21, 22)
+        Me.Label15.TabIndex = 3
+        Me.Label15.Text = ">"
+        '
+        'btnSSHSend
+        '
+        Me.btnSSHSend.Location = New System.Drawing.Point(1382, 126)
+        Me.btnSSHSend.Name = "btnSSHSend"
+        Me.btnSSHSend.Size = New System.Drawing.Size(98, 23)
+        Me.btnSSHSend.TabIndex = 2
+        Me.btnSSHSend.Text = "Send"
+        Me.btnSSHSend.UseVisualStyleBackColor = True
+        '
+        'btnSendShell
+        '
+        Me.btnSendShell.Location = New System.Drawing.Point(656, 431)
+        Me.btnSendShell.Name = "btnSendShell"
+        Me.btnSendShell.Size = New System.Drawing.Size(98, 23)
+        Me.btnSendShell.TabIndex = 2
+        Me.btnSendShell.Text = "Send"
+        Me.btnSendShell.UseVisualStyleBackColor = True
+        '
+        'txtSSHCommand
+        '
+        Me.txtSSHCommand.Location = New System.Drawing.Point(856, 128)
+        Me.txtSSHCommand.Name = "txtSSHCommand"
+        Me.txtSSHCommand.Size = New System.Drawing.Size(520, 20)
+        Me.txtSSHCommand.TabIndex = 1
+        '
+        'txtShellCommand
+        '
+        Me.txtShellCommand.Location = New System.Drawing.Point(48, 433)
+        Me.txtShellCommand.Name = "txtShellCommand"
+        Me.txtShellCommand.Size = New System.Drawing.Size(602, 20)
+        Me.txtShellCommand.TabIndex = 1
+        '
+        'txtShellHistory
+        '
+        Me.txtShellHistory.BackColor = System.Drawing.Color.Black
+        Me.txtShellHistory.ForeColor = System.Drawing.Color.White
+        Me.txtShellHistory.Location = New System.Drawing.Point(21, 128)
+        Me.txtShellHistory.Name = "txtShellHistory"
+        Me.txtShellHistory.ReadOnly = True
+        Me.txtShellHistory.Size = New System.Drawing.Size(733, 299)
+        Me.txtShellHistory.TabIndex = 0
+        Me.txtShellHistory.Text = ""
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Controls.Add(Me.SplitContainer2)
+        Me.TabPage6.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(1602, 891)
+        Me.TabPage6.TabIndex = 6
+        Me.TabPage6.Text = "Secure FTP"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'SplitContainer2
+        '
+        Me.SplitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SplitContainer2.Location = New System.Drawing.Point(21, 49)
+        Me.SplitContainer2.Name = "SplitContainer2"
+        '
+        'SplitContainer2.Panel1
+        '
+        Me.SplitContainer2.Panel1.Controls.Add(Me.lstFolder)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.ToolStrip1)
+        Me.SplitContainer2.Panel1.Controls.Add(Me.tsFolder)
+        '
+        'SplitContainer2.Panel2
+        '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.gridFile)
+        Me.SplitContainer2.Size = New System.Drawing.Size(848, 425)
+        Me.SplitContainer2.SplitterDistance = 588
+        Me.SplitContainer2.TabIndex = 1
+        '
+        'lstFolder
+        '
+        Me.lstFolder.Activation = System.Windows.Forms.ItemActivation.TwoClick
+        Me.lstFolder.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lstFolder.HideSelection = False
+        Me.lstFolder.LabelEdit = True
+        Me.lstFolder.LargeImageList = Me.lstFolderImageList
+        Me.lstFolder.Location = New System.Drawing.Point(0, 50)
+        Me.lstFolder.Name = "lstFolder"
+        Me.lstFolder.Size = New System.Drawing.Size(584, 371)
+        Me.lstFolder.TabIndex = 1
+        Me.lstFolder.UseCompatibleStateImageBehavior = False
+        '
+        'lstFolderImageList
+        '
+        Me.lstFolderImageList.ImageStream = CType(resources.GetObject("lstFolderImageList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.lstFolderImageList.TransparentColor = System.Drawing.Color.Transparent
+        Me.lstFolderImageList.Images.SetKeyName(0, "folder")
+        Me.lstFolderImageList.Images.SetKeyName(1, "file")
+        Me.lstFolderImageList.Images.SetKeyName(2, "symbolicLink")
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnPrevious, Me.txtPath, Me.btnOpenPath})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 25)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(584, 25)
+        Me.ToolStrip1.TabIndex = 2
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'btnPrevious
+        '
+        Me.btnPrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnPrevious.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.arrow_up_line
+        Me.btnPrevious.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnPrevious.Name = "btnPrevious"
+        Me.btnPrevious.Size = New System.Drawing.Size(23, 22)
+        Me.btnPrevious.Text = "Parent folder"
+        '
+        'txtPath
+        '
+        Me.txtPath.Name = "txtPath"
+        Me.txtPath.Size = New System.Drawing.Size(400, 25)
+        '
+        'btnOpenPath
+        '
+        Me.btnOpenPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnOpenPath.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.arrow_right_line
+        Me.btnOpenPath.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnOpenPath.Name = "btnOpenPath"
+        Me.btnOpenPath.Size = New System.Drawing.Size(23, 22)
+        Me.btnOpenPath.Text = "Open"
+        '
+        'tsFolder
+        '
+        Me.tsFolder.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnRefresh, Me.btnDelete, Me.btnRename, Me.btnUpload, Me.btnDownload})
+        Me.tsFolder.Location = New System.Drawing.Point(0, 0)
+        Me.tsFolder.Name = "tsFolder"
+        Me.tsFolder.Size = New System.Drawing.Size(584, 25)
+        Me.tsFolder.TabIndex = 0
+        Me.tsFolder.Text = "ToolStrip1"
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnRefresh.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.refresh_line
+        Me.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(23, 22)
+        Me.btnRefresh.Text = "Refresh"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnDelete.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.delete_bin_5_line
+        Me.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(23, 22)
+        Me.btnDelete.Text = "Delete"
+        '
+        'btnRename
+        '
+        Me.btnRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnRename.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.file_edit_line
+        Me.btnRename.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnRename.Name = "btnRename"
+        Me.btnRename.Size = New System.Drawing.Size(23, 22)
+        Me.btnRename.Text = "Rename"
+        '
+        'btnUpload
+        '
+        Me.btnUpload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnUpload.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.upload_2_line
+        Me.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnUpload.Name = "btnUpload"
+        Me.btnUpload.Size = New System.Drawing.Size(23, 22)
+        Me.btnUpload.Text = "Upload file"
+        '
+        'btnDownload
+        '
+        Me.btnDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.btnDownload.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.download_2_line
+        Me.btnDownload.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btnDownload.Name = "btnDownload"
+        Me.btnDownload.Size = New System.Drawing.Size(23, 22)
+        Me.btnDownload.Text = "Download File"
+        '
+        'gridFile
+        '
+        Me.gridFile.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.gridFile.HelpVisible = False
+        Me.gridFile.Location = New System.Drawing.Point(0, 0)
+        Me.gridFile.Name = "gridFile"
+        Me.gridFile.Size = New System.Drawing.Size(252, 421)
+        Me.gridFile.TabIndex = 0
+        Me.gridFile.ToolbarVisible = False
         '
         'blinkImg
         '
@@ -1138,6 +1382,16 @@ Partial Class MainForm
         Me.blinkImg.TransparentColor = System.Drawing.Color.Transparent
         Me.blinkImg.Images.SetKeyName(0, "ua.ico")
         Me.blinkImg.Images.SetKeyName(1, "empty.png")
+        '
+        'dlgOpen
+        '
+        Me.dlgOpen.Filter = "All files|*.*"
+        Me.dlgOpen.Title = "Select file to upload"
+        '
+        'dlgSave
+        '
+        Me.dlgSave.Filter = "All files|*.*"
+        Me.dlgSave.Title = "Download file"
         '
         'gridRobotMode
         '
@@ -1235,17 +1489,6 @@ Partial Class MainForm
         Me.licGrid.Size = New System.Drawing.Size(272, 120)
         Me.licGrid.TabIndex = 7
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox1.Image = Global.UniversalRobotWinformsExample.My.Resources.Resources.xml_rpc_sample
-        Me.PictureBox1.Location = New System.Drawing.Point(33, 282)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(1300, 408)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.PictureBox1.TabIndex = 8
-        Me.PictureBox1.TabStop = False
-        '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -1255,7 +1498,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.Panel1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MainForm"
-        Me.Text = "Universal Robots API example - UnderAutomation"
+        Me.Text = "Universal Robots Communication SDK - UnderAutomation (Sample)"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
@@ -1277,14 +1520,25 @@ Partial Class MainForm
         Me.TabPage4.ResumeLayout(False)
         Me.TabPage4.PerformLayout()
         CType(Me.udXmlRpcPort, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage5.ResumeLayout(False)
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         CType(Me.udRz, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.udRy, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.udRx, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage3.ResumeLayout(False)
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        Me.TabPage6.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.ResumeLayout(False)
+        Me.SplitContainer2.Panel1.PerformLayout()
+        Me.SplitContainer2.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer2.ResumeLayout(False)
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
+        Me.tsFolder.ResumeLayout(False)
+        Me.tsFolder.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1357,8 +1611,6 @@ Partial Class MainForm
     Friend WithEvents btnSetOperationalMode As Button
     Friend WithEvents btnClearOIperationalMode As Button
     Friend WithEvents btnGetOperationalMode As Button
-    Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents docBrowser As WebBrowser
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -1398,4 +1650,29 @@ Partial Class MainForm
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents blinkImg As ImageList
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TabPage6 As TabPage
+    Friend WithEvents Label15 As Label
+    Friend WithEvents btnSendShell As Button
+    Friend WithEvents txtShellCommand As TextBox
+    Friend WithEvents txtShellHistory As RichTextBox
+    Friend WithEvents btnSSHSend As Button
+    Friend WithEvents txtSSHCommand As TextBox
+    Friend WithEvents gridSSHResult As PropertyGrid
+    Friend WithEvents SplitContainer2 As SplitContainer
+    Friend WithEvents tsFolder As ToolStrip
+    Friend WithEvents gridFile As PropertyGrid
+    Friend WithEvents lstFolder As ListView
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents btnPrevious As ToolStripButton
+    Friend WithEvents txtPath As ToolStripTextBox
+    Friend WithEvents btnOpenPath As ToolStripButton
+    Friend WithEvents lstFolderImageList As ImageList
+    Friend WithEvents btnRefresh As ToolStripButton
+    Friend WithEvents btnDelete As ToolStripButton
+    Friend WithEvents btnRename As ToolStripButton
+    Friend WithEvents btnUpload As ToolStripButton
+    Friend WithEvents btnDownload As ToolStripButton
+    Friend WithEvents dlgOpen As OpenFileDialog
+    Friend WithEvents dlgSave As SaveFileDialog
 End Class

@@ -202,6 +202,16 @@
     <None Include="Resources\xml_rpc_sample.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\upload-2-line.png" />
+    <None Include="Resources\file-edit-line.png" />
+    <None Include="Resources\delete-bin-5-line.png" />
+    <None Include="Resources\download-2-line.png" />
+    <None Include="Resources\refresh-line.png" />
+    <None Include="Resources\folder-shared-line.png" />
+    <None Include="Resources\folder-line.png" />
+    <None Include="Resources\file-line.png" />
+    <None Include="Resources\arrow-up-line.png" />
+    <None Include="Resources\arrow-right-line.png" />
     <Content Include="Resources\ua.ico" />
   </ItemGroup>
   <Choose>

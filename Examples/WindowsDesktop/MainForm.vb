@@ -5,8 +5,16 @@ Imports UnderAutomation.UniversalRobots
 Imports System.Linq
 Imports System.Text.RegularExpressions
 Imports System.Threading
+Imports UnderAutomation.UniversalRobots.SSH.Common
+Imports System.ComponentModel
 
 Public Class MainForm
+
+    Shared Sub New()
+        TypeDescriptor.AddAttributes(GetType(SSH.SshCommand), New ReadOnlyAttribute(True))
+        TypeDescriptor.AddAttributes(GetType(SSH.Sftp.SftpFile), New ReadOnlyAttribute(True))
+    End Sub
+
 
     ' instance of the UR connection
     Private WithEvents _ur As New UR()
@@ -86,6 +94,11 @@ Public Class MainForm
             ' get IP of the local network interface connected to the robot
             txtLocalIP.Text = _ur.DataStreamingLocalEndPoint.Address.ToString()
             udXmlRpcPort.Value = 50000
+
+            _shell = _ur.SSH?.CreateShellStream("UnderAutomation demo", 40, 100, 40, 100, 1000)
+
+            InitializeFtp()
+
         Catch ex As Exception
             HandleEx(ex)
         End Try
@@ -115,7 +128,7 @@ Public Class MainForm
 
     Private Sub linkDoc_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkDoc.LinkClicked
         Try
-            Process.Start("https://underautomation.github.io/documentation?f")
+            Process.Start("https://underautomation.com/universal-robots/documentation?f")
         Catch
         End Try
     End Sub
@@ -599,6 +612,243 @@ Public Class MainForm
     End Sub
 
 
+
 #End Region
+
+
+#Region "SSH"
+    Private WithEvents _shell As SSH.ShellStream
+
+    Private Sub _shell_DataReceived(sender As Object, e As ShellDataEventArgs) Handles _shell.DataReceived
+        If txtShellHistory.InvokeRequired Then
+            txtShellHistory.Invoke(Sub() shell_DataReceived(e))
+        Else
+            shell_DataReceived(e)
+        End If
+    End Sub
+
+    ''' Display received SSH data
+    Private Sub shell_DataReceived(e As ShellDataEventArgs)
+        Dim rawData = Encoding.UTF8.GetString(e.Data)
+
+        ' remove ANSI data from answer (for example color infos)
+        Dim data = Regex.Replace(rawData, "(\x9B|\x1B\[)[0-?]*[ -\/]*[@-~]", "")
+
+        txtShellHistory.AppendText(data)
+
+        txtShellHistory.ScrollToCaret()
+    End Sub
+
+    Private Sub _shell_ErrorOccurred(sender As Object, e As ExceptionEventArgs) Handles _shell.ErrorOccurred
+        If txtShellHistory.InvokeRequired Then
+            txtShellHistory.Invoke(Sub() shell_ErrorOccurred(e.Exception.Message))
+        Else
+            shell_ErrorOccurred(e.Exception.Message)
+        End If
+    End Sub
+
+    Private Sub shell_ErrorOccurred(message As String)
+        txtShellHistory.AppendText(vbNewLine & vbNewLine & " --- ERROR ---" & vbNewLine & message & vbNewLine & vbNewLine)
+    End Sub
+
+    ' Send command line in shell
+    Private Sub btnSendShell_Click(sender As Object, e As EventArgs) Handles btnSendShell.Click, txtShellCommand.KeyDown
+        If TypeOf e Is KeyEventArgs AndAlso CType(e, KeyEventArgs).KeyCode <> Keys.Enter Then Return
+
+        If String.IsNullOrEmpty(txtShellCommand.Text) Then Return
+
+        _shell.WriteLine(txtShellCommand.Text)
+
+        txtShellCommand.Text = ""
+    End Sub
+
+    Private Sub btnSSHSend_Click(sender As Object, e As EventArgs) Handles btnSSHSend.Click, txtSSHCommand.KeyDown
+        If TypeOf e Is KeyEventArgs AndAlso CType(e, KeyEventArgs).KeyCode <> Keys.Enter Then Return
+
+        If String.IsNullOrEmpty(txtSSHCommand.Text) Then Return
+
+
+        Dim command = _ur.SSH.CreateCommand(txtSSHCommand.Text)
+
+        command.Execute()
+
+        gridSSHResult.SelectedObject = command
+    End Sub
+
+#End Region
+
+
+#Region "SFTP"
+
+    Public Sub InitializeFtp()
+        FillList("/")
+    End Sub
+
+    Private Sub FillList(path As String)
+        lstFolder.Items.Clear()
+
+
+        If Not _ur.SftpEnabled Then
+            Return
+        End If
+
+        Try
+            path = path.Replace("\", "/")
+            If Not path.EndsWith("/") Then path = path & "/"
+
+            txtPath.Text = path
+
+            Dim files = _ur.SFTP.ListDirectory(path)
+
+            For Each file In files
+
+                ' do not display special folders
+                If file.Name = "." OrElse file.Name = ".." Then Continue For
+
+                Dim itm = lstFolder.Items.Add(file.Name)
+
+                itm.Tag = file
+
+                If file.IsDirectory Then
+                    itm.ImageKey = "folder"
+                ElseIf file.IsSymbolicLink Then
+                    itm.ImageKey = "symbolicLink"
+                Else
+                    itm.ImageKey = "file"
+                End If
+            Next
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+
+    End Sub
+
+
+    Private Sub lstFolder_ItemActivate(sender As Object, e As EventArgs) Handles lstFolder.ItemActivate
+        Dim file = TryCast(lstFolder.SelectedItems?.OfType(Of ListViewItem)?.FirstOrDefault?.Tag, SSH.Sftp.SftpFile)
+
+        If file Is Nothing OrElse (Not file.IsDirectory AndAlso Not file.IsSymbolicLink) Then Return
+
+        FillList(file.FullName)
+    End Sub
+
+    Private Sub lstFolder_ItemSelectionChanged(sender As Object, e As ListViewItemSelectionChangedEventArgs) Handles lstFolder.ItemSelectionChanged
+        gridFile.SelectedObject = e.Item?.Tag
+    End Sub
+    Private Sub lstFolder_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstFolder.SelectedIndexChanged
+        If lstFolder.SelectedItems.Count = 0 Then gridFile.SelectedObject = Nothing
+    End Sub
+
+    Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click
+        Dim p = GetPath().TrimEnd("/"c)
+        If p = "" Then Return
+        FillList(Path.GetDirectoryName(p))
+    End Sub
+
+    Private Sub btnOpenPath_Click(sender As Object, e As EventArgs) Handles btnOpenPath.Click, btnRefresh.Click, txtPath.KeyDown
+        If TypeOf e Is KeyEventArgs AndAlso CType(e, KeyEventArgs).KeyCode <> Keys.Enter Then Return
+        ReloadList()
+    End Sub
+
+    Private Sub ReloadList()
+        FillList(GetPath())
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If Not _ur.SftpEnabled Then Return
+
+        Try
+            For Each itm In lstFolder.SelectedItems.OfType(Of ListViewItem)
+                Dim file = TryCast(itm.Tag, SSH.Sftp.SftpFile)
+
+                If file Is Nothing Then Return
+
+                _ur.SFTP.Delete(file.FullName)
+                Thread.Sleep(500)
+                ReloadList()
+            Next
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+
+    Private Sub btnRename_Click(sender As Object, e As EventArgs) Handles btnRename.Click
+        Try
+            lstFolder.SelectedItems?.OfType(Of ListViewItem)?.FirstOrDefault?.BeginEdit()
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+
+    Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+        If Not _ur.SftpEnabled Then Return
+
+        Try
+            If dlgOpen.ShowDialog() <> DialogResult.OK Then Return
+
+
+            Using selectedFile = File.OpenRead(dlgOpen.FileName)
+                _ur.SFTP.UploadFile(selectedFile, GetPath() & Path.GetFileName(dlgOpen.FileName).Replace("\", "/"))
+            End Using
+
+            Thread.Sleep(500)
+            ReloadList()
+            SelectFile(Path.GetFileName(dlgOpen.FileName))
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+    End Sub
+
+    Private Function GetPath() As String
+        If Not txtPath.Text.EndsWith("/") Then Return txtPath.Text & "/"
+        Return txtPath.Text
+    End Function
+
+    Private Sub SelectFile(name As String)
+        Dim itm = lstFolder.Items.OfType(Of ListViewItem).FirstOrDefault(Function(x) String.Equals(x.Text, name, StringComparison.InvariantCultureIgnoreCase))
+        If itm IsNot Nothing Then itm.Selected = True
+    End Sub
+
+    Private Sub btnDownload_Click(sender As Object, e As EventArgs) Handles btnDownload.Click
+        If Not _ur.SftpEnabled Then Return
+        Try
+            Dim file = TryCast(lstFolder.SelectedItems.OfType(Of ListViewItem)?.FirstOrDefault?.Tag, SSH.Sftp.SftpFile)
+
+            If file Is Nothing Then Return
+
+            dlgSave.FileName = Path.GetFileName(file.FullName).Replace("\", "/")
+
+            If dlgSave.ShowDialog() <> DialogResult.OK Then Return
+
+            Using selectedFile = IO.File.Open(dlgSave.FileName, FileMode.OpenOrCreate)
+                _ur.SFTP.DownloadFile(file.FullName, selectedFile)
+            End Using
+        Catch ex As Exception
+            HandleEx(ex)
+        End Try
+
+    End Sub
+
+    Private Sub lstFolder_AfterLabelEdit(sender As Object, e As LabelEditEventArgs) Handles lstFolder.AfterLabelEdit
+        If Not _ur.SftpEnabled Then Return
+
+        Try
+            Dim file = TryCast(lstFolder.Items(e.Item).Tag, SSH.Sftp.SftpFile)
+
+            If file Is Nothing Then Return
+
+            _ur.SFTP.RenameFile(file.FullName, Path.GetDirectoryName(file.FullName).Replace("\", "/") & "/" & e.Label)
+
+            Thread.Sleep(500)
+            ReloadList()
+            SelectFile(e.Label)
+        Catch ex As Exception
+            e.CancelEdit = True
+            HandleEx(ex)
+        End Try
+    End Sub
+
+#End Region
+
 
 End Class
