@@ -2,7 +2,9 @@
 
 # Universal Robots communication SDK
 
-This SDK (Software Development Kit) provides the ability to create customized applications that can communicate with every UR robots.
+Quickly create applications that communicate with an [Universal Robots](https://www.universal-robots.com) industrial robot.
+
+SDK : Software Development Kit
 
 More information : [https://underautomation.com](https://underautomation.com)
 
