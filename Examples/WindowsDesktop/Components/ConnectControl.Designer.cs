@@ -96,7 +96,7 @@ partial class ConnectControl
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(57, 231);
+            this.label2.Location = new System.Drawing.Point(52, 231);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 0;
@@ -113,7 +113,7 @@ partial class ConnectControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(184, 231);
+            this.label3.Location = new System.Drawing.Point(179, 231);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 0;
@@ -160,7 +160,7 @@ partial class ConnectControl
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 124);
+            this.label4.Location = new System.Drawing.Point(31, 124);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 0;
@@ -183,9 +183,9 @@ partial class ConnectControl
             this.lblConnected.AutoSize = true;
             this.lblConnected.Location = new System.Drawing.Point(57, 299);
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(35, 13);
+            this.lblConnected.Size = new System.Drawing.Size(43, 13);
             this.lblConnected.TabIndex = 5;
-            this.lblConnected.Text = "label5";
+            this.lblConnected.Text = "______";
             // 
             // ConnectControl
             // 

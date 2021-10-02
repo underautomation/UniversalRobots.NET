@@ -52,6 +52,6 @@ public partial class XmlRpcControl : UserControl, IUserControl
     private void linkXmlRpcSample_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         var samplePath = Path.Combine(Path.Combine(Path.GetDirectoryName(typeof(MainForm).Assembly.Location), "Samples"), "xml_rpc_sample.urp");
-        Process.Start("explorer.exe", $"/select,\"{samplePath}\"");
+       Explorer.RevealFile(samplePath);
     }
 }

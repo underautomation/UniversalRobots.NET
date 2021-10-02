@@ -133,6 +133,8 @@
       <DependentUpon>XmlRpcPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Config.cs" />
+    <Compile Include="Helpers\Explorer.cs" />
+    <Compile Include="Helpers\ScreenshotsGenerator.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

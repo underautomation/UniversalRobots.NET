@@ -33,19 +33,19 @@
             this.lstFolder = new System.Windows.Forms.ListView();
             this.lstFolderImageList = new System.Windows.Forms.ImageList(this.components);
             this.ToolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.txtPath = new System.Windows.Forms.ToolStripTextBox();
-            this.tsFolder = new System.Windows.Forms.ToolStrip();
-            this.gridFile = new System.Windows.Forms.PropertyGrid();
-            this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
-            this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.btnPrevious = new System.Windows.Forms.ToolStripButton();
+            this.txtPath = new System.Windows.Forms.ToolStripTextBox();
             this.btnOpenPath = new System.Windows.Forms.ToolStripButton();
+            this.tsFolder = new System.Windows.Forms.ToolStrip();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.btnDownload = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.btnRename = new System.Windows.Forms.ToolStripButton();
             this.btnUpload = new System.Windows.Forms.ToolStripButton();
             this.btnNewFolder = new System.Windows.Forms.ToolStripButton();
+            this.gridFile = new System.Windows.Forms.PropertyGrid();
+            this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
+            this.dlgSave = new System.Windows.Forms.SaveFileDialog();
             this.SplitContainer2.Panel1.SuspendLayout();
             this.SplitContainer2.Panel2.SuspendLayout();
             this.SplitContainer2.SuspendLayout();
@@ -110,12 +110,32 @@
             this.ToolStrip1.TabIndex = 2;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
+            // btnPrevious
+            // 
+            this.btnPrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPrevious.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.arrow_up_line;
+            this.btnPrevious.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(23, 22);
+            this.btnPrevious.Text = "Parent folder";
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
             // txtPath
             // 
             this.txtPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(400, 25);
             this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnOpenPath_Click);
+            // 
+            // btnOpenPath
+            // 
+            this.btnOpenPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnOpenPath.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.arrow_right_line;
+            this.btnOpenPath.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOpenPath.Name = "btnOpenPath";
+            this.btnOpenPath.Size = new System.Drawing.Size(23, 22);
+            this.btnOpenPath.Text = "Open";
+            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // tsFolder
             // 
@@ -131,46 +151,6 @@
             this.tsFolder.Size = new System.Drawing.Size(482, 25);
             this.tsFolder.TabIndex = 0;
             this.tsFolder.Text = "ToolStrip1";
-            // 
-            // gridFile
-            // 
-            this.gridFile.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridFile.HelpVisible = false;
-            this.gridFile.Location = new System.Drawing.Point(0, 0);
-            this.gridFile.Name = "gridFile";
-            this.gridFile.Size = new System.Drawing.Size(207, 658);
-            this.gridFile.TabIndex = 0;
-            this.gridFile.ToolbarVisible = false;
-            // 
-            // dlgOpen
-            // 
-            this.dlgOpen.Filter = "All files|*.*";
-            this.dlgOpen.Title = "Select file to upload";
-            // 
-            // dlgSave
-            // 
-            this.dlgSave.Filter = "All files|*.*";
-            this.dlgSave.Title = "Download file";
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPrevious.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.arrow_up_line;
-            this.btnPrevious.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(23, 22);
-            this.btnPrevious.Text = "Parent folder";
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
-            // btnOpenPath
-            // 
-            this.btnOpenPath.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnOpenPath.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.arrow_right_line;
-            this.btnOpenPath.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpenPath.Name = "btnOpenPath";
-            this.btnOpenPath.Size = new System.Drawing.Size(23, 22);
-            this.btnOpenPath.Text = "Open";
-            this.btnOpenPath.Click += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // btnRefresh
             // 
@@ -231,6 +211,27 @@
             this.btnNewFolder.Size = new System.Drawing.Size(23, 22);
             this.btnNewFolder.Text = "New folder";
             this.btnNewFolder.Click += new System.EventHandler(this.btnNewFolder_Click);
+            // 
+            // gridFile
+            // 
+            this.gridFile.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridFile.HelpVisible = false;
+            this.gridFile.Location = new System.Drawing.Point(0, 0);
+            this.gridFile.Name = "gridFile";
+            this.gridFile.Size = new System.Drawing.Size(207, 658);
+            this.gridFile.TabIndex = 0;
+            this.gridFile.ToolbarVisible = false;
+            // 
+            // dlgOpen
+            // 
+            this.dlgOpen.Filter = "All files|*.*";
+            this.dlgOpen.Title = "Select file to upload";
+            // 
+            // dlgSave
+            // 
+            this.dlgSave.Filter = "All files|*.*";
+            this.dlgSave.RestoreDirectory = true;
+            this.dlgSave.Title = "Download file";
             // 
             // SftpControl
             // 

@@ -73,7 +73,7 @@ public partial class MainForm : Form
     }
 
     // Open right control associated to a node
-    private void SelectNode(TreeNode node)
+    internal void SelectNode(TreeNode node)
     {
         mainPanel.SuspendLayout();
 
@@ -143,5 +143,10 @@ public partial class MainForm : Form
             }
         }
         catch { }
+    }
+
+    private void titlePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
+    {
+        ScreenshotsGenerator.Generate(this);
     }
 }

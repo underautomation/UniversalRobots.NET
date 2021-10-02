@@ -192,6 +192,8 @@ public partial class SftpControl : UserControl, IUserControl
         {
             _ur.SFTP.DownloadFile(file.FullName, selectedFile);
         }
+
+        Explorer.RevealFile(dlgSave.FileName);
     }
 
     // Perform renaming or directory creation
