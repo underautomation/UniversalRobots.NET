@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
 
@@ -33,8 +34,11 @@ public partial class ConnectControl : UserControl, IUserControl
 
     public void PeriodicUpdate()
     {
-        btnDisconnect.Enabled = FeatureEnabled;
-        btnConnect.Text = btnDisconnect.Enabled ? "Reconnect" : "Connect";
+        var connected = FeatureEnabled;
+        btnDisconnect.Enabled = connected;
+        btnConnect.Text = connected ? "Reconnect" : "Connect";
+        lblConnected.Text = connected ? "Connected" : "Disconnected";
+        lblConnected.ForeColor = connected ? Color.Green : Color.Red;
     }
     #endregion
 

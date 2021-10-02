@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
@@ -119,7 +120,7 @@ public partial class MainForm : Form
 
         try
         {
-            // Refresh left menu icons
+            // Refresh left menu icons and colors
             foreach (TreeNode node in leftTreeView.Nodes)
             {
                 try
@@ -127,12 +128,15 @@ public partial class MainForm : Form
                     var ctrl = node?.Tag as IUserControl;
                     if (ctrl == null) continue;
 
-                    var key = ctrl.FeatureEnabled ? "ON" : "OFF";
+                    var enabled = ctrl.FeatureEnabled;
+
+                    var key = enabled ? "ON" : "OFF";
 
                     if (key != node.ImageKey)
                     {
                         node.ImageKey = key;
                         node.SelectedImageKey = key;
+                        node.ForeColor = enabled ? Color.Green : Color.DarkGray;
                     }
                 }
                 catch { }

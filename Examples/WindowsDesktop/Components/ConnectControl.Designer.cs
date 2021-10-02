@@ -41,6 +41,7 @@ partial class ConnectControl
             this.chkXmlRpc = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.udXmlRpcPort = new System.Windows.Forms.NumericUpDown();
+            this.lblConnected = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,10 +178,20 @@ partial class ConnectControl
             this.udXmlRpcPort.Size = new System.Drawing.Size(67, 20);
             this.udXmlRpcPort.TabIndex = 4;
             // 
+            // lblConnected
+            // 
+            this.lblConnected.AutoSize = true;
+            this.lblConnected.Location = new System.Drawing.Point(57, 299);
+            this.lblConnected.Name = "lblConnected";
+            this.lblConnected.Size = new System.Drawing.Size(35, 13);
+            this.lblConnected.TabIndex = 5;
+            this.lblConnected.Text = "label5";
+            // 
             // ConnectControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblConnected);
             this.Controls.Add(this.udXmlRpcPort);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
@@ -219,4 +230,5 @@ partial class ConnectControl
     private System.Windows.Forms.CheckBox chkXmlRpc;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.NumericUpDown udXmlRpcPort;
+    private System.Windows.Forms.Label lblConnected;
 }
