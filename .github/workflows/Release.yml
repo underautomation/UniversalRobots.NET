@@ -29,10 +29,46 @@ jobs:
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-arm /p:Configuration=Release /p:OutDir=bin/linux-arm
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-x64 /p:Configuration=Release /p:OutDir=bin/linux-x64
         rm $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\obj -r -fo
-    - name: zip example
-      run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_UnderAutomation.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
+    - name: zip libraries
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Libraries\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK.zip *
+    - name: zip full examples
+      run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_Full.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
+     - name: zip desktop example
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\bin\Release\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_DesktopExample.zip *
+   - name: zip win-x86
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-x86\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-x86.zip *
+    - name: zip win-x64
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-x64\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-x64.zip *
+    - name: zip win-arm
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-arm\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-arm.zip *
+    - name: zip osx-64
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\osx-64\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_osx-64.zip *
+    - name: zip linux-arm
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\linux-arm\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_linux-arm.zip *
+    - name: zip linux-x64
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\linux-x64\"
+        7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_linux-x64.zip *
+    - name: zip LABView example
+      run: 7z a -tzip -mx=9 UniversalRobotsSDK_LABView.zip Examples\LabVIEW\ Libraries\net35\
+    - name: zip Python example
+      run: 7z a -tzip -mx=9 UniversalRobotsSDK_Python.zip Examples\Python\ Libraries\net35\
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "UniversalRobotsSDK_UnderAutomation.zip"
+        artifacts: "UniversalRobotsSDK_Full.zip,UniversalRobotsSDK_ConsoleExample_win-x86.zip,UniversalRobotsSDK_ConsoleExample_win-x64.zip,UniversalRobotsSDK_ConsoleExample_win-arm.zip,UniversalRobotsSDK_ConsoleExample_osx-64.zip,UniversalRobotsSDK_ConsoleExample_linux-arm.zip,UniversalRobotsSDK_ConsoleExample_linux-x64.zip"
         bodyFile: "whatsNew.md"
         token: ${{ secrets.GITHUB_TOKEN }}

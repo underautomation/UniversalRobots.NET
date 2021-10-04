@@ -6,7 +6,7 @@ import time
 import os
 
 # Reference to DLL (ensure it is not locked : right click / Properties / Unlock / OK)
-clr.AddReference(r'..\..\Libraries\net40\UnderAutomation.UniversalRobots')
+clr.AddReference(r'..\..\Libraries\net35\UnderAutomation.UniversalRobots')
 
 from UnderAutomation.UniversalRobots import UR
 
