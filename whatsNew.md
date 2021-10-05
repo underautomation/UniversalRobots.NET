@@ -1,3 +1,4 @@
 - Add SSH support : file manipulation and transfer + Remote Linux command execution
 - Fix pose conversion issue
-sqdfqsdf
+- Add IP readonly property to UR class
+- Add DescriptionAttribute on all Primary Interface package members
