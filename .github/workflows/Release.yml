@@ -35,11 +35,11 @@ jobs:
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK.zip *
     - name: zip full examples
       run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_Full.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
-     - name: zip desktop example
+    - name: zip desktop example
       run: |
         cd "$Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\bin\Release\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_DesktopExample.zip *
-   - name: zip win-x86
+    - name: zip win-x86
       run: |
         cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-x86\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-x86.zip *
