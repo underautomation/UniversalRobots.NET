@@ -69,6 +69,6 @@ jobs:
       run: 7z a -tzip -mx=9 UniversalRobotsSDK_Python.zip Examples\Python\ Libraries\net35\
     - uses: ncipollo/release-action@v1
       with:
-        artifacts: "UniversalRobotsSDK_Full.zip,UniversalRobotsSDK_ConsoleExample_win-x86.zip,UniversalRobotsSDK_ConsoleExample_win-x64.zip,UniversalRobotsSDK_ConsoleExample_win-arm.zip,UniversalRobotsSDK_ConsoleExample_osx-64.zip,UniversalRobotsSDK_ConsoleExample_linux-arm.zip,UniversalRobotsSDK_ConsoleExample_linux-x64.zip"
+        artifacts: "UniversalRobotsSDK_Full.zip,UniversalRobotsSDK_ConsoleExample_win-x86.zip,UniversalRobotsSDK_ConsoleExample_win-x64.zip,UniversalRobotsSDK_ConsoleExample_win-arm.zip,UniversalRobotsSDK_ConsoleExample_osx-64.zip,UniversalRobotsSDK_ConsoleExample_linux-arm.zip,UniversalRobotsSDK_ConsoleExample_linux-x64.zip,UniversalRobotsSDK_LABView.zip,UniversalRobotsSDK_Python.zip,UniversalRobotsSDK_DesktopExample.zip"
         bodyFile: "whatsNew.md"
         token: ${{ secrets.GITHUB_TOKEN }}
