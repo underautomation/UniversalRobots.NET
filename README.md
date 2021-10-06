@@ -1,4 +1,4 @@
-[![UnderAutomation Universal Robots communication SDK](https://underautomation.com/cover.png)](https://underautomation.com)
+[![UnderAutomation Universal Robots communication SDK](https://user-images.githubusercontent.com/47540360/136141853-1ec87530-d88e-467f-adb4-ec3c46d26010.png)](https://underautomation.com)
 
 # Universal Robots communication SDK
 
