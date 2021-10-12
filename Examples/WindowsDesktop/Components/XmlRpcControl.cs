@@ -27,7 +27,7 @@ public partial class XmlRpcControl : UserControl, IUserControl
         {
             var dlg = new XmlRpcPopup(request, waitHandle);
 
-            dlg.ShowDialog();
+            dlg.ShowDialog(this);
         }));
 
         // Wait dialog to close

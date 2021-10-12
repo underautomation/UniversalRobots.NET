@@ -9,6 +9,8 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
     {
         _ur = ur;
         InitializeComponent();
+
+        txtScript.Text = Config.Current.URScript ?? "movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)";
     }
 
     #region IUserControl
@@ -47,8 +49,9 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
 
     private void btnSendScript_Click(object sender, System.EventArgs e)
     {
-        if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
-
         _ur.Send(txtScript.Text);
+
+        Config.Current.URScript = txtScript.Text;
+        Config.Save();
     }
 }

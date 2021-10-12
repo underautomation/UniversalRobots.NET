@@ -171,11 +171,10 @@
             // txtScript
             // 
             this.txtScript.Location = new System.Drawing.Point(6, 16);
+            this.txtScript.Multiline = true;
             this.txtScript.Name = "txtScript";
-            this.txtScript.Size = new System.Drawing.Size(566, 20);
+            this.txtScript.Size = new System.Drawing.Size(566, 41);
             this.txtScript.TabIndex = 1;
-            this.txtScript.Text = "movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)";
-            this.txtScript.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnSendScript_Click);
             // 
             // label2
             // 
@@ -193,9 +192,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 13);
+            this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Send a line of URScript :";
+            this.label1.Text = "Send URScript :";
             // 
             // panel2
             // 

@@ -57,6 +57,7 @@ public class Config
     public string AddToLog { get; set; }
     public string LoadInstallation { get; set; }
     public string SftpPath { get; set; }
+    public string URScript { get; set; }
     #endregion
 }
 
