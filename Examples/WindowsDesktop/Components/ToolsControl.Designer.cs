@@ -194,7 +194,7 @@
             // 
             this.Label6.Location = new System.Drawing.Point(11, 147);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(63, 13);
+            this.Label6.Size = new System.Drawing.Size(55, 13);
             this.Label6.TabIndex = 1;
             this.Label6.Text = "RZ (rad) :";
             this.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,7 +213,7 @@
             // 
             this.Label5.Location = new System.Drawing.Point(11, 121);
             this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(63, 13);
+            this.Label5.Size = new System.Drawing.Size(55, 13);
             this.Label5.TabIndex = 1;
             this.Label5.Text = "RY (rad) :";
             this.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -222,7 +222,7 @@
             // 
             this.Label4.Location = new System.Drawing.Point(11, 95);
             this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(63, 13);
+            this.Label4.Size = new System.Drawing.Size(55, 13);
             this.Label4.TabIndex = 1;
             this.Label4.Text = "RX (rad) :";
             this.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

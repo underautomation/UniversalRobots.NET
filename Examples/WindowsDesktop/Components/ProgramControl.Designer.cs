@@ -32,6 +32,8 @@ partial class ProgramControl
             this.columnHeaderType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstVariables
@@ -42,9 +44,9 @@ partial class ProgramControl
             this.columnHeaderValue});
             this.lstVariables.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstVariables.HideSelection = false;
-            this.lstVariables.Location = new System.Drawing.Point(0, 119);
+            this.lstVariables.Location = new System.Drawing.Point(0, 39);
             this.lstVariables.Name = "lstVariables";
-            this.lstVariables.Size = new System.Drawing.Size(660, 357);
+            this.lstVariables.Size = new System.Drawing.Size(660, 437);
             this.lstVariables.TabIndex = 0;
             this.lstVariables.UseCompatibleStateImageBehavior = false;
             this.lstVariables.View = System.Windows.Forms.View.Details;
@@ -66,11 +68,22 @@ partial class ProgramControl
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(660, 119);
+            this.panel1.Size = new System.Drawing.Size(660, 39);
             this.panel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(140, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "List of all program variables :";
             // 
             // ProgramControl
             // 
@@ -80,6 +93,8 @@ partial class ProgramControl
             this.Controls.Add(this.panel1);
             this.Name = "ProgramControl";
             this.Size = new System.Drawing.Size(660, 476);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -91,4 +106,5 @@ partial class ProgramControl
     private System.Windows.Forms.ColumnHeader columnHeaderType;
     private System.Windows.Forms.ColumnHeader columnHeaderValue;
     private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Label label1;
 }
