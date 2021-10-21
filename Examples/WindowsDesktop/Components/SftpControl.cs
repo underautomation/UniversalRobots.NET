@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.SSH.Common;
+using UnderAutomation.UniversalRobots.SSH.Sftp;
 
 public partial class SftpControl : UserControl, IUserControl
 {
@@ -37,7 +39,15 @@ public partial class SftpControl : UserControl, IUserControl
 
     public void OnOpen()
     {
-        InitializeFtp();
+        try
+        {
+            InitializeFtp();
+        }
+        catch(SftpPathNotFoundException)
+        {
+            Config.Current.SftpPath = "/";
+            InitializeFtp();
+        }
     }
     #endregion
 
@@ -49,6 +59,7 @@ public partial class SftpControl : UserControl, IUserControl
     // Display directory content in the list view
     private void FillList(string path)
     {
+        gridFile.SelectedObject = null;
         lstFolder.Items.Clear();
 
         if (!_ur.SftpEnabled) return;
@@ -128,7 +139,7 @@ public partial class SftpControl : UserControl, IUserControl
 
         foreach (var itm in lstFolder.SelectedItems.OfType<ListViewItem>())
         {
-            var file = itm.Tag as UnderAutomation.UniversalRobots.SSH.Sftp.SftpFile;
+            var file = itm.Tag as SftpFile;
 
             if (file == null) return;
 
@@ -227,12 +238,30 @@ public partial class SftpControl : UserControl, IUserControl
         }
     }
 
-    // Create new directory
+
     private void btnNewFolder_Click(object sender, EventArgs e)
     {
-        foreach (ListViewItem item in lstFolder.Items) item.Selected = false;
-        var itm = lstFolder.Items.Add("new directory");
-        itm.ImageKey = "folder";
-        itm.BeginEdit();
+        if (!_ur.SftpEnabled) return;
+        lstFolder.Items.Add("new directory", "folder").BeginEdit();
     }
+
+    private void btnDecompile_Click(object sender, EventArgs e)
+    {
+        var file = lstFolder.SelectedItems?.OfType<ListViewItem>()?.FirstOrDefault()?.Tag as SftpFile;
+
+        if (file is null) return;
+
+        MainForm.Decompile(file.FullName);
+    }
+
+    private void gridFile_SelectedObjectsChanged(object sender, EventArgs e)
+    {
+        var selected = gridFile.SelectedObject as SftpFile;
+
+        btnDownload.Enabled = selected is object && selected.IsRegularFile;
+        btnRename.Enabled = selected is object;
+        btnDelete.Enabled = selected is object;
+        btnDecompile.Enabled = selected is object && selected.IsRegularFile && (selected.Name.EndsWith(URProgram.EXTENSION, StringComparison.InvariantCultureIgnoreCase) || selected.Name.EndsWith(URInstallation.EXTENSION, StringComparison.InvariantCultureIgnoreCase));
+    }
+
 }

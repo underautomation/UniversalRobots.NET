@@ -102,6 +102,12 @@
     <Compile Include="Components\PrimaryInterfacePackageControl.Designer.cs">
       <DependentUpon>PrimaryInterfacePackageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\ArchiveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ArchiveControl.Designer.cs">
+      <DependentUpon>ArchiveControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SftpControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     <EmbeddedResource Include="Components\PrimaryInterfacePackageControl.resx">
       <DependentUpon>PrimaryInterfacePackageControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\ArchiveControl.resx">
+      <DependentUpon>ArchiveControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\SftpControl.resx">
       <DependentUpon>SftpControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -205,6 +214,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\all instructions.urp" />
+    <None Include="Resources\program.urp" />
     <None Include="Samples\xml_rpc_sample.urp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -260,6 +271,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools-line.png" />
   </ItemGroup>
   <Choose>
     <When Condition="$(SolutionName.EndsWith(`Dev`))">

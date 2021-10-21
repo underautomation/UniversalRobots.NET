@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
 using System.Linq;
 using System;
+using System.Collections.Generic;
 
 public partial class ProgramControl : UserControl, IUserControl
 {
@@ -17,6 +18,7 @@ public partial class ProgramControl : UserControl, IUserControl
         // prevent list view from flickering
         var method = typeof(Control).GetMethod("SetStyle", BindingFlags.Instance | BindingFlags.NonPublic);
         method.Invoke(lstVariables, new object[] { ControlStyles.OptimizedDoubleBuffer, true });
+        method.Invoke(lstThreads, new object[] { ControlStyles.OptimizedDoubleBuffer, true });
     }
 
     #region IUserControl
@@ -28,38 +30,52 @@ public partial class ProgramControl : UserControl, IUserControl
     {
         var variables = _ur.GlobalVariables.GetAll();
 
+        UpdateList(lstVariables, variables, v => v.Name, v => v.Type.ToString(), v => v.ToString());
+
+        var threads = _ur.ProgramThreads?.Threads;
+
+        if(threads is object)
+            UpdateList(lstThreads, threads, t => t.LineNumber.ToString(), t => t.LineName);
+    }
+
+    /// <summary>
+    /// Update list view
+    /// </summary>
+    /// <param name="list">ListView to update</param>
+    /// <param name="values">Items to add to the list</param>
+    /// <param name="decoders">Lambda that transforms item to column string value</param>
+    private void UpdateList<T>(ListView list, IEnumerable<T> values, params Func<T, string>[] decoders)
+    {
         try
         {
-            lstVariables.BeginUpdate();
+            list.BeginUpdate();
 
-            for (int i = 0; i < variables.Length; i++)
+            for (int i = 0; i < values.Count(); i++)
             {
-                var variable = variables[i];
+                var variable = values.ElementAt(i);
 
-                if (i < lstVariables.Items.Count)
+                if (i < list.Items.Count)
                 {
                     // Replace item
-                    lstVariables.Items[i].SubItems[0].Text = variable.Name;
-                    lstVariables.Items[i].SubItems[1].Text = variable.Type.ToString();
-                    lstVariables.Items[i].SubItems[2].Text = variable.ToString();
+                    for (int c = 0; c < decoders.Length; c++) list.Items[i].SubItems[c].Text = decoders[c](variable);
                 }
                 else
                 {
                     // add new items
-                    lstVariables.Items.Add(new ListViewItem(new[] { variable.Name, variable.Type.ToString(), variable.ToString() }));
+                    list.Items.Add(new ListViewItem(decoders.Select(decoder => decoder(variable)).ToArray()));
                 }
             }
 
-            var itemCount = lstVariables.Items.Count;
-            for (int i= variables.Length;i< itemCount; i++)
+            var itemCount = list.Items.Count;
+            for (int i = values.Count(); i < itemCount; i++)
             {
                 // remove last items
-                lstVariables.Items.RemoveAt(lstVariables.Items.Count - 1);
+                list.Items.RemoveAt(list.Items.Count - 1);
             }
         }
         finally
         {
-            lstVariables.EndUpdate();
+            list.EndUpdate();
         }
     }
 
@@ -67,19 +83,32 @@ public partial class ProgramControl : UserControl, IUserControl
     public void OnOpen()
     {
         cbPrograms.Items.Clear();
+        lblPathToPrograms.Text = "";
 
         if (!_ur.SftpEnabled || string.IsNullOrEmpty(_ur.IP)) return;
 
         var loadedPrograms = _ur.GetLoadedProgram();
-        var splitedPath = loadedPrograms.Value.Split(new string[] { "programs/" }, System.StringSplitOptions.RemoveEmptyEntries);
-        var pathToPrograms = $"{splitedPath[0]}programs";
+        var splitedPath = loadedPrograms.Value?.Split(new string[] { "programs/" }, System.StringSplitOptions.RemoveEmptyEntries);
+        var pathToPrograms = splitedPath is null ? loadedPrograms.Message : $"{splitedPath[0]}programs";
 
-        var items = _ur.SFTP.ListDirectory(pathToPrograms);
+        lblPathToPrograms.Text = pathToPrograms;
 
-        var programs = items.Where(x => x.Name.EndsWith(".urp", StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Name).ToArray();
+        if (splitedPath is object)
+        {
+            try
+            {
+                var items = _ur.SFTP.ListDirectory(pathToPrograms);
 
-        cbPrograms.Items.AddRange(programs);
-        if (splitedPath.Length > 0) cbPrograms.Text = splitedPath[1];
+                var programs = items.Where(x => x.Name.EndsWith(".urp", StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Name).ToArray();
+
+                cbPrograms.Items.AddRange(programs);
+                if (splitedPath.Length > 0) cbPrograms.Text = splitedPath[1];
+            }
+            catch(Exception e)
+            {
+                lblPathToPrograms.Text = $"{lblPathToPrograms.Text} ({e.Message})";
+            }
+        }
     }
     #endregion
 

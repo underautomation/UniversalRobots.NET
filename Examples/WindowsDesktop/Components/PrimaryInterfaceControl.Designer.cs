@@ -49,6 +49,7 @@
             this.gridConfiguration = new PrimaryInterfacePackageControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gridMasterboard = new PrimaryInterfacePackageControl();
+            this.gridVersion = new PrimaryInterfacePackageControl();
             this.pnl.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,6 +69,7 @@
             this.pnl.Controls.Add(this.gridTool);
             this.pnl.Controls.Add(this.gridToolModeInfo);
             this.pnl.Controls.Add(this.gridAdditionnalInfo);
+            this.pnl.Controls.Add(this.gridVersion);
             this.pnl.Controls.Add(this.gridRobotMode);
             this.pnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -294,6 +296,16 @@
             this.gridMasterboard.Size = new System.Drawing.Size(294, 556);
             this.gridMasterboard.TabIndex = 8;
             // 
+            // gridVersion
+            // 
+            this.gridVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.gridVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridVersion.LabelText = "Version";
+            this.gridVersion.Location = new System.Drawing.Point(209, 374);
+            this.gridVersion.Name = "gridVersion";
+            this.gridVersion.Size = new System.Drawing.Size(200, 91);
+            this.gridVersion.TabIndex = 5;
+            // 
             // PrimaryInterfaceControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,4 +353,5 @@
     private PrimaryInterfacePackageControl gridConfiguration;
     private System.Windows.Forms.Panel panel3;
     private PrimaryInterfacePackageControl gridMasterboard;
+    private PrimaryInterfacePackageControl gridVersion;
 }

@@ -9,9 +9,13 @@ public partial class MainForm : Form
     // UR instance that handles connection to the robot
     private readonly UR _ur = new UR();
 
+    private static MainForm Instance;
+
     #region Initialisation
     public MainForm()
     {
+        Instance = this;
+
         // Catch all unhandled exceptions
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         Application.ThreadException += Application_ThreadException;
@@ -30,10 +34,10 @@ public partial class MainForm : Form
         AddNode(new SftpControl(_ur));
         AddNode(new SshControl(_ur));
         AddNode(new ToolsControl());
+        AddNode(new ArchiveControl(_ur));
         AddNode(new LicenseControl());
 
         // Select first node at startup
-        leftTreeView.SelectedNode = leftTreeView.Nodes[0];
         SelectNode(leftTreeView.Nodes[0]);
     }
 
@@ -76,6 +80,10 @@ public partial class MainForm : Form
     // Open right control associated to a node
     internal void SelectNode(TreeNode node)
     {
+        if (leftTreeView.SelectedNode != node) leftTreeView.SelectedNode = node;
+
+        if (node is null) return;
+
         mainPanel.SuspendLayout();
 
         mainPanel.Controls.OfType<IUserControl>().FirstOrDefault()?.OnClose();
@@ -149,5 +157,13 @@ public partial class MainForm : Form
     private void titlePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
     {
         ScreenshotsGenerator.Generate(this);
+    }
+
+    public static void Decompile(string fullName)
+    {
+        var node = Instance.leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is ArchiveControl);
+        var control = node.Tag as ArchiveControl;
+        Instance.SelectNode(node);
+        control?.Decompile(fullName);
     }
 }

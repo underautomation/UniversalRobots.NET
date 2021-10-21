@@ -43,6 +43,7 @@
             this.btnRename = new System.Windows.Forms.ToolStripButton();
             this.btnUpload = new System.Windows.Forms.ToolStripButton();
             this.btnNewFolder = new System.Windows.Forms.ToolStripButton();
+            this.btnDecompile = new System.Windows.Forms.ToolStripButton();
             this.gridFile = new System.Windows.Forms.PropertyGrid();
             this.dlgOpen = new System.Windows.Forms.OpenFileDialog();
             this.dlgSave = new System.Windows.Forms.SaveFileDialog();
@@ -70,7 +71,7 @@
             // 
             this.SplitContainer2.Panel2.Controls.Add(this.gridFile);
             this.SplitContainer2.Size = new System.Drawing.Size(701, 662);
-            this.SplitContainer2.SplitterDistance = 486;
+            this.SplitContainer2.SplitterDistance = 620;
             this.SplitContainer2.TabIndex = 2;
             // 
             // lstFolder
@@ -82,7 +83,7 @@
             this.lstFolder.LargeImageList = this.lstFolderImageList;
             this.lstFolder.Location = new System.Drawing.Point(0, 50);
             this.lstFolder.Name = "lstFolder";
-            this.lstFolder.Size = new System.Drawing.Size(482, 608);
+            this.lstFolder.Size = new System.Drawing.Size(616, 608);
             this.lstFolder.TabIndex = 1;
             this.lstFolder.UseCompatibleStateImageBehavior = false;
             this.lstFolder.AfterLabelEdit += new System.Windows.Forms.LabelEditEventHandler(this.lstFolder_AfterLabelEdit);
@@ -106,7 +107,7 @@
             this.btnOpenPath});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 25);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(482, 25);
+            this.ToolStrip1.Size = new System.Drawing.Size(616, 25);
             this.ToolStrip1.TabIndex = 2;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -122,7 +123,6 @@
             // 
             // txtPath
             // 
-            this.txtPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(400, 25);
             this.txtPath.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btnOpenPath_Click);
@@ -145,72 +145,77 @@
             this.btnDelete,
             this.btnRename,
             this.btnUpload,
-            this.btnNewFolder});
+            this.btnNewFolder,
+            this.btnDecompile});
             this.tsFolder.Location = new System.Drawing.Point(0, 0);
             this.tsFolder.Name = "tsFolder";
-            this.tsFolder.Size = new System.Drawing.Size(482, 25);
+            this.tsFolder.Size = new System.Drawing.Size(616, 25);
             this.tsFolder.TabIndex = 0;
             this.tsFolder.Text = "ToolStrip1";
             // 
             // btnRefresh
             // 
-            this.btnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnRefresh.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.refresh_line;
             this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(23, 22);
+            this.btnRefresh.Size = new System.Drawing.Size(66, 22);
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.Click += new System.EventHandler(this.btnOpenPath_Click);
             // 
             // btnDownload
             // 
-            this.btnDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnDownload.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.save_3_fill;
             this.btnDownload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(23, 22);
+            this.btnDownload.Size = new System.Drawing.Size(102, 22);
             this.btnDownload.Text = "Download File";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnDelete.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.delete_bin_5_line;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(23, 22);
+            this.btnDelete.Size = new System.Drawing.Size(60, 22);
             this.btnDelete.Text = "Delete";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnRename
             // 
-            this.btnRename.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnRename.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.file_edit_line;
             this.btnRename.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnRename.Name = "btnRename";
-            this.btnRename.Size = new System.Drawing.Size(23, 22);
+            this.btnRename.Size = new System.Drawing.Size(70, 22);
             this.btnRename.Text = "Rename";
             this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
             // 
             // btnUpload
             // 
-            this.btnUpload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnUpload.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.upload_2_line;
             this.btnUpload.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnUpload.Name = "btnUpload";
-            this.btnUpload.Size = new System.Drawing.Size(23, 22);
+            this.btnUpload.Size = new System.Drawing.Size(84, 22);
             this.btnUpload.Text = "Upload file";
             this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
             // 
             // btnNewFolder
             // 
-            this.btnNewFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnNewFolder.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.folder_add_line;
             this.btnNewFolder.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNewFolder.Name = "btnNewFolder";
-            this.btnNewFolder.Size = new System.Drawing.Size(23, 22);
+            this.btnNewFolder.Size = new System.Drawing.Size(85, 22);
             this.btnNewFolder.Text = "New folder";
             this.btnNewFolder.Click += new System.EventHandler(this.btnNewFolder_Click);
+            // 
+            // btnDecompile
+            // 
+            this.btnDecompile.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.tools_line;
+            this.btnDecompile.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDecompile.Name = "btnDecompile";
+            this.btnDecompile.Size = new System.Drawing.Size(84, 22);
+            this.btnDecompile.Text = "Decompile";
+            this.btnDecompile.ToolTipText = "Decompile program (*.urp) or installation (*.installation)";
+            this.btnDecompile.Click += new System.EventHandler(this.btnDecompile_Click);
             // 
             // gridFile
             // 
@@ -218,9 +223,10 @@
             this.gridFile.HelpVisible = false;
             this.gridFile.Location = new System.Drawing.Point(0, 0);
             this.gridFile.Name = "gridFile";
-            this.gridFile.Size = new System.Drawing.Size(207, 658);
+            this.gridFile.Size = new System.Drawing.Size(73, 658);
             this.gridFile.TabIndex = 0;
             this.gridFile.ToolbarVisible = false;
+            this.gridFile.SelectedObjectsChanged += new System.EventHandler(this.gridFile_SelectedObjectsChanged);
             // 
             // dlgOpen
             // 
@@ -270,5 +276,6 @@
     internal System.Windows.Forms.OpenFileDialog dlgOpen;
     internal System.Windows.Forms.SaveFileDialog dlgSave;
     internal System.Windows.Forms.ImageList lstFolderImageList;
+    internal System.Windows.Forms.ToolStripButton btnDecompile;
     internal System.Windows.Forms.ToolStripButton btnNewFolder;
 }

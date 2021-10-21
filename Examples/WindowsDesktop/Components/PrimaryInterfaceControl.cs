@@ -35,6 +35,7 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
         gridTool.SetSelectedObject(_ur.ToolData);
         gridToolModeInfo.SetSelectedObject(_ur.ToolModeInfo);
         gridKinematicsData.SetSelectedObject(_ur.KinematicsInfo);
+        gridVersion.SetSelectedObject(_ur.Version);
     }
 
     public void OnOpen()

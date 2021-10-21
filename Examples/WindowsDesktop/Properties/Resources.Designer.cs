@@ -151,6 +151,16 @@ namespace UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties {
         }
         
         /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        internal static byte[] program {
+            get {
+                object obj = ResourceManager.GetObject("program", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap refresh_line {
@@ -166,6 +176,16 @@ namespace UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties {
         internal static System.Drawing.Bitmap save_3_fill {
             get {
                 object obj = ResourceManager.GetObject("save-3-fill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tools_line {
+            get {
+                object obj = ResourceManager.GetObject("tools-line", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
