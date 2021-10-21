@@ -4,6 +4,12 @@
         <name>UnderAutomation.UniversalRobots</name>
     </assembly>
     <members>
+        <member name="T:UnderAutomation.UniversalRobots.CommandResponse`1">
+            <summary>
+            Answer return by a command which contains a value
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="F:UnderAutomation.UniversalRobots.CommandResponse`1.Value">
             <summary>
             Value return by the command
@@ -32,6 +38,11 @@
         <member name="M:UnderAutomation.UniversalRobots.CommandResponse.ToString">
             <summary>
             A human readable answer
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.OperationalModes">
+            <summary>
+            Enumerates all robot operational modes
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.OperationalModes.Manual">
@@ -107,6 +118,11 @@
         <member name="F:UnderAutomation.UniversalRobots.ProgramSaveState.Name">
             <summary>
             Name of the loaded program
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.ProgramState">
+            <summary>
+            Describes a program state (its running state and its name)
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.ProgramState.State">
@@ -346,6 +362,11 @@
             Tool mode information (Raised every 100ms)
             </summary>
         </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.SingularityInfoReceived">
+            <summary>
+            Singularity information (Raised every 100ms)
+            </summary>
+        </member>
         <member name="E:UnderAutomation.UniversalRobots.UR.PackageReceived">
             <summary>
             Generic event raised each time a package is received
@@ -413,7 +434,17 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.ToolModeInfo">
             <summary>
-            Last tool mode infotmation received
+            Last tool mode information received
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.SingularityInfo">
+            <summary>
+            Last singularity information information received
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.GlobalVariables">
+            <summary>
+            List of all variabels in current robot program
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.UR.EnableDataStreaming(UnderAutomation.UniversalRobots.DataStreamingPorts)">
@@ -591,6 +622,11 @@
             <param name="sender">The UR instance that raised this event</param>
             <param name="request">Content of the request</param>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs">
+            <summary>
+            Additional information
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs.FreedriveButtonPressed">
             <summary>
             The free drive button is pressed
@@ -604,6 +640,11 @@
         <member name="P:UnderAutomation.UniversalRobots.AdditionalInfoPackageEventArgs.IOEnabledFreedrive">
             <summary>
             Free drive is enable via IO
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs">
+            <summary>
+            Calibration data
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Fx">
@@ -634,6 +675,11 @@
         <member name="P:UnderAutomation.UniversalRobots.CalibrationDataPackageEventArgs.Frz">
             <summary>
             Frz calibration data
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs">
+            <summary>
+            Contains current cartesian position of the robot, including its TCP offset
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.X">
@@ -694,6 +740,11 @@
         <member name="P:UnderAutomation.UniversalRobots.CartesianInfoPackageEventArgs.TCPOffsetRZ">
             <summary>
             RZ position of the TCP in the flange frame in rad
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs">
+            <summary>
+            Joint configuration
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.ConfigurationDataPackageEventArgs.VJointDefault">
@@ -1051,6 +1102,11 @@
             Push / Pull
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs">
+            <summary>
+            Force mode data
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.X">
             <summary>
             X force in tool frame in N
@@ -1084,6 +1140,147 @@
         <member name="P:UnderAutomation.UniversalRobots.ForceModeDataPackageEventArgs.RobotDexterity">
             <summary>
             Dexterity of the robot
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariables">
+            <summary>
+            List of all global variables
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.GetAll">
+            <summary>
+            Returns a list of all variables declared in the robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.GetByName(System.String)">
+            <summary>
+            Get a variable by its name. Null is returned if the bariable doesn't exist
+            </summary>
+            <param name="name">Variable name, not case sensitive</param>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.GlobalVariables.ValuesUpdated">
+            <summary>
+            Event raised at 10Hz when variable values are updated
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.GlobalVariables.ListUpdated">
+            <summary>
+            Event raised whan the variable list changed. For example, after a program starts
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariableValue">
+            <summary>
+            Describes a typed variable value
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariableValue.Type">
+            <summary>
+            Type of a variable
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariableValue.Value">
+            <summary>
+            Value of the variable
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToString">
+            <summary>
+            Returns a string that describes the variable, regardless of its type
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToList">
+            <summary>
+            Returns an array of GlobalVariableValue if Type is List. Else, null is returned
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToPose">
+            <summary>
+            Returns a Pose if Type is Pose. Else, null is returned
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToBool">
+            <summary>
+            Returns variable value if type is Bool. Il type is Float or Int, it returns True if value is not 0. Else, it returns false
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToInt">
+            <summary>
+            Returns variable value if type is Int. Il type is Float, it tries to cast it to int. If Type is bool, it returns 1 or 0. Else it returns 0
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToFloat">
+            <summary>
+            Returns variable value if type is Float. Il type is int, it casts it to float. If Type is bool, it returns 1 or 0. Else it returns NaN
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariable">
+            <summary>
+            Describes a global variable
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariable.Name">
+            <summary>
+            Variable name
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariable.Time">
+            <summary>
+            Last time the variable was sampled
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariableTypes">
+            <summary>
+            Possible types of a variable
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.None">
+            <summary>
+            Variable value is null, the value has not been assigned yet
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.String">
+            <summary>
+            Variable value is a System.String
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.List">
+            <summary>
+            Variable value is an array : GlobalVariableValue[]
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.Pose">
+            <summary>
+            Variable value is a UnderAutomation.UniversalRobots.Pose
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.Bool">
+            <summary>
+            Variable value is bool
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.Int">
+            <summary>
+            Variable value is int
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.Float">
+            <summary>
+            Variable value is float
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariablesEventArgs">
+            <summary>
+            Event args of variable update events
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariablesEventArgs.Variables">
+            <summary>
+            New list of all up to date variables
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.JointConfiguration">
+            <summary>
+            Joint configuration
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.JointConfiguration.JointMinLimit">
@@ -1126,6 +1323,11 @@
             Theta parameter of Denavit–Hartenberg (DH) convention 
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.JointData">
+            <summary>
+            Joint data
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.JointData.Position">
             <summary>
             Angular joint position in radian
@@ -1161,6 +1363,11 @@
             Joint mode
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.JointDataPackageEventArgs">
+            <summary>
+            Status of each joints
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.JointDataPackageEventArgs.Base">
             <summary>
             Base joint data
@@ -1191,6 +1398,11 @@
             Wrist3 (Tool) joint data
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.JointKinematicsInfo">
+            <summary>
+            Joint kinematics info, Denavit–Hartenberg (DH) parameters 
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.Checksum">
             <summary>
             Joint checksum
@@ -1214,6 +1426,11 @@
         <member name="P:UnderAutomation.UniversalRobots.JointKinematicsInfo.Dhalpha">
             <summary>
             DH convention alpha parameter
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs">
+            <summary>
+            Kinematics info
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.CalibrationStatus">
@@ -1249,6 +1466,11 @@
         <member name="P:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs.Wrist3">
             <summary>
             Wrist3 (Tool) kinematics info
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs">
+            <summary>
+            Masterboard data
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.MasterboardDataPackageEventArgs.AnalogInputRange0">
@@ -1441,6 +1663,11 @@
             A
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.PackageEventArgs">
+            <summary>
+            Base class of all received data packages
+            </summary>
+        </member>
         <member name="F:UnderAutomation.UniversalRobots.PackageEventArgs.ReceiveDate">
             <summary>
             The date the data has been received
@@ -1511,9 +1738,34 @@
             Maximum target speed fraction
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.SafetyDataPackageEventArgs">
+            <summary>
+            Safety internal data
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.SafetyDataPackageEventArgs.Data">
             <summary>
             Irrelevent (Internal use only)
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SingularityInfoPackageEventArgs">
+            <summary>
+            Singularity info
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.SingularityInfoPackageEventArgs.SingularitySeverity">
+            <summary>
+            Severity of the singularity
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.SingularityInfoPackageEventArgs.SingularityType">
+            <summary>
+            Type of the singularity
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs">
+            <summary>
+            Tool communication info
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.ToolCommunicationIsEnabled">
@@ -1544,6 +1796,11 @@
         <member name="P:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs.TxIdleChars">
             <summary>
             TX Idle Chars
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs">
+            <summary>
+            Tool data
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.ToolDataPackageEventArgs.AnalogInputRange2">
@@ -1591,6 +1848,11 @@
             Tool mode
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs">
+            <summary>
+            Tool mode info
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs.OutputMode">
             <summary>
             Digital output mode
@@ -1606,6 +1868,11 @@
             Digital output 1 configuration
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.InternalErrorEventArgs">
+            <summary>
+            Describes an internal error
+            </summary>
+        </member>
         <member name="F:UnderAutomation.UniversalRobots.InternalErrorEventArgs.Exception">
             <summary>
             The exception thrown that causes an internal error
@@ -1619,6 +1886,11 @@
         <member name="F:UnderAutomation.UniversalRobots.InternalErrorEventArgs.Status">
             <summary>
             Context status associated to this internal error
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.InternalErrorEventArgs.ToString">
+            <summary>
+            Returns exception message
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.StatusCode">
@@ -1659,6 +1931,16 @@
         <member name="F:UnderAutomation.UniversalRobots.StatusCode.XmlRpcInternalError">
             <summary>
             An error occured in the XML-RPC server
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.StatusCode.GlobalVariables">
+            <summary>
+            An error occured while decoding global variables
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Pose">
+            <summary>
+            Represents a cartesian pose with 3 translations and 3 rotations
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Pose.#ctor">
@@ -1729,6 +2011,11 @@
         <member name="M:UnderAutomation.UniversalRobots.Pose.FromRPYToRotationVector">
             <summary>
             Consider this pose as RPY And convert it to a new Rotation Vector
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Pose.ToString">
+            <summary>
+            Returns 6 comma separated coordinated with G1 format
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.SSH.Abstractions.CryptoAbstraction.GenerateRandom(System.Int32)">
