@@ -4,6 +4,1808 @@
         <name>UnderAutomation.UniversalRobots</name>
     </assembly>
     <members>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.Entries">
+            <summary>
+            Returns an ReadOnlyCollection of all the RarArchiveEntries across the one or many parts of the RarArchive.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.Volumes">
+            <summary>
+            Returns an ReadOnlyCollection of all the RarArchiveVolumes across the one or many parts of the RarArchive.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.TotalSize">
+            <summary>
+            The total size of the files compressed in the archive.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.TotalUncompressSize">
+            <summary>
+            The total size of the files as uncompressed in the archive.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.ExtractAllEntries">
+            <summary>
+            Use this method to extract all entries in an archive in order.
+            This is primarily for SOLID Rar Archives or 7Zip Archives as they need to be 
+            extracted sequentially for the best performance.
+            
+            This method will load all entry information from the archive.
+            
+            WARNING: this will reuse the underlying stream for the archive.  Errors may 
+            occur if this is used at the same time as other extraction methods on this instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.IsSolid">
+            <summary>
+            Archive is SOLID (this means the Archive saved bytes by reusing information which helps for archives containing many small files).
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.AbstractArchive`2.IsComplete">
+            <summary>
+            The archive can find all the parts of the archive needed to fully extract the archive.  This forces the parsing of the entire archive.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.GZip.GZipArchive.Open(System.String,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Constructor expects a filepath to an existing file.
+            </summary>
+            <param name="filePath"></param>
+            <param name="readerOptions"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.GZip.GZipArchive.Open(System.IO.FileInfo,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Constructor with a FileInfo object to an existing file.
+            </summary>
+            <param name="fileInfo"></param>
+            <param name="readerOptions"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.GZip.GZipArchive.Open(System.IO.Stream,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Takes a seekable Stream as a source
+            </summary>
+            <param name="stream"></param>
+            <param name="readerOptions"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.GZip.GZipArchive.#ctor(System.IO.FileInfo,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Constructor with a FileInfo object to an existing file.
+            </summary>
+            <param name="fileInfo"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.GZip.GZipArchive.#ctor(System.IO.Stream,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Takes multiple seekable Streams for a multi-part archive
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.IArchive.ExtractAllEntries">
+            <summary>
+            Use this method to extract all entries in an archive in order.
+            This is primarily for SOLID Rar Archives or 7Zip Archives as they need to be 
+            extracted sequentially for the best performance.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchive.IsSolid">
+            <summary>
+            Archive is SOLID (this means the Archive saved bytes by reusing information which helps for archives containing many small files).
+            Rar Archives can be SOLID while all 7Zip archives are considered SOLID.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchive.IsComplete">
+            <summary>
+            This checks to see if all the known entries have IsComplete = true
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchive.TotalSize">
+            <summary>
+            The total size of the files compressed in the archive.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchive.TotalUncompressSize">
+            <summary>
+            The total size of the files as uncompressed in the archive.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntry.OpenEntryStream">
+            <summary>
+            Opens the current entry as a stream that will decompress as it is read.
+            Read the entire stream or use SkipEntry on EntryStream.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntry.IsComplete">
+            <summary>
+            The archive can find all the parts of the archive needed to extract this entry.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntry.Archive">
+            <summary>
+            The archive instance this entry belongs to
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntryExtensions.WriteToDirectory(UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntry,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract to specific directory, retaining filename
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntryExtensions.WriteToFile(UnderAutomation.UniversalRobots.Compress.Archives.IArchiveEntry,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract to specific file
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Archives.IArchiveExtensions.WriteToDirectory(UnderAutomation.UniversalRobots.Compress.Archives.IArchive,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract to specific directory, retaining filename
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ArchiveEncoding.Default">
+            <summary>
+            Default encoding to use when archive format doesn't specify one.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ArchiveEncoding.Password">
+            <summary>
+            ArchiveEncoding used by encryption schemes which don't comply with RFC 2898.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ArchiveEncoding.Forced">
+            <summary>
+            Set this encoding when you want to force it for all encoding operations.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ArchiveEncoding.CustomDecoder">
+            <summary>
+            Set this when you want to use a custom method for all decoding operations.
+            </summary>
+            <returns>string Func(bytes, index, length)</returns>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.CompressedBytesReadEventArgs.CompressedBytesRead">
+            <summary>
+            Compressed bytes read for the current entry
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.CompressedBytesReadEventArgs.CurrentFilePartCompressedBytesRead">
+            <summary>
+            Current file part read for Multipart files (e.g. Rar)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.Crc">
+            <summary>
+            The File's 32 bit CRC Hash
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.Key">
+            <summary>
+            The string key of the file internal to the Archive.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.LinkTarget">
+            <summary>
+            The target of a symlink entry internal to the Archive. Will be null if not a symlink.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.CompressedSize">
+            <summary>
+            The compressed file size
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.CompressionType">
+            <summary>
+            The compression type
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.Size">
+            <summary>
+            The uncompressed file size
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.LastModifiedTime">
+            <summary>
+            The entry last modified time in the archive, if recorded
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.CreatedTime">
+            <summary>
+            The entry create time in the archive, if recorded
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.LastAccessedTime">
+            <summary>
+            The entry last accessed time in the archive, if recorded
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.ArchivedTime">
+            <summary>
+            The entry time when archived, if recorded
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.IsEncrypted">
+            <summary>
+            Entry is password protected and encrypted and cannot be extracted.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.IsDirectory">
+            <summary>
+            Entry is directory.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.IsSplitAfter">
+            <summary>
+            Entry is split among multiple volumes
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.Entry.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Entry.Attrib">
+            <summary>
+            Entry file attribute.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.EntryStream.SkipEntry">
+            <summary>
+            When reading a stream from OpenEntryStream, the stream must be completed so use this to finish reading the entire entry.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.ExtractionMethods.WriteEntryToDirectory(UnderAutomation.UniversalRobots.Compress.Common.IEntry,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions,System.Action{System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions})">
+            <summary>
+            Extract to specific directory, retaining filename
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions.Overwrite">
+            <summary>
+            overwrite target if it exists
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions.ExtractFullPath">
+            <summary>
+            extract with internal directory structure
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions.PreserveFileTime">
+            <summary>
+            preserve file time
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions.PreserveAttributes">
+            <summary>
+            preserve windows file attributes
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions.SymbolicLinkWriterDelegate">
+            <summary>
+            Delegate for writing symbolic links to disk.
+            sourcePath is where the symlink is created.
+            targetPath is what the symlink refers to.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.FilePartExtractionBeginEventArgs.Name">
+            <summary>
+            File name for the part for the current entry
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.FilePartExtractionBeginEventArgs.Size">
+            <summary>
+            Uncompressed size of the current entry in the part
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.FilePartExtractionBeginEventArgs.CompressedSize">
+            <summary>
+            Compressed size of the current entry in the part
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.HasFlag``1(System.Int64,``0)">
+            <summary>
+            Returns true if the flag is set on the specified bit field.
+            Currently only works with 32-bit bitfields. 
+            </summary>
+            <typeparam name="T">Enumeration with Flags attribute</typeparam>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to test</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.HasFlag``1(System.UInt64,``0)">
+            <summary>
+            Returns true if the flag is set on the specified bit field.
+            Currently only works with 32-bit bitfields. 
+            </summary>
+            <typeparam name="T">Enumeration with Flags attribute</typeparam>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to test</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.HasFlag(System.UInt64,System.UInt64)">
+            <summary>
+            Returns true if the flag is set on the specified bit field.
+            Currently only works with 32-bit bitfields. 
+            </summary>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to test</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.HasFlag``1(``0,``0)">
+            <summary>
+            Returns true if the flag is set on the specified bit field.
+            Currently only works with 32-bit bitfields. 
+            </summary>
+            <typeparam name="T">Enumeration with Flags attribute</typeparam>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to test</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.HasFlag(System.Int64,System.Int64)">
+            <summary>
+            Returns true if the flag is set on the specified bit field.
+            Currently only works with 32-bit bitfields. 
+            </summary>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to test</param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.SetFlag(System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Sets a bit-field to either on or off for the specified flag.
+            </summary>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to change</param>
+            <param name="on">bool</param>
+            <returns>The flagged variable with the flag changed</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Common.FlagUtility.SetFlag``1(``0,``0,System.Boolean)">
+            <summary>
+            Sets a bit-field to either on or off for the specified flag.
+            </summary>
+            <typeparam name="T">Enumeration with Flags attribute</typeparam>
+            <param name="bitField">Flagged variable</param>
+            <param name="flag">Flag to change</param>
+            <param name="on">bool</param>
+            <returns>The flagged variable with the flag changed</returns>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.OptionsBase.LeaveStreamOpen">
+            <summary>
+            SharpCompress will keep the supplied streams open.  Default is true.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Volume.IsFirstVolume">
+            <summary>
+            RarArchive is the first volume of a multi-part archive.
+            Only Rar 3.0 format and higher
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Common.Volume.IsMultiVolume">
+            <summary>
+            RarArchive is part of a multi-part archive.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32">
+            <summary>
+            Calculates a 32bit Cyclic Redundancy Checksum (CRC) using the same polynomial
+            used by Zip. This type is used internally by DotNetZip; it is generally not used
+            directly by applications wishing to create, read, or manipulate zip archive
+            files.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.TotalBytesRead">
+            <summary>
+            indicates the total number of bytes read on the CRC stream.
+            This is used when writing the ZipDirEntry when compressing files.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.Crc32Result">
+            <summary>
+            Indicates the current CRC for all blocks slurped in.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.GetCrc32(System.IO.Stream)">
+            <summary>
+            Returns the CRC32 for the specified stream.
+            </summary>
+            <param name="input">The stream over which to calculate the CRC32</param>
+            <returns>the CRC32 calculation</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.GetCrc32AndCopy(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Returns the CRC32 for the specified stream, and writes the input into the
+            output stream.
+            </summary>
+            <param name="input">The stream over which to calculate the CRC32</param>
+            <param name="output">The stream into which to deflate the input</param>
+            <returns>the CRC32 calculation</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.ComputeCrc32(System.Int32,System.Byte)">
+            <summary>
+            Get the CRC32 for the given (word,byte) combo.  This is a computation
+            defined by PKzip.
+            </summary>
+            <param name="W">The word to start with.</param>
+            <param name="B">The byte to combine it with.</param>
+            <returns>The CRC-ized result.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.SlurpBlock(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Update the value for the running CRC32 using the given block of bytes.
+            This is useful when using the CRC32() class in a Stream.
+            </summary>
+            <param name="block">block of bytes to slurp</param>
+            <param name="offset">starting point in the block</param>
+            <param name="count">how many bytes within the block to slurp</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CRC32.Combine(System.Int32,System.Int32)">
+            <summary>
+            Combines the given CRC32 value with the current running total.
+            </summary>
+            <remarks>
+            This is useful when using a divide-and-conquer approach to calculating a CRC.
+            Multiple threads can each calculate a CRC32 on a segment of the data, and then
+            combine the individual CRC32 values at the end.
+            </remarks>
+            <param name="crc">the crc value to be combined with this one</param>
+            <param name="length">the length of data the CRC value was calculated on</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateManager.Tree.DistanceCode(System.Int32)">
+            <summary>
+            Map from a distance to a distance code.
+            </summary>
+            <remarks> 
+            No side effects. _dist_code[256] and _dist_code[257] are never used.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.FlushMode">
+            <summary>
+            This property sets the flush behavior on the stream.
+            </summary>
+            <remarks> See the ZLIB documentation for the meaning of the flush behavior.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.BufferSize">
+             <summary>
+               The size of the working buffer for the compression codec.
+             </summary>
+            
+             <remarks>
+             <para>
+               The working buffer is used for all stream operations.  The default size is
+               1024 bytes.  The minimum size is 128 bytes. You may get better performance
+               with a larger buffer.  Then again, you might not.  You would have to test
+               it.
+             </para>
+            
+             <para>
+               Set this before the first call to <c>Read()</c> or <c>Write()</c> on the
+               stream. If you try to set it afterwards, it will throw.
+             </para>
+             </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Strategy">
+             <summary>
+               The ZLIB strategy to be used during compression.
+             </summary>
+            
+             <remarks>
+               By tweaking this parameter, you may be able to optimize the compression for
+               data with particular characteristics.
+             </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.TotalIn">
+            <summary> Returns the total number of bytes input so far.</summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.TotalOut">
+            <summary> Returns the total number of bytes output so far.</summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.CanRead">
+            <summary>
+            Indicates whether the stream can be read.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports reading.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.CanSeek">
+            <summary>
+            Indicates whether the stream supports Seek operations.
+            </summary>
+            <remarks>
+            Always returns false.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.CanWrite">
+            <summary>
+            Indicates whether the stream can be written.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports writing.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Length">
+            <summary>
+            Reading this property always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Position">
+             <summary>
+             The position of the stream pointer.
+             </summary>
+            
+             <remarks>
+               Setting this property always throws a <see
+               cref="T:System.NotImplementedException"/>. Reading will return the total bytes
+               written out, if used in writing, or the total bytes read in, if used in
+               reading.  The count may refer to compressed bytes or uncompressed bytes,
+               depending on how you've used the stream.
+             </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Dispose(System.Boolean)">
+            <summary>
+            Dispose the stream.
+            </summary>
+            <remarks>
+            This may or may not result in a <c>Close()</c> call on the captive stream.
+            </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Flush">
+            <summary>
+            Flush the stream.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Read(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+             Read data from the stream.
+             </summary>
+             <remarks>
+            
+             <para>
+               If you wish to use the <c>DeflateStream</c> to compress data while
+               reading, you can create a <c>DeflateStream</c> with
+               <c>CompressionMode.Compress</c>, providing an uncompressed data stream.
+               Then call Read() on that <c>DeflateStream</c>, and the data read will be
+               compressed as you read.  If you wish to use the <c>DeflateStream</c> to
+               decompress data while reading, you can create a <c>DeflateStream</c> with
+               <c>CompressionMode.Decompress</c>, providing a readable compressed data
+               stream.  Then call Read() on that <c>DeflateStream</c>, and the data read
+               will be decompressed as you read.
+             </para>
+            
+             <para>
+               A <c>DeflateStream</c> can be used for <c>Read()</c> or <c>Write()</c>, but not both.
+             </para>
+            
+             </remarks>
+             <param name="buffer">The buffer into which the read data should be placed.</param>
+             <param name="offset">the offset within that data array to put the first byte read.</param>
+             <param name="count">the number of bytes to read.</param>
+             <returns>the number of bytes actually read</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <param name="offset">this is irrelevant, since it will always throw!</param>
+            <param name="origin">this is irrelevant, since it will always throw!</param>
+            <returns>irrelevant!</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.SetLength(System.Int64)">
+            <summary>
+            Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <param name="value">this is irrelevant, since it will always throw!</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.DeflateStream.Write(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+               Write data to the stream.
+             </summary>
+             <remarks>
+            
+             <para>
+               If you wish to use the <c>DeflateStream</c> to compress data while
+               writing, you can create a <c>DeflateStream</c> with
+               <c>CompressionMode.Compress</c>, and a writable output stream.  Then call
+               <c>Write()</c> on that <c>DeflateStream</c>, providing uncompressed data
+               as input.  The data sent to the output stream will be the compressed form
+               of the data written.  If you wish to use the <c>DeflateStream</c> to
+               decompress data while writing, you can create a <c>DeflateStream</c> with
+               <c>CompressionMode.Decompress</c>, and a writable output stream.  Then
+               call <c>Write()</c> on that stream, providing previously compressed
+               data. The data sent to the output stream will be the decompressed form of
+               the data written.
+             </para>
+            
+             <para>
+               A <c>DeflateStream</c> can be used for <c>Read()</c> or <c>Write()</c>,
+               but not both.
+             </para>
+            
+             </remarks>
+            
+             <param name="buffer">The buffer holding data to write to the stream.</param>
+             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="count">the number of bytes to write.</param>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType">
+            <summary>
+            Describes how to flush the current deflate operation. 
+            </summary>
+            <remarks>
+            The different FlushType values are useful when using a Deflate in a streaming application.
+            </remarks>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType.None">
+            <summary>No flush at all.</summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType.Partial">
+            <summary>Closes the current block, but doesn't flush it to
+            the output. Used internally only in hypothetical
+            scenarios.  This was supposed to be removed by Zlib, but it is
+            still in use in some edge cases. 
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType.Sync">
+            <summary>
+            Use this during compression to specify that all pending output should be
+            flushed to the output buffer and the output should be aligned on a byte
+            boundary.  You might use this in a streaming communication scenario, so that
+            the decompressor can get all input data available so far.  When using this
+            with a ZlibCodec, <c>AvailableBytesIn</c> will be zero after the call if
+            enough output space has been provided before the call.  Flushing will
+            degrade compression and so it should be used only when necessary.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType.Full">
+            <summary>
+            Use this during compression to specify that all output should be flushed, as
+            with <c>FlushType.Sync</c>, but also, the compression state should be reset
+            so that decompression can restart from this point if previous compressed
+            data has been damaged or if random access is desired.  Using
+            <c>FlushType.Full</c> too often can significantly degrade the compression.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType.Finish">
+            <summary>Signals the end of the compression/decompression stream.</summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.CanRead">
+            <summary>
+            Indicates whether the stream can be read.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports reading.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.CanSeek">
+            <summary>
+            Indicates whether the stream supports Seek operations.
+            </summary>
+            <remarks>
+            Always returns false.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.CanWrite">
+            <summary>
+            Indicates whether the stream can be written.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports writing.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Length">
+            <summary>
+            Reading this property always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Position">
+             <summary>
+               The position of the stream pointer.
+             </summary>
+            
+             <remarks>
+               Setting this property always throws a <see
+               cref="T:System.NotImplementedException"/>. Reading will return the total bytes
+               written out, if used in writing, or the total bytes read in, if used in
+               reading.  The count may refer to compressed bytes or uncompressed bytes,
+               depending on how you've used the stream.
+             </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Dispose(System.Boolean)">
+            <summary>
+            Dispose the stream.
+            </summary>
+            <remarks>
+            This may or may not result in a <c>Close()</c> call on the captive stream.
+            </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Flush">
+            <summary>
+            Flush the stream.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Read(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+               Read and decompress data from the source stream.
+             </summary>
+            
+             <remarks>
+               With a <c>GZipStream</c>, decompression is done through reading.
+             </remarks>
+            
+             <example>
+             <code>
+             byte[] working = new byte[WORKING_BUFFER_SIZE];
+             using (System.IO.Stream input = System.IO.File.OpenRead(_CompressedFile))
+             {
+                 using (Stream decompressor= new Ionic.Zlib.GZipStream(input, CompressionMode.Decompress, true))
+                 {
+                     using (var output = System.IO.File.Create(_DecompressedFile))
+                     {
+                         int n;
+                         while ((n= decompressor.Read(working, 0, working.Length)) !=0)
+                         {
+                             output.Write(working, 0, n);
+                         }
+                     }
+                 }
+             }
+             </code>
+             </example>
+             <param name="buffer">The buffer into which the decompressed data should be placed.</param>
+             <param name="offset">the offset within that data array to put the first byte read.</param>
+             <param name="count">the number of bytes to read.</param>
+             <returns>the number of bytes actually read</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+              Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <param name="offset">irrelevant; it will always throw!</param>
+            <param name="origin">irrelevant; it will always throw!</param>
+            <returns>irrelevant!</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.SetLength(System.Int64)">
+            <summary>
+              Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <param name="value">irrelevant; this method will always throw!</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.GZipStream.Write(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+               Write data to the stream.
+             </summary>
+            
+             <remarks>
+             <para>
+               If you wish to use the <c>GZipStream</c> to compress data while writing,
+               you can create a <c>GZipStream</c> with <c>CompressionMode.Compress</c>, and a
+               writable output stream.  Then call <c>Write()</c> on that <c>GZipStream</c>,
+               providing uncompressed data as input.  The data sent to the output stream
+               will be the compressed form of the data written.
+             </para>
+            
+             <para>
+               A <c>GZipStream</c> can be used for <c>Read()</c> or <c>Write()</c>, but not
+               both. Writing implies compression.  Reading implies decompression.
+             </para>
+            
+             </remarks>
+             <param name="buffer">The buffer holding data to write to the stream.</param>
+             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="count">the number of bytes to write.</param>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel">
+            <summary>
+            The compression level to be used when using a DeflateStream or ZlibStream with CompressionMode.Compress.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.None">
+            <summary>
+            None means that the data will be simply stored, with no change at all.
+            If you are producing ZIPs for use on Mac OSX, be aware that archives produced with CompressionLevel.None
+            cannot be opened with the default zip reader. Use a different CompressionLevel.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level0">
+            <summary>
+            Same as None.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.BestSpeed">
+            <summary>
+            The fastest but least effective compression.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level1">
+            <summary>
+            A synonym for BestSpeed.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level2">
+            <summary>
+            A little slower, but better, than level 1.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level3">
+            <summary>
+            A little slower, but better, than level 2.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level4">
+            <summary>
+            A little slower, but better, than level 3.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level5">
+            <summary>
+            A little slower than level 4, but with better compression.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Default">
+            <summary>
+            The default compression level, with a good balance of speed and compression efficiency.   
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level6">
+            <summary>
+            A synonym for Default.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level7">
+            <summary>
+            Pretty good compression!
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level8">
+            <summary>
+             Better compression than Level7!
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.BestCompression">
+            <summary>
+            The "best" compression, where best means greatest reduction in size of the input data stream. 
+            This is also the slowest compression.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel.Level9">
+            <summary>
+            A synonym for BestCompression.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionStrategy">
+            <summary>
+            Describes options for how the compression algorithm is executed.  Different strategies
+            work better on different sorts of data.  The strategy parameter can affect the compression
+            ratio and the speed of compression but not the correctness of the compresssion.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionStrategy.Default">
+            <summary>
+            The default strategy is probably the best for normal data. 
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionStrategy.Filtered">
+            <summary>
+            The <c>Filtered</c> strategy is intended to be used most effectively with data produced by a
+            filter or predictor.  By this definition, filtered data consists mostly of small
+            values with a somewhat random distribution.  In this case, the compression algorithm
+            is tuned to compress them better.  The effect of <c>Filtered</c> is to force more Huffman
+            coding and less string matching; it is a half-step between <c>Default</c> and <c>HuffmanOnly</c>.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionStrategy.HuffmanOnly">
+            <summary>
+            Using <c>HuffmanOnly</c> will force the compressor to do Huffman encoding only, with no
+            string matching.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibException">
+            <summary>
+            A general purpose exception class for exceptions in the Zlib library.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibException.#ctor">
+            <summary>
+            The ZlibException class captures exception information generated
+            by the Zlib library. 
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibException.#ctor(System.String)">
+            <summary>
+            This ctor collects a message attached to the exception.
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.SharedUtils.URShift(System.Int32,System.Int32)">
+            <summary>
+            Performs an unsigned bitwise right shift with the specified number
+            </summary>
+            <param name="number">Number to operate on</param>
+            <param name="bits">Ammount of bits to shift</param>
+            <returns>The resulting number from the shift operation</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.SharedUtils.ReadInput(System.IO.TextReader,System.Byte[],System.Int32,System.Int32)">
+             <summary>
+               Reads a number of characters from the current source TextReader and writes
+               the data to the target array at the specified index.
+             </summary>
+            
+             <param name="sourceTextReader">The source TextReader to read from</param>
+             <param name="target">Contains the array of characteres read from the source TextReader.</param>
+             <param name="start">The starting index of the target array.</param>
+             <param name="count">The maximum number of characters to read from the source TextReader.</param>
+             
+             <returns>
+               The number of characters read. The number will be less than or equal to
+               count depending on the data available in the source TextReader. Returns -1
+               if the end of the stream is reached.
+             </returns>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.Adler">
+            <summary>
+            Computes an Adler-32 checksum. 
+            </summary>
+            <remarks>
+            The Adler checksum is similar to a CRC checksum, but faster to compute, though less
+            reliable.  It is used in producing RFC1950 compressed streams.  The Adler checksum
+            is a required part of the "ZLIB" standard.  Applications will almost never need to
+            use this class directly.
+            </remarks>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec">
+             <summary>
+             Encoder and Decoder for ZLIB and DEFLATE (IETF RFC1950 and RFC1951).
+             </summary>
+            
+             <remarks>
+             This class compresses and decompresses data according to the Deflate algorithm
+             and optionally, the ZLIB format, as documented in <see
+             href="http://www.ietf.org/rfc/rfc1950.txt">RFC 1950 - ZLIB</see> and <see
+             href="http://www.ietf.org/rfc/rfc1951.txt">RFC 1951 - DEFLATE</see>.
+             </remarks>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InputBuffer">
+            <summary>
+            The buffer from which data is taken.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.NextIn">
+            <summary>
+            An index into the InputBuffer array, indicating where to start reading. 
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.AvailableBytesIn">
+            <summary>
+            The number of bytes available in the InputBuffer, starting at NextIn. 
+            </summary>
+            <remarks>
+            Generally you should set this to InputBuffer.Length before the first Inflate() or Deflate() call. 
+            The class will update this number as calls to Inflate/Deflate are made.
+            </remarks>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.TotalBytesIn">
+            <summary>
+            Total number of bytes read so far, through all calls to Inflate()/Deflate().
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.OutputBuffer">
+            <summary>
+            Buffer to store output data.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.NextOut">
+            <summary>
+            An index into the OutputBuffer array, indicating where to start writing. 
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.AvailableBytesOut">
+            <summary>
+            The number of bytes available in the OutputBuffer, starting at NextOut. 
+            </summary>
+            <remarks>
+            Generally you should set this to OutputBuffer.Length before the first Inflate() or Deflate() call. 
+            The class will update this number as calls to Inflate/Deflate are made.
+            </remarks>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.TotalBytesOut">
+            <summary>
+            Total number of bytes written to the output so far, through all calls to Inflate()/Deflate().
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.Message">
+            <summary>
+            used for diagnostics, when something goes wrong!
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.CompressLevel">
+            <summary>
+            The compression level to use in this codec.  Useful only in compression mode.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.WindowBits">
+            <summary>
+            The number of Window Bits to use.  
+            </summary>
+            <remarks>
+            This gauges the size of the sliding window, and hence the 
+            compression effectiveness as well as memory consumption. It's best to just leave this 
+            setting alone if you don't know what it is.  The maximum value is 15 bits, which implies
+            a 32k window.  
+            </remarks>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.Strategy">
+            <summary>
+            The compression strategy to use.
+            </summary>
+            <remarks>
+            This is only effective in compression.  The theory offered by ZLIB is that different
+            strategies could potentially produce significant differences in compression behavior
+            for different data sets.  Unfortunately I don't have any good recommendations for how
+            to set it differently.  When I tested changing the strategy I got minimally different
+            compression performance. It's best to leave this property alone if you don't have a
+            good feel for it.  Or, you may want to produce a test harness that runs through the
+            different strategy options and evaluates them on different file types. If you do that,
+            let me know your results.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.Adler32">
+            <summary>
+            The Adler32 checksum on the data transferred through the codec so far. You probably don't need to look at this.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.#ctor">
+            <summary>
+            Create a ZlibCodec.
+            </summary>
+            <remarks>
+            If you use this default constructor, you will later have to explicitly call 
+            InitializeInflate() or InitializeDeflate() before using the ZlibCodec to compress 
+            or decompress. 
+            </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.#ctor(UnderAutomation.UniversalRobots.Compress.Compressors.CompressionMode)">
+            <summary>
+            Create a ZlibCodec that either compresses or decompresses.
+            </summary>
+            <param name="mode">
+            Indicates whether the codec should compress (deflate) or decompress (inflate).
+            </param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeInflate">
+            <summary>
+            Initialize the inflation state. 
+            </summary>
+            <remarks>
+            It is not necessary to call this before using the ZlibCodec to inflate data; 
+            It is implicitly called when you call the constructor.
+            </remarks>
+            <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeInflate(System.Boolean)">
+             <summary>
+             Initialize the inflation state with an explicit flag to
+             govern the handling of RFC1950 header bytes.
+             </summary>
+            
+             <remarks>
+             By default, the ZLIB header defined in <see
+             href="http://www.ietf.org/rfc/rfc1950.txt">RFC 1950</see> is expected.  If
+             you want to read a zlib stream you should specify true for
+             expectRfc1950Header.  If you have a deflate stream, you will want to specify
+             false. It is only necessary to invoke this initializer explicitly if you
+             want to specify false.
+             </remarks>
+            
+             <param name="expectRfc1950Header">whether to expect an RFC1950 header byte
+             pair when reading the stream of data to be inflated.</param>
+            
+             <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeInflate(System.Int32)">
+            <summary>
+            Initialize the ZlibCodec for inflation, with the specified number of window bits. 
+            </summary>
+            <param name="windowBits">The number of window bits to use. If you need to ask what that is, 
+            then you shouldn't be calling this initializer.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeInflate(System.Int32,System.Boolean)">
+             <summary>
+             Initialize the inflation state with an explicit flag to govern the handling of
+             RFC1950 header bytes. 
+             </summary>
+            
+             <remarks>
+             If you want to read a zlib stream you should specify true for
+             expectRfc1950Header. In this case, the library will expect to find a ZLIB
+             header, as defined in <see href="http://www.ietf.org/rfc/rfc1950.txt">RFC
+             1950</see>, in the compressed stream.  If you will be reading a DEFLATE or
+             GZIP stream, which does not have such a header, you will want to specify
+             false.
+             </remarks>
+            
+             <param name="expectRfc1950Header">whether to expect an RFC1950 header byte pair when reading 
+             the stream of data to be inflated.</param>
+             <param name="windowBits">The number of window bits to use. If you need to ask what that is, 
+             then you shouldn't be calling this initializer.</param>
+             <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.Inflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType)">
+             <summary>
+             Inflate the data in the InputBuffer, placing the result in the OutputBuffer.
+             </summary>
+             <remarks>
+             You must have set InputBuffer and OutputBuffer, NextIn and NextOut, and AvailableBytesIn and 
+             AvailableBytesOut  before calling this method.
+             </remarks>
+             <example>
+             <code>
+             private void InflateBuffer()
+             {
+                 int bufferSize = 1024;
+                 byte[] buffer = new byte[bufferSize];
+                 ZlibCodec decompressor = new ZlibCodec();
+             
+                 Console.WriteLine("\n============================================");
+                 Console.WriteLine("Size of Buffer to Inflate: {0} bytes.", CompressedBytes.Length);
+                 MemoryStream ms = new MemoryStream(DecompressedBytes);
+             
+                 int rc = decompressor.InitializeInflate();
+             
+                 decompressor.InputBuffer = CompressedBytes;
+                 decompressor.NextIn = 0;
+                 decompressor.AvailableBytesIn = CompressedBytes.Length;
+             
+                 decompressor.OutputBuffer = buffer;
+             
+                 // pass 1: inflate 
+                 do
+                 {
+                     decompressor.NextOut = 0;
+                     decompressor.AvailableBytesOut = buffer.Length;
+                     rc = decompressor.Inflate(FlushType.None);
+             
+                     if (rc != ZlibConstants.Z_OK &amp;&amp; rc != ZlibConstants.Z_STREAM_END)
+                         throw new Exception("inflating: " + decompressor.Message);
+             
+                     ms.Write(decompressor.OutputBuffer, 0, buffer.Length - decompressor.AvailableBytesOut);
+                 }
+                 while (decompressor.AvailableBytesIn &gt; 0 || decompressor.AvailableBytesOut == 0);
+             
+                 // pass 2: finish and flush
+                 do
+                 {
+                     decompressor.NextOut = 0;
+                     decompressor.AvailableBytesOut = buffer.Length;
+                     rc = decompressor.Inflate(FlushType.Finish);
+             
+                     if (rc != ZlibConstants.Z_STREAM_END &amp;&amp; rc != ZlibConstants.Z_OK)
+                         throw new Exception("inflating: " + decompressor.Message);
+             
+                     if (buffer.Length - decompressor.AvailableBytesOut &gt; 0)
+                         ms.Write(buffer, 0, buffer.Length - decompressor.AvailableBytesOut);
+                 }
+                 while (decompressor.AvailableBytesIn &gt; 0 || decompressor.AvailableBytesOut == 0);
+             
+                 decompressor.EndInflate();
+             }
+            
+             </code>
+             </example>
+             <param name="flush">The flush to use when inflating.</param>
+             <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.EndInflate">
+            <summary>
+            Ends an inflation session. 
+            </summary>
+            <remarks>
+            Call this after successively calling Inflate().  This will cause all buffers to be flushed. 
+            After calling this you cannot call Inflate() without a intervening call to one of the
+            InitializeInflate() overloads.
+            </remarks>
+            <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.SyncInflate">
+            <summary>
+            I don't know what this does!
+            </summary>
+            <returns>Z_OK if everything goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeDeflate">
+            <summary>
+            Initialize the ZlibCodec for deflation operation.
+            </summary>
+            <remarks>
+            The codec will use the MAX window bits and the default level of compression.
+            </remarks>
+            <example>
+            <code>
+             int bufferSize = 40000;
+             byte[] CompressedBytes = new byte[bufferSize];
+             byte[] DecompressedBytes = new byte[bufferSize];
+             
+             ZlibCodec compressor = new ZlibCodec();
+             
+             compressor.InitializeDeflate(CompressionLevel.Default);
+             
+             compressor.InputBuffer = System.Text.ASCIIEncoding.ASCII.GetBytes(TextToCompress);
+             compressor.NextIn = 0;
+             compressor.AvailableBytesIn = compressor.InputBuffer.Length;
+             
+             compressor.OutputBuffer = CompressedBytes;
+             compressor.NextOut = 0;
+             compressor.AvailableBytesOut = CompressedBytes.Length;
+             
+             while (compressor.TotalBytesIn != TextToCompress.Length &amp;&amp; compressor.TotalBytesOut &lt; bufferSize)
+             {
+               compressor.Deflate(FlushType.None);
+             }
+             
+             while (true)
+             {
+               int rc= compressor.Deflate(FlushType.Finish);
+               if (rc == ZlibConstants.Z_STREAM_END) break;
+             }
+             
+             compressor.EndDeflate();
+              
+            </code>
+            </example>
+            <returns>Z_OK if all goes well. You generally don't need to check the return code.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeDeflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel)">
+            <summary>
+            Initialize the ZlibCodec for deflation operation, using the specified CompressionLevel.
+            </summary>
+            <remarks>
+            The codec will use the maximum window bits (15) and the specified
+            CompressionLevel.  It will emit a ZLIB stream as it compresses.
+            </remarks>
+            <param name="level">The compression level for the codec.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeDeflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel,System.Boolean)">
+            <summary>
+            Initialize the ZlibCodec for deflation operation, using the specified CompressionLevel, 
+            and the explicit flag governing whether to emit an RFC1950 header byte pair.
+            </summary>
+            <remarks>
+            The codec will use the maximum window bits (15) and the specified CompressionLevel.
+            If you want to generate a zlib stream, you should specify true for
+            wantRfc1950Header. In this case, the library will emit a ZLIB
+            header, as defined in <see href="http://www.ietf.org/rfc/rfc1950.txt">RFC
+            1950</see>, in the compressed stream.  
+            </remarks>
+            <param name="level">The compression level for the codec.</param>
+            <param name="wantRfc1950Header">whether to emit an initial RFC1950 byte pair in the compressed stream.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeDeflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel,System.Int32)">
+            <summary>
+            Initialize the ZlibCodec for deflation operation, using the specified CompressionLevel, 
+            and the specified number of window bits. 
+            </summary>
+            <remarks>
+            The codec will use the specified number of window bits and the specified CompressionLevel.
+            </remarks>
+            <param name="level">The compression level for the codec.</param>
+            <param name="bits">the number of window bits to use.  If you don't know what this means, don't use this method.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.InitializeDeflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel,System.Int32,System.Boolean)">
+             <summary>
+             Initialize the ZlibCodec for deflation operation, using the specified
+             CompressionLevel, the specified number of window bits, and the explicit flag
+             governing whether to emit an RFC1950 header byte pair.
+             </summary>
+            
+             <param name="level">The compression level for the codec.</param>
+             <param name="wantRfc1950Header">whether to emit an initial RFC1950 byte pair in the compressed stream.</param>
+             <param name="bits">the number of window bits to use.  If you don't know what this means, don't use this method.</param>
+             <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.Deflate(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.FlushType)">
+            <summary>
+            Deflate one batch of data.
+            </summary>
+            <remarks>
+            You must have set InputBuffer and OutputBuffer before calling this method.
+            </remarks>
+            <example>
+            <code>
+            private void DeflateBuffer(CompressionLevel level)
+            {
+                int bufferSize = 1024;
+                byte[] buffer = new byte[bufferSize];
+                ZlibCodec compressor = new ZlibCodec();
+            
+                Console.WriteLine("\n============================================");
+                Console.WriteLine("Size of Buffer to Deflate: {0} bytes.", UncompressedBytes.Length);
+                MemoryStream ms = new MemoryStream();
+            
+                int rc = compressor.InitializeDeflate(level);
+            
+                compressor.InputBuffer = UncompressedBytes;
+                compressor.NextIn = 0;
+                compressor.AvailableBytesIn = UncompressedBytes.Length;
+            
+                compressor.OutputBuffer = buffer;
+            
+                // pass 1: deflate 
+                do
+                {
+                    compressor.NextOut = 0;
+                    compressor.AvailableBytesOut = buffer.Length;
+                    rc = compressor.Deflate(FlushType.None);
+            
+                    if (rc != ZlibConstants.Z_OK &amp;&amp; rc != ZlibConstants.Z_STREAM_END)
+                        throw new Exception("deflating: " + compressor.Message);
+            
+                    ms.Write(compressor.OutputBuffer, 0, buffer.Length - compressor.AvailableBytesOut);
+                }
+                while (compressor.AvailableBytesIn &gt; 0 || compressor.AvailableBytesOut == 0);
+            
+                // pass 2: finish and flush
+                do
+                {
+                    compressor.NextOut = 0;
+                    compressor.AvailableBytesOut = buffer.Length;
+                    rc = compressor.Deflate(FlushType.Finish);
+            
+                    if (rc != ZlibConstants.Z_STREAM_END &amp;&amp; rc != ZlibConstants.Z_OK)
+                        throw new Exception("deflating: " + compressor.Message);
+            
+                    if (buffer.Length - compressor.AvailableBytesOut &gt; 0)
+                        ms.Write(buffer, 0, buffer.Length - compressor.AvailableBytesOut);
+                }
+                while (compressor.AvailableBytesIn &gt; 0 || compressor.AvailableBytesOut == 0);
+            
+                compressor.EndDeflate();
+            
+                ms.Seek(0, SeekOrigin.Begin);
+                CompressedBytes = new byte[compressor.TotalBytesOut];
+                ms.Read(CompressedBytes, 0, CompressedBytes.Length);
+            }
+            </code>
+            </example>
+            <param name="flush">whether to flush all data as you deflate. Generally you will want to 
+            use Z_NO_FLUSH here, in a series of calls to Deflate(), and then call EndDeflate() to 
+            flush everything. 
+            </param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.EndDeflate">
+            <summary>
+            End a deflation session.
+            </summary>
+            <remarks>
+            Call this after making a series of one or more calls to Deflate(). All buffers are flushed.
+            </remarks>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.ResetDeflate">
+            <summary>
+            Reset a codec for another deflation session.
+            </summary>
+            <remarks>
+            Call this to reset the deflation state.  For example if a thread is deflating
+            non-consecutive blocks, you can call Reset() after the Deflate(Sync) of the first
+            block and before the next Deflate(None) of the second block.
+            </remarks>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.SetDeflateParams(UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionLevel,UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.CompressionStrategy)">
+            <summary>
+            Set the CompressionStrategy and CompressionLevel for a deflation session.
+            </summary>
+            <param name="level">the level of compression to use.</param>
+            <param name="strategy">the strategy to use for compression.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibCodec.SetDictionary(System.Byte[])">
+            <summary>
+            Set the dictionary to be used for either Inflation or Deflation.
+            </summary>
+            <param name="dictionary">The dictionary bytes to use.</param>
+            <returns>Z_OK if all goes well.</returns>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants">
+            <summary>
+            A bunch of constants used in the Zlib interface.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.WindowBitsMax">
+            <summary>
+            The maximum number of window bits for the Deflate algorithm.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.WindowBitsDefault">
+            <summary>
+            The default number of window bits for the Deflate algorithm.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_OK">
+            <summary>
+            indicates everything is A-OK
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_STREAM_END">
+            <summary>
+            Indicates that the last operation reached the end of the stream.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_NEED_DICT">
+            <summary>
+            The operation ended in need of a dictionary. 
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_STREAM_ERROR">
+            <summary>
+            There was an error with the stream - not enough data, not open and readable, etc.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_DATA_ERROR">
+            <summary>
+            There was an error with the data - not enough data, bad data, etc.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.Z_BUF_ERROR">
+            <summary>
+            There was an error with the working buffer.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.WorkingBufferSizeDefault">
+            <summary>
+            The size of the working buffer used in the ZlibCodec class. Defaults to 8192 bytes.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibConstants.WorkingBufferSizeMin">
+            <summary>
+            The minimum size of the working buffer used in the ZlibCodec class.  Currently it is 128 bytes.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.FlushMode">
+            <summary>
+            This property sets the flush behavior on the stream.
+            Sorry, though, not sure exactly how to describe all the various settings.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.BufferSize">
+             <summary>
+               The size of the working buffer for the compression codec.
+             </summary>
+            
+             <remarks>
+             <para>
+               The working buffer is used for all stream operations.  The default size is
+               1024 bytes. The minimum size is 128 bytes. You may get better performance
+               with a larger buffer.  Then again, you might not.  You would have to test
+               it.
+             </para>
+            
+             <para>
+               Set this before the first call to <c>Read()</c> or <c>Write()</c> on the
+               stream. If you try to set it afterwards, it will throw.
+             </para>
+             </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.TotalIn">
+            <summary> Returns the total number of bytes input so far.</summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.TotalOut">
+            <summary> Returns the total number of bytes output so far.</summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.CanRead">
+            <summary>
+            Indicates whether the stream can be read.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports reading.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.CanSeek">
+            <summary>
+            Indicates whether the stream supports Seek operations.
+            </summary>
+            <remarks>
+            Always returns false.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.CanWrite">
+            <summary>
+            Indicates whether the stream can be written.
+            </summary>
+            <remarks>
+            The return value depends on whether the captive stream supports writing.
+            </remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Length">
+            <summary>
+            Reading this property always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Position">
+             <summary>
+               The position of the stream pointer.
+             </summary>
+            
+             <remarks>
+               Setting this property always throws a <see
+               cref="T:System.NotImplementedException"/>. Reading will return the total bytes
+               written out, if used in writing, or the total bytes read in, if used in
+               reading.  The count may refer to compressed bytes or uncompressed bytes,
+               depending on how you've used the stream.
+             </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Dispose(System.Boolean)">
+            <summary>
+            Dispose the stream.
+            </summary>
+            <remarks>
+            This may or may not result in a <c>Close()</c> call on the captive stream.
+            </remarks>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Flush">
+            <summary>
+            Flush the stream.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Read(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+             Read data from the stream.
+             </summary>
+            
+             <remarks>
+            
+             <para>
+               If you wish to use the <c>ZlibStream</c> to compress data while reading,
+               you can create a <c>ZlibStream</c> with <c>CompressionMode.Compress</c>,
+               providing an uncompressed data stream.  Then call <c>Read()</c> on that
+               <c>ZlibStream</c>, and the data read will be compressed.  If you wish to
+               use the <c>ZlibStream</c> to decompress data while reading, you can create
+               a <c>ZlibStream</c> with <c>CompressionMode.Decompress</c>, providing a
+               readable compressed data stream.  Then call <c>Read()</c> on that
+               <c>ZlibStream</c>, and the data will be decompressed as it is read.
+             </para>
+            
+             <para>
+               A <c>ZlibStream</c> can be used for <c>Read()</c> or <c>Write()</c>, but
+               not both.
+             </para>
+            
+             </remarks>
+             <param name="buffer">The buffer into which the read data should be placed.</param>
+             <param name="offset">the offset within that data array to put the first byte read.</param>
+             <param name="count">the number of bytes to read.</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.SetLength(System.Int64)">
+            <summary>
+            Calling this method always throws a <see cref="T:System.NotImplementedException"/>.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Compressors.Deflate.ZlibStream.Write(System.Byte[],System.Int32,System.Int32)">
+             <summary>
+             Write data to the stream.
+             </summary>
+            
+             <remarks>
+            
+             <para>
+               If you wish to use the <c>ZlibStream</c> to compress data while writing,
+               you can create a <c>ZlibStream</c> with <c>CompressionMode.Compress</c>,
+               and a writable output stream.  Then call <c>Write()</c> on that
+               <c>ZlibStream</c>, providing uncompressed data as input.  The data sent to
+               the output stream will be the compressed form of the data written.  If you
+               wish to use the <c>ZlibStream</c> to decompress data while writing, you
+               can create a <c>ZlibStream</c> with <c>CompressionMode.Decompress</c>, and a
+               writable output stream.  Then call <c>Write()</c> on that stream,
+               providing previously compressed data. The data sent to the output stream
+               will be the decompressed form of the data written.
+             </para>
+            
+             <para>
+               A <c>ZlibStream</c> can be used for <c>Read()</c> or <c>Write()</c>, but not both.
+             </para>
+             </remarks>
+             <param name="buffer">The buffer holding data to write to the stream.</param>
+             <param name="offset">the offset within that data array to find the first byte to write.</param>
+             <param name="count">the number of bytes to write.</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.DataLengthException.#ctor">
+            base constructor.
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.DataLengthException.#ctor(System.String)">
+             create a DataLengthException with the given message.
+            
+             @param message the message to be carried with the exception.
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher">
+            <remarks>Base interface for a symmetric key block cipher.</remarks>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.AlgorithmName">
+            <summary>The name of the algorithm this cipher implements.</summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.Init(System.Boolean,UnderAutomation.UniversalRobots.Compress.Crypto.ICipherParameters)">
+            <summary>Initialise the cipher.</summary>
+            <param name="forEncryption">Initialise for encryption if true, for decryption if false.</param>
+            <param name="parameters">The key or other data required by the cipher.</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.GetBlockSize">
+            <returns>The block size for this cipher, in bytes.</returns>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.IsPartialBlockOkay">
+            <summary>Indicates whether this cipher can handle partial blocks.</summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.ProcessBlock(System.Byte[],System.Int32,System.Byte[],System.Int32)">
+            <summary>Process a block.</summary>
+            <param name="inBuf">The input buffer.</param>
+            <param name="inOff">The offset into <paramref>inBuf</paramref> that the input block begins.</param>
+            <param name="outBuf">The output buffer.</param>
+            <param name="outOff">The offset into <paramref>outBuf</paramref> to write the output block.</param>
+            <exception cref="T:UnderAutomation.UniversalRobots.Compress.Crypto.DataLengthException">If input block is wrong size, or outBuf too small.</exception>
+            <returns>The number of bytes processed and produced.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.IBlockCipher.Reset">
+            <summary>
+            Reset the cipher to the same state as it was after the last init (if there was one).
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.Mul0x2(System.Int32)">
+            multiply two elements of GF(2^m)
+            needed for MixColumn and InvMixColumn
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.KeyAddition(System.Int64[])">
+            xor corresponding text input and round key input bytes
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.ShiftRow(System.Byte[])">
+            Row 0 remains unchanged
+            The other three rows are shifted a variable amount
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.Substitution(System.Byte[])">
+            Replace every byte of the input by the byte at that place
+            in the nonlinear S-box
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.MixColumn">
+            Mix the bytes of every column in a linear way
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.InvMixColumn">
+            Mix the bytes of every column in a linear way
+            This is the opposite operation of Mixcolumn
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.GenerateWorkingKey(System.Byte[])">
+            Calculate the necessary round keys
+            The number of calculations depends on keyBits and blockBits
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.#ctor">
+            default constructor - 128 bit block size.
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.#ctor(System.Int32)">
+             basic constructor - set the cipher up for a given blocksize
+            
+             @param blocksize the blocksize in bits, must be 128, 192, or 256.
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Crypto.RijndaelEngine.Init(System.Boolean,UnderAutomation.UniversalRobots.Compress.Crypto.ICipherParameters)">
+             initialise a Rijndael cipher.
+            
+             @param forEncryption whether or not we are for encryption.
+             @param parameters the parameters required to set up the cipher.
+             @exception ArgumentException if the parameters argument is
+             inappropriate.
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Compress.Readers.AbstractReader`2">
+            <summary>
+            A generic push reader that reads unseekable comrpessed streams.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Readers.AbstractReader`2.Volume">
+            <summary>
+            Current volume that the current entry resides in
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Readers.AbstractReader`2.Entry">
+            <summary>
+            Current file entry 
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.AbstractReader`2.Cancel">
+            <summary>
+            Indicates that the remaining entries are not required.
+            On dispose of an EntryStream, the stream will not skip to the end of the entry.
+            An attempt to move to the next entry will throw an exception, as the compressed stream is not positioned at an entry boundary.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.AbstractReader`2.CreateEntryStream(System.IO.Stream)">
+            <summary>
+            Retains a reference to the entry stream, so we can check whether it completed later.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.GZip.GZipReader.Open(System.IO.Stream,UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions)">
+            <summary>
+            Opens a GZipReader for Non-seeking usage with a single volume
+            </summary>
+            <param name="stream"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReader.WriteEntryTo(System.IO.Stream)">
+            <summary>
+            Decompresses the current entry to the stream.  This cannot be called twice for the current entry.
+            </summary>
+            <param name="writableStream"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReader.MoveToNextEntry">
+            <summary>
+            Moves to the next entry by reading more data from the underlying stream.  This skips if data has not been read.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReader.OpenEntryStream">
+            <summary>
+            Opens the current entry as a stream that will decompress as it is read.
+            Read the entire stream or use SkipEntry on EntryStream.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReaderExtensions.WriteAllToDirectory(UnderAutomation.UniversalRobots.Compress.Readers.IReader,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract all remaining unread entries to specific directory, retaining filename
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReaderExtensions.WriteEntryToDirectory(UnderAutomation.UniversalRobots.Compress.Readers.IReader,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract to specific directory, retaining filename
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Readers.IReaderExtensions.WriteEntryToFile(UnderAutomation.UniversalRobots.Compress.Readers.IReader,System.String,UnderAutomation.UniversalRobots.Compress.Common.ExtractionOptions)">
+            <summary>
+            Extract to specific file
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Compress.Readers.ReaderOptions.LookForHeader">
+            <summary>
+            Look for RarArchive (Check for self-extracting archives or cases where RarArchive isn't at the start of the file)
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Utility.URShift(System.Int32,System.Int32)">
+            <summary>
+            Performs an unsigned bitwise right shift with the specified number
+            </summary>
+            <param name="number">Number to operate on</param>
+            <param name="bits">Ammount of bits to shift</param>
+            <returns>The resulting number from the shift operation</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Utility.URShift(System.Int64,System.Int32)">
+            <summary>
+            Performs an unsigned bitwise right shift with the specified number
+            </summary>
+            <param name="number">Number to operate on</param>
+            <param name="bits">Ammount of bits to shift</param>
+            <returns>The resulting number from the shift operation</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Utility.Fill``1(``0[],System.Int32,System.Int32,``0)">
+            <summary>
+            Fills the array with an specific value from an specific index to an specific index.
+            </summary>
+            <param name="array">The array to be filled.</param>
+            <param name="fromindex">The first index to be filled.</param>
+            <param name="toindex">The last index to be filled.</param>
+            <param name="val">The value to fill the array with.</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Utility.Fill``1(``0[],``0)">
+            <summary>
+            Fills the array with an specific value.
+            </summary>
+            <param name="array">The array to be filled.</param>
+            <param name="val">The value to fill the array with.</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Compress.Utility.UnixTimeToDateTime(System.Int64)">
+            <summary>
+            Convert Unix time value to a DateTime object.
+            </summary>
+            <param name="unixtime">The Unix time stamp you want to convert to DateTime.</param>
+            <returns>Returns a DateTime object that represents value of the Unix time.</returns>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.CommandResponse`1">
             <summary>
             Answer return by a command which contains a value
@@ -109,6 +1911,32 @@
             <summary>
             Program is paused.
             </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.PolyscopeVersion">
+            <summary>
+            Describe a Polysciope version (Robot firmware)
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.PolyscopeVersion.Date">
+            <summary>
+            Release date (example : "Nov 2020")
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.PolyscopeVersion.Version">
+            <summary>
+            Firmware version
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.PolyscopeVersion.Description">
+            <summary>
+            String description of the firmware version (exemple : "5.0.16.8524 (Nov 2020)")
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PolyscopeVersion.ToString">
+            <summary>
+            Returns Description of the version
+            </summary>
+            <returns></returns>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.ProgramSaveState.IsSaved">
             <summary>
@@ -372,6 +2200,16 @@
             Generic event raised each time a package is received
             </summary>
         </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.ProgramThreadsReceived">
+            <summary>
+            Program threads changed
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.VersionReceived">
+            <summary>
+            Robot information and FW version
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.RobotModeData">
             <summary>
             Last Robot mode data received
@@ -442,9 +2280,19 @@
             Last singularity information information received
             </summary>
         </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.ProgramThreads">
+            <summary>
+            Last program thread information received
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.Version">
+            <summary>
+            Version of the robot and FW
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.GlobalVariables">
             <summary>
-            List of all variabels in current robot program
+            List of all variables in current robot program
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.UR.EnableDataStreaming(UnderAutomation.UniversalRobots.DataStreamingPorts)">
@@ -1147,6 +2995,12 @@
             List of all global variables
             </summary>
         </member>
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariables.IsOldFirmware">
+            <summary>
+            Indicates that variable should be decoded for FW older or equal to 3.2
+            This property is automatically updated at startup
+            </summary>
+        </member>
         <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.GetAll">
             <summary>
             Returns a list of all variables declared in the robot
@@ -1673,6 +3527,11 @@
             The date the data has been received
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.ProgramThreadsEventArgs">
+            <summary>
+            Program threads
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.RobotModeDataPackageEventArgs.Timestamp">
             <summary>
             Timespan since the robot controller has started
@@ -1866,6 +3725,46 @@
         <member name="P:UnderAutomation.UniversalRobots.ToolModeInfoPackageEventArgs.DigitalOutputMode1">
             <summary>
             Digital output 1 configuration
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.VersionEventArgs">
+            <summary>
+            Tool data
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.ProjectName">
+            <summary>
+            URControl project
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.MajorVersion">
+            <summary>
+            Major version number, for example 5 in 5.6.1.1234
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.MinorVersion">
+            <summary>
+            Minor firmware version number, for example 6 in 5.6.1.1234
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.BugfixVersion">
+            <summary>
+             Firmware bugfix number, for example 1 in 5.6.1.1234
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.BuildNumber">
+            <summary>
+            Firmware build number, for example 1234 in 5.6.1.1234
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.BuildDate">
+            <summary>
+            Build date of the firmware, for example "DEC 2020"
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.VersionEventArgs.Version">
+            <summary>
+            Version of the firmware
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.InternalErrorEventArgs">
@@ -26393,6 +28292,84 @@
         <member name="M:UnderAutomation.UniversalRobots.Utils.Security.Cryptography.SHA512HashProvider.Reset">
             <summary>
             Resets <see cref="T:UnderAutomation.UniversalRobots.Utils.Security.Cryptography.SHA512HashProvider"/> to its initial state.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.URArchive">
+            <summary>
+            Contains basic methods to encode and decode a UR archive
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.URArchive.XML">
+            <summary>
+            XML description of the object
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.URArchive.FileName">
+            <summary>
+            File name that should be used on a UR robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URArchive.Save(System.IO.Stream)">
+            <summary>
+            Save encoded file to a stream
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URArchive.Save(System.String)">
+            <summary>
+            Save encoded file to a directory, overwrite it if it exists
+            </summary>
+            <param name="directory">Directory to save the file</param>
+            <returns>Full name of the saved file</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URArchive.Load(System.String)">
+            <summary>
+            Load a UR archive from file path and decode it as XML
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URArchive.Load(System.IO.Stream)">
+            <summary>
+            Load a UR archive from stream and decode it as XML
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.URInstallation">
+            <summary>
+            Functions to encode and decode a *.installation file
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URInstallation.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Create a URProgram from its XML definition
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URInstallation.Load(System.IO.Stream)">
+            <summary>
+            Load an installation file from stream
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URInstallation.Load(System.String)">
+            <summary>
+            Load a *.installation file from path
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.URProgram">
+            <summary>
+            Functions to compile and decompile a *.urp program file
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URProgram.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Create a URProgram from its XML definition
+            </summary>
+            <param name="xml"></param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URProgram.Load(System.IO.Stream)">
+            <summary>
+            Load a program from stream
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.URProgram.Load(System.String)">
+            <summary>
+            Load a *.urp program from file path
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.XmlRpcEventArg">
