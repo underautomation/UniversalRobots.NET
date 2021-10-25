@@ -2995,10 +2995,9 @@
             List of all global variables
             </summary>
         </member>
-        <member name="P:UnderAutomation.UniversalRobots.GlobalVariables.IsOldFirmware">
+        <member name="P:UnderAutomation.UniversalRobots.GlobalVariables.FirmwareVersion">
             <summary>
-            Indicates that variable should be decoded for FW older or equal to 3.2
-            This property is automatically updated at startup
+            Indicates which decoder is used used to read variables according to firmware version
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.GetAll">
@@ -3020,6 +3019,11 @@
         <member name="E:UnderAutomation.UniversalRobots.GlobalVariables.ListUpdated">
             <summary>
             Event raised whan the variable list changed. For example, after a program starts
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.ToString">
+            <summary>
+            Return a string where each line contains type, name and variable value
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.GlobalVariableValue">
@@ -3065,6 +3069,12 @@
         <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToFloat">
             <summary>
             Returns variable value if type is Float. Il type is int, it casts it to float. If Type is bool, it returns 1 or 0. Else it returns NaN
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.ToMatrix">
+            <summary>
+            Return variable value GlobalVariable[,] if variable is a matrix. First dimension is row index and second dimension is column index.
+            Use GetLength(0) to get row number and GetLength(1) to get column count
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.GlobalVariable">
@@ -3122,6 +3132,11 @@
             Variable value is float
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariableTypes.Matrix">
+            <summary>
+            Variable value is a matrix
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.GlobalVariablesEventArgs">
             <summary>
             Event args of variable update events
@@ -3130,6 +3145,26 @@
         <member name="P:UnderAutomation.UniversalRobots.GlobalVariablesEventArgs.Variables">
             <summary>
             New list of all up to date variables
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.GlobalVariablesFirmwareVersion">
+            <summary>
+            Firmware version for variable decoding
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariablesFirmwareVersion.UpTo32">
+            <summary>
+            FW up to 3.2
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariablesFirmwareVersion.UpTo59">
+            <summary>
+            FW up to 5.9
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.GlobalVariablesFirmwareVersion.Latest">
+            <summary>
+            Recent firmware
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.JointConfiguration">
