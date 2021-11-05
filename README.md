@@ -1,3 +1,16 @@
+[![NuGet](https://img.shields.io/nuget/dt/UnderAutomation.UniversalRobots?label=NuGet%20%3A%20UnderAutomation.UniversalRobots&logo=nuget)](https://www.nuget.org/packages/UnderAutomation.UniversalRobots/)
+
+[![.NET Framework 3.5 and newer](https://img.shields.io/badge/.NET_Framework-3.5_and_newer-blueviolet)](#)
+[![.NET Standard 2.0 and newer](https://img.shields.io/badge/.NET_Standard-2.0_and_newer-blueviolet)](#)
+[![.NET Core 2.0 and newer](https://img.shields.io/badge/.NET_Core-2.0_and_newer-blueviolet)](#)
+[![.NET 5](https://img.shields.io/badge/.NET-5-blueviolet)](#)
+
+
+[![LABView 2010 and newer](https://img.shields.io/badge/LABView-2010%20and%20newer-yellow?logo=LabVIEW)](#)
+[![Python](https://img.shields.io/badge/Python-2.7_|_3.5_|_3.6_|_3.7_|_3.8-blue)](#)
+
+
+
 [![UnderAutomation Universal Robots communication SDK](https://user-images.githubusercontent.com/47540360/136141853-1ec87530-d88e-467f-adb4-ec3c46d26010.png)](https://underautomation.com)
 
 # Universal Robots communication SDK
@@ -16,6 +29,13 @@ Send URScript commands and receive robot state data at 10Hz : Cartesian and angu
 ur.Send("movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)");
 double x = ur.CartesianInfo.TCPOffsetX;
 double shoulderSpeed = ur.JointData.Shoulder.ActualSpeed;
+```
+
+### Read variables
+Read program and installation variables :
+``` c#
+GlobalVariable myVar = ur.GlobalVariables.GetByName("myVar");
+GlobalVariable[] variables =  ur.GlobalVariables.GetAll();
 ```
 
 ### Dashboard Server
@@ -66,6 +86,13 @@ Convert Rotation Vector to and from RPY.
 var pose = new Pose(1, 1, 0, 0.1, 0.2, -0.5);
 var rpy = pose.FromRotationVectorToRPY();
 var rotVect = pose.FromRPYToRotationVector();
+```
+
+### Edit program and installation files
+Open and edit program (.urp) and installation (.installation) files :
+``` c#
+URProgram prg = URProgram.Load("myPrg.urp");
+URInstallation installation = URInstallation.Load("default.installation");
 ```
 
 ## Compatibility
