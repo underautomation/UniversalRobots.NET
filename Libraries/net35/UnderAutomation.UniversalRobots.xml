@@ -2210,6 +2210,26 @@
             Robot information and FW version
             </summary>
         </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.KeyMessageReceived">
+            <summary>
+            Internal robot events (such as starting or stopping a program)
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.PopupMessageReceived">
+            <summary>
+            Popup message that appears with the Assignment instruction or the URScript popup() function 
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.TextMessageReceived">
+            <summary>
+            Log message sent with URScript instruction textmsg()
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.RuntimeExceptionMessageReceived">
+            <summary>
+            Reports an error in the execution of the program
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.RobotModeData">
             <summary>
             Last Robot mode data received
@@ -2288,6 +2308,26 @@
         <member name="P:UnderAutomation.UniversalRobots.UR.Version">
             <summary>
             Version of the robot and FW
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.KeyMessage">
+            <summary>
+            Internal robot events (such as starting or stopping a program)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.PopupMessage">
+            <summary>
+            Popup message that appears with the Assignment instruction or the URScript popup() function 
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.TextMessage">
+            <summary>
+            Log message sent with URScript instruction textmsg()
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.RuntimeExceptionMessage">
+            <summary>
+            Reports an error in the execution of the program
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.GlobalVariables">
@@ -3007,7 +3047,7 @@
         </member>
         <member name="M:UnderAutomation.UniversalRobots.GlobalVariables.GetByName(System.String)">
             <summary>
-            Get a variable by its name. Null is returned if the bariable doesn't exist
+            Get a variable by its name. Null is returned if the variable doesn't exist
             </summary>
             <param name="name">Variable name, not case sensitive</param>
         </member>
@@ -3317,6 +3357,31 @@
             DH convention alpha parameter
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.KeyMessageEventArgs">
+            <summary>
+            Internal robot events (such as starting or stopping a program)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.KeyMessageEventArgs.RobotMessageCode">
+            <summary>
+            Message code
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.KeyMessageEventArgs.RobotMessageArgument">
+            <summary>
+            Message argument
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.KeyMessageEventArgs.RobotMessageTitle">
+            <summary>
+            Message title
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.KeyMessageEventArgs.KeyTextMessage">
+            <summary>
+            Message key
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.KinematicsInfoPackageEventArgs">
             <summary>
             Kinematics info
@@ -3562,6 +3627,96 @@
             The date the data has been received
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.PopupMessageEventArgs">
+            <summary>
+            Popup message that appears with the Assignment instruction or the URScript popup() function 
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.RequestId">
+            <summary>
+            Each popup has a unique ID
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.RequestedType">
+            <summary>
+            Type for assignment popups
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.Warning">
+            <summary>
+            Popup is a warning
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.Error">
+            <summary>
+            Popup is an error
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.Blocking">
+            <summary>
+            Popup is blocking script execution
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.PopupMessageTitle">
+            <summary>
+            Popup title
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PopupMessageEventArgs.PopupTextMessage">
+            <summary>
+            Popup message, null for assignment popups
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.RequestedTypes">
+            <summary>
+            Types for popup assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Boolean">
+            <summary>
+            Popup for boolean value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Integer">
+            <summary>
+            Popup for integer number value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Float">
+            <summary>
+            Popup for float number value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.String">
+            <summary>
+            Popup for string value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Pose">
+            <summary>
+            Popup for pose value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.JointVector">
+            <summary>
+            Popup for joint vector value assignment
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Waypoint">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.Expression">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.RequestedTypes.None">
+            <summary>
+            It's a simple popup message
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.ProgramThreadsEventArgs">
             <summary>
             Program threads
@@ -3632,6 +3787,26 @@
             Maximum target speed fraction
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.RuntimeExceptionMessageEventArgs">
+            <summary>
+            Reports an error in the execution of the program
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.RuntimeExceptionMessageEventArgs.ScriptLineNumber">
+            <summary>
+            Execution error line number
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.RuntimeExceptionMessageEventArgs.ScriptColumnNumber">
+            <summary>
+            Execution error column number
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.RuntimeExceptionMessageEventArgs.RuntimeExceptionTextMessage">
+            <summary>
+            Information about exception
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.SafetyDataPackageEventArgs">
             <summary>
             Safety internal data
@@ -3655,6 +3830,16 @@
         <member name="P:UnderAutomation.UniversalRobots.SingularityInfoPackageEventArgs.SingularityType">
             <summary>
             Type of the singularity
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.TextMessageEventArgs">
+            <summary>
+            Describes a log message sent with URScript instruction textmsg()
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.TextMessageEventArgs.TextMessage">
+            <summary>
+            Log message sent with URScript instruction textmsg()
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.ToolCommunicationInfoPackageEventArgs">
