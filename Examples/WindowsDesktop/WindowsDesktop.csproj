@@ -108,6 +108,12 @@
     <Compile Include="Components\ArchiveControl.Designer.cs">
       <DependentUpon>ArchiveControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\PrimaryInterfacePopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfacePopup.Designer.cs">
+      <DependentUpon>PrimaryInterfacePopup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SftpControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components\ArchiveControl.resx">
       <DependentUpon>ArchiveControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\PrimaryInterfacePopup.resx">
+      <DependentUpon>PrimaryInterfacePopup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\SftpControl.resx">
       <DependentUpon>SftpControl.cs</DependentUpon>
@@ -274,6 +283,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tools-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\check-line.png" />
+    <Content Include="Resources\close-line.png" />
   </ItemGroup>
   <Choose>
     <When Condition="$(SolutionName.EndsWith(`Dev`))">

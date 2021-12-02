@@ -33,8 +33,13 @@
             this.GridToolCommunication = new PrimaryInterfacePackageControl();
             this.gridTool = new PrimaryInterfacePackageControl();
             this.gridToolModeInfo = new PrimaryInterfacePackageControl();
-            this.gridAdditionnalInfo = new PrimaryInterfacePackageControl();
             this.gridRobotMode = new PrimaryInterfacePackageControl();
+            this.gridAdditionnalInfo = new PrimaryInterfacePackageControl();
+            this.gridVersion = new PrimaryInterfacePackageControl();
+            this.gridKeyMessage = new PrimaryInterfacePackageControl();
+            this.gridPopupMessage = new PrimaryInterfacePackageControl();
+            this.gridTextMessage = new PrimaryInterfacePackageControl();
+            this.gridRuntimeExceptionMessage = new PrimaryInterfacePackageControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSendScript = new System.Windows.Forms.Button();
             this.txtScript = new System.Windows.Forms.TextBox();
@@ -49,7 +54,6 @@
             this.gridConfiguration = new PrimaryInterfacePackageControl();
             this.panel3 = new System.Windows.Forms.Panel();
             this.gridMasterboard = new PrimaryInterfacePackageControl();
-            this.gridVersion = new PrimaryInterfacePackageControl();
             this.pnl.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,14 +72,18 @@
             this.pnl.Controls.Add(this.GridToolCommunication);
             this.pnl.Controls.Add(this.gridTool);
             this.pnl.Controls.Add(this.gridToolModeInfo);
+            this.pnl.Controls.Add(this.gridRobotMode);
             this.pnl.Controls.Add(this.gridAdditionnalInfo);
             this.pnl.Controls.Add(this.gridVersion);
-            this.pnl.Controls.Add(this.gridRobotMode);
+            this.pnl.Controls.Add(this.gridKeyMessage);
+            this.pnl.Controls.Add(this.gridPopupMessage);
+            this.pnl.Controls.Add(this.gridTextMessage);
+            this.pnl.Controls.Add(this.gridRuntimeExceptionMessage);
             this.pnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.pnl.Location = new System.Drawing.Point(0, 76);
             this.pnl.Name = "pnl";
-            this.pnl.Size = new System.Drawing.Size(618, 562);
+            this.pnl.Size = new System.Drawing.Size(1030, 477);
             this.pnl.TabIndex = 1;
             // 
             // gridCartesian
@@ -103,7 +111,7 @@
             this.GridToolCommunication.BackColor = System.Drawing.SystemColors.Window;
             this.GridToolCommunication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GridToolCommunication.LabelText = "Tool com.";
-            this.GridToolCommunication.Location = new System.Drawing.Point(3, 389);
+            this.GridToolCommunication.Location = new System.Drawing.Point(209, 3);
             this.GridToolCommunication.Name = "GridToolCommunication";
             this.GridToolCommunication.Size = new System.Drawing.Size(200, 124);
             this.GridToolCommunication.TabIndex = 2;
@@ -113,9 +121,9 @@
             this.gridTool.BackColor = System.Drawing.SystemColors.Window;
             this.gridTool.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gridTool.LabelText = "Tool data";
-            this.gridTool.Location = new System.Drawing.Point(209, 3);
+            this.gridTool.Location = new System.Drawing.Point(209, 133);
             this.gridTool.Name = "gridTool";
-            this.gridTool.Size = new System.Drawing.Size(200, 182);
+            this.gridTool.Size = new System.Drawing.Size(200, 162);
             this.gridTool.TabIndex = 3;
             // 
             // gridToolModeInfo
@@ -123,20 +131,10 @@
             this.gridToolModeInfo.BackColor = System.Drawing.SystemColors.Window;
             this.gridToolModeInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gridToolModeInfo.LabelText = "Tool mode";
-            this.gridToolModeInfo.Location = new System.Drawing.Point(209, 191);
+            this.gridToolModeInfo.Location = new System.Drawing.Point(209, 301);
             this.gridToolModeInfo.Name = "gridToolModeInfo";
-            this.gridToolModeInfo.Size = new System.Drawing.Size(200, 80);
+            this.gridToolModeInfo.Size = new System.Drawing.Size(200, 90);
             this.gridToolModeInfo.TabIndex = 4;
-            // 
-            // gridAdditionnalInfo
-            // 
-            this.gridAdditionnalInfo.BackColor = System.Drawing.SystemColors.Window;
-            this.gridAdditionnalInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gridAdditionnalInfo.LabelText = "Additionnal info";
-            this.gridAdditionnalInfo.Location = new System.Drawing.Point(209, 277);
-            this.gridAdditionnalInfo.Name = "gridAdditionnalInfo";
-            this.gridAdditionnalInfo.Size = new System.Drawing.Size(200, 91);
-            this.gridAdditionnalInfo.TabIndex = 0;
             // 
             // gridRobotMode
             // 
@@ -145,8 +143,68 @@
             this.gridRobotMode.LabelText = "Robot mode";
             this.gridRobotMode.Location = new System.Drawing.Point(415, 3);
             this.gridRobotMode.Name = "gridRobotMode";
-            this.gridRobotMode.Size = new System.Drawing.Size(200, 237);
-            this.gridRobotMode.TabIndex = 1;
+            this.gridRobotMode.Size = new System.Drawing.Size(200, 265);
+            this.gridRobotMode.TabIndex = 12;
+            // 
+            // gridAdditionnalInfo
+            // 
+            this.gridAdditionnalInfo.BackColor = System.Drawing.SystemColors.Window;
+            this.gridAdditionnalInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridAdditionnalInfo.LabelText = "Additionnal info";
+            this.gridAdditionnalInfo.Location = new System.Drawing.Point(415, 274);
+            this.gridAdditionnalInfo.Name = "gridAdditionnalInfo";
+            this.gridAdditionnalInfo.Size = new System.Drawing.Size(200, 91);
+            this.gridAdditionnalInfo.TabIndex = 0;
+            // 
+            // gridVersion
+            // 
+            this.gridVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.gridVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridVersion.LabelText = "Version";
+            this.gridVersion.Location = new System.Drawing.Point(621, 3);
+            this.gridVersion.Name = "gridVersion";
+            this.gridVersion.Size = new System.Drawing.Size(200, 156);
+            this.gridVersion.TabIndex = 5;
+            // 
+            // gridKeyMessage
+            // 
+            this.gridKeyMessage.BackColor = System.Drawing.SystemColors.Window;
+            this.gridKeyMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridKeyMessage.LabelText = "Key message";
+            this.gridKeyMessage.Location = new System.Drawing.Point(621, 165);
+            this.gridKeyMessage.Name = "gridKeyMessage";
+            this.gridKeyMessage.Size = new System.Drawing.Size(200, 107);
+            this.gridKeyMessage.TabIndex = 7;
+            // 
+            // gridPopupMessage
+            // 
+            this.gridPopupMessage.BackColor = System.Drawing.SystemColors.Window;
+            this.gridPopupMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridPopupMessage.LabelText = "Popup message";
+            this.gridPopupMessage.Location = new System.Drawing.Point(621, 278);
+            this.gridPopupMessage.Name = "gridPopupMessage";
+            this.gridPopupMessage.Size = new System.Drawing.Size(200, 152);
+            this.gridPopupMessage.TabIndex = 8;
+            // 
+            // gridTextMessage
+            // 
+            this.gridTextMessage.BackColor = System.Drawing.SystemColors.Window;
+            this.gridTextMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridTextMessage.LabelText = "Text message";
+            this.gridTextMessage.Location = new System.Drawing.Point(827, 3);
+            this.gridTextMessage.Name = "gridTextMessage";
+            this.gridTextMessage.Size = new System.Drawing.Size(200, 60);
+            this.gridTextMessage.TabIndex = 10;
+            // 
+            // gridRuntimeExceptionMessage
+            // 
+            this.gridRuntimeExceptionMessage.BackColor = System.Drawing.SystemColors.Window;
+            this.gridRuntimeExceptionMessage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.gridRuntimeExceptionMessage.LabelText = "Runtime exception";
+            this.gridRuntimeExceptionMessage.Location = new System.Drawing.Point(827, 69);
+            this.gridRuntimeExceptionMessage.Name = "gridRuntimeExceptionMessage";
+            this.gridRuntimeExceptionMessage.Size = new System.Drawing.Size(200, 75);
+            this.gridRuntimeExceptionMessage.TabIndex = 11;
             // 
             // panel1
             // 
@@ -157,7 +215,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1927, 76);
+            this.panel1.Size = new System.Drawing.Size(2249, 76);
             this.panel1.TabIndex = 2;
             // 
             // btnSendScript
@@ -205,9 +263,9 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(618, 76);
+            this.panel2.Location = new System.Drawing.Point(1030, 76);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1219, 562);
+            this.panel2.Size = new System.Drawing.Size(1219, 477);
             this.panel2.TabIndex = 3;
             // 
             // panel6
@@ -217,7 +275,7 @@
             this.panel6.Location = new System.Drawing.Point(900, 0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(3);
-            this.panel6.Size = new System.Drawing.Size(300, 562);
+            this.panel6.Size = new System.Drawing.Size(300, 477);
             this.panel6.TabIndex = 4;
             // 
             // gridJointData
@@ -228,7 +286,7 @@
             this.gridJointData.LabelText = "Joint data";
             this.gridJointData.Location = new System.Drawing.Point(3, 3);
             this.gridJointData.Name = "gridJointData";
-            this.gridJointData.Size = new System.Drawing.Size(294, 556);
+            this.gridJointData.Size = new System.Drawing.Size(294, 471);
             this.gridJointData.TabIndex = 1;
             // 
             // panel4
@@ -238,7 +296,7 @@
             this.panel4.Location = new System.Drawing.Point(600, 0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(3);
-            this.panel4.Size = new System.Drawing.Size(300, 562);
+            this.panel4.Size = new System.Drawing.Size(300, 477);
             this.panel4.TabIndex = 5;
             // 
             // gridKinematicsData
@@ -250,7 +308,7 @@
             this.gridKinematicsData.Location = new System.Drawing.Point(3, 3);
             this.gridKinematicsData.Margin = new System.Windows.Forms.Padding(0);
             this.gridKinematicsData.Name = "gridKinematicsData";
-            this.gridKinematicsData.Size = new System.Drawing.Size(294, 556);
+            this.gridKinematicsData.Size = new System.Drawing.Size(294, 471);
             this.gridKinematicsData.TabIndex = 6;
             // 
             // panel5
@@ -260,7 +318,7 @@
             this.panel5.Location = new System.Drawing.Point(300, 0);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(300, 562);
+            this.panel5.Size = new System.Drawing.Size(300, 477);
             this.panel5.TabIndex = 4;
             // 
             // gridConfiguration
@@ -272,7 +330,7 @@
             this.gridConfiguration.Location = new System.Drawing.Point(3, 3);
             this.gridConfiguration.Margin = new System.Windows.Forms.Padding(0);
             this.gridConfiguration.Name = "gridConfiguration";
-            this.gridConfiguration.Size = new System.Drawing.Size(294, 556);
+            this.gridConfiguration.Size = new System.Drawing.Size(294, 471);
             this.gridConfiguration.TabIndex = 7;
             // 
             // panel3
@@ -282,7 +340,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(3);
-            this.panel3.Size = new System.Drawing.Size(300, 562);
+            this.panel3.Size = new System.Drawing.Size(300, 477);
             this.panel3.TabIndex = 4;
             // 
             // gridMasterboard
@@ -293,18 +351,8 @@
             this.gridMasterboard.LabelText = "Masterboard";
             this.gridMasterboard.Location = new System.Drawing.Point(3, 3);
             this.gridMasterboard.Name = "gridMasterboard";
-            this.gridMasterboard.Size = new System.Drawing.Size(294, 556);
+            this.gridMasterboard.Size = new System.Drawing.Size(294, 471);
             this.gridMasterboard.TabIndex = 8;
-            // 
-            // gridVersion
-            // 
-            this.gridVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.gridVersion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.gridVersion.LabelText = "Version";
-            this.gridVersion.Location = new System.Drawing.Point(209, 374);
-            this.gridVersion.Name = "gridVersion";
-            this.gridVersion.Size = new System.Drawing.Size(200, 91);
-            this.gridVersion.TabIndex = 5;
             // 
             // PrimaryInterfaceControl
             // 
@@ -315,7 +363,7 @@
             this.Controls.Add(this.pnl);
             this.Controls.Add(this.panel1);
             this.Name = "PrimaryInterfaceControl";
-            this.Size = new System.Drawing.Size(1927, 638);
+            this.Size = new System.Drawing.Size(1927, 553);
             this.pnl.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -335,7 +383,6 @@
     private System.Windows.Forms.FlowLayoutPanel pnl;
     private PrimaryInterfacePackageControl gridCartesian;
     private PrimaryInterfacePackageControl gridForce;
-    private PrimaryInterfacePackageControl gridRobotMode;
     private PrimaryInterfacePackageControl GridToolCommunication;
     private PrimaryInterfacePackageControl gridTool;
     private PrimaryInterfacePackageControl gridToolModeInfo;
@@ -354,4 +401,9 @@
     private System.Windows.Forms.Panel panel3;
     private PrimaryInterfacePackageControl gridMasterboard;
     private PrimaryInterfacePackageControl gridVersion;
+    private PrimaryInterfacePackageControl gridKeyMessage;
+    private PrimaryInterfacePackageControl gridPopupMessage;
+    private PrimaryInterfacePackageControl gridTextMessage;
+    private PrimaryInterfacePackageControl gridRuntimeExceptionMessage;
+    private PrimaryInterfacePackageControl gridRobotMode;
 }
