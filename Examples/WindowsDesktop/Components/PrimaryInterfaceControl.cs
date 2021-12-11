@@ -29,11 +29,11 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
 
     private void ShowPopup(string title, string message, bool warning, bool error)
     {
-        Application.OpenForms[0].Invoke(new Action(() =>
+        MainForm.InvokeOnMainForm(new Action(() =>
             {
                 var popup = new PrimaryInterfacePopup(_ur, title, message, warning, error);
 
-                popup.ShowDialog(Application.OpenForms[0]);
+                popup.ShowDialog(MainForm.Instance);
             }));
     }
 

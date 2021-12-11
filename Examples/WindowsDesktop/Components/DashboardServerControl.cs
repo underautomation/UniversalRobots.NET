@@ -35,7 +35,7 @@ public partial class DashboardServerControl : UserControl, IUserControl
     #endregion
 
     // Append command response to the console text area
-    private void Log(CommandResponse response, string command)
+    private void Log(CommandResponse response, string command, string messageBefore=null, string messageAfter=null)
     {
         txtConsole.AppendText(command);
         txtConsole.AppendText("()\r\n");
@@ -52,7 +52,9 @@ public partial class DashboardServerControl : UserControl, IUserControl
             txtConsole.AppendText("FAILED : ");
         }
 
-        txtConsole.AppendText(response.ToString());
+        if(messageBefore != null) txtConsole.AppendText(messageBefore);
+        txtConsole.AppendText(response.ToString() ?? "");
+        if (messageAfter != null) txtConsole.AppendText(messageAfter);
 
 
         txtConsole.SelectionBullet = false;
@@ -247,5 +249,25 @@ public partial class DashboardServerControl : UserControl, IUserControl
         var response = _ur.RestartSafety();
         Log(response, "RestartSafety");
     }
+
+    private void txtSendCustomCommand_Click(object sender, EventArgs e)
+    {
+        var response = _ur.SendCustomDashboardCommand(txtCustomCommand.Text);
+        Log(response, "SendCustomDashboardCommand");
+    }
+
+    private void btnGetVariableValue_Click(object sender, EventArgs e)
+    {
+        var response = _ur.GetVariable(txtVariableName.Text);
+        if(response.Value.Type == GlobalVariableTypes.None)
+        {
+            Log(response, "GetVariableValue", $"Variable {txtVariableName.Text} is not declared. ");
+        }
+        else
+        {
+            Log(response, "GetVariableValue", response.Succeed ? $"{response.Value.Type} {response.Value.Name} = " : "");
+        }
+    }
     #endregion
+
 }

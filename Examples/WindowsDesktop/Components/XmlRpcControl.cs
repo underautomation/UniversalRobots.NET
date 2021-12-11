@@ -23,11 +23,11 @@ public partial class XmlRpcControl : UserControl, IUserControl
         var waitHandle = new AutoResetEvent(false);
 
         // Open dialog in main thread
-        this.Invoke(new Action(() =>
+        MainForm.InvokeOnMainForm(new Action(() =>
         {
             var dlg = new XmlRpcPopup(request, waitHandle);
 
-            dlg.ShowDialog(this);
+            dlg.ShowDialog(MainForm.Instance);
         }));
 
         // Wait dialog to close

@@ -28,6 +28,7 @@
         {
             this.splitMain = new System.Windows.Forms.SplitContainer();
             this.txtConsole = new System.Windows.Forms.RichTextBox();
+            this.pnlMain = new System.Windows.Forms.Panel();
             this.GroupBox6 = new System.Windows.Forms.GroupBox();
             this.cbOperationalMode = new System.Windows.Forms.ComboBox();
             this.cbUserRoles = new System.Windows.Forms.ComboBox();
@@ -68,16 +69,21 @@
             this.btnUnlockProtectiveStop = new System.Windows.Forms.Button();
             this.btnGetRobotMode = new System.Windows.Forms.Button();
             this.btnShutdown = new System.Windows.Forms.Button();
-            this.pnlMain = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCustomCommand = new System.Windows.Forms.TextBox();
+            this.txtSendCustomCommand = new System.Windows.Forms.Button();
+            this.txtVariableName = new System.Windows.Forms.TextBox();
+            this.btnGetVariableValue = new System.Windows.Forms.Button();
             this.splitMain.Panel1.SuspendLayout();
             this.splitMain.Panel2.SuspendLayout();
             this.splitMain.SuspendLayout();
+            this.pnlMain.SuspendLayout();
             this.GroupBox6.SuspendLayout();
             this.GroupBox5.SuspendLayout();
             this.GroupBox4.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.GroupBox1.SuspendLayout();
-            this.pnlMain.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitMain
@@ -111,6 +117,19 @@
             this.txtConsole.Size = new System.Drawing.Size(409, 706);
             this.txtConsole.TabIndex = 0;
             this.txtConsole.Text = "Please use commands on the right panel.\n\n> ";
+            // 
+            // pnlMain
+            // 
+            this.pnlMain.Controls.Add(this.GroupBox6);
+            this.pnlMain.Controls.Add(this.groupBox2);
+            this.pnlMain.Controls.Add(this.GroupBox5);
+            this.pnlMain.Controls.Add(this.GroupBox4);
+            this.pnlMain.Controls.Add(this.GroupBox3);
+            this.pnlMain.Controls.Add(this.GroupBox1);
+            this.pnlMain.Location = new System.Drawing.Point(3, 3);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(436, 582);
+            this.pnlMain.TabIndex = 9;
             // 
             // GroupBox6
             // 
@@ -356,15 +375,17 @@
             this.GroupBox3.Controls.Add(this.btnPlay);
             this.GroupBox3.Controls.Add(this.btnStop);
             this.GroupBox3.Controls.Add(this.btnPause);
+            this.GroupBox3.Controls.Add(this.btnGetVariableValue);
+            this.GroupBox3.Controls.Add(this.txtVariableName);
             this.GroupBox3.Controls.Add(this.btnLoadProgram);
             this.GroupBox3.Controls.Add(this.txtProgram);
             this.GroupBox3.Controls.Add(this.btnIsProgramSaved);
             this.GroupBox3.Controls.Add(this.btnProgrammRunning);
             this.GroupBox3.Controls.Add(this.btnGetProgramState);
             this.GroupBox3.Controls.Add(this.btnGetLoadedProgram);
-            this.GroupBox3.Location = new System.Drawing.Point(3, 231);
+            this.GroupBox3.Location = new System.Drawing.Point(1, 204);
             this.GroupBox3.Name = "GroupBox3";
-            this.GroupBox3.Size = new System.Drawing.Size(168, 281);
+            this.GroupBox3.Size = new System.Drawing.Size(168, 287);
             this.GroupBox3.TabIndex = 5;
             this.GroupBox3.TabStop = false;
             this.GroupBox3.Text = "Programs";
@@ -467,7 +488,7 @@
             this.GroupBox1.Controls.Add(this.btnShutdown);
             this.GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Size = new System.Drawing.Size(169, 225);
+            this.GroupBox1.Size = new System.Drawing.Size(169, 198);
             this.GroupBox1.TabIndex = 4;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Power commands";
@@ -532,17 +553,52 @@
             this.btnShutdown.UseVisualStyleBackColor = true;
             this.btnShutdown.Click += new System.EventHandler(this.btnShutdown_Click);
             // 
-            // pnlMain
+            // groupBox2
             // 
-            this.pnlMain.Controls.Add(this.GroupBox6);
-            this.pnlMain.Controls.Add(this.GroupBox5);
-            this.pnlMain.Controls.Add(this.GroupBox4);
-            this.pnlMain.Controls.Add(this.GroupBox3);
-            this.pnlMain.Controls.Add(this.GroupBox1);
-            this.pnlMain.Location = new System.Drawing.Point(3, 3);
-            this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(435, 519);
-            this.pnlMain.TabIndex = 9;
+            this.groupBox2.Controls.Add(this.txtSendCustomCommand);
+            this.groupBox2.Controls.Add(this.txtCustomCommand);
+            this.groupBox2.Location = new System.Drawing.Point(175, 516);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(253, 50);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Custom";
+            // 
+            // txtCustomCommand
+            // 
+            this.txtCustomCommand.Location = new System.Drawing.Point(7, 19);
+            this.txtCustomCommand.Name = "txtCustomCommand";
+            this.txtCustomCommand.Size = new System.Drawing.Size(137, 20);
+            this.txtCustomCommand.TabIndex = 1;
+            this.txtCustomCommand.Text = "get loaded program";
+            // 
+            // txtSendCustomCommand
+            // 
+            this.txtSendCustomCommand.Location = new System.Drawing.Point(150, 17);
+            this.txtSendCustomCommand.Name = "txtSendCustomCommand";
+            this.txtSendCustomCommand.Size = new System.Drawing.Size(93, 23);
+            this.txtSendCustomCommand.TabIndex = 0;
+            this.txtSendCustomCommand.Text = "Send";
+            this.txtSendCustomCommand.UseVisualStyleBackColor = true;
+            this.txtSendCustomCommand.Click += new System.EventHandler(this.txtSendCustomCommand_Click);
+            // 
+            // txtVariableName
+            // 
+            this.txtVariableName.Location = new System.Drawing.Point(6, 256);
+            this.txtVariableName.Name = "txtVariableName";
+            this.txtVariableName.Size = new System.Drawing.Size(70, 20);
+            this.txtVariableName.TabIndex = 1;
+            this.txtVariableName.Text = "var_1";
+            // 
+            // btnGetVariableValue
+            // 
+            this.btnGetVariableValue.Location = new System.Drawing.Point(79, 254);
+            this.btnGetVariableValue.Name = "btnGetVariableValue";
+            this.btnGetVariableValue.Size = new System.Drawing.Size(80, 23);
+            this.btnGetVariableValue.TabIndex = 0;
+            this.btnGetVariableValue.Text = "Get variable";
+            this.btnGetVariableValue.UseVisualStyleBackColor = true;
+            this.btnGetVariableValue.Click += new System.EventHandler(this.btnGetVariableValue_Click);
             // 
             // DashboardServerControl
             // 
@@ -554,6 +610,7 @@
             this.splitMain.Panel1.ResumeLayout(false);
             this.splitMain.Panel2.ResumeLayout(false);
             this.splitMain.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
             this.GroupBox6.ResumeLayout(false);
             this.GroupBox5.ResumeLayout(false);
             this.GroupBox5.PerformLayout();
@@ -561,7 +618,8 @@
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox3.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
-            this.pnlMain.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -611,4 +669,9 @@
         internal System.Windows.Forms.Button btnGetRobotMode;
         internal System.Windows.Forms.Button btnShutdown;
     private System.Windows.Forms.Panel pnlMain;
+    internal System.Windows.Forms.GroupBox groupBox2;
+    internal System.Windows.Forms.Button txtSendCustomCommand;
+    internal System.Windows.Forms.TextBox txtCustomCommand;
+    internal System.Windows.Forms.Button btnGetVariableValue;
+    internal System.Windows.Forms.TextBox txtVariableName;
 }

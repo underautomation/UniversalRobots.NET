@@ -69,7 +69,7 @@ partial class MainForm
             // horizontalSplitContainer.Panel2
             // 
             this.horizontalSplitContainer.Panel2.Controls.Add(this.verticalSplitContainer);
-            this.horizontalSplitContainer.Size = new System.Drawing.Size(955, 643);
+            this.horizontalSplitContainer.Size = new System.Drawing.Size(986, 719);
             this.horizontalSplitContainer.SplitterDistance = 79;
             this.horizontalSplitContainer.TabIndex = 0;
             // 
@@ -78,7 +78,7 @@ partial class MainForm
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblLink);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(568, 0);
+            this.panel1.Location = new System.Drawing.Point(599, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 77);
             this.panel1.TabIndex = 3;
@@ -145,7 +145,7 @@ partial class MainForm
             // 
             this.verticalSplitContainer.Panel2.Controls.Add(this.mainPanel);
             this.verticalSplitContainer.Panel2.Controls.Add(this.panelTitle);
-            this.verticalSplitContainer.Size = new System.Drawing.Size(955, 560);
+            this.verticalSplitContainer.Size = new System.Drawing.Size(986, 636);
             this.verticalSplitContainer.SplitterDistance = 281;
             this.verticalSplitContainer.TabIndex = 0;
             // 
@@ -158,7 +158,7 @@ partial class MainForm
             this.leftTreeView.Location = new System.Drawing.Point(0, 0);
             this.leftTreeView.Name = "leftTreeView";
             this.leftTreeView.SelectedImageIndex = 0;
-            this.leftTreeView.Size = new System.Drawing.Size(279, 558);
+            this.leftTreeView.Size = new System.Drawing.Size(279, 634);
             this.leftTreeView.TabIndex = 0;
             this.leftTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.leftTreeView_NodeMouseClick);
             // 
@@ -174,7 +174,7 @@ partial class MainForm
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(668, 527);
+            this.mainPanel.Size = new System.Drawing.Size(699, 603);
             this.mainPanel.TabIndex = 1;
             // 
             // panelTitle
@@ -183,7 +183,7 @@ partial class MainForm
             this.panelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(668, 31);
+            this.panelTitle.Size = new System.Drawing.Size(699, 31);
             this.panelTitle.TabIndex = 0;
             this.panelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -198,7 +198,7 @@ partial class MainForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(955, 643);
+            this.ClientSize = new System.Drawing.Size(986, 719);
             this.Controls.Add(this.horizontalSplitContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";

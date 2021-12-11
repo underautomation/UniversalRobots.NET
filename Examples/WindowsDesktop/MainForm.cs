@@ -9,7 +9,7 @@ public partial class MainForm : Form
     // UR instance that handles connection to the robot
     private readonly UR _ur = new UR();
 
-    private static MainForm Instance;
+    public static MainForm Instance { get; private set; }
 
     #region Initialisation
     public MainForm()
@@ -165,5 +165,15 @@ public partial class MainForm : Form
         var control = node.Tag as ArchiveControl;
         Instance.SelectNode(node);
         control?.Decompile(fullName);
+    }
+
+    public static void InvokeOnMainForm(Delegate action)
+    {
+        if (Instance.InvokeRequired)
+        {
+            Instance.Invoke(action);
+            return;
+        }
+        action?.DynamicInvoke();
     }
 }
