@@ -1,4 +1,2 @@
-- Read global and installation variables
-- Get program threads state : current line and running instruction
-- Retrieve Polyscope and Firmware version
-- Decompile urp program and installation file
+- Read a variable by its name through Dashboard Server
+- Send custom Dashboard Server commands

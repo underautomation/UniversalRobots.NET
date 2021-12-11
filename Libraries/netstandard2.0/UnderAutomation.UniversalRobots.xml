@@ -1990,6 +1990,16 @@
             Pauses the running program . (From FW 1.4)
             </summary>
         </member>
+        <member name="M:UnderAutomation.UniversalRobots.UR.SendCustomDashboardCommand(System.String)">
+            <summary>
+            Send a custom command to the Dashboard Server port
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.UR.GetVariable(System.String)">
+            <summary>
+            Get variable value and estimate its type
+            </summary>
+        </member>
         <member name="M:UnderAutomation.UniversalRobots.UR.Shutdown">
             <summary>
             Shuts down and turns off robot and controller. Closes the connection. (From FW 1.4)
@@ -3117,6 +3127,13 @@
             Use GetLength(0) to get row number and GetLength(1) to get column count
             </summary>
         </member>
+        <member name="M:UnderAutomation.UniversalRobots.GlobalVariableValue.Parse(System.String)">
+            <summary>
+            Estimate variable value from its string representation
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.GlobalVariable">
             <summary>
             Describes a global variable
@@ -4136,6 +4153,14 @@
             <summary>
             Returns 6 comma separated coordinated with G1 format
             </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Pose.TryParse(System.String,UnderAutomation.UniversalRobots.Pose@)">
+            <summary>
+            Pase a pose from its string representation
+            </summary>
+            <param name="value">String representation of the pose like : p[0.1,0,0.2,0.01,0,0]</param>
+            <param name="pose">The output parsed pose</param>
+            <returns></returns>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.SSH.Abstractions.CryptoAbstraction.GenerateRandom(System.Int32)">
             <summary>
