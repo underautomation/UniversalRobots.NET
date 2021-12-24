@@ -203,6 +203,16 @@ namespace UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap socket_sample {
+            get {
+                object obj = ResourceManager.GetObject("socket_sample", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tools_line {
             get {
                 object obj = ResourceManager.GetObject("tools-line", resourceCulture);

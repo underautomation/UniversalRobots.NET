@@ -34,6 +34,7 @@ public partial class ArchiveControl : UserControl, IUserControl
 
     private void btnOpen_Click(object sender, EventArgs e)
     {
+        dlgOpen.InitialDirectory = Path.Combine(Path.GetDirectoryName(typeof(MainForm).Assembly.Location), "Samples");
         if (dlgOpen.ShowDialog() == DialogResult.OK) Decompile(dlgOpen.FileName);
     }
 

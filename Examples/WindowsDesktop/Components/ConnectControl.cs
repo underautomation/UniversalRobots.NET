@@ -21,12 +21,14 @@ public partial class ConnectControl : UserControl, IUserControl
         chkSftp.Checked = Config.Current.EnableSFTP ?? true;
         txtLogin.Text = Config.Current.Login ?? UR.DEFAULT_USERNAME;
         txtPassword.Text = Config.Current.Password ?? UR.DEFAULT_PASSWORD;
+        chkSocket.Checked = Config.Current.EnableSocketServer ?? false;
+        udSocketPort.Value = Config.Current.SocketServerPort ?? UR.DEFAULT_SOCKET_PORT;
     }
 
     #region IUserControl
     public bool FeatureEnabled => _ur.DataStreamingEnabled || _ur.SftpEnabled || _ur.XmlRpcServerEnabled || _ur.SshEnabled;
 
-    public string Title => "Connexion";
+    public string Title => "Connection";
 
     public void OnClose() { }
 
@@ -46,16 +48,19 @@ public partial class ConnectControl : UserControl, IUserControl
     {
         if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
 
+        var parameters = new ConnectParameters();
+        parameters.EnableDataStreaming = chkDataStreaming.Checked;
+        parameters.EnableXmlRpcServer = chkXmlRpc.Checked;
+        parameters.XmlRpcServerPort = (int)udXmlRpcPort.Value;
+        parameters.EnableSSH = chkSsh.Checked;
+        parameters.EnableSFTP = chkSftp.Checked;
+        parameters.Login = txtLogin.Text;
+        parameters.Password = txtPassword.Text;
+        parameters.EnableSocket = chkSocket.Checked;
+        parameters.SocketPort = (int)udSocketPort.Value;
+
         // Connect to the robot
-        _ur.Connect(txtIP.Text
-            , enableDataStreaming: chkDataStreaming.Checked
-            , enableXmlRpcServer: chkXmlRpc.Checked
-            , xmlRpcServerPort: (int)udXmlRpcPort.Value
-            , enableSSH: chkSsh.Checked
-            , enableSFTP: chkSftp.Checked
-            , login: txtLogin.Text
-            , password: txtPassword.Text
-            );
+        _ur.Connect(txtIP.Text, parameters);
 
         // Store information
         Config.Current.IP = txtIP.Text;
@@ -66,6 +71,8 @@ public partial class ConnectControl : UserControl, IUserControl
         Config.Current.EnableSFTP = chkSftp.Checked;
         Config.Current.Login = txtLogin.Text;
         Config.Current.Password = txtPassword.Text;
+        Config.Current.EnableSocketServer = chkSocket.Checked;
+        Config.Current.SocketServerPort = (int)udSocketPort.Value;
         Config.Save();
     }
 

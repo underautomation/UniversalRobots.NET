@@ -75,7 +75,6 @@ partial class ArchiveControl
             // 
             // dlgOpen
             // 
-            this.dlgOpen.FileName = "openFileDialog1";
             this.dlgOpen.Filter = "Program or installation|*.urp;*.installation|All files|*.*";
             this.dlgOpen.RestoreDirectory = true;
             // 

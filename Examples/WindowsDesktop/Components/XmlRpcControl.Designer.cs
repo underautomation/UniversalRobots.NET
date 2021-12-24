@@ -37,6 +37,7 @@
             this.Label13 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,15 +128,27 @@
             this.PictureBox1.Image = global::UnderAutomation.UniversalRobots.Sample.WindowsDesktop.Properties.Resources.xml_rpc_sample;
             this.PictureBox1.Location = new System.Drawing.Point(0, 147);
             this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(804, 254);
+            this.PictureBox1.Size = new System.Drawing.Size(551, 254);
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PictureBox1.TabIndex = 24;
             this.PictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(342, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 112);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "WARNING : If the robot fails to connect, check your local firewall and check the " +
+    "robot\'s security settings in Polyscope: Settings / Security / General";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // XmlRpcControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.linkXmlRpcSample);
             this.Controls.Add(this.txtXmlRpcPort);
             this.Controls.Add(this.txtLocalIP);
@@ -166,4 +179,5 @@
         internal System.Windows.Forms.Label Label13;
         internal System.Windows.Forms.Label Label9;
         internal System.Windows.Forms.PictureBox PictureBox1;
-    }
+    internal System.Windows.Forms.Label label1;
+}

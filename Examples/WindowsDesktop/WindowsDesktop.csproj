@@ -120,6 +120,12 @@
     <Compile Include="Components\SftpControl.Designer.cs">
       <DependentUpon>SftpControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\SocketControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SocketControl.Designer.cs">
+      <DependentUpon>SocketControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\SshControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     <EmbeddedResource Include="Components\SftpControl.resx">
       <DependentUpon>SftpControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\SocketControl.resx">
+      <DependentUpon>SocketControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\SshControl.resx">
       <DependentUpon>SshControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +234,9 @@
     </Compile>
     <None Include="Resources\all instructions.urp" />
     <None Include="Resources\program.urp" />
+    <None Include="Samples\socket_sample.urp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Samples\xml_rpc_sample.urp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -294,8 +306,27 @@
     <None Include="Resources\error.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\arrow-right-line1.png" />
+    <Content Include="Resources\arrow-right-line2.png" />
+    <Content Include="Resources\arrow-up-line1.png" />
+    <Content Include="Resources\arrow-up-line2.png" />
     <Content Include="Resources\check-line.png" />
     <Content Include="Resources\close-line.png" />
+    <Content Include="Resources\delete-bin-5-line1.png" />
+    <Content Include="Resources\delete-bin-5-line2.png" />
+    <Content Include="Resources\download-2-line1.png" />
+    <Content Include="Resources\download-2-line2.png" />
+    <Content Include="Resources\file-edit-line1.png" />
+    <Content Include="Resources\file-edit-line2.png" />
+    <Content Include="Resources\file-line1.png" />
+    <Content Include="Resources\file-line2.png" />
+    <Content Include="Resources\folder-add-line1.png" />
+    <Content Include="Resources\folder-add-line2.png" />
+    <Content Include="Resources\folder-line1.png" />
+    <Content Include="Resources\folder-line2.png" />
+    <Content Include="Resources\folder-shared-line1.png" />
+    <Content Include="Resources\folder-shared-line2.png" />
+    <None Include="Resources\socket_sample.JPG" />
   </ItemGroup>
   <Choose>
     <When Condition="$(SolutionName.EndsWith(`Dev`))">

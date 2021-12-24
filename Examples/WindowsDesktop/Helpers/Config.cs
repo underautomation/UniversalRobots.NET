@@ -58,6 +58,9 @@ public class Config
     public string LoadInstallation { get; set; }
     public string SftpPath { get; set; }
     public string URScript { get; set; }
+    public bool? EnableSocketServer { get; set; }
+    public int? SocketServerPort { get; set; }
+
     #endregion
 }
 

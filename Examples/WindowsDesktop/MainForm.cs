@@ -31,6 +31,7 @@ public partial class MainForm : Form
         AddNode(new ProgramControl(_ur));
         AddNode(new DashboardServerControl(_ur));
         AddNode(new XmlRpcControl(_ur));
+        AddNode(new SocketControl(_ur));
         AddNode(new SftpControl(_ur));
         AddNode(new SshControl(_ur));
         AddNode(new ToolsControl());

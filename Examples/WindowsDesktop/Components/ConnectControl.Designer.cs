@@ -42,7 +42,11 @@ partial class ConnectControl
             this.label4 = new System.Windows.Forms.Label();
             this.udXmlRpcPort = new System.Windows.Forms.NumericUpDown();
             this.lblConnected = new System.Windows.Forms.Label();
+            this.chkSocket = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.udSocketPort = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -129,7 +133,7 @@ partial class ConnectControl
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(57, 270);
+            this.btnConnect.Location = new System.Drawing.Point(55, 337);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 3;
@@ -139,7 +143,7 @@ partial class ConnectControl
             // 
             // btnDisconnect
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(138, 270);
+            this.btnDisconnect.Location = new System.Drawing.Point(136, 337);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 3;
@@ -181,25 +185,59 @@ partial class ConnectControl
             // lblConnected
             // 
             this.lblConnected.AutoSize = true;
-            this.lblConnected.Location = new System.Drawing.Point(57, 299);
+            this.lblConnected.Location = new System.Drawing.Point(55, 366);
             this.lblConnected.Name = "lblConnected";
             this.lblConnected.Size = new System.Drawing.Size(43, 13);
             this.lblConnected.TabIndex = 5;
             this.lblConnected.Text = "______";
+            // 
+            // chkSocket
+            // 
+            this.chkSocket.AutoSize = true;
+            this.chkSocket.Location = new System.Drawing.Point(20, 271);
+            this.chkSocket.Name = "chkSocket";
+            this.chkSocket.Size = new System.Drawing.Size(126, 17);
+            this.chkSocket.TabIndex = 2;
+            this.chkSocket.Text = "Enable socket server";
+            this.chkSocket.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(31, 296);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Local port :";
+            // 
+            // udSocketPort
+            // 
+            this.udSocketPort.Location = new System.Drawing.Point(95, 294);
+            this.udSocketPort.Maximum = new decimal(new int[] {
+            -1981284353,
+            -1966660860,
+            0,
+            0});
+            this.udSocketPort.Name = "udSocketPort";
+            this.udSocketPort.Size = new System.Drawing.Size(67, 20);
+            this.udSocketPort.TabIndex = 4;
             // 
             // ConnectControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblConnected);
+            this.Controls.Add(this.udSocketPort);
             this.Controls.Add(this.udXmlRpcPort);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.chkSocket);
             this.Controls.Add(this.chkSsh);
             this.Controls.Add(this.chkSftp);
             this.Controls.Add(this.chkXmlRpc);
             this.Controls.Add(this.chkDataStreaming);
             this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLogin);
@@ -209,6 +247,7 @@ partial class ConnectControl
             this.Name = "ConnectControl";
             this.Size = new System.Drawing.Size(629, 461);
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,4 +270,7 @@ partial class ConnectControl
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.NumericUpDown udXmlRpcPort;
     private System.Windows.Forms.Label lblConnected;
+    private System.Windows.Forms.CheckBox chkSocket;
+    private System.Windows.Forms.Label label5;
+    private System.Windows.Forms.NumericUpDown udSocketPort;
 }
