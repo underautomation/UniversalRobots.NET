@@ -60,6 +60,7 @@ public class Config
     public string URScript { get; set; }
     public bool? EnableSocketServer { get; set; }
     public int? SocketServerPort { get; set; }
+    public bool? EnableRTDE { get; set; }
 
     #endregion
 }

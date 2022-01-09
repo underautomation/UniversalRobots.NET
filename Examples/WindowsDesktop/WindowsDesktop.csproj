@@ -71,6 +71,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\ConnectRtdePopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ConnectRtdePopup.Designer.cs">
+      <DependentUpon>ConnectRtdePopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\RtdeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\RtdeControl.Designer.cs">
+      <DependentUpon>RtdeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\ConnectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +170,7 @@
     </Compile>
     <Compile Include="Helpers\Config.cs" />
     <Compile Include="Helpers\Explorer.cs" />
+    <Compile Include="Helpers\ListViewExtension.cs" />
     <Compile Include="Helpers\ScreenshotsGenerator.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -167,6 +180,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\ConnectRtdePopup.resx">
+      <DependentUpon>ConnectRtdePopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\RtdeControl.resx">
+      <DependentUpon>RtdeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\ConnectControl.resx">
       <DependentUpon>ConnectControl.cs</DependentUpon>
     </EmbeddedResource>

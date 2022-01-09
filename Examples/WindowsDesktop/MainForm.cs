@@ -29,6 +29,7 @@ public partial class MainForm : Form
         AddNode(new ConnectControl(_ur));
         AddNode(new PrimaryInterfaceControl(_ur));
         AddNode(new ProgramControl(_ur));
+        AddNode(new RtdeControl(_ur));
         AddNode(new DashboardServerControl(_ur));
         AddNode(new XmlRpcControl(_ur));
         AddNode(new SocketControl(_ur));

@@ -45,8 +45,14 @@ partial class ConnectControl
             this.chkSocket = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.udSocketPort = new System.Windows.Forms.NumericUpDown();
+            this.chkRTDE = new System.Windows.Forms.CheckBox();
+            this.btnRtde = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.udFrequency = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udFrequency)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,7 +139,7 @@ partial class ConnectControl
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(55, 337);
+            this.btnConnect.Location = new System.Drawing.Point(55, 404);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 3;
@@ -143,7 +149,7 @@ partial class ConnectControl
             // 
             // btnDisconnect
             // 
-            this.btnDisconnect.Location = new System.Drawing.Point(136, 337);
+            this.btnDisconnect.Location = new System.Drawing.Point(136, 404);
             this.btnDisconnect.Name = "btnDisconnect";
             this.btnDisconnect.Size = new System.Drawing.Size(75, 23);
             this.btnDisconnect.TabIndex = 3;
@@ -185,7 +191,7 @@ partial class ConnectControl
             // lblConnected
             // 
             this.lblConnected.AutoSize = true;
-            this.lblConnected.Location = new System.Drawing.Point(55, 366);
+            this.lblConnected.Location = new System.Drawing.Point(55, 433);
             this.lblConnected.Name = "lblConnected";
             this.lblConnected.Size = new System.Drawing.Size(43, 13);
             this.lblConnected.TabIndex = 5;
@@ -222,20 +228,75 @@ partial class ConnectControl
             this.udSocketPort.Size = new System.Drawing.Size(67, 20);
             this.udSocketPort.TabIndex = 4;
             // 
+            // chkRTDE
+            // 
+            this.chkRTDE.AutoSize = true;
+            this.chkRTDE.Location = new System.Drawing.Point(20, 337);
+            this.chkRTDE.Name = "chkRTDE";
+            this.chkRTDE.Size = new System.Drawing.Size(222, 17);
+            this.chkRTDE.TabIndex = 2;
+            this.chkRTDE.Text = "Enable Real-time Data Exchange (RTDE)";
+            this.chkRTDE.UseVisualStyleBackColor = true;
+            // 
+            // btnRtde
+            // 
+            this.btnRtde.Location = new System.Drawing.Point(248, 333);
+            this.btnRtde.Name = "btnRtde";
+            this.btnRtde.Size = new System.Drawing.Size(111, 23);
+            this.btnRtde.TabIndex = 6;
+            this.btnRtde.Text = "Choose data...";
+            this.btnRtde.UseVisualStyleBackColor = true;
+            this.btnRtde.Click += new System.EventHandler(this.btnRtde_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 362);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Fréquence :";
+            // 
+            // udFrequency
+            // 
+            this.udFrequency.Location = new System.Drawing.Point(95, 360);
+            this.udFrequency.Maximum = new decimal(new int[] {
+            -1981284353,
+            -1966660860,
+            0,
+            0});
+            this.udFrequency.Name = "udFrequency";
+            this.udFrequency.Size = new System.Drawing.Size(67, 20);
+            this.udFrequency.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(165, 362);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(20, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Hz";
+            // 
             // ConnectControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnRtde);
             this.Controls.Add(this.lblConnected);
+            this.Controls.Add(this.udFrequency);
             this.Controls.Add(this.udSocketPort);
             this.Controls.Add(this.udXmlRpcPort);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.chkRTDE);
             this.Controls.Add(this.chkSocket);
             this.Controls.Add(this.chkSsh);
             this.Controls.Add(this.chkSftp);
             this.Controls.Add(this.chkXmlRpc);
             this.Controls.Add(this.chkDataStreaming);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -248,6 +309,7 @@ partial class ConnectControl
             this.Size = new System.Drawing.Size(629, 461);
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udFrequency)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,4 +335,9 @@ partial class ConnectControl
     private System.Windows.Forms.CheckBox chkSocket;
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.NumericUpDown udSocketPort;
+    private System.Windows.Forms.CheckBox chkRTDE;
+    private System.Windows.Forms.Button btnRtde;
+    private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.NumericUpDown udFrequency;
+    private System.Windows.Forms.Label label7;
 }

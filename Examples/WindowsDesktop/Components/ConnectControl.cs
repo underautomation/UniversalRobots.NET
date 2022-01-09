@@ -23,10 +23,13 @@ public partial class ConnectControl : UserControl, IUserControl
         txtPassword.Text = Config.Current.Password ?? UR.DEFAULT_PASSWORD;
         chkSocket.Checked = Config.Current.EnableSocketServer ?? false;
         udSocketPort.Value = Config.Current.SocketServerPort ?? UR.DEFAULT_SOCKET_PORT;
+        chkRTDE.Checked = Config.Current.EnableRTDE ?? false;
+
+        _rtdeOutputData = new RTDEOutputUse();
     }
 
     #region IUserControl
-    public bool FeatureEnabled => _ur.DataStreamingEnabled || _ur.SftpEnabled || _ur.XmlRpcServerEnabled || _ur.SshEnabled;
+    public bool FeatureEnabled => _ur.DataStreamingEnabled || _ur.SftpEnabled || _ur.XmlRpcServerEnabled || _ur.SshEnabled || _ur.RTDEEnabled;
 
     public string Title => "Connection";
 
@@ -58,6 +61,9 @@ public partial class ConnectControl : UserControl, IUserControl
         parameters.Password = txtPassword.Text;
         parameters.EnableSocket = chkSocket.Checked;
         parameters.SocketPort = (int)udSocketPort.Value;
+        parameters.EnableRTDE = chkRTDE.Checked;
+
+        parameters.RTDEOutputSetup = _rtdeOutputData;
 
         // Connect to the robot
         _ur.Connect(txtIP.Text, parameters);
@@ -73,6 +79,7 @@ public partial class ConnectControl : UserControl, IUserControl
         Config.Current.Password = txtPassword.Text;
         Config.Current.EnableSocketServer = chkSocket.Checked;
         Config.Current.SocketServerPort = (int)udSocketPort.Value;
+        Config.Current.EnableRTDE = chkRTDE.Checked;
         Config.Save();
     }
 
@@ -80,5 +87,17 @@ public partial class ConnectControl : UserControl, IUserControl
     {
         // Disconnect all services
         _ur.Disconnect();
+    }
+
+    private RTDEOutputUse _rtdeOutputData;
+
+    private void btnRtde_Click(object sender, EventArgs e)
+    {
+        var rtdeOutputData = new RTDEOutputUse();
+        var popup = new ConnectRtdePopup(rtdeOutputData);
+        if(popup.ShowDialog() == DialogResult.OK)
+        {
+            _rtdeOutputData = rtdeOutputData;
+        }
     }
 }

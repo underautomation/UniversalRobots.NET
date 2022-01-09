@@ -1,9 +1,9 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
-using System.Linq;
-using System;
-using System.Collections.Generic;
 
 public partial class ProgramControl : UserControl, IUserControl
 {
@@ -30,53 +30,12 @@ public partial class ProgramControl : UserControl, IUserControl
     {
         var variables = _ur.GlobalVariables.GetAll();
 
-        UpdateList(lstVariables, variables, v => v.Name, v => v.Type.ToString(), v => v.ToString());
+        lstVariables.UpdateList(variables, v => v.Name, v => v.Type.ToString(), v => v.ToString());
 
         var threads = _ur.ProgramThreads?.Threads;
 
-        if(threads is object)
-            UpdateList(lstThreads, threads, t => t.LineNumber.ToString(), t => t.LineName);
-    }
-
-    /// <summary>
-    /// Update list view
-    /// </summary>
-    /// <param name="list">ListView to update</param>
-    /// <param name="values">Items to add to the list</param>
-    /// <param name="decoders">Lambda that transforms item to column string value</param>
-    private void UpdateList<T>(ListView list, IEnumerable<T> values, params Func<T, string>[] decoders)
-    {
-        try
-        {
-            list.BeginUpdate();
-
-            for (int i = 0; i < values.Count(); i++)
-            {
-                var variable = values.ElementAt(i);
-
-                if (i < list.Items.Count)
-                {
-                    // Replace item
-                    for (int c = 0; c < decoders.Length; c++) list.Items[i].SubItems[c].Text = decoders[c](variable);
-                }
-                else
-                {
-                    // add new items
-                    list.Items.Add(new ListViewItem(decoders.Select(decoder => decoder(variable)).ToArray()));
-                }
-            }
-
-            var itemCount = list.Items.Count;
-            for (int i = values.Count(); i < itemCount; i++)
-            {
-                // remove last items
-                list.Items.RemoveAt(list.Items.Count - 1);
-            }
-        }
-        finally
-        {
-            list.EndUpdate();
-        }
+        if (threads is object)
+            lstThreads.UpdateList(threads, t => t.LineNumber.ToString(), t => t.LineName);
     }
 
     public void OnClose() { }
@@ -104,7 +63,7 @@ public partial class ProgramControl : UserControl, IUserControl
                 cbPrograms.Items.AddRange(programs);
                 if (splitedPath.Length > 0) cbPrograms.Text = splitedPath[1];
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 lblPathToPrograms.Text = $"{lblPathToPrograms.Text} ({e.Message})";
             }
