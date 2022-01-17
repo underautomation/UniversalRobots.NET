@@ -1,2 +1,1 @@
-- Read a variable by its name through Dashboard Server
-- Send custom Dashboard Server commands
+- Add socket message support. Allow your app to handle URScript functions : socket_open(), socket_*()

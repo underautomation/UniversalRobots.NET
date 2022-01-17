@@ -1806,6 +1806,66 @@
             <param name="unixtime">The Unix time stamp you want to convert to DateTime.</param>
             <returns>Returns a DateTime object that represents value of the Unix time.</returns>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.ConnectParameters">
+            <summary>
+            Contains parameters to connect to the robot
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.EnableDataStreaming">
+            <summary>
+            Enable the data streaming and remote script execution
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.DataStreamingPort">
+            <summary>
+            Port to connect to the robot
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.EnableXmlRpcServer">
+            <summary>
+            Enable the XML-RPC server on port XmlRpcServerPort
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.XmlRpcServerPort">
+            <summary>
+            Port on which to start the XML-RPC server
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.PingRobotBeforeConnect">
+            <summary>
+            The robot is pinged before connecting. An exception is thrown if robot is not reached
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.EnableSSH">
+            <summary>
+            Enable SSH connection to remote send Linux commands
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.EnableSFTP">
+            <summary>
+            Enable Secure File Transfert to remote manipulate, send and receive files to the controler
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.Login">
+            <summary>
+            Linux login for SSH and SFTP
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.Password">
+            <summary>
+            Linux password for SSH and SFTP
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.EnableSocket">
+            <summary>
+            Enable socket server on port SocketPort
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.SocketPort">
+            <summary>
+            Socket server port
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.CommandResponse`1">
             <summary>
             Answer return by a command which contains a value
@@ -2385,6 +2445,78 @@
             <summary>
             Return information about your license
             </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.SocketClients">
+            <summary>
+            List of all connected clients. One robot can open multiple sockets.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.UR.EnableSocket(System.Int32)">
+            <summary>
+            Starts socket server. Robot can connect with URScript function socket_open()
+            </summary>
+            <param name="port">Socket server port</param>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.SocketEnabled">
+            <summary>
+            Is the socket server enabled
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.SocketPort">
+            <summary>
+            Socket server local port
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.SocketClientConnection">
+            <summary>
+            Event raised when a robot connects with URScript function socket_open()
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.SocketGetVar">
+            <summary>
+            Event raised when the robot calls socket_get_var()
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.SocketRequest">
+            <summary>
+            Event raised when a message is received from robot
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.UR.SocketClientDisconnection">
+            <summary>
+            Event raised when the robot socket disconnects
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.UR.SocketRequestEventHandler">
+            <summary>
+            Event handler of a socket message received from robot
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.UR.SocketGetVarEventHandler">
+            <summary>
+            Event handler of a socket message sent with socket_get_var()
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.UR.SocketClientConnectionEventHandler">
+            <summary>
+            Event handler of a robot that connects with socket_open()
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.UR.SocketClientDisconnectionEventHandler">
+            <summary>
+            Event handler when the robot socket disconnects
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.UR.DisableSocket">
+            <summary>
+            Disable local socket server and disconnect all connected clients
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.UR.SocketWrite(System.String)">
+            <summary>
+            Write a socket message to the robot. The robot should be connected with socket_open()
+            </summary>
+            <param name="message">Message to send to the robot</param>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.SSH">
             <summary>
@@ -4074,6 +4206,11 @@
             An error occured while decoding global variables
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.StatusCode.SocketInternalError">
+            <summary>
+            An error occured while handling socket packet
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Pose">
             <summary>
             Represents a cartesian pose with 3 translations and 3 rotations
@@ -4161,6 +4298,128 @@
             <param name="value">String representation of the pose like : p[0.1,0,0.2,0.01,0,0]</param>
             <param name="pose">The output parsed pose</param>
             <returns></returns>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.ISocketHandler">
+            <summary>
+            Interface for classes that support socket messages
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.ISocketHandler.SocketGetVar">
+            <summary>
+            Event raised when the robot calls socket_get_var()
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.ISocketHandler.SocketRequest">
+            <summary>
+            Event raised when a message is received from robot
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.ISocketHandler.SocketClientDisconnection">
+            <summary>
+            Event raised when the robot socket disconnects
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.ISocketHandler.SocketWrite(System.String)">
+            <summary>
+            Write a socket message to the robot. The robot should be connected with socket_open()
+            </summary>
+            <param name="message">Message to send to the robot</param>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SocketClient">
+            <summary>
+            Represent a UR robot connected with URScript function socket_open()
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketClient.EndPoint">
+            <summary>
+            IP address and remote port used by the robot for socket communication
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.SocketClient.SocketGetVar">
+            <summary>
+            Event raised when the robot calls socket_get_var()
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.SocketClient.SocketRequest">
+            <summary>
+            Event raised when a message is received from robot
+            </summary>
+        </member>
+        <member name="E:UnderAutomation.UniversalRobots.SocketClient.SocketClientDisconnection">
+            <summary>
+            Event handler when the robot socket disconnects
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.SocketClient.Connected">
+            <summary>
+            Indicates that robot socket is still active
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.SocketClient.Disconnect">
+            <summary>
+            Closes socket communication to robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.SocketClient.SocketWrite(System.String)">
+            <summary>
+            Write a socket message to the robot. The robot should be connected with socket_open()
+            </summary>
+            <param name="message">Message to send to the robot</param>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SocketRequestEventArgs">
+            <summary>
+            Event args raised when a socket message is received
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketRequestEventArgs.Message">
+            <summary>
+            Message content received from robot
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketRequestEventArgs.Client">
+            <summary>
+            Robot IP information
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SocketGetVarEventArgs">
+            <summary>
+            Event args raised when a socket message sent with socket_get_var() is received
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketGetVarEventArgs.Client">
+            <summary>
+            Robot remote endpoint
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketGetVarEventArgs.Name">
+            <summary>
+            Name of requested variable
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketGetVarEventArgs.Value">
+            <summary>
+            Variable value to send to the robot. If value is null, no messsage is replied to the robot
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SocketClientConnectionEventArgs">
+            <summary>
+            Event args raised when a socket client is connected with socket_open()
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketClientConnectionEventArgs.Client">
+            <summary>
+            Robot remote endpoint
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.SocketClientDisconnectionEventArgs">
+            <summary>
+            Event args raised when a socket client disconnects
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.SocketClientDisconnectionEventArgs.Client">
+            <summary>
+            Robot remote endpoint
+            </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.SSH.Abstractions.CryptoAbstraction.GenerateRandom(System.Int32)">
             <summary>
@@ -28617,6 +28876,21 @@
             Load a *.urp program from file path
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcArrayValue">
+            <summary>
+            Represents an array of XmlRpcValue that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcBooleanValue">
+            <summary>
+            Represents a boolean value that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcDoubleValue">
+            <summary>
+            Represents a double value that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.XmlRpcEventArg">
             <summary>
             Represents a request that has just been received from the robot
@@ -28645,6 +28919,56 @@
         <member name="F:UnderAutomation.UniversalRobots.XmlRpcEventArg.Answer">
             <summary>
             Response to be provided to the robot by the user
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcIntegerValue">
+            <summary>
+            Represents an integer value that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcPoseValue">
+            <summary>
+            Represents a pose value that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.XmlRpcPoseValue.Value">
+            <summary>
+            Pose Value
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.XmlRpcPoseValue.#ctor(UnderAutomation.UniversalRobots.Pose)">
+            <summary>
+            Creates a new pose Value
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.XmlRpcPoseValue.Type">
+            <summary>
+            Returns type : XmlRpcType.Pose
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.XmlRpcPoseValue.ToString">
+            <summary>
+            String representation of a pose value : p[0.1,0,0.2,0.01,0,0]
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcStringValue">
+            <summary>
+            Represents a string value that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcStructMember">
+            <summary>
+            Member of a structure exchanged via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcStructValue">
+            <summary>
+            Represents a structure that can be exchange with the robot via XML-RPC
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcType">
+            <summary>
+            All supported types that can be transmitted by XML-RPC
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.XmlRpcType.Unknown">
@@ -28685,6 +29009,17 @@
         <member name="F:UnderAutomation.UniversalRobots.XmlRpcType.Pose">
             <summary>
             The RPC type is a XmlRpcPoseValue
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcUnknownValue">
+            <summary>
+            Represents an unknown XML-RPC argument that has been received from the robot
+            You can decode it yourself with the XML property
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.XmlRpcValue">
+            <summary>
+            Base class of all elements transmitted by XML-RPC. La propriété Type donne le type dans lequel cette objet peut être casté pour obtenir la valeur
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.XmlRpcValue.Type">
