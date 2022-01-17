@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.PrimaryInterface;
 
 public partial class PrimaryInterfaceControl : UserControl, IUserControl
 {
@@ -13,8 +14,8 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
 
         txtScript.Text = Config.Current.URScript ?? "movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)";
 
-        _ur.PopupMessageReceived += _ur_PopupMessageReceived;
-        _ur.RuntimeExceptionMessageReceived += _ur_RuntimeExceptionMessageReceived;
+        _ur.PrimaryInterface.PopupMessageReceived += _ur_PopupMessageReceived;
+        _ur.PrimaryInterface.RuntimeExceptionMessageReceived += _ur_RuntimeExceptionMessageReceived;
     }
 
     private void _ur_RuntimeExceptionMessageReceived(object sender, RuntimeExceptionMessageEventArgs e)
@@ -38,9 +39,9 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
     }
 
     #region IUserControl
-    public string Title => "Data streaming and script (Primary Interface)";
+    public string Title => "Primary Interface (Data streaming and script)";
 
-    public bool FeatureEnabled => _ur.DataStreamingEnabled;
+    public bool FeatureEnabled => _ur.PrimaryInterface.Connected;
 
     public void PeriodicUpdate()
     {
@@ -48,22 +49,22 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
         txtScript.Enabled = FeatureEnabled;
 
         // Update grid with last received values
-        gridAdditionnalInfo.SetSelectedObject(_ur.AdditionalInfo);
-        gridCartesian.SetSelectedObject(_ur.CartesianInfo);
-        gridConfiguration.SetSelectedObject(_ur.ConfigurationData);
-        gridForce.SetSelectedObject(_ur.ForceModeData);
-        gridJointData.SetSelectedObject(_ur.JointData);
-        gridMasterboard.SetSelectedObject(_ur.MasterboardData);
-        gridRobotMode.SetSelectedObject(_ur.RobotModeData);
-        GridToolCommunication.SetSelectedObject(_ur.ToolCommunicationInfo);
-        gridTool.SetSelectedObject(_ur.ToolData);
-        gridToolModeInfo.SetSelectedObject(_ur.ToolModeInfo);
-        gridKinematicsData.SetSelectedObject(_ur.KinematicsInfo);
-        gridVersion.SetSelectedObject(_ur.Version);
-        gridKeyMessage.SetSelectedObject(_ur.KeyMessage);
-        gridPopupMessage.SetSelectedObject(_ur.PopupMessage);
-        gridTextMessage.SetSelectedObject(_ur.TextMessage);
-        gridRuntimeExceptionMessage.SetSelectedObject(_ur.RuntimeExceptionMessage);
+        gridAdditionnalInfo.SetSelectedObject(_ur.PrimaryInterface.AdditionalInfo);
+        gridCartesian.SetSelectedObject(_ur.PrimaryInterface.CartesianInfo);
+        gridConfiguration.SetSelectedObject(_ur.PrimaryInterface.ConfigurationData);
+        gridForce.SetSelectedObject(_ur.PrimaryInterface.ForceModeData);
+        gridJointData.SetSelectedObject(_ur.PrimaryInterface.JointData);
+        gridMasterboard.SetSelectedObject(_ur.PrimaryInterface.MasterboardData);
+        gridRobotMode.SetSelectedObject(_ur.PrimaryInterface.RobotModeData);
+        GridToolCommunication.SetSelectedObject(_ur.PrimaryInterface.ToolCommunicationInfo);
+        gridTool.SetSelectedObject(_ur.PrimaryInterface.ToolData);
+        gridToolModeInfo.SetSelectedObject(_ur.PrimaryInterface.ToolModeInfo);
+        gridKinematicsData.SetSelectedObject(_ur.PrimaryInterface.KinematicsInfo);
+        gridVersion.SetSelectedObject(_ur.PrimaryInterface.Version);
+        gridKeyMessage.SetSelectedObject(_ur.PrimaryInterface.KeyMessage);
+        gridPopupMessage.SetSelectedObject(_ur.PrimaryInterface.PopupMessage);
+        gridTextMessage.SetSelectedObject(_ur.PrimaryInterface.TextMessage);
+        gridRuntimeExceptionMessage.SetSelectedObject(_ur.PrimaryInterface.RuntimeExceptionMessage);
 }
 
 public void OnOpen()
@@ -78,7 +79,7 @@ public void OnOpen()
 
     private void btnSendScript_Click(object sender, System.EventArgs e)
     {
-        _ur.Send(txtScript.Text);
+        _ur.PrimaryInterface.Send(txtScript.Text);
 
         Config.Current.URScript = txtScript.Text;
         Config.Save();

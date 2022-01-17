@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -30,7 +31,7 @@ public partial class MainForm : Form
         AddNode(new PrimaryInterfaceControl(_ur));
         AddNode(new ProgramControl(_ur));
         AddNode(new RtdeControl(_ur));
-        AddNode(new DashboardServerControl(_ur));
+        AddNode(new DashboardControl(_ur));
         AddNode(new XmlRpcControl(_ur));
         AddNode(new SocketControl(_ur));
         AddNode(new SftpControl(_ur));
@@ -38,10 +39,15 @@ public partial class MainForm : Form
         AddNode(new ToolsControl());
         AddNode(new ArchiveControl(_ur));
         AddNode(new LicenseControl());
+        AddNode(new LogControl());
+
+        _ur.InternalErrorOccured += _ur_InternalErrorOccured;
 
         // Select first node at startup
         SelectNode(leftTreeView.Nodes[0]);
+
     }
+
 
     private void AddNode(IUserControl control)
     {
@@ -77,6 +83,14 @@ public partial class MainForm : Form
     private void leftTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
     {
         SelectNode(e.Node);
+    }
+
+    internal T SelectNode<T>() where T : class, IUserControl
+    {
+        var node = Instance.leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is T);
+        var control = node.Tag as T;
+        SelectNode(node);
+        return control;
     }
 
     // Open right control associated to a node
@@ -129,6 +143,8 @@ public partial class MainForm : Form
         }
         catch { }
 
+        lblStatus.Text = _ur.Enabled ? $"Connected to {_ur.IP}" : "Disconnected";
+
         try
         {
             // Refresh left menu icons and colors
@@ -163,9 +179,7 @@ public partial class MainForm : Form
 
     public static void Decompile(string fullName)
     {
-        var node = Instance.leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is ArchiveControl);
-        var control = node.Tag as ArchiveControl;
-        Instance.SelectNode(node);
+        var control = Instance.SelectNode<ArchiveControl>();
         control?.Decompile(fullName);
     }
 
@@ -178,4 +192,49 @@ public partial class MainForm : Form
         }
         action?.DynamicInvoke();
     }
+
+    #region Show errors
+    public readonly List<string> Errors = new List<string>();
+
+    private void lblErrors_Click(object sender, EventArgs e)
+    {
+        SelectNode<LogControl>();
+    }
+
+    // Hide red label after some times
+    private void tmrError_Tick(object sender, EventArgs e)
+    {
+        tmrError.Enabled = false;
+        lblErrors.Text = "";
+        lblErrors.Visible = false;
+    }
+
+    // Callback when an error occured in SDK
+    private void _ur_InternalErrorOccured(object sender, InternalErrorEventArgs e)
+    {
+        var error = e.ToString();
+        Errors.Add(error);
+        ShowError(error);
+    }
+
+    // Display error
+    private void ShowError(string error)
+    {
+        if (InvokeRequired)
+        {
+            Invoke(new Action(() => ShowError(error)));
+            return;
+        }
+
+        if (string.IsNullOrEmpty(error)) return;
+
+        if (error.Length > 100) error = error.Substring(0, 100) + " ...";
+
+        lblErrors.Text = error;
+        lblErrors.Visible = true;
+
+        // Show label some times
+        tmrError.Enabled = true;
+    }
+    #endregion
 }

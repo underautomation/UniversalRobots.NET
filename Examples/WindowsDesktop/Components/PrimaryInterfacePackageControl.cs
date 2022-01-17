@@ -4,6 +4,8 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.Common;
+using UnderAutomation.UniversalRobots.PrimaryInterface;
 
 // Advanced Property Grid thats displays a Primary Interface Package
 public partial class PrimaryInterfacePackageControl : UserControl

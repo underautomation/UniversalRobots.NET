@@ -71,11 +71,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\LogControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LogControl.Designer.cs">
+      <DependentUpon>LogControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\ConnectRtdePopup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Components\ConnectRtdePopup.Designer.cs">
-      <DependentUpon>ConnectRtdePopup.cs</DependentUpon>
+    <Compile Include="Components\ConnectRtdePopupBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ConnectRtdePopupBase.Designer.cs">
+      <DependentUpon>ConnectRtdePopupBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\RtdeControl.cs">
       <SubType>UserControl</SubType>
@@ -89,11 +98,11 @@
     <Compile Include="Components\ConnectControl.Designer.cs">
       <DependentUpon>ConnectControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Components\DashboardServerControl.cs">
+    <Compile Include="Components\DashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Components\DashboardServerControl.Designer.cs">
-      <DependentUpon>DashboardServerControl.cs</DependentUpon>
+    <Compile Include="Components\DashboardControl.Designer.cs">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Components\IUserControl.cs" />
     <Compile Include="Components\LicenseControl.cs">
@@ -180,8 +189,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Components\ConnectRtdePopup.resx">
-      <DependentUpon>ConnectRtdePopup.cs</DependentUpon>
+    <EmbeddedResource Include="Components\LogControl.resx">
+      <DependentUpon>LogControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ConnectRtdePopupBase.resx">
+      <DependentUpon>ConnectRtdePopupBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\RtdeControl.resx">
       <DependentUpon>RtdeControl.cs</DependentUpon>
@@ -189,8 +201,8 @@
     <EmbeddedResource Include="Components\ConnectControl.resx">
       <DependentUpon>ConnectControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Components\DashboardServerControl.resx">
-      <DependentUpon>DashboardServerControl.cs</DependentUpon>
+    <EmbeddedResource Include="Components\DashboardControl.resx">
+      <DependentUpon>DashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Components\LicenseControl.resx">
       <DependentUpon>LicenseControl.cs</DependentUpon>
@@ -345,6 +357,8 @@
     <Content Include="Resources\folder-line2.png" />
     <Content Include="Resources\folder-shared-line1.png" />
     <Content Include="Resources\folder-shared-line2.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\play.png" />
     <None Include="Resources\socket_sample.JPG" />
   </ItemGroup>
   <Choose>

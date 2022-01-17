@@ -41,6 +41,10 @@ partial class MainForm
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Label();
             this.tmrPeriodicUpdate = new System.Windows.Forms.Timer(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblErrors = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tmrError = new System.Windows.Forms.Timer(this.components);
             this.horizontalSplitContainer.Panel1.SuspendLayout();
             this.horizontalSplitContainer.Panel2.SuspendLayout();
             this.horizontalSplitContainer.SuspendLayout();
@@ -49,6 +53,7 @@ partial class MainForm
             this.verticalSplitContainer.Panel1.SuspendLayout();
             this.verticalSplitContainer.Panel2.SuspendLayout();
             this.verticalSplitContainer.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // horizontalSplitContainer
@@ -69,7 +74,7 @@ partial class MainForm
             // horizontalSplitContainer.Panel2
             // 
             this.horizontalSplitContainer.Panel2.Controls.Add(this.verticalSplitContainer);
-            this.horizontalSplitContainer.Size = new System.Drawing.Size(986, 719);
+            this.horizontalSplitContainer.Size = new System.Drawing.Size(984, 739);
             this.horizontalSplitContainer.SplitterDistance = 79;
             this.horizontalSplitContainer.TabIndex = 0;
             // 
@@ -78,7 +83,7 @@ partial class MainForm
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblLink);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(599, 0);
+            this.panel1.Location = new System.Drawing.Point(597, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(385, 77);
             this.panel1.TabIndex = 3;
@@ -145,7 +150,7 @@ partial class MainForm
             // 
             this.verticalSplitContainer.Panel2.Controls.Add(this.mainPanel);
             this.verticalSplitContainer.Panel2.Controls.Add(this.panelTitle);
-            this.verticalSplitContainer.Size = new System.Drawing.Size(986, 636);
+            this.verticalSplitContainer.Size = new System.Drawing.Size(984, 656);
             this.verticalSplitContainer.SplitterDistance = 281;
             this.verticalSplitContainer.TabIndex = 0;
             // 
@@ -158,7 +163,7 @@ partial class MainForm
             this.leftTreeView.Location = new System.Drawing.Point(0, 0);
             this.leftTreeView.Name = "leftTreeView";
             this.leftTreeView.SelectedImageIndex = 0;
-            this.leftTreeView.Size = new System.Drawing.Size(279, 634);
+            this.leftTreeView.Size = new System.Drawing.Size(279, 654);
             this.leftTreeView.TabIndex = 0;
             this.leftTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.leftTreeView_NodeMouseClick);
             // 
@@ -174,7 +179,7 @@ partial class MainForm
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(699, 603);
+            this.mainPanel.Size = new System.Drawing.Size(697, 623);
             this.mainPanel.TabIndex = 1;
             // 
             // panelTitle
@@ -183,7 +188,7 @@ partial class MainForm
             this.panelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(699, 31);
+            this.panelTitle.Size = new System.Drawing.Size(697, 31);
             this.panelTitle.TabIndex = 0;
             this.panelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -193,13 +198,48 @@ partial class MainForm
             this.tmrPeriodicUpdate.Interval = 200;
             this.tmrPeriodicUpdate.Tick += new System.EventHandler(this.tmrPeriodicUpdate_Tick);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblStatus,
+            this.lblErrors});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 739);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
+            this.statusStrip1.TabIndex = 0;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(79, 17);
+            this.lblStatus.Text = "Disconnected";
+            // 
+            // lblErrors
+            // 
+            this.lblErrors.ActiveLinkColor = System.Drawing.Color.DarkRed;
+            this.lblErrors.IsLink = true;
+            this.lblErrors.LinkColor = System.Drawing.Color.Red;
+            this.lblErrors.Name = "lblErrors";
+            this.lblErrors.Size = new System.Drawing.Size(16, 17);
+            this.lblErrors.Text = "...";
+            this.lblErrors.Visible = false;
+            this.lblErrors.VisitedLinkColor = System.Drawing.Color.Red;
+            this.lblErrors.Click += new System.EventHandler(this.lblErrors_Click);
+            // 
+            // tmrError
+            // 
+            this.tmrError.Interval = 10000;
+            this.tmrError.Tick += new System.EventHandler(this.tmrError_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(986, 719);
+            this.ClientSize = new System.Drawing.Size(984, 761);
             this.Controls.Add(this.horizontalSplitContainer);
+            this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "UnderAutomation - Universal Robots communication SDK";
@@ -211,7 +251,10 @@ partial class MainForm
             this.verticalSplitContainer.Panel1.ResumeLayout(false);
             this.verticalSplitContainer.Panel2.ResumeLayout(false);
             this.verticalSplitContainer.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -229,5 +272,9 @@ partial class MainForm
     private System.Windows.Forms.LinkLabel lblLink;
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.TreeView leftTreeView;
+    private System.Windows.Forms.StatusStrip statusStrip1;
+    private System.Windows.Forms.ToolStripStatusLabel lblStatus;
+    private System.Windows.Forms.ToolStripStatusLabel lblErrors;
+    private System.Windows.Forms.Timer tmrError;
 }
 

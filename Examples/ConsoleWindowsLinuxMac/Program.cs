@@ -1,5 +1,7 @@
 ﻿using System;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.PrimaryInterface;
+using UnderAutomation.UniversalRobots.XmlRpc;
 
 namespace ConsoleWindowsLinuxMac
 {
@@ -40,8 +42,8 @@ namespace ConsoleWindowsLinuxMac
                 var ip = Console.ReadLine();
 
                 _ur = new UR();
-                _ur.CartesianInfoReceived += CartesianInfoReceived;
-                _ur.XmlRpcServerRequest += XmlRpcServerRequest;
+                _ur.PrimaryInterface.CartesianInfoReceived += CartesianInfoReceived;
+                _ur.XmlRpc.XmlRpcServerRequest += XmlRpcServerRequest;
 
                 _ur.Connect(ip);
 
@@ -80,7 +82,7 @@ namespace ConsoleWindowsLinuxMac
         // Method called when the robot sends a request
         // You shoud execute on your robot : rpc:=rpc_factory("xmlrpc","http://192.168.0.10:50000")
         // Replace the IP address 192.168.0.10 with the IP of the machine running this .NET code
-        // If you don't know your IP, you can find it in your interface properties or in with this SDK in the property : ur.DataStreamingLocalEndPoint
+        // If you don't know your IP, you can find it in your interface properties or in with this SDK in the property : ur.PrimaryInterface.LocalEndPoint
         // Use xml_rpc_sample.urp program to test this feature
         private static void XmlRpcServerRequest(object sender, XmlRpcEventArg request)
         {

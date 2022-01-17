@@ -1,4 +1,4 @@
-﻿    partial class DashboardServerControl
+﻿    partial class DashboardControl
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.

@@ -21,7 +21,7 @@ public partial class PrimaryInterfacePopup : Form
 
     private void btnClose_Click(object sender, EventArgs e)
     {
-        _ur?.ClosePopup();
+        _ur.Dashboard.ClosePopup();
         this.Close();
     }
 

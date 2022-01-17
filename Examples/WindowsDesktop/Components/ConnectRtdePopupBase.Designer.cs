@@ -1,6 +1,6 @@
 ﻿
-    partial class ConnectRtdePopup
-    {
+    partial class ConnectRtdePopupBase
+{
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -39,7 +39,8 @@
             this.tree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tree.Location = new System.Drawing.Point(0, 0);
             this.tree.Name = "tree";
-            this.tree.Size = new System.Drawing.Size(273, 450);
+            this.tree.ShowNodeToolTips = true;
+            this.tree.Size = new System.Drawing.Size(304, 477);
             this.tree.TabIndex = 0;
             this.tree.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tree_AfterCheck);
             // 
@@ -47,33 +48,32 @@
             // 
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 450);
+            this.panel1.Location = new System.Drawing.Point(0, 477);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(273, 47);
+            this.panel1.Size = new System.Drawing.Size(304, 51);
             this.panel1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(73, 5);
+            this.button1.Location = new System.Drawing.Point(89, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 38);
             this.button1.TabIndex = 2;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // ConnectRtdePopup
+            // ConnectRtdePopupBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 497);
+            this.ClientSize = new System.Drawing.Size(304, 528);
             this.Controls.Add(this.tree);
             this.Controls.Add(this.panel1);
-            this.Name = "ConnectRtdePopup";
+            this.Name = "ConnectRtdePopupBase";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select RTDE data to read";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -81,8 +81,7 @@
         }
 
     #endregion
-
-    private System.Windows.Forms.TreeView tree;
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button button1;
+    protected System.Windows.Forms.TreeView tree;
 }

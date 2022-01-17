@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <AssemblyName>ConsoleURExample</AssemblyName>
-    <RootNamespace>UnderAutomation.UniversalRobots.Example</RootNamespace>
+    <RootNamespace>UnderAutomation.UniversalRobots.Sample.ConsoleWindowsLinuxMac</RootNamespace>
     <ApplicationIcon>ua.ico</ApplicationIcon>
     <Version>2.0.0</Version>
     <RuntimeIdentifiers>win-x86;win-x64;win-arm;linux-arm;linux-x64;osx-x64</RuntimeIdentifiers>

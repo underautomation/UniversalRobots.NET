@@ -47,7 +47,7 @@ public partial class ArchiveControl : UserControl, IUserControl
             // download file by SFTP from robot
             using (var stream = new MemoryStream())
             {
-                _ur.SFTP.DownloadFile(fullName, stream);
+                _ur.Sftp.DownloadFile(fullName, stream);
                 stream.Position = 0;
                 xml = URArchive.Load(stream);
             }

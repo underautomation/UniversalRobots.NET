@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
-using UnderAutomation.UniversalRobots.SSH.Common;
-using UnderAutomation.UniversalRobots.SSH.Sftp;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Common;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Sftp;
 
 public partial class SftpControl : UserControl, IUserControl
 {
@@ -20,7 +20,7 @@ public partial class SftpControl : UserControl, IUserControl
     #region IUserControl
     public string Title => "File handling (SFTP)";
 
-    public bool FeatureEnabled => _ur.SftpEnabled;
+    public bool FeatureEnabled => _ur.Sftp.Connected;
 
     public void PeriodicUpdate()
     {
@@ -62,7 +62,7 @@ public partial class SftpControl : UserControl, IUserControl
         gridFile.SelectedObject = null;
         lstFolder.Items.Clear();
 
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
 
         path = path.Replace(@"\", "/");
         if (!path.EndsWith("/"))
@@ -70,7 +70,7 @@ public partial class SftpControl : UserControl, IUserControl
 
         txtPath.Text = path;
 
-        var files = _ur.SFTP.ListDirectory(path);
+        var files = _ur.Sftp.ListDirectory(path);
 
         foreach (var file in files)
         {
@@ -93,11 +93,27 @@ public partial class SftpControl : UserControl, IUserControl
     // Open directory after double click
     private void lstFolder_ItemActivate(object sender, EventArgs e)
     {
-        var file = lstFolder.SelectedItems?.OfType<ListViewItem>()?.FirstOrDefault()?.Tag as UnderAutomation.UniversalRobots.SSH.Sftp.SftpFile;
+        var file = lstFolder.SelectedItems?.OfType<ListViewItem>()?.FirstOrDefault()?.Tag as UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFile;
 
         if (file == null || (!file.IsDirectory && !file.IsSymbolicLink)) return;
 
-        FillList(file.FullName);
+        if (file.IsSymbolicLink && file.IsRegularFile)
+        {
+            try
+            {
+                var value = _ur.Sftp.ReadAllText(file.FullName);
+
+                MessageBox.Show(value, file.FullName);
+            }
+            catch
+            {
+                FillList(file.FullName);
+            }
+        }
+        else
+        {
+            FillList(file.FullName);
+        }
     }
 
     // Show select item data inside right grid
@@ -135,7 +151,7 @@ public partial class SftpControl : UserControl, IUserControl
     {
         if (MessageBox.Show("Do you really want to delete selected item ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
 
         foreach (var itm in lstFolder.SelectedItems.OfType<ListViewItem>())
         {
@@ -143,7 +159,7 @@ public partial class SftpControl : UserControl, IUserControl
 
             if (file == null) return;
 
-            _ur.SFTP.Delete(file.FullName);
+            _ur.Sftp.Delete(file.FullName);
             Thread.Sleep(500);
             ReloadList();
         }
@@ -158,13 +174,13 @@ public partial class SftpControl : UserControl, IUserControl
     // Send file to the robot and refresh list
     private void btnUpload_Click(object sender, EventArgs e)
     {
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
 
         if (dlgOpen.ShowDialog() != DialogResult.OK) return;
 
         using (var selectedFile = File.OpenRead(dlgOpen.FileName))
         {
-            _ur.SFTP.UploadFile(selectedFile, GetPath() + Path.GetFileName(dlgOpen.FileName).Replace(@"\", "/"));
+            _ur.Sftp.UploadFile(selectedFile, GetPath() + Path.GetFileName(dlgOpen.FileName).Replace(@"\", "/"));
         }
 
         Thread.Sleep(500);
@@ -189,9 +205,9 @@ public partial class SftpControl : UserControl, IUserControl
     // Save remote file to local computer
     private void btnDownload_Click(object sender, EventArgs e)
     {
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
 
-        var file = lstFolder.SelectedItems.OfType<ListViewItem>()?.FirstOrDefault()?.Tag as UnderAutomation.UniversalRobots.SSH.Sftp.SftpFile;
+        var file = lstFolder.SelectedItems.OfType<ListViewItem>()?.FirstOrDefault()?.Tag as UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFile;
 
         if (file == null) return;
 
@@ -201,7 +217,7 @@ public partial class SftpControl : UserControl, IUserControl
 
         using (var selectedFile = File.Open(dlgSave.FileName, FileMode.OpenOrCreate))
         {
-            _ur.SFTP.DownloadFile(file.FullName, selectedFile);
+            _ur.Sftp.DownloadFile(file.FullName, selectedFile);
         }
 
         Explorer.RevealFile(dlgSave.FileName);
@@ -210,22 +226,22 @@ public partial class SftpControl : UserControl, IUserControl
     // Perform renaming or directory creation
     private void lstFolder_AfterLabelEdit(object sender, LabelEditEventArgs e)
     {
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
 
         try
         {
             if (lstFolder.Items[e.Item].Tag is null)
             {
                 // if it is a directory creation
-                _ur.SFTP.CreateDirectory(txtPath.Text + e.Label);
+                _ur.Sftp.CreateDirectory(txtPath.Text + e.Label);
             }
             else
             {
-                var file = lstFolder.Items[e.Item].Tag as UnderAutomation.UniversalRobots.SSH.Sftp.SftpFile;
+                var file = lstFolder.Items[e.Item].Tag as UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFile;
 
                 if ((e.Label == null) || (file == null) || (file.Name == e.Label)) return;
 
-                _ur.SFTP.RenameFile(file.FullName, Path.GetDirectoryName(file.FullName).Replace(@"\", "/") + "/" + e.Label);
+                _ur.Sftp.RenameFile(file.FullName, Path.GetDirectoryName(file.FullName).Replace(@"\", "/") + "/" + e.Label);
             }
 
         }
@@ -241,7 +257,7 @@ public partial class SftpControl : UserControl, IUserControl
 
     private void btnNewFolder_Click(object sender, EventArgs e)
     {
-        if (!_ur.SftpEnabled) return;
+        if (!_ur.Sftp.Connected) return;
         lstFolder.Items.Add("new directory", "folder").BeginEdit();
     }
 

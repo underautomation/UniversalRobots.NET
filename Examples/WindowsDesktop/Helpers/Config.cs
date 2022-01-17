@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Serialization;
+using UnderAutomation.UniversalRobots;
 
 // Save user information in a file next to the main executable
 public class Config
@@ -41,27 +42,17 @@ public class Config
         catch { }
     }
 
-    #region Properties
-    public string IP { get; set; }
+    public ConnectParameters ConnectParameters { get; set; } = new ConnectParameters();
+
+    #region HMI Properties
     public string Licensee { get; set; }
     public string Key { get; set; }
-    public bool? EnableDataStreaming { get; set; }
-    public bool? EnableXmlRpcServer { get; set; }
-    public int? XmlRpcServerPort { get; set; }
-    public bool? EnableSSH { get; set; }
-    public bool? EnableSFTP { get; set; }
-    public string Login { get; set; }
-    public string Password { get; set; }
     public string LoadProgram { get; set; }
     public string ShowPopup { get; set; }
     public string AddToLog { get; set; }
     public string LoadInstallation { get; set; }
     public string SftpPath { get; set; }
     public string URScript { get; set; }
-    public bool? EnableSocketServer { get; set; }
-    public int? SocketServerPort { get; set; }
-    public bool? EnableRTDE { get; set; }
-
     #endregion
 }
 

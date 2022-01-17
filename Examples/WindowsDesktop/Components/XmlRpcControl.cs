@@ -4,6 +4,7 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.XmlRpc;
 
 public partial class XmlRpcControl : UserControl, IUserControl
 {
@@ -14,7 +15,7 @@ public partial class XmlRpcControl : UserControl, IUserControl
         _ur = ur;
         InitializeComponent();
 
-        _ur.XmlRpcServerRequest += _ur_OnXmlRpcServerRequest;
+        _ur.XmlRpc.XmlRpcServerRequest += _ur_OnXmlRpcServerRequest;
     }
 
     // Handle a new XML-RPC request
@@ -37,12 +38,12 @@ public partial class XmlRpcControl : UserControl, IUserControl
     #region IUserControl
     public string Title => "Remote procedure call (XML-RPC)";
 
-    public bool FeatureEnabled => _ur.XmlRpcServerEnabled;
+    public bool FeatureEnabled => _ur.XmlRpc.Enabled;
 
     public void PeriodicUpdate()
     {
-        txtLocalIP.Text = _ur.DataStreamingLocalEndPoint?.Address?.ToString();
-        txtXmlRpcPort.Text = _ur.XmlRpcServerPort.ToString();
+        txtLocalIP.Text = _ur.PrimaryInterface.LocalEndPoint?.Address?.ToString() ?? "Enable primary interface to display IP";
+        txtXmlRpcPort.Text = _ur.XmlRpc.Port.ToString();
     }
     public void OnClose() { }
     public void OnOpen() { }

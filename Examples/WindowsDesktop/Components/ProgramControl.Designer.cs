@@ -43,6 +43,7 @@ partial class ProgramControl
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblWarningVariables = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +57,7 @@ partial class ProgramControl
             this.lstVariables.HideSelection = false;
             this.lstVariables.Location = new System.Drawing.Point(0, 206);
             this.lstVariables.Name = "lstVariables";
-            this.lstVariables.Size = new System.Drawing.Size(660, 270);
+            this.lstVariables.Size = new System.Drawing.Size(845, 270);
             this.lstVariables.TabIndex = 0;
             this.lstVariables.UseCompatibleStateImageBehavior = false;
             this.lstVariables.View = System.Windows.Forms.View.Details;
@@ -87,7 +88,7 @@ partial class ProgramControl
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(660, 54);
+            this.panel1.Size = new System.Drawing.Size(845, 54);
             this.panel1.TabIndex = 1;
             // 
             // btnStop
@@ -157,7 +158,7 @@ partial class ProgramControl
             this.lstThreads.HideSelection = false;
             this.lstThreads.Location = new System.Drawing.Point(0, 84);
             this.lstThreads.Name = "lstThreads";
-            this.lstThreads.Size = new System.Drawing.Size(660, 92);
+            this.lstThreads.Size = new System.Drawing.Size(845, 92);
             this.lstThreads.TabIndex = 3;
             this.lstThreads.UseCompatibleStateImageBehavior = false;
             this.lstThreads.View = System.Windows.Forms.View.Details;
@@ -178,7 +179,7 @@ partial class ProgramControl
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 176);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(660, 30);
+            this.label3.Size = new System.Drawing.Size(845, 30);
             this.label3.TabIndex = 4;
             this.label3.Text = "List of all variables :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -189,25 +190,38 @@ partial class ProgramControl
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(660, 30);
+            this.label1.Size = new System.Drawing.Size(845, 30);
             this.label1.TabIndex = 5;
             this.label1.Text = "List of all program threads :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // lblWarningVariables
+            // 
+            this.lblWarningVariables.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblWarningVariables.AutoSize = true;
+            this.lblWarningVariables.Location = new System.Drawing.Point(151, 257);
+            this.lblWarningVariables.Name = "lblWarningVariables";
+            this.lblWarningVariables.Size = new System.Drawing.Size(339, 13);
+            this.lblWarningVariables.TabIndex = 6;
+            this.lblWarningVariables.Text = "Primary interface should be connected to display threads and variables";
             // 
             // ProgramControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblWarningVariables);
             this.Controls.Add(this.lstVariables);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lstThreads);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "ProgramControl";
-            this.Size = new System.Drawing.Size(660, 476);
+            this.Size = new System.Drawing.Size(845, 476);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
     }
 
@@ -229,4 +243,5 @@ partial class ProgramControl
     private System.Windows.Forms.ColumnHeader columnHeader3;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label lblWarningVariables;
 }

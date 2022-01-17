@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.SocketCommunication;
 
 public partial class SocketControl : UserControl, IUserControl
 {
@@ -14,10 +15,10 @@ public partial class SocketControl : UserControl, IUserControl
         _ur = ur;
         InitializeComponent();
 
-        _ur.SocketRequest += _ur_SocketRequest;
-        _ur.SocketGetVar += _ur_SocketGetVar;
-        _ur.SocketClientConnection += _ur_SocketClientConnection;
-        _ur.SocketClientDisconnection += _ur_SocketClientDisconnection;
+        _ur.SocketCommunication.SocketRequest += _ur_SocketRequest;
+        _ur.SocketCommunication.SocketGetVar += _ur_SocketGetVar;
+        _ur.SocketCommunication.SocketClientConnection += _ur_SocketClientConnection;
+        _ur.SocketCommunication.SocketClientDisconnection += _ur_SocketClientDisconnection;
     }
 
     private void _ur_SocketClientDisconnection(object sender, SocketClientDisconnectionEventArgs request)
@@ -85,14 +86,14 @@ public partial class SocketControl : UserControl, IUserControl
     }
 
     #region IUserControl
-    public string Title => "Socket messages";
+    public string Title => "Socket communication";
 
-    public bool FeatureEnabled => _ur.SocketEnabled;
+    public bool FeatureEnabled => _ur.SocketCommunication.Enabled;
 
     public void PeriodicUpdate()
     {
-        txtLocalIP.Text = _ur.DataStreamingLocalEndPoint?.Address?.ToString();
-        txtPort.Text = _ur.SocketPort.ToString();
+        txtLocalIP.Text = _ur.PrimaryInterface.LocalEndPoint?.Address?.ToString() ?? "Enable primary interface to display IP";
+        txtPort.Text = _ur.SocketCommunication.Port.ToString();
     }
 
     public void OnClose()
@@ -117,7 +118,7 @@ public partial class SocketControl : UserControl, IUserControl
             LogBuffer = null;
         }
 
-        btnSend.Enabled = _ur.SocketEnabled;
+        btnSend.Enabled = _ur.SocketCommunication.Enabled;
 
         UpdateList();
     }
@@ -139,10 +140,10 @@ public partial class SocketControl : UserControl, IUserControl
         var selected = GetSelectedClient();
 
         lstClients.Items.Clear();
-        foreach (var client in _ur.SocketClients)
+        foreach (var client in _ur.SocketCommunication.ConnectedClients)
         {
             var itm = lstClients.Items.Add(new ListViewItem(new[] {
-                _ur.SocketPort.ToString(),
+                _ur.SocketCommunication.Port.ToString(),
                 client.EndPoint?.Address?.ToString() ?? "",
                 client.EndPoint?.Port.ToString() ?? "",
             }));
@@ -188,7 +189,7 @@ public partial class SocketControl : UserControl, IUserControl
 
         if (selected is null)
         {
-            _ur.SocketWrite(txtMessage.Text);
+            _ur.SocketCommunication.SocketWrite(txtMessage.Text);
         }
         else
         {

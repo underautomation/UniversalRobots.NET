@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.License;
 
 public partial class LicenseControl : UserControl, IUserControl
 {

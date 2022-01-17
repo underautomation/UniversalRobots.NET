@@ -57,7 +57,7 @@
             this.txtXmlRpcPort.Location = new System.Drawing.Point(153, 91);
             this.txtXmlRpcPort.Name = "txtXmlRpcPort";
             this.txtXmlRpcPort.ReadOnly = true;
-            this.txtXmlRpcPort.Size = new System.Drawing.Size(98, 20);
+            this.txtXmlRpcPort.Size = new System.Drawing.Size(190, 20);
             this.txtXmlRpcPort.TabIndex = 10;
             // 
             // txtLocalIP
@@ -65,7 +65,7 @@
             this.txtLocalIP.Location = new System.Drawing.Point(153, 65);
             this.txtLocalIP.Name = "txtLocalIP";
             this.txtLocalIP.ReadOnly = true;
-            this.txtLocalIP.Size = new System.Drawing.Size(98, 20);
+            this.txtLocalIP.Size = new System.Drawing.Size(190, 20);
             this.txtLocalIP.TabIndex = 11;
             // 
             // Label12
@@ -148,10 +148,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.linkXmlRpcSample);
             this.Controls.Add(this.txtXmlRpcPort);
             this.Controls.Add(this.txtLocalIP);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.linkXmlRpcSample);
             this.Controls.Add(this.Label12);
             this.Controls.Add(this.Label2);
             this.Controls.Add(this.Label10);

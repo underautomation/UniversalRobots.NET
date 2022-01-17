@@ -3,8 +3,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
-using UnderAutomation.UniversalRobots.SSH;
-using UnderAutomation.UniversalRobots.SSH.Common;
+using UnderAutomation.UniversalRobots.Ssh.Tools;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Common;
 
 public partial class SshControl : UserControl, IUserControl
 {
@@ -19,7 +19,7 @@ public partial class SshControl : UserControl, IUserControl
     #region IUserControl
     public string Title => "Linux commands (SSH)";
 
-    public bool FeatureEnabled => _ur.SshEnabled;
+    public bool FeatureEnabled => _ur.Ssh.Connected;
 
     public void PeriodicUpdate()
     {
@@ -38,8 +38,10 @@ public partial class SshControl : UserControl, IUserControl
 
     public void OnOpen()
     {
+        if (!_ur.Ssh.Connected) return;
+
         // Create shell when control is displayed
-        _shell = _ur.SSH?.CreateShellStream("UnderAutomation demo", 40, 100, 40, 100, 1000);
+        _shell = _ur.Ssh.CreateShellStream("UnderAutomation", 40, 100, 40, 100, 1000);
     }
     #endregion
 
@@ -48,9 +50,9 @@ public partial class SshControl : UserControl, IUserControl
     {
         if (e is KeyEventArgs && ((KeyEventArgs)e).KeyCode != Keys.Enter) return;
         if (string.IsNullOrEmpty(txtSSHCommand.Text)) return;
-        if (_ur.SSH is null) return;
+        if (!_ur.Ssh.Connected) return;
 
-        var command = _ur.SSH.CreateCommand(txtSSHCommand.Text);
+        var command = _ur.Ssh.CreateCommand(txtSSHCommand.Text);
 
         command.Execute();
 

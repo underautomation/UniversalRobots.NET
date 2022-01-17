@@ -155,7 +155,7 @@
             this.txtPort.Location = new System.Drawing.Point(164, 72);
             this.txtPort.Name = "txtPort";
             this.txtPort.ReadOnly = true;
-            this.txtPort.Size = new System.Drawing.Size(98, 20);
+            this.txtPort.Size = new System.Drawing.Size(203, 20);
             this.txtPort.TabIndex = 26;
             // 
             // txtLocalIP
@@ -163,7 +163,7 @@
             this.txtLocalIP.Location = new System.Drawing.Point(164, 46);
             this.txtLocalIP.Name = "txtLocalIP";
             this.txtLocalIP.ReadOnly = true;
-            this.txtLocalIP.Size = new System.Drawing.Size(98, 20);
+            this.txtLocalIP.Size = new System.Drawing.Size(203, 20);
             this.txtLocalIP.TabIndex = 27;
             // 
             // Label12
