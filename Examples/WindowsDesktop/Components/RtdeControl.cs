@@ -17,7 +17,7 @@ public partial class RtdeControl : UserControl, IUserControl
     static RtdeControl()
     {
         TypeDescriptor.AddAttributes(typeof(CartesianCoordinates), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
-        TypeDescriptor.AddAttributes(typeof(IJointValues), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
+        TypeDescriptor.AddAttributes(typeof(JointsValues<>), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
         TypeDescriptor.AddAttributes(typeof(Vector3D), new TypeConverterAttribute(typeof(ExpandableObjectConverter)));
 
         TypeDescriptor.AddAttributes(typeof(RtdeOutputValues), new ReadOnlyAttribute(true));
