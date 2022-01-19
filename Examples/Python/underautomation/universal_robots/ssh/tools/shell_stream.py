@@ -1,7 +1,5 @@
 import typing
 from underautomation.universal_robots.ssh.tools.expect_action import ExpectAction
-from underautomation.universal_robots.ssh.tools.common.shell_data_event_args import ShellDataEventArgs
-from underautomation.universal_robots.ssh.tools.common.exception_event_args import ExceptionEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -14,9 +12,15 @@ class ShellStream:
 		else:
 			self._instance = _internal
 	def data_received(self, handler):
-		self._instance.DataReceived+= lambda sender, e : handler(sender, ShellDataEventArgs(None, e))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.DataReceived+= lambda sender, e : handler(Wrapper(sender), Wrapper(e))
 	def error_occurred(self, handler):
-		self._instance.ErrorOccurred+= lambda sender, e : handler(sender, ExceptionEventArgs(None, e))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.ErrorOccurred+= lambda sender, e : handler(Wrapper(sender), Wrapper(e))
 	def add__data_received(self, value: typing.Any) -> None:
 		self._instance.add_DataReceived(value)
 	def remove__data_received(self, value: typing.Any) -> None:

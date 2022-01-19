@@ -1,7 +1,4 @@
 import typing
-from underautomation.universal_robots.socket_communication.socket_get_var_event_args import SocketGetVarEventArgs
-from underautomation.universal_robots.socket_communication.socket_request_event_args import SocketRequestEventArgs
-from underautomation.universal_robots.socket_communication.socket_client_disconnection_event_args import SocketClientDisconnectionEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -14,11 +11,20 @@ class SocketClient:
 		else:
 			self._instance = _internal
 	def socket_get_var(self, handler):
-		self._instance.SocketGetVar+= lambda sender, request : handler(sender, SocketGetVarEventArgs(request))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.SocketGetVar+= lambda sender, request : handler(Wrapper(sender), Wrapper(request))
 	def socket_request(self, handler):
-		self._instance.SocketRequest+= lambda sender, request : handler(sender, SocketRequestEventArgs(request))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.SocketRequest+= lambda sender, request : handler(Wrapper(sender), Wrapper(request))
 	def socket_client_disconnection(self, handler):
-		self._instance.SocketClientDisconnection+= lambda sender, request : handler(sender, SocketClientDisconnectionEventArgs(request))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.SocketClientDisconnection+= lambda sender, request : handler(Wrapper(sender), Wrapper(request))
 	def add__socket_get_var(self, value: typing.Any) -> None:
 		self._instance.add_SocketGetVar(value)
 	def remove__socket_get_var(self, value: typing.Any) -> None:

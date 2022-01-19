@@ -1,5 +1,4 @@
 import typing
-from underautomation.universal_robots.xml_rpc.xml_rpc_event_arg import XmlRpcEventArg
 from underautomation.universal_robots.internal.urservice_base import URServiceBase
 import clr
 import os
@@ -13,7 +12,10 @@ class XmlRpcServerBase(URServiceBase):
 		else:
 			self._instance = _internal
 	def xml_rpc_server_request(self, handler):
-		self._instance.XmlRpcServerRequest+= lambda sender, request : handler(sender, XmlRpcEventArg(request))
+		class Wrapper :
+			def __init__(self, _internal):
+				self._instance = _internal
+		self._instance.XmlRpcServerRequest+= lambda sender, request : handler(Wrapper(sender), Wrapper(request))
 	def start(self, port: int) -> None:
 		self._instance.Start(port)
 	def stop(self) -> None:

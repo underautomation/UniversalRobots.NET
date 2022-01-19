@@ -1,9 +1,9 @@
 from underautomation.universal_robots.connect_parameters import ConnectParameters
 from underautomation.universal_robots.ur import UR
 from underautomation.universal_robots.primary_interface.joint_data_package_event_args import JointDataPackageEventArgs
+from underautomation.universal_robots.socket_communication.socket_get_var_event_args import SocketGetVarEventArgs
 
 import time 
-
 
 robot = UR()
 
@@ -18,8 +18,6 @@ def f(a, b:JointDataPackageEventArgs):
     print(b.base.position)
 
 robot.primary_interface.joint_data_received(f)
-
-robot.xml_rpc.xml_rpc_server_request()
 
 
 robot.connect(parameters)
