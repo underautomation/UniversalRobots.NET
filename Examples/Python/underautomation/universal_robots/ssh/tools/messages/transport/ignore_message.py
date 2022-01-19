@@ -6,11 +6,11 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools.Messages.Transport import IgnoreMessage as ignore_message
 
 class IgnoreMessage(Message):
-	def __init__(self, data: int, _internal = 0):
+	def __init__(self, data: typing.List[int], _internal = 0):
 		if(_internal == 0):
 			self._instance = ignore_message(data)
 		else:
 			self._instance = _internal
 	@property
-	def data(self) -> int:
+	def data(self) -> typing.List[int]:
 		return self._instance.Data

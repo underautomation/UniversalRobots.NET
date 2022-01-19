@@ -17,3 +17,9 @@ class XmlRpcDoubleValue(XmlRpcValue):
 	@property
 	def type(self) -> XmlRpcType:
 		return XmlRpcType(self._instance.Type)
+	@property
+	def value(self) -> float:
+		return self._instance.Value
+	@value.setter
+	def value(self, value: float):
+		self._instance.Value = value

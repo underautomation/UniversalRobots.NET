@@ -48,3 +48,6 @@ class CartesianCoordinates:
 	@rz.setter
 	def rz(self, value: float):
 		self._instance.Rz = value
+	@property
+	def values(self) -> typing.List[float]:
+		return self._instance.Values

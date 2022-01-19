@@ -1,17 +1,20 @@
 import typing
 from underautomation.universal_robots.ssh.tools.proxy_types import ProxyTypes
 from underautomation.universal_robots.ssh.tools.authentication_method import AuthenticationMethod
+from underautomation.universal_robots.ssh.tools.common.authentication_banner_event_args import AuthenticationBannerEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Ssh.Tools import ConnectionInfo as connection_info
 
 class ConnectionInfo:
-	def __init__(self, host: str, port: int, username: str, proxyType: ProxyTypes, proxyHost: str, proxyPort: int, proxyUsername: str, proxyPassword: str, authenticationMethods: AuthenticationMethod, _internal = 0):
+	def __init__(self, host: str, port: int, username: str, proxyType: ProxyTypes, proxyHost: str, proxyPort: int, proxyUsername: str, proxyPassword: str, authenticationMethods: typing.List[AuthenticationMethod], _internal = 0):
 		if(_internal == 0):
 			self._instance = connection_info(host, port, username, proxyType, proxyHost, proxyPort, proxyUsername, proxyPassword, authenticationMethods)
 		else:
 			self._instance = _internal
+	def authentication_banner(self, handler):
+		self._instance.AuthenticationBanner+= lambda sender, e : handler(sender, AuthenticationBannerEventArgs(None, None, None, e))
 	def add__authentication_banner(self, value: typing.Any) -> None:
 		self._instance.add_AuthenticationBanner(value)
 	def remove__authentication_banner(self, value: typing.Any) -> None:

@@ -11,5 +11,5 @@ class ZlibStream:
 			self._instance = zlib_stream(stream, mode)
 		else:
 			self._instance = _internal
-	def write(self, buffer: int, offset: int, count: int) -> None:
+	def write(self, buffer: typing.List[int], offset: int, count: int) -> None:
 		self._instance.Write(buffer, offset, count)

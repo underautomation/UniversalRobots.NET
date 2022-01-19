@@ -11,7 +11,7 @@ class PKCS5Padding(CipherPadding):
 			self._instance = pkcs5_padding()
 		else:
 			self._instance = _internal
-	def pad(self, blockSize: int, input: int, offset: int, length: int) -> int:
+	def pad(self, blockSize: int, input: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Pad(blockSize, input, offset, length)
-	def pad(self, input: int, offset: int, length: int, paddinglength: int) -> int:
+	def pad(self, input: typing.List[int], offset: int, length: int, paddinglength: int) -> typing.List[int]:
 		return self._instance.Pad(input, offset, length, paddinglength)

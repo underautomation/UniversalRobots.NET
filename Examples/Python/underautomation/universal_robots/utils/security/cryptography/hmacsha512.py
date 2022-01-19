@@ -6,7 +6,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Utils.Security.Cryptography import HMACSHA512 as hmacsha512
 
 class HMACSHA512(HMAC):
-	def __init__(self, key: int, hashSize: int, _internal = 0):
+	def __init__(self, key: typing.List[int], hashSize: int, _internal = 0):
 		if(_internal == 0):
 			self._instance = hmacsha512(key, hashSize)
 		else:

@@ -13,3 +13,15 @@ class XmlRpcStructMember:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def name(self) -> str:
+		return self._instance.Name
+	@name.setter
+	def name(self, value: str):
+		self._instance.Name = value
+	@property
+	def value(self) -> XmlRpcValue:
+		return XmlRpcValue(self._instance.Value)
+	@value.setter
+	def value(self, value: XmlRpcValue):
+		self._instance.Value = value

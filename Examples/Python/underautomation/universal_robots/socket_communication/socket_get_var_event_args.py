@@ -11,3 +11,15 @@ class SocketGetVarEventArgs:
 			self._instance = socket_get_var_event_args()
 		else:
 			self._instance = _internal
+	@property
+	def client(self) -> SocketClient:
+		return SocketClient(self._instance.Client)
+	@property
+	def name(self) -> str:
+		return self._instance.Name
+	@property
+	def value(self) -> typing.Any:
+		return self._instance.Value
+	@value.setter
+	def value(self, value: typing.Any):
+		self._instance.Value = value

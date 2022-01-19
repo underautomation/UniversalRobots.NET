@@ -1,4 +1,5 @@
 import typing
+from underautomation.universal_robots.ssh.tools.common.exception_event_args import ExceptionEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -10,6 +11,16 @@ class Shell:
 			self._instance = shell()
 		else:
 			self._instance = _internal
+	def starting(self, handler):
+		self._instance.Starting+= lambda sender, e : handler(sender, e)
+	def started(self, handler):
+		self._instance.Started+= lambda sender, e : handler(sender, e)
+	def stopping(self, handler):
+		self._instance.Stopping+= lambda sender, e : handler(sender, e)
+	def stopped(self, handler):
+		self._instance.Stopped+= lambda sender, e : handler(sender, e)
+	def error_occurred(self, handler):
+		self._instance.ErrorOccurred+= lambda sender, e : handler(sender, ExceptionEventArgs(None, e))
 	def add__starting(self, value: typing.Any) -> None:
 		self._instance.add_Starting(value)
 	def remove__starting(self, value: typing.Any) -> None:

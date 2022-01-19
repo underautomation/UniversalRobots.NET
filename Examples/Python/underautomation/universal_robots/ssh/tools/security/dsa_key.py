@@ -33,8 +33,8 @@ class DsaKey(Key):
 	def key_length(self) -> int:
 		return self._instance.KeyLength
 	@property
-	def public(self) -> BigInteger:
-		return BigInteger(None, self._instance.Public)
+	def public(self) -> typing.List[BigInteger]:
+		return [BigInteger(x) for x in self._instance.Public]
 	@public.setter
-	def public(self, value: BigInteger):
+	def public(self, value: typing.List[BigInteger]):
 		self._instance.Public = value

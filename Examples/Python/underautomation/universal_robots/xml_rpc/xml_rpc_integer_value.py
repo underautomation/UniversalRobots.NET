@@ -17,3 +17,9 @@ class XmlRpcIntegerValue(XmlRpcValue):
 	@property
 	def type(self) -> XmlRpcType:
 		return XmlRpcType(self._instance.Type)
+	@property
+	def value(self) -> int:
+		return self._instance.Value
+	@value.setter
+	def value(self, value: int):
+		self._instance.Value = value

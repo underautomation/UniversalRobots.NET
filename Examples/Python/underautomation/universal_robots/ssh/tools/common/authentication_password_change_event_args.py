@@ -12,8 +12,8 @@ class AuthenticationPasswordChangeEventArgs(AuthenticationEventArgs):
 		else:
 			self._instance = _internal
 	@property
-	def new_password(self) -> int:
+	def new_password(self) -> typing.List[int]:
 		return self._instance.NewPassword
 	@new_password.setter
-	def new_password(self, value: int):
+	def new_password(self, value: typing.List[int]):
 		self._instance.NewPassword = value

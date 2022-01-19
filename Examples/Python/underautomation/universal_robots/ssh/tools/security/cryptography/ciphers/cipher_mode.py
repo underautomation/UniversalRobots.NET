@@ -10,7 +10,7 @@ class CipherMode:
 			self._instance = cipher_mode()
 		else:
 			self._instance = _internal
-	def encrypt_block(self, inputBuffer: int, inputOffset: int, inputCount: int, outputBuffer: int, outputOffset: int) -> int:
+	def encrypt_block(self, inputBuffer: typing.List[int], inputOffset: int, inputCount: int, outputBuffer: typing.List[int], outputOffset: int) -> int:
 		return self._instance.EncryptBlock(inputBuffer, inputOffset, inputCount, outputBuffer, outputOffset)
-	def decrypt_block(self, inputBuffer: int, inputOffset: int, inputCount: int, outputBuffer: int, outputOffset: int) -> int:
+	def decrypt_block(self, inputBuffer: typing.List[int], inputOffset: int, inputCount: int, outputBuffer: typing.List[int], outputOffset: int) -> int:
 		return self._instance.DecryptBlock(inputBuffer, inputOffset, inputCount, outputBuffer, outputOffset)

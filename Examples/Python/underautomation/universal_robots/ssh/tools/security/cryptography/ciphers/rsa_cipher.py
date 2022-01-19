@@ -12,9 +12,9 @@ class RsaCipher(AsymmetricCipher):
 			self._instance = rsa_cipher(key)
 		else:
 			self._instance = _internal
-	def encrypt(self, data: int, offset: int, length: int) -> int:
+	def encrypt(self, data: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Encrypt(data, offset, length)
-	def decrypt(self, data: int) -> int:
+	def decrypt(self, data: typing.List[int]) -> typing.List[int]:
 		return self._instance.Decrypt(data)
-	def decrypt(self, data: int, offset: int, length: int) -> int:
+	def decrypt(self, data: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Decrypt(data, offset, length)

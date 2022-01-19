@@ -16,9 +16,9 @@ class PipeStream:
 		return self._instance.Seek(offset, origin)
 	def set_length(self, value: int) -> None:
 		self._instance.SetLength(value)
-	def read(self, buffer: int, offset: int, count: int) -> int:
+	def read(self, buffer: typing.List[int], offset: int, count: int) -> int:
 		return self._instance.Read(buffer, offset, count)
-	def write(self, buffer: int, offset: int, count: int) -> None:
+	def write(self, buffer: typing.List[int], offset: int, count: int) -> None:
 		self._instance.Write(buffer, offset, count)
 	@property
 	def max_buffer_length(self) -> int:

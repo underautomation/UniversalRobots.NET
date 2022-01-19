@@ -7,7 +7,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools.Security import EcdsaKey as ecdsa_key
 
 class EcdsaKey(Key):
-	def __init__(self, curve: str, publickey: int, privatekey: int, _internal = 0):
+	def __init__(self, curve: str, publickey: typing.List[int], privatekey: typing.List[int], _internal = 0):
 		if(_internal == 0):
 			self._instance = ecdsa_key(curve, publickey, privatekey)
 		else:
@@ -23,10 +23,10 @@ class EcdsaKey(Key):
 	def key_length(self) -> int:
 		return self._instance.KeyLength
 	@property
-	def public(self) -> BigInteger:
-		return BigInteger(None, self._instance.Public)
+	def public(self) -> typing.List[BigInteger]:
+		return [BigInteger(x) for x in self._instance.Public]
 	@public.setter
-	def public(self, value: BigInteger):
+	def public(self, value: typing.List[BigInteger]):
 		self._instance.Public = value
 	@property
 	def ecdsa(self) -> typing.Any:

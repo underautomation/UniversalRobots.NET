@@ -16,8 +16,8 @@ class HMAC:
 	def hash_size(self) -> int:
 		return self._instance.HashSize
 	@property
-	def key(self) -> int:
+	def key(self) -> typing.List[int]:
 		return self._instance.Key
 	@key.setter
-	def key(self, value: int):
+	def key(self, value: typing.List[int]):
 		self._instance.Key = value

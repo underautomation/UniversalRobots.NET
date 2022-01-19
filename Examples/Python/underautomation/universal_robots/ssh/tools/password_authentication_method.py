@@ -1,6 +1,7 @@
 import typing
 from underautomation.universal_robots.ssh.tools.authentication_result import AuthenticationResult
 from underautomation.universal_robots.ssh.tools.session import Session
+from underautomation.universal_robots.ssh.tools.common.authentication_password_change_event_args import AuthenticationPasswordChangeEventArgs
 from underautomation.universal_robots.ssh.tools.authentication_method import AuthenticationMethod
 import clr
 import os
@@ -13,6 +14,8 @@ class PasswordAuthenticationMethod(AuthenticationMethod):
 			self._instance = password_authentication_method(username, password)
 		else:
 			self._instance = _internal
+	def password_expired(self, handler):
+		self._instance.PasswordExpired+= lambda sender, e : handler(sender, AuthenticationPasswordChangeEventArgs(None, e))
 	def add__password_expired(self, value: typing.Any) -> None:
 		self._instance.add_PasswordExpired(value)
 	def remove__password_expired(self, value: typing.Any) -> None:

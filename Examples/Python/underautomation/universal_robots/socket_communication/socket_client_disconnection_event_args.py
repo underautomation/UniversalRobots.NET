@@ -11,3 +11,6 @@ class SocketClientDisconnectionEventArgs:
 			self._instance = socket_client_disconnection_event_args()
 		else:
 			self._instance = _internal
+	@property
+	def client(self) -> SocketClient:
+		return SocketClient(self._instance.Client)

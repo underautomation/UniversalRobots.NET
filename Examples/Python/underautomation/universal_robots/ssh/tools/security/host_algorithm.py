@@ -10,13 +10,13 @@ class HostAlgorithm:
 			self._instance = host_algorithm()
 		else:
 			self._instance = _internal
-	def sign(self, data: int) -> int:
+	def sign(self, data: typing.List[int]) -> typing.List[int]:
 		return self._instance.Sign(data)
-	def verify_signature(self, data: int, signature: int) -> bool:
+	def verify_signature(self, data: typing.List[int], signature: typing.List[int]) -> bool:
 		return self._instance.VerifySignature(data, signature)
 	@property
 	def name(self) -> str:
 		return self._instance.Name
 	@property
-	def data(self) -> int:
+	def data(self) -> typing.List[int]:
 		return self._instance.Data

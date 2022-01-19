@@ -30,3 +30,6 @@ class Vector3D:
 	@z.setter
 	def z(self, value: float):
 		self._instance.Z = value
+	@property
+	def values(self) -> typing.List[float]:
+		return self._instance.Values

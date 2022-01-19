@@ -12,7 +12,7 @@ class SftpFileStream:
 			self._instance = _internal
 	def flush(self) -> None:
 		self._instance.Flush()
-	def read(self, buffer: int, offset: int, count: int) -> int:
+	def read(self, buffer: typing.List[int], offset: int, count: int) -> int:
 		return self._instance.Read(buffer, offset, count)
 	def read_byte(self) -> int:
 		return self._instance.ReadByte()
@@ -20,7 +20,7 @@ class SftpFileStream:
 		return self._instance.Seek(offset, origin)
 	def set_length(self, value: int) -> None:
 		self._instance.SetLength(value)
-	def write(self, buffer: int, offset: int, count: int) -> None:
+	def write(self, buffer: typing.List[int], offset: int, count: int) -> None:
 		self._instance.Write(buffer, offset, count)
 	def write_byte(self, value: int) -> None:
 		self._instance.WriteByte(value)
@@ -49,7 +49,7 @@ class SftpFileStream:
 	def name(self) -> str:
 		return self._instance.Name
 	@property
-	def handle(self) -> int:
+	def handle(self) -> typing.List[int]:
 		return self._instance.Handle
 	@property
 	def timeout(self) -> typing.Any:

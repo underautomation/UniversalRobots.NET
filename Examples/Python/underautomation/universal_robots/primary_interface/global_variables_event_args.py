@@ -12,5 +12,5 @@ class GlobalVariablesEventArgs:
 		else:
 			self._instance = _internal
 	@property
-	def variables(self) -> GlobalVariable:
-		return GlobalVariable(self._instance.Variables)
+	def variables(self) -> typing.List[GlobalVariable]:
+		return [GlobalVariable(x) for x in self._instance.Variables]

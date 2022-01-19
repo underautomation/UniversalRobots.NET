@@ -13,3 +13,15 @@ class ProgramState:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def state(self) -> ProgramStates:
+		return ProgramStates(self._instance.State)
+	@state.setter
+	def state(self, value: ProgramStates):
+		self._instance.State = value
+	@property
+	def name(self) -> str:
+		return self._instance.Name
+	@name.setter
+	def name(self, value: str):
+		self._instance.Name = value

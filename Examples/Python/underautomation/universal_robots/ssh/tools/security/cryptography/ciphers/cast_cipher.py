@@ -8,12 +8,12 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools.Security.Cryptography.Ciphers import CastCipher as cast_cipher
 
 class CastCipher(BlockCipher):
-	def __init__(self, key: int, mode: CipherMode, padding: CipherPadding, _internal = 0):
+	def __init__(self, key: typing.List[int], mode: CipherMode, padding: CipherPadding, _internal = 0):
 		if(_internal == 0):
 			self._instance = cast_cipher(key, mode, padding)
 		else:
 			self._instance = _internal
-	def encrypt_block(self, inputBuffer: int, inputOffset: int, inputCount: int, outputBuffer: int, outputOffset: int) -> int:
+	def encrypt_block(self, inputBuffer: typing.List[int], inputOffset: int, inputCount: int, outputBuffer: typing.List[int], outputOffset: int) -> int:
 		return self._instance.EncryptBlock(inputBuffer, inputOffset, inputCount, outputBuffer, outputOffset)
-	def decrypt_block(self, inputBuffer: int, inputOffset: int, inputCount: int, outputBuffer: int, outputOffset: int) -> int:
+	def decrypt_block(self, inputBuffer: typing.List[int], inputOffset: int, inputCount: int, outputBuffer: typing.List[int], outputOffset: int) -> int:
 		return self._instance.DecryptBlock(inputBuffer, inputOffset, inputCount, outputBuffer, outputOffset)

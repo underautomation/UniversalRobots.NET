@@ -1,4 +1,6 @@
 import typing
+from underautomation.universal_robots.ssh.tools.common.exception_event_args import ExceptionEventArgs
+from underautomation.universal_robots.ssh.tools.common.port_forward_event_args import PortForwardEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -10,6 +12,10 @@ class ForwardedPort:
 			self._instance = forwarded_port()
 		else:
 			self._instance = _internal
+	def exception(self, handler):
+		self._instance.Exception+= lambda sender, e : handler(sender, ExceptionEventArgs(None, e))
+	def request_received(self, handler):
+		self._instance.RequestReceived+= lambda sender, e : handler(sender, PortForwardEventArgs(e))
 	def add__exception(self, value: typing.Any) -> None:
 		self._instance.add_Exception(value)
 	def remove__exception(self, value: typing.Any) -> None:

@@ -12,5 +12,5 @@ class RtdeBaseValues:
 		else:
 			self._instance = _internal
 	@property
-	def values(self) -> RtdeValue:
-		return RtdeValue(self._instance.Values)
+	def values(self) -> typing.List[RtdeValue]:
+		return [RtdeValue(x) for x in self._instance.Values]

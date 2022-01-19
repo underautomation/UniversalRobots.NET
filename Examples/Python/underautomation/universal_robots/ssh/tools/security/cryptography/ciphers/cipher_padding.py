@@ -10,11 +10,11 @@ class CipherPadding:
 			self._instance = cipher_padding()
 		else:
 			self._instance = _internal
-	def pad(self, blockSize: int, input: int) -> int:
+	def pad(self, blockSize: int, input: typing.List[int]) -> typing.List[int]:
 		return self._instance.Pad(blockSize, input)
-	def pad(self, blockSize: int, input: int, offset: int, length: int) -> int:
+	def pad(self, blockSize: int, input: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Pad(blockSize, input, offset, length)
-	def pad(self, input: int, paddinglength: int) -> int:
+	def pad(self, input: typing.List[int], paddinglength: int) -> typing.List[int]:
 		return self._instance.Pad(input, paddinglength)
-	def pad(self, input: int, offset: int, length: int, paddinglength: int) -> int:
+	def pad(self, input: typing.List[int], offset: int, length: int, paddinglength: int) -> typing.List[int]:
 		return self._instance.Pad(input, offset, length, paddinglength)

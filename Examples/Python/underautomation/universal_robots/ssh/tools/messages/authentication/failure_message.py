@@ -12,10 +12,10 @@ class FailureMessage(Message):
 		else:
 			self._instance = _internal
 	@property
-	def allowed_authentications(self) -> str:
+	def allowed_authentications(self) -> typing.List[str]:
 		return self._instance.AllowedAuthentications
 	@allowed_authentications.setter
-	def allowed_authentications(self, value: str):
+	def allowed_authentications(self, value: typing.List[str]):
 		self._instance.AllowedAuthentications = value
 	@property
 	def message(self) -> str:

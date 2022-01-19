@@ -18,8 +18,8 @@ class RtdeControlPackageSetupInputsEventArgs(PackageEventArgs):
 	def input_recipe_id(self, value: int):
 		self._instance.InputRecipeId = value
 	@property
-	def variable_types(self) -> str:
+	def variable_types(self) -> typing.List[str]:
 		return self._instance.VariableTypes
 	@variable_types.setter
-	def variable_types(self, value: str):
+	def variable_types(self, value: typing.List[str]):
 		self._instance.VariableTypes = value

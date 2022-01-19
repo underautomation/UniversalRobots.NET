@@ -6,7 +6,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Utils.Security.Cryptography import HMACRIPEMD160 as hmacripemd160
 
 class HMACRIPEMD160(HMAC):
-	def __init__(self, key: int, _internal = 0):
+	def __init__(self, key: typing.List[int], _internal = 0):
 		if(_internal == 0):
 			self._instance = hmacripemd160(key)
 		else:

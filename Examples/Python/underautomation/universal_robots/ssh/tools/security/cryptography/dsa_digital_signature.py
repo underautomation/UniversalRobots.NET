@@ -12,9 +12,9 @@ class DsaDigitalSignature(DigitalSignature):
 			self._instance = dsa_digital_signature(key)
 		else:
 			self._instance = _internal
-	def verify(self, input: int, signature: int) -> bool:
+	def verify(self, input: typing.List[int], signature: typing.List[int]) -> bool:
 		return self._instance.Verify(input, signature)
-	def sign(self, input: int) -> int:
+	def sign(self, input: typing.List[int]) -> typing.List[int]:
 		return self._instance.Sign(input)
 	def dispose(self) -> None:
 		self._instance.Dispose()

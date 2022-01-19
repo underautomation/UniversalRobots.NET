@@ -1,5 +1,7 @@
 import typing
 from underautomation.universal_robots.ssh.tools.expect_action import ExpectAction
+from underautomation.universal_robots.ssh.tools.common.shell_data_event_args import ShellDataEventArgs
+from underautomation.universal_robots.ssh.tools.common.exception_event_args import ExceptionEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -11,6 +13,10 @@ class ShellStream:
 			self._instance = shell_stream()
 		else:
 			self._instance = _internal
+	def data_received(self, handler):
+		self._instance.DataReceived+= lambda sender, e : handler(sender, ShellDataEventArgs(None, e))
+	def error_occurred(self, handler):
+		self._instance.ErrorOccurred+= lambda sender, e : handler(sender, ExceptionEventArgs(None, e))
 	def add__data_received(self, value: typing.Any) -> None:
 		self._instance.add_DataReceived(value)
 	def remove__data_received(self, value: typing.Any) -> None:
@@ -21,25 +27,25 @@ class ShellStream:
 		self._instance.remove_ErrorOccurred(value)
 	def flush(self) -> None:
 		self._instance.Flush()
-	def read(self, buffer: int, offset: int, count: int) -> int:
+	def read(self, buffer: typing.List[int], offset: int, count: int) -> int:
 		return self._instance.Read(buffer, offset, count)
 	def seek(self, offset: int, origin: typing.Any) -> int:
 		return self._instance.Seek(offset, origin)
 	def set_length(self, value: int) -> None:
 		self._instance.SetLength(value)
-	def write(self, buffer: int, offset: int, count: int) -> None:
+	def write(self, buffer: typing.List[int], offset: int, count: int) -> None:
 		self._instance.Write(buffer, offset, count)
-	def expect(self, expectActions: ExpectAction) -> None:
+	def expect(self, expectActions: typing.List[ExpectAction]) -> None:
 		self._instance.Expect(expectActions._instance)
-	def expect(self, timeout: typing.Any, expectActions: ExpectAction) -> None:
+	def expect(self, timeout: typing.Any, expectActions: typing.List[ExpectAction]) -> None:
 		self._instance.Expect(timeout, expectActions._instance)
-	def begin_expect(self, expectActions: ExpectAction) -> typing.Any:
+	def begin_expect(self, expectActions: typing.List[ExpectAction]) -> typing.Any:
 		return self._instance.BeginExpect(expectActions._instance)
-	def begin_expect(self, callback: typing.Any, expectActions: ExpectAction) -> typing.Any:
+	def begin_expect(self, callback: typing.Any, expectActions: typing.List[ExpectAction]) -> typing.Any:
 		return self._instance.BeginExpect(callback, expectActions._instance)
-	def begin_expect(self, callback: typing.Any, state: typing.Any, expectActions: ExpectAction) -> typing.Any:
+	def begin_expect(self, callback: typing.Any, state: typing.Any, expectActions: typing.List[ExpectAction]) -> typing.Any:
 		return self._instance.BeginExpect(callback, state, expectActions._instance)
-	def begin_expect(self, timeout: typing.Any, callback: typing.Any, state: typing.Any, expectActions: ExpectAction) -> typing.Any:
+	def begin_expect(self, timeout: typing.Any, callback: typing.Any, state: typing.Any, expectActions: typing.List[ExpectAction]) -> typing.Any:
 		return self._instance.BeginExpect(timeout, callback, state, expectActions._instance)
 	def end_expect(self, asyncResult: typing.Any) -> str:
 		return self._instance.EndExpect(asyncResult)

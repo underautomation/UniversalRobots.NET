@@ -14,3 +14,9 @@ class EndOfWriteRequestInfo(RequestInfo):
 	@property
 	def request_name(self) -> str:
 		return self._instance.RequestName
+	@property
+	def name(self) -> str:
+		return self._instance.Name
+	@name.setter
+	def name(self, value: str):
+		self._instance.Name = value

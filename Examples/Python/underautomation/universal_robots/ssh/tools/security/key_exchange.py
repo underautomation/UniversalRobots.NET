@@ -3,6 +3,7 @@ from underautomation.universal_robots.ssh.tools.session import Session
 from underautomation.universal_robots.ssh.tools.messages.transport.key_exchange_init_message import KeyExchangeInitMessage
 from underautomation.universal_robots.ssh.tools.security.cryptography.cipher import Cipher
 from underautomation.universal_robots.ssh.tools.compression.compressor import Compressor
+from underautomation.universal_robots.ssh.tools.common.host_key_event_args import HostKeyEventArgs
 from underautomation.universal_robots.ssh.tools.security.algorithm import Algorithm
 import clr
 import os
@@ -15,6 +16,8 @@ class KeyExchange(Algorithm):
 			self._instance = key_exchange()
 		else:
 			self._instance = _internal
+	def host_key_received(self, handler):
+		self._instance.HostKeyReceived+= lambda sender, e : handler(sender, HostKeyEventArgs(None, e))
 	def add__host_key_received(self, value: typing.Any) -> None:
 		self._instance.add_HostKeyReceived(value)
 	def remove__host_key_received(self, value: typing.Any) -> None:
@@ -38,8 +41,8 @@ class KeyExchange(Algorithm):
 	def dispose(self) -> None:
 		self._instance.Dispose()
 	@property
-	def shared_key(self) -> int:
+	def shared_key(self) -> typing.List[int]:
 		return self._instance.SharedKey
 	@property
-	def exchange_hash(self) -> int:
+	def exchange_hash(self) -> typing.List[int]:
 		return self._instance.ExchangeHash

@@ -13,7 +13,7 @@ class ChannelOpenMessage(Message):
 		else:
 			self._instance = _internal
 	@property
-	def channel_type(self) -> int:
+	def channel_type(self) -> typing.List[int]:
 		return self._instance.ChannelType
 	@property
 	def local_channel_number(self) -> int:

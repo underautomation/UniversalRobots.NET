@@ -13,3 +13,12 @@ class InternalErrorEventArgs:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def exception(self) -> typing.Any:
+		return self._instance.Exception
+	@property
+	def message(self) -> str:
+		return self._instance.Message
+	@property
+	def status(self) -> StatusCode:
+		return StatusCode(self._instance.Status)

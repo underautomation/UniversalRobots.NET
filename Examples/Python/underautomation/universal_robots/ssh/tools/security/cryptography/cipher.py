@@ -10,13 +10,13 @@ class Cipher:
 			self._instance = cipher()
 		else:
 			self._instance = _internal
-	def encrypt(self, input: int) -> int:
+	def encrypt(self, input: typing.List[int]) -> typing.List[int]:
 		return self._instance.Encrypt(input)
-	def encrypt(self, input: int, offset: int, length: int) -> int:
+	def encrypt(self, input: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Encrypt(input, offset, length)
-	def decrypt(self, input: int) -> int:
+	def decrypt(self, input: typing.List[int]) -> typing.List[int]:
 		return self._instance.Decrypt(input)
-	def decrypt(self, input: int, offset: int, length: int) -> int:
+	def decrypt(self, input: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Decrypt(input, offset, length)
 	@property
 	def minimum_size(self) -> int:

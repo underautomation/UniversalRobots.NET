@@ -16,5 +16,5 @@ class ChannelRequestMessage(ChannelMessage):
 	def request_name(self) -> str:
 		return self._instance.RequestName
 	@property
-	def request_data(self) -> int:
+	def request_data(self) -> typing.List[int]:
 		return self._instance.RequestData

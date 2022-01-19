@@ -8,7 +8,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools import PrivateKeyConnectionInfo as private_key_connection_info
 
 class PrivateKeyConnectionInfo(ConnectionInfo):
-	def __init__(self, host: str, port: int, username: str, proxyType: ProxyTypes, proxyHost: str, proxyPort: int, proxyUsername: str, proxyPassword: str, keyFiles: PrivateKeyFile, _internal = 0):
+	def __init__(self, host: str, port: int, username: str, proxyType: ProxyTypes, proxyHost: str, proxyPort: int, proxyUsername: str, proxyPassword: str, keyFiles: typing.List[PrivateKeyFile], _internal = 0):
 		if(_internal == 0):
 			self._instance = private_key_connection_info(host, port, username, proxyType, proxyHost, proxyPort, proxyUsername, proxyPassword, keyFiles)
 		else:

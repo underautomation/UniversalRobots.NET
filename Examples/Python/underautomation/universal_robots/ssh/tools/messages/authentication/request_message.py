@@ -12,10 +12,10 @@ class RequestMessage(Message):
 		else:
 			self._instance = _internal
 	@property
-	def username(self) -> int:
+	def username(self) -> typing.List[int]:
 		return self._instance.Username
 	@property
-	def service_name(self) -> int:
+	def service_name(self) -> typing.List[int]:
 		return self._instance.ServiceName
 	@property
 	def method_name(self) -> str:

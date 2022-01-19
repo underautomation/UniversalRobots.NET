@@ -14,8 +14,8 @@ class GlobalVariableValue:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
-	def to_list(self) -> 'GlobalVariableValue':
-		return GlobalVariableValue(self._instance.ToList())
+	def to_list(self) -> typing.List['GlobalVariableValue']:
+		return [GlobalVariableValue(x) for x in self._instance.ToList()]
 	def to_pose(self) -> Pose:
 		return Pose(None, None, None, None, None, None, self._instance.ToPose())
 	def to_bool(self) -> bool:

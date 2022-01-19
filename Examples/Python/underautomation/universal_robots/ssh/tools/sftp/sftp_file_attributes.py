@@ -12,7 +12,7 @@ class SftpFileAttributes:
 			self._instance = _internal
 	def set_permissions(self, mode: int) -> None:
 		self._instance.SetPermissions(mode)
-	def get_bytes(self) -> int:
+	def get_bytes(self) -> typing.List[int]:
 		return self._instance.GetBytes()
 	@property
 	def last_access_time(self) -> typing.Any:

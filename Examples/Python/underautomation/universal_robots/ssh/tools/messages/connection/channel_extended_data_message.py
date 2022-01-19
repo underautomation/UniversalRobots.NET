@@ -6,7 +6,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools.Messages.Connection import ChannelExtendedDataMessage as channel_extended_data_message
 
 class ChannelExtendedDataMessage(ChannelMessage):
-	def __init__(self, localChannelNumber: int, dataTypeCode: int, data: int, _internal = 0):
+	def __init__(self, localChannelNumber: int, dataTypeCode: int, data: typing.List[int], _internal = 0):
 		if(_internal == 0):
 			self._instance = channel_extended_data_message(localChannelNumber, dataTypeCode, data)
 		else:
@@ -15,5 +15,5 @@ class ChannelExtendedDataMessage(ChannelMessage):
 	def data_type_code(self) -> int:
 		return self._instance.DataTypeCode
 	@property
-	def data(self) -> int:
+	def data(self) -> typing.List[int]:
 		return self._instance.Data

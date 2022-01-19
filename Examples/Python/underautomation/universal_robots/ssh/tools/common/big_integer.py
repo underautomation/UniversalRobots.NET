@@ -315,7 +315,7 @@ class BigInteger:
 	@staticmethod
 	def compare(left: 'BigInteger', right: 'BigInteger') -> int:
 		return big_integer.Compare(left._instance, right._instance)
-	def to_byte_array(self) -> int:
+	def to_byte_array(self) -> typing.List[int]:
 		return self._instance.ToByteArray()
 	@property
 	def bit_length(self) -> int:

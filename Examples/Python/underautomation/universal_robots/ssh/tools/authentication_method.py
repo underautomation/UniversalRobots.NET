@@ -21,5 +21,5 @@ class AuthenticationMethod:
 	def username(self) -> str:
 		return self._instance.Username
 	@property
-	def allowed_authentications(self) -> str:
+	def allowed_authentications(self) -> typing.List[str]:
 		return self._instance.AllowedAuthentications

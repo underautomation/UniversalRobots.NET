@@ -22,6 +22,7 @@ from underautomation.universal_robots.primary_interface.runtime_exception_messag
 from underautomation.universal_robots.primary_interface.global_variables import GlobalVariables
 from underautomation.universal_robots.primary_interface.interfaces import Interfaces
 from underautomation.universal_robots.status_code import StatusCode
+from underautomation.universal_robots.common.package_event_args import PackageEventArgs
 from underautomation.universal_robots.internal.urservice_base import URServiceBase
 import clr
 import os
@@ -34,6 +35,48 @@ class PrimaryInterfaceClientBase(URServiceBase):
 			self._instance = primary_interface_client_base()
 		else:
 			self._instance = _internal
+	def robot_mode_data_received(self, handler):
+		self._instance.RobotModeDataReceived+= lambda sender, e : handler(sender, RobotModeDataPackageEventArgs(e))
+	def joint_data_received(self, handler):
+		self._instance.JointDataReceived+= lambda sender, e : handler(sender, JointDataPackageEventArgs(e))
+	def tool_data_received(self, handler):
+		self._instance.ToolDataReceived+= lambda sender, e : handler(sender, ToolDataPackageEventArgs(e))
+	def masterboard_data_received(self, handler):
+		self._instance.MasterboardDataReceived+= lambda sender, e : handler(sender, MasterboardDataPackageEventArgs(e))
+	def cartesian_info_received(self, handler):
+		self._instance.CartesianInfoReceived+= lambda sender, e : handler(sender, CartesianInfoPackageEventArgs(e))
+	def kinematics_info_received(self, handler):
+		self._instance.KinematicsInfoReceived+= lambda sender, e : handler(sender, KinematicsInfoPackageEventArgs(e))
+	def configuration_data_received(self, handler):
+		self._instance.ConfigurationDataReceived+= lambda sender, e : handler(sender, ConfigurationDataPackageEventArgs(e))
+	def force_mode_data_received(self, handler):
+		self._instance.ForceModeDataReceived+= lambda sender, e : handler(sender, ForceModeDataPackageEventArgs(e))
+	def additional_info_received(self, handler):
+		self._instance.AdditionalInfoReceived+= lambda sender, e : handler(sender, AdditionalInfoPackageEventArgs(e))
+	def calibration_data_received(self, handler):
+		self._instance.CalibrationDataReceived+= lambda sender, e : handler(sender, CalibrationDataPackageEventArgs(e))
+	def safety_data_received(self, handler):
+		self._instance.SafetyDataReceived+= lambda sender, e : handler(sender, SafetyDataPackageEventArgs(e))
+	def tool_communication_info_received(self, handler):
+		self._instance.ToolCommunicationInfoReceived+= lambda sender, e : handler(sender, ToolCommunicationInfoPackageEventArgs(e))
+	def tool_mode_info_received(self, handler):
+		self._instance.ToolModeInfoReceived+= lambda sender, e : handler(sender, ToolModeInfoPackageEventArgs(e))
+	def singularity_info_received(self, handler):
+		self._instance.SingularityInfoReceived+= lambda sender, e : handler(sender, SingularityInfoPackageEventArgs(e))
+	def package_received(self, handler):
+		self._instance.PackageReceived+= lambda sender, e : handler(sender, PackageEventArgs(e))
+	def program_threads_received(self, handler):
+		self._instance.ProgramThreadsReceived+= lambda sender, e : handler(sender, ProgramThreadsEventArgs(e))
+	def version_received(self, handler):
+		self._instance.VersionReceived+= lambda sender, e : handler(sender, VersionEventArgs(e))
+	def key_message_received(self, handler):
+		self._instance.KeyMessageReceived+= lambda sender, e : handler(sender, KeyMessageEventArgs(e))
+	def popup_message_received(self, handler):
+		self._instance.PopupMessageReceived+= lambda sender, e : handler(sender, PopupMessageEventArgs(e))
+	def text_message_received(self, handler):
+		self._instance.TextMessageReceived+= lambda sender, e : handler(sender, TextMessageEventArgs(e))
+	def runtime_exception_message_received(self, handler):
+		self._instance.RuntimeExceptionMessageReceived+= lambda sender, e : handler(sender, RuntimeExceptionMessageEventArgs(e))
 	def add__robot_mode_data_received(self, value: typing.Any) -> None:
 		self._instance.add_RobotModeDataReceived(value)
 	def remove__robot_mode_data_received(self, value: typing.Any) -> None:

@@ -12,8 +12,8 @@ class SafetyDataPackageEventArgs(PackageEventArgs):
 		else:
 			self._instance = _internal
 	@property
-	def data(self) -> int:
+	def data(self) -> typing.List[int]:
 		return self._instance.Data
 	@data.setter
-	def data(self, value: int):
+	def data(self, value: typing.List[int]):
 		self._instance.Data = value

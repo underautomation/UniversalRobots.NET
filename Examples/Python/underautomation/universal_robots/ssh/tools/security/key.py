@@ -11,15 +11,15 @@ class Key:
 			self._instance = key()
 		else:
 			self._instance = _internal
-	def sign(self, data: int) -> int:
+	def sign(self, data: typing.List[int]) -> typing.List[int]:
 		return self._instance.Sign(data)
-	def verify_signature(self, data: int, signature: int) -> bool:
+	def verify_signature(self, data: typing.List[int], signature: typing.List[int]) -> bool:
 		return self._instance.VerifySignature(data, signature)
 	@property
-	def public(self) -> BigInteger:
-		return BigInteger(None, self._instance.Public)
+	def public(self) -> typing.List[BigInteger]:
+		return [BigInteger(x) for x in self._instance.Public]
 	@public.setter
-	def public(self, value: BigInteger):
+	def public(self, value: typing.List[BigInteger]):
 		self._instance.Public = value
 	@property
 	def key_length(self) -> int:

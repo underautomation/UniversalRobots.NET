@@ -12,67 +12,67 @@ class KeyExchangeInitMessage(Message):
 		else:
 			self._instance = _internal
 	@property
-	def cookie(self) -> int:
+	def cookie(self) -> typing.List[int]:
 		return self._instance.Cookie
 	@property
-	def key_exchange_algorithms(self) -> str:
+	def key_exchange_algorithms(self) -> typing.List[str]:
 		return self._instance.KeyExchangeAlgorithms
 	@key_exchange_algorithms.setter
-	def key_exchange_algorithms(self, value: str):
+	def key_exchange_algorithms(self, value: typing.List[str]):
 		self._instance.KeyExchangeAlgorithms = value
 	@property
-	def server_host_key_algorithms(self) -> str:
+	def server_host_key_algorithms(self) -> typing.List[str]:
 		return self._instance.ServerHostKeyAlgorithms
 	@server_host_key_algorithms.setter
-	def server_host_key_algorithms(self, value: str):
+	def server_host_key_algorithms(self, value: typing.List[str]):
 		self._instance.ServerHostKeyAlgorithms = value
 	@property
-	def encryption_algorithms_client_to_server(self) -> str:
+	def encryption_algorithms_client_to_server(self) -> typing.List[str]:
 		return self._instance.EncryptionAlgorithmsClientToServer
 	@encryption_algorithms_client_to_server.setter
-	def encryption_algorithms_client_to_server(self, value: str):
+	def encryption_algorithms_client_to_server(self, value: typing.List[str]):
 		self._instance.EncryptionAlgorithmsClientToServer = value
 	@property
-	def encryption_algorithms_server_to_client(self) -> str:
+	def encryption_algorithms_server_to_client(self) -> typing.List[str]:
 		return self._instance.EncryptionAlgorithmsServerToClient
 	@encryption_algorithms_server_to_client.setter
-	def encryption_algorithms_server_to_client(self, value: str):
+	def encryption_algorithms_server_to_client(self, value: typing.List[str]):
 		self._instance.EncryptionAlgorithmsServerToClient = value
 	@property
-	def mac_algorithms_client_to_server(self) -> str:
+	def mac_algorithms_client_to_server(self) -> typing.List[str]:
 		return self._instance.MacAlgorithmsClientToServer
 	@mac_algorithms_client_to_server.setter
-	def mac_algorithms_client_to_server(self, value: str):
+	def mac_algorithms_client_to_server(self, value: typing.List[str]):
 		self._instance.MacAlgorithmsClientToServer = value
 	@property
-	def mac_algorithms_server_to_client(self) -> str:
+	def mac_algorithms_server_to_client(self) -> typing.List[str]:
 		return self._instance.MacAlgorithmsServerToClient
 	@mac_algorithms_server_to_client.setter
-	def mac_algorithms_server_to_client(self, value: str):
+	def mac_algorithms_server_to_client(self, value: typing.List[str]):
 		self._instance.MacAlgorithmsServerToClient = value
 	@property
-	def compression_algorithms_client_to_server(self) -> str:
+	def compression_algorithms_client_to_server(self) -> typing.List[str]:
 		return self._instance.CompressionAlgorithmsClientToServer
 	@compression_algorithms_client_to_server.setter
-	def compression_algorithms_client_to_server(self, value: str):
+	def compression_algorithms_client_to_server(self, value: typing.List[str]):
 		self._instance.CompressionAlgorithmsClientToServer = value
 	@property
-	def compression_algorithms_server_to_client(self) -> str:
+	def compression_algorithms_server_to_client(self) -> typing.List[str]:
 		return self._instance.CompressionAlgorithmsServerToClient
 	@compression_algorithms_server_to_client.setter
-	def compression_algorithms_server_to_client(self, value: str):
+	def compression_algorithms_server_to_client(self, value: typing.List[str]):
 		self._instance.CompressionAlgorithmsServerToClient = value
 	@property
-	def languages_client_to_server(self) -> str:
+	def languages_client_to_server(self) -> typing.List[str]:
 		return self._instance.LanguagesClientToServer
 	@languages_client_to_server.setter
-	def languages_client_to_server(self, value: str):
+	def languages_client_to_server(self, value: typing.List[str]):
 		self._instance.LanguagesClientToServer = value
 	@property
-	def languages_server_to_client(self) -> str:
+	def languages_server_to_client(self) -> typing.List[str]:
 		return self._instance.LanguagesServerToClient
 	@languages_server_to_client.setter
-	def languages_server_to_client(self, value: str):
+	def languages_server_to_client(self, value: typing.List[str]):
 		self._instance.LanguagesServerToClient = value
 	@property
 	def first_kex_packet_follows(self) -> bool:

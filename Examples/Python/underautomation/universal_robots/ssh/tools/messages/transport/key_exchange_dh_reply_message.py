@@ -12,11 +12,11 @@ class KeyExchangeDhReplyMessage(Message):
 		else:
 			self._instance = _internal
 	@property
-	def host_key(self) -> int:
+	def host_key(self) -> typing.List[int]:
 		return self._instance.HostKey
 	@property
-	def f(self) -> int:
+	def f(self) -> typing.List[int]:
 		return self._instance.F
 	@property
-	def signature(self) -> int:
+	def signature(self) -> typing.List[int]:
 		return self._instance.Signature

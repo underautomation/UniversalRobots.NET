@@ -14,13 +14,13 @@ class Compressor(Algorithm):
 			self._instance = _internal
 	def init(self, session: Session) -> None:
 		self._instance.Init(session._instance)
-	def compress(self, data: int) -> int:
+	def compress(self, data: typing.List[int]) -> typing.List[int]:
 		return self._instance.Compress(data)
-	def compress(self, data: int, offset: int, length: int) -> int:
+	def compress(self, data: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Compress(data, offset, length)
-	def decompress(self, data: int) -> int:
+	def decompress(self, data: typing.List[int]) -> typing.List[int]:
 		return self._instance.Decompress(data)
-	def decompress(self, data: int, offset: int, length: int) -> int:
+	def decompress(self, data: typing.List[int], offset: int, length: int) -> typing.List[int]:
 		return self._instance.Decompress(data, offset, length)
 	def dispose(self) -> None:
 		self._instance.Dispose()

@@ -15,3 +15,6 @@ class XmlRpcUnknownValue(XmlRpcValue):
 	@property
 	def type(self) -> XmlRpcType:
 		return XmlRpcType(self._instance.Type)
+	@property
+	def additional_information(self) -> str:
+		return self._instance.AdditionalInformation

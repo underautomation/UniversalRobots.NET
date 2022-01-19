@@ -12,3 +12,15 @@ class CommandResponse:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def succeed(self) -> bool:
+		return self._instance.Succeed
+	@succeed.setter
+	def succeed(self, value: bool):
+		self._instance.Succeed = value
+	@property
+	def message(self) -> str:
+		return self._instance.Message
+	@message.setter
+	def message(self, value: str):
+		self._instance.Message = value

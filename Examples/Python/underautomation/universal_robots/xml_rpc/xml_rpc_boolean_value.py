@@ -17,3 +17,9 @@ class XmlRpcBooleanValue(XmlRpcValue):
 	@property
 	def type(self) -> XmlRpcType:
 		return XmlRpcType(self._instance.Type)
+	@property
+	def value(self) -> bool:
+		return self._instance.Value
+	@value.setter
+	def value(self, value: bool):
+		self._instance.Value = value

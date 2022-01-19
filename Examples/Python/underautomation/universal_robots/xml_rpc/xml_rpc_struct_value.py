@@ -17,3 +17,6 @@ class XmlRpcStructValue(XmlRpcValue):
 	@property
 	def type(self) -> XmlRpcType:
 		return XmlRpcType(self._instance.Type)
+	@property
+	def value(self) -> typing.Any:
+		return self._instance.Value

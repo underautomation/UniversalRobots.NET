@@ -18,13 +18,13 @@ class HostKeyEventArgs:
 	def can_trust(self, value: bool):
 		self._instance.CanTrust = value
 	@property
-	def host_key(self) -> int:
+	def host_key(self) -> typing.List[int]:
 		return self._instance.HostKey
 	@property
 	def host_key_name(self) -> str:
 		return self._instance.HostKeyName
 	@property
-	def finger_print(self) -> int:
+	def finger_print(self) -> typing.List[int]:
 		return self._instance.FingerPrint
 	@property
 	def key_length(self) -> int:

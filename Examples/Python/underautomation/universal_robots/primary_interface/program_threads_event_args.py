@@ -13,8 +13,8 @@ class ProgramThreadsEventArgs(PackageEventArgs):
 		else:
 			self._instance = _internal
 	@property
-	def threads(self) -> ProgramThread:
-		return ProgramThread(self._instance.Threads)
+	def threads(self) -> typing.List[ProgramThread]:
+		return [ProgramThread(x) for x in self._instance.Threads]
 	@threads.setter
-	def threads(self, value: ProgramThread):
+	def threads(self, value: typing.List[ProgramThread]):
 		self._instance.Threads = value

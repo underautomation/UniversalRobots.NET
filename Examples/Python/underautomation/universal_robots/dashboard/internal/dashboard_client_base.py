@@ -85,3 +85,9 @@ class DashboardClientBase(URServiceBase):
 	@property
 	def initialized(self) -> bool:
 		return self._instance.Initialized
+	@property
+	def before_shutdown(self) -> typing.Any:
+		return self._instance.BeforeShutdown
+	@before_shutdown.setter
+	def before_shutdown(self, value: typing.Any):
+		self._instance.BeforeShutdown = value

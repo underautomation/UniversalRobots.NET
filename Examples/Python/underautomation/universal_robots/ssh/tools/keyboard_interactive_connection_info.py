@@ -1,5 +1,6 @@
 import typing
 from underautomation.universal_robots.ssh.tools.proxy_types import ProxyTypes
+from underautomation.universal_robots.ssh.tools.common.authentication_prompt_event_args import AuthenticationPromptEventArgs
 from underautomation.universal_robots.ssh.tools.connection_info import ConnectionInfo
 import clr
 import os
@@ -12,6 +13,8 @@ class KeyboardInteractiveConnectionInfo(ConnectionInfo):
 			self._instance = keyboard_interactive_connection_info(host, port, username, proxyType, proxyHost, proxyPort, proxyUsername, proxyPassword)
 		else:
 			self._instance = _internal
+	def authentication_prompt(self, handler):
+		self._instance.AuthenticationPrompt+= lambda sender, e : handler(sender, AuthenticationPromptEventArgs(None, None, None, None, e))
 	def add__authentication_prompt(self, value: typing.Any) -> None:
 		self._instance.add_AuthenticationPrompt(value)
 	def remove__authentication_prompt(self, value: typing.Any) -> None:

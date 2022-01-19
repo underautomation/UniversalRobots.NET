@@ -33,12 +33,12 @@ class SftpClientBase(URServiceBase):
 		self._instance.RenameFile(oldPath, newPath, isPosix)
 	def symbolic_link(self, path: str, linkPath: str) -> None:
 		self._instance.SymbolicLink(path, linkPath)
-	def list_directory(self, path: str, listCallback: typing.Any=None) -> SftpFile:
-		return SftpFile(self._instance.ListDirectory(path, listCallback))
+	def list_directory(self, path: str, listCallback: typing.Any=None) -> typing.List[SftpFile]:
+		return [SftpFile(x) for x in self._instance.ListDirectory(path, listCallback)]
 	def begin_list_directory(self, path: str, asyncCallback: typing.Any, state: typing.Any, listCallback: typing.Any=None) -> typing.Any:
 		return self._instance.BeginListDirectory(path, asyncCallback, state, listCallback)
-	def end_list_directory(self, asyncResult: typing.Any) -> SftpFile:
-		return SftpFile(self._instance.EndListDirectory(asyncResult))
+	def end_list_directory(self, asyncResult: typing.Any) -> typing.List[SftpFile]:
+		return [SftpFile(x) for x in self._instance.EndListDirectory(asyncResult)]
 	def get(self, path: str) -> SftpFile:
 		return SftpFile(self._instance.Get(path))
 	def exists(self, path: str) -> bool:
@@ -69,9 +69,9 @@ class SftpClientBase(URServiceBase):
 		self._instance.EndUploadFile(asyncResult)
 	def get_status(self, path: str) -> SftpFileSytemInformation:
 		return SftpFileSytemInformation(self._instance.GetStatus(path))
-	def append_all_lines(self, path: str, contents: str) -> None:
+	def append_all_lines(self, path: str, contents: typing.List[str]) -> None:
 		self._instance.AppendAllLines(path, contents)
-	def append_all_lines(self, path: str, contents: str, encoding: typing.Any) -> None:
+	def append_all_lines(self, path: str, contents: typing.List[str], encoding: typing.Any) -> None:
 		self._instance.AppendAllLines(path, contents, encoding)
 	def append_all_text(self, path: str, contents: str) -> None:
 		self._instance.AppendAllText(path, contents)
@@ -109,23 +109,23 @@ class SftpClientBase(URServiceBase):
 		return self._instance.OpenText(path)
 	def open_write(self, path: str) -> SftpFileStream:
 		return SftpFileStream(self._instance.OpenWrite(path))
-	def read_all_bytes(self, path: str) -> int:
+	def read_all_bytes(self, path: str) -> typing.List[int]:
 		return self._instance.ReadAllBytes(path)
-	def read_all_lines(self, path: str) -> str:
+	def read_all_lines(self, path: str) -> typing.List[str]:
 		return self._instance.ReadAllLines(path)
-	def read_all_lines(self, path: str, encoding: typing.Any) -> str:
+	def read_all_lines(self, path: str, encoding: typing.Any) -> typing.List[str]:
 		return self._instance.ReadAllLines(path, encoding)
 	def read_all_text(self, path: str) -> str:
 		return self._instance.ReadAllText(path)
 	def read_all_text(self, path: str, encoding: typing.Any) -> str:
 		return self._instance.ReadAllText(path, encoding)
-	def read_lines(self, path: str) -> str:
+	def read_lines(self, path: str) -> typing.List[str]:
 		return self._instance.ReadLines(path)
-	def read_lines(self, path: str, encoding: typing.Any) -> str:
+	def read_lines(self, path: str, encoding: typing.Any) -> typing.List[str]:
 		return self._instance.ReadLines(path, encoding)
-	def write_all_bytes(self, path: str, bytes: int) -> None:
+	def write_all_bytes(self, path: str, bytes: typing.List[int]) -> None:
 		self._instance.WriteAllBytes(path, bytes)
-	def write_all_lines(self, path: str, contents: str) -> None:
+	def write_all_lines(self, path: str, contents: typing.List[str]) -> None:
 		self._instance.WriteAllLines(path, contents)
 	def write_all_text(self, path: str, contents: str) -> None:
 		self._instance.WriteAllText(path, contents)
@@ -135,11 +135,11 @@ class SftpClientBase(URServiceBase):
 		return SftpFileAttributes(self._instance.GetAttributes(path))
 	def set_attributes(self, path: str, fileAttributes: SftpFileAttributes) -> None:
 		self._instance.SetAttributes(path, fileAttributes._instance)
-	def synchronize_directories(self, sourcePath: str, destinationPath: str, searchPattern: str) -> typing.Any:
+	def synchronize_directories(self, sourcePath: str, destinationPath: str, searchPattern: str) -> typing.List[typing.Any]:
 		return self._instance.SynchronizeDirectories(sourcePath, destinationPath, searchPattern)
 	def begin_synchronize_directories(self, sourcePath: str, destinationPath: str, searchPattern: str, asyncCallback: typing.Any, state: typing.Any) -> typing.Any:
 		return self._instance.BeginSynchronizeDirectories(sourcePath, destinationPath, searchPattern, asyncCallback, state)
-	def end_synchronize_directories(self, asyncResult: typing.Any) -> typing.Any:
+	def end_synchronize_directories(self, asyncResult: typing.Any) -> typing.List[typing.Any]:
 		return self._instance.EndSynchronizeDirectories(asyncResult)
 	@property
 	def connected(self) -> bool:

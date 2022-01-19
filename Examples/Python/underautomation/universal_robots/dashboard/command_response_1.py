@@ -13,3 +13,9 @@ class CommandResponse1(CommandResponse):
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def value(self) -> typing.Any:
+		return self._instance.Value
+	@value.setter
+	def value(self, value: typing.Any):
+		self._instance.Value = value

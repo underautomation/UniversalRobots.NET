@@ -7,7 +7,7 @@ clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", 
 from UnderAutomation.UniversalRobots.Ssh.Tools.Security import ED25519Key as ed25519_key
 
 class ED25519Key(Key):
-	def __init__(self, pk: int, sk: int, _internal = 0):
+	def __init__(self, pk: typing.List[int], sk: typing.List[int], _internal = 0):
 		if(_internal == 0):
 			self._instance = ed25519_key(pk, sk)
 		else:
@@ -17,17 +17,17 @@ class ED25519Key(Key):
 	def dispose(self) -> None:
 		self._instance.Dispose()
 	@property
-	def public(self) -> BigInteger:
-		return BigInteger(None, self._instance.Public)
+	def public(self) -> typing.List[BigInteger]:
+		return [BigInteger(x) for x in self._instance.Public]
 	@public.setter
-	def public(self, value: BigInteger):
+	def public(self, value: typing.List[BigInteger]):
 		self._instance.Public = value
 	@property
 	def key_length(self) -> int:
 		return self._instance.KeyLength
 	@property
-	def public_key(self) -> int:
+	def public_key(self) -> typing.List[int]:
 		return self._instance.PublicKey
 	@property
-	def private_key(self) -> int:
+	def private_key(self) -> typing.List[int]:
 		return self._instance.PrivateKey

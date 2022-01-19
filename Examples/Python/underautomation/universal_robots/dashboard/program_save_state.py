@@ -12,3 +12,15 @@ class ProgramSaveState:
 			self._instance = _internal
 	def __repr__(self):
 		return self._instance.ToString()
+	@property
+	def is_saved(self) -> bool:
+		return self._instance.IsSaved
+	@is_saved.setter
+	def is_saved(self, value: bool):
+		self._instance.IsSaved = value
+	@property
+	def name(self) -> str:
+		return self._instance.Name
+	@name.setter
+	def name(self, value: str):
+		self._instance.Name = value

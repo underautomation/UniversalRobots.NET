@@ -11,3 +11,9 @@ class SocketRequestEventArgs:
 			self._instance = socket_request_event_args()
 		else:
 			self._instance = _internal
+	@property
+	def message(self) -> str:
+		return self._instance.Message
+	@property
+	def client(self) -> SocketClient:
+		return SocketClient(self._instance.Client)
