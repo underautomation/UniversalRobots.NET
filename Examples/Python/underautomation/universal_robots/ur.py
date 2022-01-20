@@ -20,8 +20,6 @@ class UR(URServiceBase):
 			self._instance = ur()
 		else:
 			self._instance = _internal
-	def connect(self, ip: str) -> None:
-		self._instance.Connect(ip)
 	def connect(self, parameters: ConnectParameters) -> None:
 		self._instance.Connect(parameters._instance)
 	def disconnect(self) -> None:

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class UserRoles(Enum):
+class UserRoles(int):
 	Programmer = 0
 	Operator = 1
 	None_ = 2

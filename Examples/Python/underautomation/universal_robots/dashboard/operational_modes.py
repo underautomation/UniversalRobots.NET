@@ -1,6 +1,4 @@
-from enum import Enum
-
-class OperationalModes(Enum):
+class OperationalModes(int):
 	Manual = 0
 	Automatic = 1
 	None_ = 2

@@ -12,9 +12,6 @@ class URProgram(URArchive):
 		else:
 			self._instance = _internal
 	@staticmethod
-	def load(urpStream: typing.Any) -> 'URProgram':
-		return urprogram.Load(urpStream)
-	@staticmethod
 	def load(urpFile: str) -> 'URProgram':
 		return urprogram.Load(urpFile)
 	@property

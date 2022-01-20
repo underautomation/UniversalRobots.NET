@@ -1,3 +1,4 @@
+from underautomation.universal_robots.rtde.rtde_input_data import RtdeInputData
 from underautomation.universal_robots.connect_parameters import ConnectParameters
 from underautomation.universal_robots.ur import UR
 from underautomation.universal_robots.primary_interface.joint_data_package_event_args import JointDataPackageEventArgs
@@ -9,8 +10,11 @@ robot = UR()
 
 parameters = ConnectParameters("192.168.0.56")
 
+parameters.rtde.input_setup.add(RtdeInputData.InputBtRegisters32To63, 0)
 
 vars = robot.primary_interface.global_variables.get_all()
+
+
 
 v = vars.count
 

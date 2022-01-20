@@ -1,6 +1,4 @@
-from enum import Enum
-
-class StatusCode(Enum):
+class StatusCode(int):
 	OK = 0
 	ReadThreadAborted = 1
 	DecodageError = 2

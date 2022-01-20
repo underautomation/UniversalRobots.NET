@@ -7,12 +7,12 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde import RtdeOutputSetupItem as rtde_output_setup_item
 
-class RtdeOutputSetupItem(RtdeSetupItem1):
+class RtdeOutputSetupItem(RtdeSetupItem1[RtdeOutputData]):
 	def __init__(self, data: RtdeOutputData, index: int, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_output_setup_item(data, index)
 		else:
 			self._instance = _internal
 	@property
-	def description(self) -> RtdeDataDescription1:
-		return RtdeDataDescription1(self._instance.Description)
+	def description(self) -> RtdeDataDescription1[RtdeOutputData]:
+		return RtdeDataDescription1[RtdeOutputData](self._instance.Description)

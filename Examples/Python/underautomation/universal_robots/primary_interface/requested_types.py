@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RequestedTypes(Enum):
+class RequestedTypes(int):
 	Boolean = 0
 	Integer = 1
 	Float = 2

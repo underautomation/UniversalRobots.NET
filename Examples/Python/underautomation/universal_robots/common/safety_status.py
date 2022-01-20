@@ -1,6 +1,4 @@
-from enum import Enum
-
-class SafetyStatus(Enum):
+class SafetyStatus(int):
 	Normal = 1
 	Reduced = 2
 	ProtectiveStop = 3

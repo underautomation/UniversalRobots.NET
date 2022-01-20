@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RtdeTypes(Enum):
+class RtdeTypes(int):
 	Bool = 0
 	Uint8 = 1
 	Uint32 = 2

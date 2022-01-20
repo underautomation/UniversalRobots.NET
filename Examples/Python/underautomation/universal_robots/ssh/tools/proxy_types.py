@@ -1,6 +1,4 @@
-from enum import Enum
-
-class ProxyTypes(Enum):
+class ProxyTypes(int):
 	None_ = 0
 	Socks4 = 1
 	Socks5 = 2

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class LicenseState(Enum):
+class LicenseState(int):
 	Invalid = 0
 	Trial = 1
 	ExtraTrial = 2

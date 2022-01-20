@@ -1,6 +1,4 @@
-from enum import Enum
-
-class TerminalModes(Enum):
+class TerminalModes(int):
 	TTY_OP_END = 0
 	VINTR = 1
 	VQUIT = 2

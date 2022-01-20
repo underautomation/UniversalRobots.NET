@@ -6,8 +6,9 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde.Internal import RtdeSetupItem as rtde_setup_item_1
 
-class RtdeSetupItem1:
-	def __init__(self, data: typing.Any, index: int, _internal = 0):
+T = typing.TypeVar('T')
+class RtdeSetupItem1(typing.Generic[T]):
+	def __init__(self, data: T, index: int, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_setup_item_1(data, index)
 		else:
@@ -21,14 +22,14 @@ class RtdeSetupItem1:
 	def index(self, value: int):
 		self._instance.Index = value
 	@property
-	def data(self) -> typing.Any:
+	def data(self) -> T:
 		return self._instance.Data
 	@data.setter
-	def data(self, value: typing.Any):
+	def data(self, value: T):
 		self._instance.Data = value
 	@property
-	def description(self) -> RtdeDataDescription1:
-		return RtdeDataDescription1(self._instance.Description)
+	def description(self) -> RtdeDataDescription1[T]:
+		return RtdeDataDescription1[T](self._instance.Description)
 	@property
 	def name(self) -> str:
 		return self._instance.Name

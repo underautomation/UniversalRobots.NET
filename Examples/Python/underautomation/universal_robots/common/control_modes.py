@@ -1,6 +1,4 @@
-from enum import Enum
-
-class ControlModes(Enum):
+class ControlModes(int):
 	Position = 0
 	Teach = 1
 	Force = 2

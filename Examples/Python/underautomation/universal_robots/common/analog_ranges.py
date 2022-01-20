@@ -1,5 +1,3 @@
-from enum import Enum
-
-class AnalogRanges(Enum):
+class AnalogRanges(int):
 	Current = 0
 	Voltage = 1

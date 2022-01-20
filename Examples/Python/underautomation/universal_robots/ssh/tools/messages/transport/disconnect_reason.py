@@ -1,6 +1,4 @@
-from enum import Enum
-
-class DisconnectReason(Enum):
+class DisconnectReason(int):
 	None_ = 0
 	HostNotAllowedToConnect = 1
 	ProtocolError = 2

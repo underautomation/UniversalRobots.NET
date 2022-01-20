@@ -5,7 +5,7 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde import RtdeBitRegistersValue as rtde_bit_registers_value
 
-class RtdeBitRegistersValue(RtdeRegistersValue1):
+class RtdeBitRegistersValue(RtdeRegistersValue1[bool]):
 	def __init__(self, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_bit_registers_value()

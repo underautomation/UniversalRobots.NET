@@ -27,8 +27,6 @@ class SftpClientBase(URServiceBase):
 		self._instance.DeleteDirectory(path)
 	def delete_file(self, path: str) -> None:
 		self._instance.DeleteFile(path)
-	def rename_file(self, oldPath: str, newPath: str) -> None:
-		self._instance.RenameFile(oldPath, newPath)
 	def rename_file(self, oldPath: str, newPath: str, isPosix: bool) -> None:
 		self._instance.RenameFile(oldPath, newPath, isPosix)
 	def symbolic_link(self, path: str, linkPath: str) -> None:
@@ -45,48 +43,26 @@ class SftpClientBase(URServiceBase):
 		return self._instance.Exists(path)
 	def download_file(self, path: str, output: typing.Any, downloadCallback: typing.Any=None) -> None:
 		self._instance.DownloadFile(path, output, downloadCallback)
-	def begin_download_file(self, path: str, output: typing.Any) -> typing.Any:
-		return self._instance.BeginDownloadFile(path, output)
-	def begin_download_file(self, path: str, output: typing.Any, asyncCallback: typing.Any) -> typing.Any:
-		return self._instance.BeginDownloadFile(path, output, asyncCallback)
 	def begin_download_file(self, path: str, output: typing.Any, asyncCallback: typing.Any, state: typing.Any, downloadCallback: typing.Any=None) -> typing.Any:
 		return self._instance.BeginDownloadFile(path, output, asyncCallback, state, downloadCallback)
 	def end_download_file(self, asyncResult: typing.Any) -> None:
 		self._instance.EndDownloadFile(asyncResult)
-	def upload_file(self, input: typing.Any, path: str, uploadCallback: typing.Any=None) -> None:
-		self._instance.UploadFile(input, path, uploadCallback)
 	def upload_file(self, input: typing.Any, path: str, canOverride: bool, uploadCallback: typing.Any=None) -> None:
 		self._instance.UploadFile(input, path, canOverride, uploadCallback)
-	def begin_upload_file(self, input: typing.Any, path: str) -> typing.Any:
-		return self._instance.BeginUploadFile(input, path)
-	def begin_upload_file(self, input: typing.Any, path: str, asyncCallback: typing.Any) -> typing.Any:
-		return self._instance.BeginUploadFile(input, path, asyncCallback)
-	def begin_upload_file(self, input: typing.Any, path: str, asyncCallback: typing.Any, state: typing.Any, uploadCallback: typing.Any=None) -> typing.Any:
-		return self._instance.BeginUploadFile(input, path, asyncCallback, state, uploadCallback)
 	def begin_upload_file(self, input: typing.Any, path: str, canOverride: bool, asyncCallback: typing.Any, state: typing.Any, uploadCallback: typing.Any=None) -> typing.Any:
 		return self._instance.BeginUploadFile(input, path, canOverride, asyncCallback, state, uploadCallback)
 	def end_upload_file(self, asyncResult: typing.Any) -> None:
 		self._instance.EndUploadFile(asyncResult)
 	def get_status(self, path: str) -> SftpFileSytemInformation:
 		return SftpFileSytemInformation(self._instance.GetStatus(path))
-	def append_all_lines(self, path: str, contents: typing.List[str]) -> None:
-		self._instance.AppendAllLines(path, contents)
 	def append_all_lines(self, path: str, contents: typing.List[str], encoding: typing.Any) -> None:
 		self._instance.AppendAllLines(path, contents, encoding)
-	def append_all_text(self, path: str, contents: str) -> None:
-		self._instance.AppendAllText(path, contents)
 	def append_all_text(self, path: str, contents: str, encoding: typing.Any) -> None:
 		self._instance.AppendAllText(path, contents, encoding)
-	def append_text(self, path: str) -> typing.Any:
-		return self._instance.AppendText(path)
 	def append_text(self, path: str, encoding: typing.Any) -> typing.Any:
 		return self._instance.AppendText(path, encoding)
-	def create(self, path: str) -> SftpFileStream:
-		return SftpFileStream(self._instance.Create(path))
 	def create(self, path: str, bufferSize: int) -> SftpFileStream:
 		return SftpFileStream(self._instance.Create(path, bufferSize))
-	def create_text(self, path: str) -> typing.Any:
-		return self._instance.CreateText(path)
 	def create_text(self, path: str, encoding: typing.Any) -> typing.Any:
 		return self._instance.CreateText(path, encoding)
 	def delete(self, path: str) -> None:
@@ -99,8 +75,6 @@ class SftpClientBase(URServiceBase):
 		return self._instance.GetLastWriteTime(path)
 	def get_last_write_time_utc(self, path: str) -> typing.Any:
 		return self._instance.GetLastWriteTimeUtc(path)
-	def open(self, path: str, mode: typing.Any) -> SftpFileStream:
-		return SftpFileStream(self._instance.Open(path, mode))
 	def open(self, path: str, mode: typing.Any, access: typing.Any) -> SftpFileStream:
 		return SftpFileStream(self._instance.Open(path, mode, access))
 	def open_read(self, path: str) -> SftpFileStream:
@@ -111,24 +85,16 @@ class SftpClientBase(URServiceBase):
 		return SftpFileStream(self._instance.OpenWrite(path))
 	def read_all_bytes(self, path: str) -> typing.List[int]:
 		return self._instance.ReadAllBytes(path)
-	def read_all_lines(self, path: str) -> typing.List[str]:
-		return self._instance.ReadAllLines(path)
 	def read_all_lines(self, path: str, encoding: typing.Any) -> typing.List[str]:
 		return self._instance.ReadAllLines(path, encoding)
-	def read_all_text(self, path: str) -> str:
-		return self._instance.ReadAllText(path)
 	def read_all_text(self, path: str, encoding: typing.Any) -> str:
 		return self._instance.ReadAllText(path, encoding)
-	def read_lines(self, path: str) -> typing.List[str]:
-		return self._instance.ReadLines(path)
 	def read_lines(self, path: str, encoding: typing.Any) -> typing.List[str]:
 		return self._instance.ReadLines(path, encoding)
 	def write_all_bytes(self, path: str, bytes: typing.List[int]) -> None:
 		self._instance.WriteAllBytes(path, bytes)
 	def write_all_lines(self, path: str, contents: typing.List[str]) -> None:
 		self._instance.WriteAllLines(path, contents)
-	def write_all_text(self, path: str, contents: str) -> None:
-		self._instance.WriteAllText(path, contents)
 	def write_all_text(self, path: str, contents: str, encoding: typing.Any) -> None:
 		self._instance.WriteAllText(path, contents, encoding)
 	def get_attributes(self, path: str) -> SftpFileAttributes:

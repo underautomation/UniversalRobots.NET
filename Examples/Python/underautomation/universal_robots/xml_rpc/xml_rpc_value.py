@@ -13,66 +13,6 @@ class XmlRpcValue:
 		else:
 			self._instance = _internal
 	@staticmethod
-	def op__implicit(value: float) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: bool) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: int) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: str) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: Pose) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: typing.List['XmlRpcValue']) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: typing.List[float]) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: typing.List[int]) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: typing.List[str]) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: typing.List[Pose]) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: typing.List[bool]) -> 'XmlRpcValue':
-		return xml_rpc_value.op_Implicit(value)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> float:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> bool:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> int:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> str:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> Pose:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> typing.List[int]:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> typing.List[float]:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> typing.List[Pose]:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> typing.List[str]:
-		return xml_rpc_value.op_Implicit(value._instance)
-	@staticmethod
 	def op__implicit(value: 'XmlRpcValue') -> typing.List[bool]:
 		return xml_rpc_value.op_Implicit(value._instance)
 	def __repr__(self):

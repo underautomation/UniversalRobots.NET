@@ -11,16 +11,12 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde import RtdeInputValues as rtde_input_values
 
-class RtdeInputValues(RtdeBaseValues1):
+class RtdeInputValues(RtdeBaseValues1[RtdeInputData]):
 	def __init__(self, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_input_values()
 		else:
 			self._instance = _internal
-	def set_value(self, item: RtdeInputSetupItem, value: typing.Any) -> None:
-		self._instance.SetValue(item._instance, value)
-	def set_value(self, data: RtdeInputData, value: typing.Any) -> None:
-		self._instance.SetValue(data._instance, value)
 	def set_value(self, data: RtdeInputData, index: int, value: typing.Any) -> None:
 		self._instance.SetValue(data._instance, index, value)
 	def get_value(self, item: RtdeInputSetupItem) -> typing.Any:

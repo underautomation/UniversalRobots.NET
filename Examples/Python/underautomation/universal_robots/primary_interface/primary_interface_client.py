@@ -14,5 +14,3 @@ class PrimaryInterfaceClient(PrimaryInterfaceClientBase):
 			self._instance = _internal
 	def connect(self, ip: str, port: Interfaces) -> None:
 		self._instance.Connect(ip, port._instance)
-	def connect(self, ip: str) -> None:
-		self._instance.Connect(ip)

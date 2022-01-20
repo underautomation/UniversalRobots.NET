@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RobotModels(Enum):
+class RobotModels(int):
 	UR3 = 3
 	UR5 = 1
 	UR10 = 2

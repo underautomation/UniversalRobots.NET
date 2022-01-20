@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RtdeInputData(Enum):
+class RtdeInputData(int):
 	SpeedSliderMask = 0
 	SpeedSliderFraction = 1
 	StandardDigitalOutputMask = 2

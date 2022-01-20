@@ -1,5 +1,3 @@
-from enum import Enum
-
-class ServiceName(Enum):
+class ServiceName(int):
 	UserAuthentication = 0
 	Connection = 1

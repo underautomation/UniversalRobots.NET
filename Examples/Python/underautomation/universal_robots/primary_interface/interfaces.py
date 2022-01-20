@@ -1,6 +1,4 @@
-from enum import Enum
-
-class Interfaces(Enum):
+class Interfaces(int):
 	PrimaryInterface = 30001
 	SecondaryInterface = 30002
 	PrimaryInterfaceReadOnly = 30011

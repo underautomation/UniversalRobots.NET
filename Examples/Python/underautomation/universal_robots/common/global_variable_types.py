@@ -1,6 +1,4 @@
-from enum import Enum
-
-class GlobalVariableTypes(Enum):
+class GlobalVariableTypes(int):
 	None_ = 0
 	String = 1
 	List = 2

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class JointModes(Enum):
+class JointModes(int):
 	ShuttingDown = 236
 	PartDCalibration = 237
 	Backdrive = 238

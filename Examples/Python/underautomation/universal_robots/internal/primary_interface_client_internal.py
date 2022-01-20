@@ -12,7 +12,5 @@ class PrimaryInterfaceClientInternal(PrimaryInterfaceClientBase):
 			self._instance = primary_interface_client_internal()
 		else:
 			self._instance = _internal
-	def connect(self) -> None:
-		self._instance.Connect()
 	def connect(self, port: Interfaces) -> None:
 		self._instance.Connect(port._instance)

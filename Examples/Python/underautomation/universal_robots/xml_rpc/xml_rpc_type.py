@@ -1,6 +1,4 @@
-from enum import Enum
-
-class XmlRpcType(Enum):
+class XmlRpcType(int):
 	Unknown = -1
 	Array = 0
 	Boolean = 1

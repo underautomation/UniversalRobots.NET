@@ -5,14 +5,15 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde import RtdeDataDescription as rtde_data_description_1
 
-class RtdeDataDescription1:
+T = typing.TypeVar('T')
+class RtdeDataDescription1(typing.Generic[T]):
 	def __init__(self, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_data_description_1()
 		else:
 			self._instance = _internal
 	@property
-	def data(self) -> typing.Any:
+	def data(self) -> T:
 		return self._instance.Data
 	@property
 	def type(self) -> RtdeTypes:

@@ -34,22 +34,6 @@ class SocketCommunicationServerBase(URServiceBase):
 		self._instance.SocketClientDisconnection+= lambda sender, request : handler(Wrapper(sender), Wrapper(request))
 	def start(self, port: int) -> None:
 		self._instance.Start(port)
-	def add__socket_client_connection(self, value: typing.Any) -> None:
-		self._instance.add_SocketClientConnection(value)
-	def remove__socket_client_connection(self, value: typing.Any) -> None:
-		self._instance.remove_SocketClientConnection(value)
-	def add__socket_get_var(self, value: typing.Any) -> None:
-		self._instance.add_SocketGetVar(value)
-	def remove__socket_get_var(self, value: typing.Any) -> None:
-		self._instance.remove_SocketGetVar(value)
-	def add__socket_request(self, value: typing.Any) -> None:
-		self._instance.add_SocketRequest(value)
-	def remove__socket_request(self, value: typing.Any) -> None:
-		self._instance.remove_SocketRequest(value)
-	def add__socket_client_disconnection(self, value: typing.Any) -> None:
-		self._instance.add_SocketClientDisconnection(value)
-	def remove__socket_client_disconnection(self, value: typing.Any) -> None:
-		self._instance.remove_SocketClientDisconnection(value)
 	def stop(self) -> None:
 		self._instance.Stop()
 	def socket_write(self, message: str) -> None:

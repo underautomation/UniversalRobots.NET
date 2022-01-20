@@ -10,13 +10,8 @@ class URArchive:
 			self._instance = urarchive()
 		else:
 			self._instance = _internal
-	def save(self, stream: typing.Any) -> None:
-		self._instance.Save(stream)
 	def save(self, directory: str) -> str:
 		return self._instance.Save(directory)
-	@staticmethod
-	def load(filePath: str) -> typing.Any:
-		return urarchive.Load(filePath)
 	@staticmethod
 	def load(fileStream: typing.Any) -> typing.Any:
 		return urarchive.Load(fileStream)

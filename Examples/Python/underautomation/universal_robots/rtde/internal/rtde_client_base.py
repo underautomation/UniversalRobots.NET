@@ -7,6 +7,12 @@ from underautomation.universal_robots.rtde.rtde_input_setup_item import RtdeInpu
 from underautomation.universal_robots.rtde.rtde_output_values import RtdeOutputValues
 from underautomation.universal_robots.rtde.rtde_input_values import RtdeInputValues
 from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.rtde.rtde_protocol_version_event_args import RtdeProtocolVersionEventArgs
+from underautomation.universal_robots.rtde.rtde_data_package_event_args import RtdeDataPackageEventArgs
+from underautomation.universal_robots.rtde.rtde_control_package_setup_outputs_event_args import RtdeControlPackageSetupOutputsEventArgs
+from underautomation.universal_robots.rtde.rtde_control_package_setup_inputs_event_args import RtdeControlPackageSetupInputsEventArgs
+from underautomation.universal_robots.rtde.rtde_basic_request_event_args import RtdeBasicRequestEventArgs
+from underautomation.universal_robots.common.package_event_args import PackageEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -58,38 +64,6 @@ class RtdeClientBase(URServiceBase):
 			def __init__(self, _internal):
 				self._instance = _internal
 		self._instance.PackageReceived+= lambda sender, e : handler(Wrapper(sender), Wrapper(e))
-	def add__protocol_version_received(self, value: typing.Any) -> None:
-		self._instance.add_ProtocolVersionReceived(value)
-	def remove__protocol_version_received(self, value: typing.Any) -> None:
-		self._instance.remove_ProtocolVersionReceived(value)
-	def add__text_message_received(self, value: typing.Any) -> None:
-		self._instance.add_TextMessageReceived(value)
-	def remove__text_message_received(self, value: typing.Any) -> None:
-		self._instance.remove_TextMessageReceived(value)
-	def add__output_data_received(self, value: typing.Any) -> None:
-		self._instance.add_OutputDataReceived(value)
-	def remove__output_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_OutputDataReceived(value)
-	def add__setup_outputs_received(self, value: typing.Any) -> None:
-		self._instance.add_SetupOutputsReceived(value)
-	def remove__setup_outputs_received(self, value: typing.Any) -> None:
-		self._instance.remove_SetupOutputsReceived(value)
-	def add__setup_inputs_received(self, value: typing.Any) -> None:
-		self._instance.add_SetupInputsReceived(value)
-	def remove__setup_inputs_received(self, value: typing.Any) -> None:
-		self._instance.remove_SetupInputsReceived(value)
-	def add__start_received(self, value: typing.Any) -> None:
-		self._instance.add_StartReceived(value)
-	def remove__start_received(self, value: typing.Any) -> None:
-		self._instance.remove_StartReceived(value)
-	def add__pause_received(self, value: typing.Any) -> None:
-		self._instance.add_PauseReceived(value)
-	def remove__pause_received(self, value: typing.Any) -> None:
-		self._instance.remove_PauseReceived(value)
-	def add__package_received(self, value: typing.Any) -> None:
-		self._instance.add_PackageReceived(value)
-	def remove__package_received(self, value: typing.Any) -> None:
-		self._instance.remove_PackageReceived(value)
 	def pause(self) -> None:
 		self._instance.Pause()
 	def resume(self) -> None:

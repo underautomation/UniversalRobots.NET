@@ -1,6 +1,4 @@
-from enum import Enum
-
-class GlobalVariablesFirmwareVersion(Enum):
+class GlobalVariablesFirmwareVersion(int):
 	UpTo32 = 0
 	UpTo59 = 1
 	Latest = 2

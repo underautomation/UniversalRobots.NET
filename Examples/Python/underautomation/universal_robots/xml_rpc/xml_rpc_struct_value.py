@@ -1,6 +1,7 @@
 import typing
 from underautomation.universal_robots.xml_rpc.xml_rpc_type import XmlRpcType
 from underautomation.universal_robots.xml_rpc.xml_rpc_value import XmlRpcValue
+from underautomation.universal_robots.xml_rpc.xml_rpc_struct_member import XmlRpcStructMember
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))

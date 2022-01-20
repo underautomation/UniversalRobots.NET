@@ -1,6 +1,4 @@
-from enum import Enum
-
-class PackageUnit(Enum):
+class PackageUnit(int):
 	NoUnit = 0
 	Radian = 1
 	RadianPerSecond = 2

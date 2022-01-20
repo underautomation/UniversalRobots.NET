@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RobotSubTypes(Enum):
+class RobotSubTypes(int):
 	CB2Serie = 1
 	CB3Serie = 2
 	ESerie = 3

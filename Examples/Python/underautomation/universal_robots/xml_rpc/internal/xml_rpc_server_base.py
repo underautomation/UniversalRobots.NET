@@ -20,10 +20,6 @@ class XmlRpcServerBase(URServiceBase):
 		self._instance.Start(port)
 	def stop(self) -> None:
 		self._instance.Stop()
-	def add__xml_rpc_server_request(self, value: typing.Any) -> None:
-		self._instance.add_XmlRpcServerRequest(value)
-	def remove__xml_rpc_server_request(self, value: typing.Any) -> None:
-		self._instance.remove_XmlRpcServerRequest(value)
 	@property
 	def enabled(self) -> bool:
 		return self._instance.Enabled

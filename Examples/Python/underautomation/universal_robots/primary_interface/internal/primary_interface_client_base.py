@@ -23,6 +23,7 @@ from underautomation.universal_robots.primary_interface.global_variables import 
 from underautomation.universal_robots.primary_interface.interfaces import Interfaces
 from underautomation.universal_robots.status_code import StatusCode
 from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.common.package_event_args import PackageEventArgs
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
@@ -139,90 +140,6 @@ class PrimaryInterfaceClientBase(URServiceBase):
 			def __init__(self, _internal):
 				self._instance = _internal
 		self._instance.RuntimeExceptionMessageReceived+= lambda sender, e : handler(Wrapper(sender), Wrapper(e))
-	def add__robot_mode_data_received(self, value: typing.Any) -> None:
-		self._instance.add_RobotModeDataReceived(value)
-	def remove__robot_mode_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_RobotModeDataReceived(value)
-	def add__joint_data_received(self, value: typing.Any) -> None:
-		self._instance.add_JointDataReceived(value)
-	def remove__joint_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_JointDataReceived(value)
-	def add__tool_data_received(self, value: typing.Any) -> None:
-		self._instance.add_ToolDataReceived(value)
-	def remove__tool_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_ToolDataReceived(value)
-	def add__masterboard_data_received(self, value: typing.Any) -> None:
-		self._instance.add_MasterboardDataReceived(value)
-	def remove__masterboard_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_MasterboardDataReceived(value)
-	def add__cartesian_info_received(self, value: typing.Any) -> None:
-		self._instance.add_CartesianInfoReceived(value)
-	def remove__cartesian_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_CartesianInfoReceived(value)
-	def add__kinematics_info_received(self, value: typing.Any) -> None:
-		self._instance.add_KinematicsInfoReceived(value)
-	def remove__kinematics_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_KinematicsInfoReceived(value)
-	def add__configuration_data_received(self, value: typing.Any) -> None:
-		self._instance.add_ConfigurationDataReceived(value)
-	def remove__configuration_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_ConfigurationDataReceived(value)
-	def add__force_mode_data_received(self, value: typing.Any) -> None:
-		self._instance.add_ForceModeDataReceived(value)
-	def remove__force_mode_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_ForceModeDataReceived(value)
-	def add__additional_info_received(self, value: typing.Any) -> None:
-		self._instance.add_AdditionalInfoReceived(value)
-	def remove__additional_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_AdditionalInfoReceived(value)
-	def add__calibration_data_received(self, value: typing.Any) -> None:
-		self._instance.add_CalibrationDataReceived(value)
-	def remove__calibration_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_CalibrationDataReceived(value)
-	def add__safety_data_received(self, value: typing.Any) -> None:
-		self._instance.add_SafetyDataReceived(value)
-	def remove__safety_data_received(self, value: typing.Any) -> None:
-		self._instance.remove_SafetyDataReceived(value)
-	def add__tool_communication_info_received(self, value: typing.Any) -> None:
-		self._instance.add_ToolCommunicationInfoReceived(value)
-	def remove__tool_communication_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_ToolCommunicationInfoReceived(value)
-	def add__tool_mode_info_received(self, value: typing.Any) -> None:
-		self._instance.add_ToolModeInfoReceived(value)
-	def remove__tool_mode_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_ToolModeInfoReceived(value)
-	def add__singularity_info_received(self, value: typing.Any) -> None:
-		self._instance.add_SingularityInfoReceived(value)
-	def remove__singularity_info_received(self, value: typing.Any) -> None:
-		self._instance.remove_SingularityInfoReceived(value)
-	def add__package_received(self, value: typing.Any) -> None:
-		self._instance.add_PackageReceived(value)
-	def remove__package_received(self, value: typing.Any) -> None:
-		self._instance.remove_PackageReceived(value)
-	def add__program_threads_received(self, value: typing.Any) -> None:
-		self._instance.add_ProgramThreadsReceived(value)
-	def remove__program_threads_received(self, value: typing.Any) -> None:
-		self._instance.remove_ProgramThreadsReceived(value)
-	def add__version_received(self, value: typing.Any) -> None:
-		self._instance.add_VersionReceived(value)
-	def remove__version_received(self, value: typing.Any) -> None:
-		self._instance.remove_VersionReceived(value)
-	def add__key_message_received(self, value: typing.Any) -> None:
-		self._instance.add_KeyMessageReceived(value)
-	def remove__key_message_received(self, value: typing.Any) -> None:
-		self._instance.remove_KeyMessageReceived(value)
-	def add__popup_message_received(self, value: typing.Any) -> None:
-		self._instance.add_PopupMessageReceived(value)
-	def remove__popup_message_received(self, value: typing.Any) -> None:
-		self._instance.remove_PopupMessageReceived(value)
-	def add__text_message_received(self, value: typing.Any) -> None:
-		self._instance.add_TextMessageReceived(value)
-	def remove__text_message_received(self, value: typing.Any) -> None:
-		self._instance.remove_TextMessageReceived(value)
-	def add__runtime_exception_message_received(self, value: typing.Any) -> None:
-		self._instance.add_RuntimeExceptionMessageReceived(value)
-	def remove__runtime_exception_message_received(self, value: typing.Any) -> None:
-		self._instance.remove_RuntimeExceptionMessageReceived(value)
 	def disconnect(self) -> None:
 		self._instance.Disconnect()
 	def send(self, script: str) -> StatusCode:

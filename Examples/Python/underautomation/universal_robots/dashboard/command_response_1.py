@@ -5,7 +5,8 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Dashboard import CommandResponse as command_response_1
 
-class CommandResponse1(CommandResponse):
+T = typing.TypeVar('T')
+class CommandResponse1(CommandResponse, typing.Generic[T]):
 	def __init__(self, command: CommandResponse, _internal = 0):
 		if(_internal == 0):
 			self._instance = command_response_1(command)
@@ -14,8 +15,8 @@ class CommandResponse1(CommandResponse):
 	def __repr__(self):
 		return self._instance.ToString()
 	@property
-	def value(self) -> typing.Any:
+	def value(self) -> T:
 		return self._instance.Value
 	@value.setter
-	def value(self, value: typing.Any):
+	def value(self, value: T):
 		self._instance.Value = value

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RTDEStates(Enum):
+class RTDEStates(int):
 	Disabled = 0
 	Connecting = 1
 	Started = 2

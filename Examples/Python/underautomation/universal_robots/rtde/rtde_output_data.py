@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RtdeOutputData(Enum):
+class RtdeOutputData(int):
 	Timestamp = 0
 	TargetQ = 1
 	TargetQd = 2

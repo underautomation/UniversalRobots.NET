@@ -12,9 +12,6 @@ class URInstallation(URArchive):
 		else:
 			self._instance = _internal
 	@staticmethod
-	def load(urpStream: typing.Any) -> 'URInstallation':
-		return urinstallation.Load(urpStream)
-	@staticmethod
 	def load(urpFile: str) -> 'URInstallation':
 		return urinstallation.Load(urpFile)
 	@property

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class RobotModes(Enum):
+class RobotModes(int):
 	Other = -1
 	Disconnected = 0
 	ConfirmSafety = 1

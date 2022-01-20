@@ -5,7 +5,7 @@ import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))
 from UnderAutomation.UniversalRobots.Rtde import RtdeDoubleRegistersValue as rtde_double_registers_value
 
-class RtdeDoubleRegistersValue(RtdeRegistersValue1):
+class RtdeDoubleRegistersValue(RtdeRegistersValue1[float]):
 	def __init__(self, _internal = 0):
 		if(_internal == 0):
 			self._instance = rtde_double_registers_value()

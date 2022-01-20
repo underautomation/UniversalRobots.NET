@@ -1,5 +1,3 @@
-from enum import Enum
-
-class GlobalRequestName(Enum):
+class GlobalRequestName(int):
 	TcpIpForward = 0
 	CancelTcpIpForward = 1
