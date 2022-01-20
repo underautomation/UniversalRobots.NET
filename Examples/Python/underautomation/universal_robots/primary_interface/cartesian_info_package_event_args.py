@@ -48,38 +48,38 @@ class CartesianInfoPackageEventArgs(PackageEventArgs):
 	def rz(self, value: float):
 		self._instance.Rz = value
 	@property
-	def tcpoffset_x(self) -> float:
+	def tcp_offset_x(self) -> float:
 		return self._instance.TCPOffsetX
-	@tcpoffset_x.setter
-	def tcpoffset_x(self, value: float):
+	@tcp_offset_x.setter
+	def tcp_offset_x(self, value: float):
 		self._instance.TCPOffsetX = value
 	@property
-	def tcpoffset_y(self) -> float:
+	def tcp_offset_y(self) -> float:
 		return self._instance.TCPOffsetY
-	@tcpoffset_y.setter
-	def tcpoffset_y(self, value: float):
+	@tcp_offset_y.setter
+	def tcp_offset_y(self, value: float):
 		self._instance.TCPOffsetY = value
 	@property
-	def tcpoffset_z(self) -> float:
+	def tcp_offset_z(self) -> float:
 		return self._instance.TCPOffsetZ
-	@tcpoffset_z.setter
-	def tcpoffset_z(self, value: float):
+	@tcp_offset_z.setter
+	def tcp_offset_z(self, value: float):
 		self._instance.TCPOffsetZ = value
 	@property
-	def tcpoffset_rx(self) -> float:
+	def tcp_offset_rx(self) -> float:
 		return self._instance.TCPOffsetRX
-	@tcpoffset_rx.setter
-	def tcpoffset_rx(self, value: float):
+	@tcp_offset_rx.setter
+	def tcp_offset_rx(self, value: float):
 		self._instance.TCPOffsetRX = value
 	@property
-	def tcpoffset_ry(self) -> float:
+	def tcp_offset_ry(self) -> float:
 		return self._instance.TCPOffsetRY
-	@tcpoffset_ry.setter
-	def tcpoffset_ry(self, value: float):
+	@tcp_offset_ry.setter
+	def tcp_offset_ry(self, value: float):
 		self._instance.TCPOffsetRY = value
 	@property
-	def tcpoffset_rz(self) -> float:
+	def tcp_offset_rz(self) -> float:
 		return self._instance.TCPOffsetRZ
-	@tcpoffset_rz.setter
-	def tcpoffset_rz(self, value: float):
+	@tcp_offset_rz.setter
+	def tcp_offset_rz(self, value: float):
 		self._instance.TCPOffsetRZ = value

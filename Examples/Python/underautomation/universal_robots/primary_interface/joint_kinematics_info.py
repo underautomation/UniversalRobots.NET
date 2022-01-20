@@ -17,22 +17,22 @@ class JointKinematicsInfo:
 	def checksum(self, value: int):
 		self._instance.Checksum = value
 	@property
-	def dhtheta(self) -> float:
+	def d_htheta(self) -> float:
 		return self._instance.DHtheta
-	@dhtheta.setter
-	def dhtheta(self, value: float):
+	@d_htheta.setter
+	def d_htheta(self, value: float):
 		self._instance.DHtheta = value
 	@property
-	def dha(self) -> float:
+	def d_ha(self) -> float:
 		return self._instance.DHa
-	@dha.setter
-	def dha(self, value: float):
+	@d_ha.setter
+	def d_ha(self, value: float):
 		self._instance.DHa = value
 	@property
-	def dhd(self) -> float:
+	def d_hd(self) -> float:
 		return self._instance.DHd
-	@dhd.setter
-	def dhd(self, value: float):
+	@d_hd.setter
+	def d_hd(self, value: float):
 		self._instance.DHd = value
 	@property
 	def dhalpha(self) -> float:

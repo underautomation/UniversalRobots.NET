@@ -24,8 +24,8 @@ class AdditionalInfoPackageEventArgs(PackageEventArgs):
 	def freedrive_button_enabled(self, value: bool):
 		self._instance.FreedriveButtonEnabled = value
 	@property
-	def ioenabled_freedrive(self) -> bool:
+	def io_enabled_freedrive(self) -> bool:
 		return self._instance.IOEnabledFreedrive
-	@ioenabled_freedrive.setter
-	def ioenabled_freedrive(self, value: bool):
+	@io_enabled_freedrive.setter
+	def io_enabled_freedrive(self, value: bool):
 		self._instance.IOEnabledFreedrive = value

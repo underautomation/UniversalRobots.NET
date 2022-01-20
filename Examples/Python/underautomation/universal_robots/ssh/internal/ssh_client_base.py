@@ -2,7 +2,7 @@ import typing
 from underautomation.universal_robots.ssh.tools.ssh_command import SshCommand
 from underautomation.universal_robots.ssh.tools.shell import Shell
 from underautomation.universal_robots.ssh.tools.shell_stream import ShellStream
-from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.internal.ur_service_base import URServiceBase
 from underautomation.universal_robots.ssh.tools.common.terminal_modes import TerminalModes
 import clr
 import os

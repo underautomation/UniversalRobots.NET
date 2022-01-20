@@ -8,7 +8,7 @@ from underautomation.universal_robots.internal.ssh_client_internal import SshCli
 from underautomation.universal_robots.internal.sftp_client_internal import SftpClientInternal
 from underautomation.universal_robots.connect_parameters import ConnectParameters
 from underautomation.universal_robots.license.license_info import LicenseInfo
-from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.internal.ur_service_base import URServiceBase
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))

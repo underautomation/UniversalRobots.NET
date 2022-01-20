@@ -16,28 +16,28 @@ class ConfigurationDataPackageEventArgs(PackageEventArgs):
 		else:
 			self._instance = _internal
 	@property
-	def vjoint_default(self) -> float:
+	def v_joint_default(self) -> float:
 		return self._instance.VJointDefault
-	@vjoint_default.setter
-	def vjoint_default(self, value: float):
+	@v_joint_default.setter
+	def v_joint_default(self, value: float):
 		self._instance.VJointDefault = value
 	@property
-	def ajoint_default(self) -> float:
+	def a_joint_default(self) -> float:
 		return self._instance.AJointDefault
-	@ajoint_default.setter
-	def ajoint_default(self, value: float):
+	@a_joint_default.setter
+	def a_joint_default(self, value: float):
 		self._instance.AJointDefault = value
 	@property
-	def vtool_default(self) -> float:
+	def v_tool_default(self) -> float:
 		return self._instance.VToolDefault
-	@vtool_default.setter
-	def vtool_default(self, value: float):
+	@v_tool_default.setter
+	def v_tool_default(self, value: float):
 		self._instance.VToolDefault = value
 	@property
-	def atool_default(self) -> float:
+	def a_tool_default(self) -> float:
 		return self._instance.AToolDefault
-	@atool_default.setter
-	def atool_default(self, value: float):
+	@a_tool_default.setter
+	def a_tool_default(self, value: float):
 		self._instance.AToolDefault = value
 	@property
 	def eq_radius(self) -> float:

@@ -126,7 +126,7 @@ class RtdeOutputsDescription:
 	def safety_status_bits(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.SafetyStatusBits)
 	@property
-	def analog_iotypes(self) -> RtdeOutputDataDescription:
+	def analog_io_types(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.AnalogIOTypes)
 	@property
 	def standard_analog_input0(self) -> RtdeOutputDataDescription:
@@ -141,7 +141,7 @@ class RtdeOutputsDescription:
 	def standard_analog_output1(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.StandardAnalogOutput1)
 	@property
-	def iocurrent(self) -> RtdeOutputDataDescription:
+	def io_current(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.IOCurrent)
 	@property
 	def euromap67_input_bits(self) -> RtdeOutputDataDescription:
@@ -150,10 +150,10 @@ class RtdeOutputsDescription:
 	def euromap67_output_bits(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.Euromap67OutputBits)
 	@property
-	def euromap67_24_vvoltage(self) -> RtdeOutputDataDescription:
+	def euromap67_24_v_voltage(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.Euromap67_24VVoltage)
 	@property
-	def euromap67_24_vcurrent(self) -> RtdeOutputDataDescription:
+	def euromap67_24_v_current(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.Euromap67_24VCurrent)
 	@property
 	def tool_mode(self) -> RtdeOutputDataDescription:
@@ -231,5 +231,5 @@ class RtdeOutputsDescription:
 	def script_control_line(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.ScriptControlLine)
 	@property
-	def ftraw_wrench(self) -> RtdeOutputDataDescription:
+	def ft_raw_wrench(self) -> RtdeOutputDataDescription:
 		return RtdeOutputDataDescription(self._instance.FTRawWrench)

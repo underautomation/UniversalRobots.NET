@@ -22,7 +22,7 @@ from underautomation.universal_robots.primary_interface.runtime_exception_messag
 from underautomation.universal_robots.primary_interface.global_variables import GlobalVariables
 from underautomation.universal_robots.primary_interface.interfaces import Interfaces
 from underautomation.universal_robots.status_code import StatusCode
-from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.internal.ur_service_base import URServiceBase
 from underautomation.universal_robots.common.package_event_args import PackageEventArgs
 import clr
 import os

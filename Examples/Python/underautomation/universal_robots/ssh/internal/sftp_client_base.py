@@ -3,7 +3,7 @@ from underautomation.universal_robots.ssh.tools.sftp.sftp_file import SftpFile
 from underautomation.universal_robots.ssh.tools.sftp.sftp_file_sytem_information import SftpFileSytemInformation
 from underautomation.universal_robots.ssh.tools.sftp.sftp_file_stream import SftpFileStream
 from underautomation.universal_robots.ssh.tools.sftp.sftp_file_attributes import SftpFileAttributes
-from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.internal.ur_service_base import URServiceBase
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))

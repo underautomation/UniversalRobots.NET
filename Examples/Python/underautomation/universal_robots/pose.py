@@ -13,7 +13,7 @@ class Pose(CartesianCoordinates):
 			self._instance = _internal
 	def from_rotation_vector_to_rpy(self) -> 'Pose':
 		return Pose(None, None, None, None, None, None, self._instance.FromRotationVectorToRPY())
-	def from_rpyto_rotation_vector(self) -> 'Pose':
+	def from_rpy_to_rotation_vector(self) -> 'Pose':
 		return Pose(None, None, None, None, None, None, self._instance.FromRPYToRotationVector())
 	def __repr__(self):
 		return self._instance.ToString()

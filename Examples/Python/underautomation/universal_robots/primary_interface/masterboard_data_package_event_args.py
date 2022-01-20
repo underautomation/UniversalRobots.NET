@@ -81,10 +81,10 @@ class MasterboardDataPackageEventArgs(PackageEventArgs):
 	def robot_current(self, value: float):
 		self._instance.RobotCurrent = value
 	@property
-	def master_iocurrent(self) -> float:
+	def master_io_current(self) -> float:
 		return self._instance.MasterIOCurrent
-	@master_iocurrent.setter
-	def master_iocurrent(self, value: float):
+	@master_io_current.setter
+	def master_io_current(self, value: float):
 		self._instance.MasterIOCurrent = value
 	@property
 	def safetymode(self) -> SafetyStatus:

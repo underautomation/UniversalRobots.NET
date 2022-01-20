@@ -3,7 +3,7 @@ from underautomation.universal_robots.dashboard.command_response import CommandR
 from underautomation.universal_robots.dashboard.command_response_1 import CommandResponse1
 from underautomation.universal_robots.dashboard.user_roles import UserRoles
 from underautomation.universal_robots.dashboard.operational_modes import OperationalModes
-from underautomation.universal_robots.internal.urservice_base import URServiceBase
+from underautomation.universal_robots.internal.ur_service_base import URServiceBase
 from underautomation.universal_robots.common.global_variable import GlobalVariable
 from underautomation.universal_robots.common.robot_modes import RobotModes
 from underautomation.universal_robots.dashboard.program_save_state import ProgramSaveState

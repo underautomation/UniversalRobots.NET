@@ -1,5 +1,5 @@
 import typing
-from underautomation.universal_robots.ssh.tools.iremote_path_transformation import IRemotePathTransformation
+from underautomation.universal_robots.ssh.tools.i_remote_path_transformation import IRemotePathTransformation
 import clr
 import os
 clr.AddReference(os.path.realpath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", 'lib', 'UnderAutomation.UniversalRobots.dll')))

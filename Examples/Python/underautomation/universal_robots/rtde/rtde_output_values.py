@@ -240,10 +240,10 @@ class RtdeOutputValues(RtdeBaseValues1[RtdeOutputData]):
 	def safety_status_bits(self, value: int):
 		self._instance.SafetyStatusBits = value
 	@property
-	def analog_iotypes(self) -> int:
+	def analog_io_types(self) -> int:
 		return self._instance.AnalogIOTypes
-	@analog_iotypes.setter
-	def analog_iotypes(self, value: int):
+	@analog_io_types.setter
+	def analog_io_types(self, value: int):
 		self._instance.AnalogIOTypes = value
 	@property
 	def standard_analog_input0(self) -> float:
@@ -270,10 +270,10 @@ class RtdeOutputValues(RtdeBaseValues1[RtdeOutputData]):
 	def standard_analog_output1(self, value: float):
 		self._instance.StandardAnalogOutput1 = value
 	@property
-	def iocurrent(self) -> float:
+	def io_current(self) -> float:
 		return self._instance.IOCurrent
-	@iocurrent.setter
-	def iocurrent(self, value: float):
+	@io_current.setter
+	def io_current(self, value: float):
 		self._instance.IOCurrent = value
 	@property
 	def euromap67_input_bits(self) -> int:
@@ -288,16 +288,16 @@ class RtdeOutputValues(RtdeBaseValues1[RtdeOutputData]):
 	def euromap67_output_bits(self, value: int):
 		self._instance.Euromap67OutputBits = value
 	@property
-	def euromap67_24_vvoltage(self) -> float:
+	def euromap67_24_v_voltage(self) -> float:
 		return self._instance.Euromap67_24VVoltage
-	@euromap67_24_vvoltage.setter
-	def euromap67_24_vvoltage(self, value: float):
+	@euromap67_24_v_voltage.setter
+	def euromap67_24_v_voltage(self, value: float):
 		self._instance.Euromap67_24VVoltage = value
 	@property
-	def euromap67_24_vcurrent(self) -> float:
+	def euromap67_24_v_current(self) -> float:
 		return self._instance.Euromap67_24VCurrent
-	@euromap67_24_vcurrent.setter
-	def euromap67_24_vcurrent(self, value: float):
+	@euromap67_24_v_current.setter
+	def euromap67_24_v_current(self, value: float):
 		self._instance.Euromap67_24VCurrent = value
 	@property
 	def tool_mode(self) -> int:
@@ -432,8 +432,8 @@ class RtdeOutputValues(RtdeBaseValues1[RtdeOutputData]):
 	def script_control_line(self, value: int):
 		self._instance.ScriptControlLine = value
 	@property
-	def ftraw_wrench(self) -> CartesianCoordinates:
+	def ft_raw_wrench(self) -> CartesianCoordinates:
 		return CartesianCoordinates(None, None, None, None, None, None, self._instance.FTRawWrench)
-	@ftraw_wrench.setter
-	def ftraw_wrench(self, value: CartesianCoordinates):
+	@ft_raw_wrench.setter
+	def ft_raw_wrench(self, value: CartesianCoordinates):
 		self._instance.FTRawWrench = value

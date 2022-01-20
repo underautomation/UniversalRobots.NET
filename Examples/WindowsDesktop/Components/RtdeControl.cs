@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
-using UnderAutomation.UniversalRobots.Internal;
+using UnderAutomation.UniversalRobots.Common;
 using UnderAutomation.UniversalRobots.Rtde;
 
 
