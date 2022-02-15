@@ -79,7 +79,7 @@ public void OnOpen()
 
     private void btnSendScript_Click(object sender, System.EventArgs e)
     {
-        _ur.PrimaryInterface.Send(txtScript.Text);
+        _ur.PrimaryInterface.Script.Send(txtScript.Text);
 
         Config.Current.URScript = txtScript.Text;
         Config.Save();

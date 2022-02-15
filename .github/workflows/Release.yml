@@ -13,60 +13,60 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac_VS2019.sln
+    - run: nuget restore $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac_VS2019.sln
     - name: Build Windows Desktop
       run: |
         cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\WindowsDesktop_VS2019.sln -p:Configuration=Release
-        rm $Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\obj -r -fo
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\WindowsDesktop_VS2019.sln -p:Configuration=Release
+        rm $Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\obj -r -fo
     - name: Build Console example
       run: |
         cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x86 /p:Configuration=Release /p:OutDir=bin/win-x86
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x64 /p:Configuration=Release /p:OutDir=bin/win-x64
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-arm /p:Configuration=Release /p:OutDir=bin/win-arm
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=osx-x64 /p:Configuration=Release /p:OutDir=bin/osx-64
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-arm /p:Configuration=Release /p:OutDir=bin/linux-arm
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-x64 /p:Configuration=Release /p:OutDir=bin/linux-x64
-        rm $Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\obj -r -fo
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x86 /p:Configuration=Release /p:OutDir=bin/win-x86
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x64 /p:Configuration=Release /p:OutDir=bin/win-x64
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-arm /p:Configuration=Release /p:OutDir=bin/win-arm
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=osx-x64 /p:Configuration=Release /p:OutDir=bin/osx-64
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-arm /p:Configuration=Release /p:OutDir=bin/linux-arm
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=linux-x64 /p:Configuration=Release /p:OutDir=bin/linux-x64
+        rm $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\obj -r -fo
     - name: zip libraries
       run: |
         cd "$Env:GITHUB_WORKSPACE\Libraries\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK.zip *
-    - name: zip full examples
-      run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_Full.zip $Env:GITHUB_WORKSPACE\Examples $Env:GITHUB_WORKSPACE\Libraries
+    - name: zip full .NET\Examples
+      run: 7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_Full.zip $Env:GITHUB_WORKSPACE\.NET\Examples $Env:GITHUB_WORKSPACE\Libraries
     - name: zip desktop example
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\WindowsDesktop\bin\Release\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\bin\Release\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_DesktopExample.zip *
     - name: zip win-x86
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-x86\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\win-x86\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-x86.zip *
     - name: zip win-x64
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-x64\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\win-x64\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-x64.zip *
     - name: zip win-arm
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\win-arm\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\win-arm\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_win-arm.zip *
     - name: zip osx-64
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\osx-64\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\osx-64\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_osx-64.zip *
     - name: zip linux-arm
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\linux-arm\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\linux-arm\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_linux-arm.zip *
     - name: zip linux-x64
       run: |
-        cd "$Env:GITHUB_WORKSPACE\Examples\ConsoleWindowsLinuxMac\bin\linux-x64\"
+        cd "$Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\bin\linux-x64\"
         7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UniversalRobotsSDK_ConsoleExample_linux-x64.zip *
     - name: zip LABView example
-      run: 7z a -tzip -mx=9 UniversalRobotsSDK_LABView.zip Examples\LabVIEW\ Libraries\net35\
+      run: 7z a -tzip -mx=9 UniversalRobotsSDK_LABView.zip LabVIEW\
     - name: zip Python example
-      run: 7z a -tzip -mx=9 UniversalRobotsSDK_Python.zip Examples\Python\ Libraries\net35\
+      run: 7z a -tzip -mx=9 UniversalRobotsSDK_Python.zip Python\
     - uses: ncipollo/release-action@v1
       with:
         artifacts: "UniversalRobotsSDK_Full.zip,UniversalRobotsSDK_ConsoleExample_win-x86.zip,UniversalRobotsSDK_ConsoleExample_win-x64.zip,UniversalRobotsSDK_ConsoleExample_win-arm.zip,UniversalRobotsSDK_ConsoleExample_osx-64.zip,UniversalRobotsSDK_ConsoleExample_linux-arm.zip,UniversalRobotsSDK_ConsoleExample_linux-x64.zip,UniversalRobotsSDK_LABView.zip,UniversalRobotsSDK_Python.zip,UniversalRobotsSDK_DesktopExample.zip,UniversalRobotsSDK.zip"

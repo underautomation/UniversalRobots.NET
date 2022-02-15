@@ -1,0 +1,3 @@
+{
+    "terminal.integrated.env.windows": {"PYTHONPATH": "${workspaceFolder}\\..\\Package"},
+}

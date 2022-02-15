@@ -138,7 +138,7 @@ IN NO EVENT SHALL UNDERAUTOMATION BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIREC
 
 
 ## 10. COPYRIGHT NOTICE.
-Copyright (C) 2019-2020 UnderAutomation All rights reserved.
+Copyright (C) 2019-2022 UnderAutomation All rights reserved.
 Any rights not expressly granted herein are reserved.
 
 

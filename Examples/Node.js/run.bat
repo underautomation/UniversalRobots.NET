@@ -1,2 +1,0 @@
-node run.js
-pause

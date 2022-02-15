@@ -113,7 +113,7 @@ partial class ProgramControl
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(417, 8);
+            this.btnRun.Location = new System.Drawing.Point(663, 11);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(52, 21);
             this.btnRun.TabIndex = 2;
