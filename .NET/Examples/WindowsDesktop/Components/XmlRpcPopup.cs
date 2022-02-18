@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
-using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.Common;
 using UnderAutomation.UniversalRobots.XmlRpc;
 
 // Popup opened when a XML-RPC request is received from the robot

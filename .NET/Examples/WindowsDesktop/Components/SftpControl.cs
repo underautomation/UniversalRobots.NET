@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
 using UnderAutomation.UniversalRobots.Ssh.Tools.Common;
 using UnderAutomation.UniversalRobots.Ssh.Tools.Sftp;
+using UnderAutomation.UniversalRobots.Files;
 
 public partial class SftpControl : UserControl, IUserControl
 {

@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.Files;
 
 public partial class ArchiveControl : UserControl, IUserControl
 {

@@ -2,6 +2,7 @@
 using UnderAutomation.UniversalRobots;
 using UnderAutomation.UniversalRobots.PrimaryInterface;
 using UnderAutomation.UniversalRobots.XmlRpc;
+using UnderAutomation.UniversalRobots.Common;
 
 namespace ConsoleWindowsLinuxMac
 {

@@ -11,7 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition="$(SolutionName.EndsWith(`Dev`))">
-    <ProjectReference Include="..\..\..\..\UniversalRobots\UniversalRobots.csproj" />
+    <ProjectReference Include="..\..\..\..\..\UniversalRobots\UniversalRobots.csproj" />
   </ItemGroup>
 
   <ItemGroup Condition="!$(SolutionName.EndsWith(`Dev`))">

@@ -364,7 +364,7 @@
   <Choose>
     <When Condition="$(SolutionName.EndsWith(`Dev`))">
       <ItemGroup>
-        <ProjectReference Include="..\..\..\..\UniversalRobots\UniversalRobots.csproj">
+        <ProjectReference Include="..\..\..\..\..\UniversalRobots\UniversalRobots.csproj">
           <Project>{FCF00077-7C29-01DF-34C4-36AD823D4CF2}</Project>
           <Name>UniversalRobots</Name>
         </ProjectReference>
