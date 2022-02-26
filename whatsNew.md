@@ -1,1 +1,2 @@
-- Add socket message support. Allow your app to handle URScript functions : socket_open(), socket_*()
+- Refactor library structure. The UR class is lighter. The different features (Dashboard, Primary Interface, XML-RPC, ...) have been spread in different independent classes.
+- Implement RTDE protocol
