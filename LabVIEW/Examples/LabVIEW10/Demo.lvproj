@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="21008000">
+<Project Type="Project" LVVersion="10008000">
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -21,7 +21,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="UnderAutomation.UniversalRobots.dll" Type="Document" URL="../../../Library/UnderAutomation.UniversalRobots.dll"/>
-			<Item Name="XmlRpcRequestCallbackVI.vi" Type="VI" URL="../Helpers/XmlRpcRequestCallbackVI.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
