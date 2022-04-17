@@ -20,19 +20,19 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
 
     private void _ur_RuntimeExceptionMessageReceived(object sender, RuntimeExceptionMessageEventArgs e)
     {
-        ShowPopup("Runtime exception", $"Script error line {e.ScriptLineNumber} column {e.ScriptColumnNumber}\r\n{e.RuntimeExceptionTextMessage.Replace("_", " ")}", false, true);
+        ShowPopup("Runtime exception", $"Script error line {e.ScriptLineNumber} column {e.ScriptColumnNumber}\r\n{e.RuntimeExceptionTextMessage.Replace("_", " ")}", false, true, RequestedTypes.None, 0);
     }
 
     private void _ur_PopupMessageReceived(object sender, PopupMessageEventArgs e)
     {
-        ShowPopup(e.PopupMessageTitle,$"{e.PopupTextMessage ?? $"Enter {e.RequestedType} on robot"}", e.Warning, e.Error);
+        ShowPopup(e.PopupMessageTitle, $"{e.PopupTextMessage ?? $"Enter {e.RequestedType}"}", e.Warning, e.Error, e.RequestedType, e.RequestId);
     }
 
-    private void ShowPopup(string title, string message, bool warning, bool error)
+    private void ShowPopup(string title, string message, bool warning, bool error, RequestedTypes type, uint id)
     {
         MainForm.InvokeOnMainForm(new Action(() =>
             {
-                var popup = new PrimaryInterfacePopup(_ur, title, message, warning, error);
+                var popup = new PrimaryInterfacePopup(_ur, title, message, warning, error, type, id);
 
                 popup.ShowDialog(MainForm.Instance);
             }));
@@ -65,9 +65,9 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
         gridPopupMessage.SetSelectedObject(_ur.PrimaryInterface.PopupMessage);
         gridTextMessage.SetSelectedObject(_ur.PrimaryInterface.TextMessage);
         gridRuntimeExceptionMessage.SetSelectedObject(_ur.PrimaryInterface.RuntimeExceptionMessage);
-}
+    }
 
-public void OnOpen()
+    public void OnOpen()
     {
         this.VerticalScroll.Value = 0;
         this.HorizontalScroll.Value = 0;

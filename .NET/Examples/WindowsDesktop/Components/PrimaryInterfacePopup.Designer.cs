@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
             this.img = new System.Windows.Forms.PictureBox();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(100, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(375, 125);
+            this.lblMessage.Size = new System.Drawing.Size(375, 105);
             this.lblMessage.TabIndex = 3;
             this.lblMessage.Text = "................";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -77,12 +78,21 @@
             this.img.TabIndex = 4;
             this.img.TabStop = false;
             // 
+            // txtAnswer
+            // 
+            this.txtAnswer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtAnswer.Location = new System.Drawing.Point(100, 105);
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(375, 20);
+            this.txtAnswer.TabIndex = 5;
+            // 
             // PrimaryInterfacePopup
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(475, 178);
             this.Controls.Add(this.lblMessage);
+            this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.img);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -96,6 +106,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.img)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -105,4 +116,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblMessage;
     private System.Windows.Forms.PictureBox img;
+    private System.Windows.Forms.TextBox txtAnswer;
 }
