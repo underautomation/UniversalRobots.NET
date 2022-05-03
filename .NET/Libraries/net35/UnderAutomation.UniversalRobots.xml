@@ -3506,6 +3506,11 @@
             Contains methods to send custom URScript to the robot
             </summary>
         </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceClientBase.Commands">
+            <summary>
+            Contains methods to send commands to the robot
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceClientBase.IP">
             <summary>
             IP address of the connected robot
@@ -3531,6 +3536,151 @@
             Indicates the current local endpoint (i.e. IP Address) used to communicate with the robot. You can use this IP in your UR script in the function rpc_factory()
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands">
+            <summary>
+            Handles Primary interface commands
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.PowerOn">
+            <summary>
+            Power on the robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.PowerOff">
+            <summary>
+            Power off the robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.SetOperationalMode(UnderAutomation.UniversalRobots.Dashboard.OperationalModes)">
+            <summary>
+            Set robot operational mode
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.PauseProgram">
+            <summary>
+            Pause running program
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.SetReal">
+            <summary>
+            Set robot to real robot (disable simulation)
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.SetSimulated">
+            <summary>
+            Simulate robot
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.StopProgram">
+            <summary>
+            Stop running program
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ResumeProgram">
+            <summary>
+            Resume paused program
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.StepProgram">
+            <summary>
+            Step program execution. Should be followed by ResumeProgram() to move to next instruction
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.RunProgram">
+            <summary>
+            Run program from start
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.EnableTeachButton">
+            <summary>
+            Enable teach button
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.DisableTeachButton">
+            <summary>
+            Disable teach button
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.EnableFreedriveMode">
+            <summary>
+            Enable freedrive mode
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.DisableFreedriveMode">
+            <summary>
+            Disable freedrive mode
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ClosePopup(System.UInt32)">
+            <summary>
+            Close popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReplyPopup(System.UInt32,System.Boolean)">
+            <summary>
+            Reply popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReplyPopup(System.UInt32,System.Int32)">
+            <summary>
+            Reply popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReplyPopup(System.UInt32,System.Double)">
+            <summary>
+            Reply popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReplyPopup(System.UInt32,System.String,UnderAutomation.UniversalRobots.PrimaryInterface.RequestedTypes)">
+            <summary>
+            Reply popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReplyPopup(System.UInt32,System.String)">
+            <summary>
+            Reply popup
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ReleaseBrakes">
+            <summary>
+            Release brakes
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.UnlockProtectiveStop">
+            <summary>
+            Unlock protective stop
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.IncreaseSpeedLimit">
+            <summary>
+            Increase speed limit
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.SetSpeedLimit(System.Double)">
+            <summary>
+            Set speed limit
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.SetSpeed(System.Double)">
+            <summary>
+            Set speed 
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.ClearBreakpoints">
+            <summary>
+            Clear all breakpoints
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.AddBreakpoint(System.Int32,System.String)">
+            <summary>
+            Add a new breakpoint
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands.RemoveBreakpoint(System.Int32,System.String)">
+            <summary>
+            Remove an existing breakpoint
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceParametersBase">
             <summary>
             Parameters to setup a Primary/secondary interface connection
@@ -3548,7 +3698,7 @@
         </member>
         <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceScript.Send(System.String)">
             <summary>
-            Remotly execute script.Please see the Universal Robot Script documentation : https://www.universal-robots.com/download/.
+            Remotely execute script.Please see the Universal Robot Script documentation : https://www.universal-robots.com/download/.
             </summary>
             <param name="script">The script command to execute. You can for example move the robot at a specified joint coordinate with the command : movej([-1.5,-1.5,-2,-0.5,1.8,0],a=1.4, v=1.05, t=0, r=0)</param>
         </member>
@@ -5385,7 +5535,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.ActualTcpForce">
             <summary>
-            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the payload
+            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the�payload
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.TargetTcpPose">
@@ -5395,12 +5545,12 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.TargetTcpSpeed">
             <summary>
-            Target speed of the tool given in Cartesian coordinates. The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
+            Target speed of the tool given in Cartesian coordinates.�The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.ActualDigitalInputBits">
             <summary>
-            Current state of the digital inputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital inputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.JointTemperatures">
@@ -5475,7 +5625,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.ActualDigitalOutputBits">
             <summary>
-            Current state of the digital outputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital outputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.RuntimeState">
@@ -5495,17 +5645,17 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.RobotStatusBits">
             <summary>
-            Bits 0-3:  Is power on | Is program running | Is teach button pressed | Is power button pressed
+            Bits 0-3:� Is power on | Is program running | Is teach button pressed | Is power button pressed
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.SafetyStatusBits">
             <summary>
-            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode | Is safeguard stopped | Is system emergency stopped | Is robot emergency stopped | Is emergency stopped | Is violation | Is fault | Is stopped due to safety
+            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode |�Is safeguard stopped |�Is system emergency stopped |�Is robot emergency stopped |�Is emergency stopped |�Is violation |�Is fault |�Is stopped due to safety
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.AnalogIOTypes">
             <summary>
-            Bits 0-3: analog input 0 | analog input 1 | analog output 0 | analog output 1, {0=current[mA], 1=voltage[V]}
+            Bits 0-3: analog input 0 | analog input 1 | analog output 0 |�analog output 1, {0=current[mA], 1=voltage[V]}
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.StandardAnalogInput0">
@@ -5630,7 +5780,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.InputBitRegisters">
             <summary>
-             64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
+            �64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.InputIntRegisters">
@@ -5640,7 +5790,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.InputDoubleRegisters">
             <summary>
-             48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
+            �48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.ToolOutputMode">
@@ -5680,7 +5830,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputValues.FTRawWrench">
             <summary>
-            Raw force and torque measurement, not compensated for forces and torques caused by the payload
+            Raw force and torque measurement, not compensated for forces and torques caused by the�payload
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeIntRegistersValue.X0">
@@ -5985,7 +6135,7 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.ActualTcpForce">
             <summary>
-            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the payload
+            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the�payload
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.TargetTcpPose">
@@ -5995,12 +6145,12 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.TargetTcpSpeed">
             <summary>
-            Target speed of the tool given in Cartesian coordinates. The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
+            Target speed of the tool given in Cartesian coordinates.�The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.ActualDigitalInputBits">
             <summary>
-            Current state of the digital inputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital inputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.JointTemperatures">
@@ -6075,7 +6225,7 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.ActualDigitalOutputBits">
             <summary>
-            Current state of the digital outputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital outputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.RuntimeState">
@@ -6095,17 +6245,17 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.RobotStatusBits">
             <summary>
-            Bits 0-3:  Is power on | Is program running | Is teach button pressed | Is power button pressed
+            Bits 0-3:� Is power on | Is program running | Is teach button pressed | Is power button pressed
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.SafetyStatusBits">
             <summary>
-            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode | Is safeguard stopped | Is system emergency stopped | Is robot emergency stopped | Is emergency stopped | Is violation | Is fault | Is stopped due to safety
+            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode |�Is safeguard stopped |�Is system emergency stopped |�Is robot emergency stopped |�Is emergency stopped |�Is violation |�Is fault |�Is stopped due to safety
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.AnalogIOTypes">
             <summary>
-            Bits 0-3: analog input 0 | analog input 1 | analog output 0 | analog output 1, {0=current[mA], 1=voltage[V]}
+            Bits 0-3: analog input 0 | analog input 1 | analog output 0 |�analog output 1, {0=current[mA], 1=voltage[V]}
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.StandardAnalogInput0">
@@ -6230,7 +6380,7 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.InputBitRegisters">
             <summary>
-             64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
+            �64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.InputIntRegisters">
@@ -6240,7 +6390,7 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.InputDoubleRegisters">
             <summary>
-             48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
+            �48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.ToolOutputMode">
@@ -6280,7 +6430,7 @@
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.FTRawWrench">
             <summary>
-            Raw force and torque measurement, not compensated for forces and torques caused by the payload
+            Raw force and torque measurement, not compensated for forces and torques caused by the�payload
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.Timestamp">
@@ -6345,7 +6495,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.ActualTcpForce">
             <summary>
-            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the payload
+            Generalized forces in the TCP. It compensates the measurement for forces and torques generated by the�payload
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.TargetTcpPose">
@@ -6355,12 +6505,12 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.TargetTcpSpeed">
             <summary>
-            Target speed of the tool given in Cartesian coordinates. The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
+            Target speed of the tool given in Cartesian coordinates.�The speed is given in [m/s] and the rotational part of the TCP speed (rx, ry, rz) is the angular velocity given in [rad/s]
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.ActualDigitalInputBits">
             <summary>
-            Current state of the digital inputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital inputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.JointTemperatures">
@@ -6435,7 +6585,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.ActualDigitalOutputBits">
             <summary>
-            Current state of the digital outputs. 0-7: Standard, 8-15: Configurable, 16-17: Tool
+            Current state of the digital outputs.�0-7: Standard, 8-15: Configurable, 16-17: Tool
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.RuntimeState">
@@ -6455,17 +6605,17 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.RobotStatusBits">
             <summary>
-            Bits 0-3:  Is power on | Is program running | Is teach button pressed | Is power button pressed
+            Bits 0-3:� Is power on | Is program running | Is teach button pressed | Is power button pressed
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.SafetyStatusBits">
             <summary>
-            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode | Is safeguard stopped | Is system emergency stopped | Is robot emergency stopped | Is emergency stopped | Is violation | Is fault | Is stopped due to safety
+            Bits 0-10: Is normal mode | Is reduced mode | Is protective stopped | Is recovery mode |�Is safeguard stopped |�Is system emergency stopped |�Is robot emergency stopped |�Is emergency stopped |�Is violation |�Is fault |�Is stopped due to safety
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.AnalogIOTypes">
             <summary>
-            Bits 0-3: analog input 0 | analog input 1 | analog output 0 | analog output 1, {0=current[mA], 1=voltage[V]}
+            Bits 0-3: analog input 0 | analog input 1 | analog output 0 |�analog output 1, {0=current[mA], 1=voltage[V]}
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.StandardAnalogInput0">
@@ -6590,7 +6740,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.InputBitRegisters">
             <summary>
-             64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
+            �64 general purpose bits, X: [64..127] - The upper range of the boolean output registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.InputIntRegisters">
@@ -6600,7 +6750,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.InputDoubleRegisters">
             <summary>
-             48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
+            �48 general purpose double registers. X: [0..23] - The lower range of the double input registers is reserved for FieldBus/PLC interface usage. X: [24..47] - The upper range of the double input registers can be used by external RTDE clients (i.e URCAPS).
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.ToolOutputMode">
@@ -6640,7 +6790,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeOutputsDescription.FTRawWrench">
             <summary>
-            Raw force and torque measurement, not compensated for forces and torques caused by the payload
+            Raw force and torque measurement, not compensated for forces and torques caused by the�payload
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.SocketCommunication.Internal.SocketCommunicationParametersBase.Port">

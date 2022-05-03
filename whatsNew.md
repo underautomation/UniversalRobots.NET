@@ -1,2 +1,1 @@
-- Refactor library structure. The UR class is lighter. The different features (Dashboard, Primary Interface, XML-RPC, ...) have been spread in different independent classes.
-- Implement RTDE protocol
+- Add remote control features for Primary Interface 
