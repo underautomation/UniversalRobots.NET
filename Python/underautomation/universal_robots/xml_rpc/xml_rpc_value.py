@@ -12,9 +12,6 @@ class XmlRpcValue:
 			self._instance = xml_rpc_value()
 		else:
 			self._instance = _internal
-	@staticmethod
-	def op__implicit(value: 'XmlRpcValue') -> typing.List[bool]:
-		return xml_rpc_value.op_Implicit(value._instance)
 	def __repr__(self):
 		return self._instance.ToString()
 	@property

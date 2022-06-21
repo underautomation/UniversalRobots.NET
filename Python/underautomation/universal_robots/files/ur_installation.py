@@ -13,7 +13,7 @@ class URInstallation(URArchive):
 			self._instance = _internal
 	@staticmethod
 	def load(urpFile: str) -> 'URInstallation':
-		return ur_installation.Load(urpFile)
+		return URInstallation(None, ur_installation.Load(urpFile))
 	@property
 	def extension(self) -> str:
 		return self._instance.EXTENSION

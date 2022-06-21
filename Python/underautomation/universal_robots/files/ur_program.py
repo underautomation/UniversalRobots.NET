@@ -13,7 +13,7 @@ class URProgram(URArchive):
 			self._instance = _internal
 	@staticmethod
 	def load(urpFile: str) -> 'URProgram':
-		return ur_program.Load(urpFile)
+		return URProgram(None, ur_program.Load(urpFile))
 	@property
 	def extension(self) -> str:
 		return self._instance.EXTENSION

@@ -26,7 +26,7 @@ class UR(URServiceBase):
 		self._instance.Disconnect()
 	@staticmethod
 	def register_license(licensee: str, key: str) -> LicenseInfo:
-		return ur.RegisterLicense(licensee, key)
+		return LicenseInfo(None, None, ur.RegisterLicense(licensee, key))
 	@property
 	def primary_interface(self) -> PrimaryInterfaceClientInternal:
 		return PrimaryInterfaceClientInternal(self._instance.PrimaryInterface)

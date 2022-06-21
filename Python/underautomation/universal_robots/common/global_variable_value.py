@@ -28,7 +28,7 @@ class GlobalVariableValue:
 		return self._instance.ToMatrix()
 	@staticmethod
 	def parse(message: str) -> 'GlobalVariableValue':
-		return global_variable_value.Parse(message)
+		return GlobalVariableValue(global_variable_value.Parse(message))
 	@property
 	def type(self) -> GlobalVariableTypes:
 		return GlobalVariableTypes(self._instance.Type)
