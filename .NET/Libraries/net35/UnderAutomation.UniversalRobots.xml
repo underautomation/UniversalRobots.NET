@@ -578,6 +578,11 @@
             String representation of cartesian value 
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Common.Pose">
+            <summary>
+            Represents a UR pose
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.Common.Pose.RxDegrees">
             <summary>
             RX rotation in degrees or °/s
@@ -615,6 +620,16 @@
             <param name="value">String representation of the pose like : p[0.1,0,0.2,0.01,0,0]</param>
             <param name="pose">The output parsed pose</param>
             <returns></returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Common.Pose.FromRotationVectorToQuaternion(System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Converts a rotation vector to quaternion
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Common.Pose.FromQuaternionToRotationVector(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Converts a quaternion to UR rotation vector
+            </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.PrimaryInterfaceConnectParameters">
             <summary>
