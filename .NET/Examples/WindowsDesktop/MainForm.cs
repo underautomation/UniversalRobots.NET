@@ -33,6 +33,7 @@ public partial class MainForm : Form
         AddNode(new ProgramControl(_ur));
         AddNode(new RtdeControl(_ur));
         AddNode(new DashboardControl(_ur));
+        AddNode(new InterpreterModeControl(_ur));
         AddNode(new XmlRpcControl(_ur));
         AddNode(new SocketControl(_ur));
         AddNode(new SftpControl(_ur));

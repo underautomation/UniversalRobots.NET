@@ -71,6 +71,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\InterpreterModeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\InterpreterModeControl.Designer.cs">
+      <DependentUpon>InterpreterModeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\LogControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Components\InterpreterModeControl.resx">
+      <DependentUpon>InterpreterModeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\LogControl.resx">
       <DependentUpon>LogControl.cs</DependentUpon>
     </EmbeddedResource>
