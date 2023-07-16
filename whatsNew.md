@@ -1,1 +1,1 @@
-Improve Python features without new Pythonnet v3
+Add Interpreter mode support
