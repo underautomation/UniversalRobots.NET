@@ -61,6 +61,7 @@ partial class ConnectControl
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblHz = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkInterpreterMode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udFrequency)).BeginInit();
@@ -108,7 +109,7 @@ partial class ConnectControl
             this.chkSftp.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkSftp.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.chkSftp, 2);
-            this.chkSftp.Location = new System.Drawing.Point(83, 255);
+            this.chkSftp.Location = new System.Drawing.Point(83, 295);
             this.chkSftp.Name = "chkSftp";
             this.chkSftp.Size = new System.Drawing.Size(154, 17);
             this.chkSftp.TabIndex = 8;
@@ -120,7 +121,7 @@ partial class ConnectControl
             this.chkSsh.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkSsh.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.chkSsh, 2);
-            this.chkSsh.Location = new System.Drawing.Point(83, 280);
+            this.chkSsh.Location = new System.Drawing.Point(83, 320);
             this.chkSsh.Name = "chkSsh";
             this.chkSsh.Size = new System.Drawing.Size(172, 17);
             this.chkSsh.TabIndex = 9;
@@ -131,7 +132,7 @@ partial class ConnectControl
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 307);
+            this.label2.Location = new System.Drawing.Point(41, 347);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
@@ -141,7 +142,7 @@ partial class ConnectControl
             // txtUsername
             // 
             this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtUsername.Location = new System.Drawing.Point(83, 304);
+            this.txtUsername.Location = new System.Drawing.Point(83, 344);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(80, 20);
             this.txtUsername.TabIndex = 10;
@@ -151,7 +152,7 @@ partial class ConnectControl
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 332);
+            this.label3.Location = new System.Drawing.Point(21, 372);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
@@ -161,7 +162,7 @@ partial class ConnectControl
             // txtPassword
             // 
             this.txtPassword.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtPassword.Location = new System.Drawing.Point(83, 329);
+            this.txtPassword.Location = new System.Drawing.Point(83, 369);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(80, 20);
             this.txtPassword.TabIndex = 11;
@@ -194,7 +195,7 @@ partial class ConnectControl
             this.chkXmlRpc.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkXmlRpc.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.chkXmlRpc, 2);
-            this.chkXmlRpc.Location = new System.Drawing.Point(83, 190);
+            this.chkXmlRpc.Location = new System.Drawing.Point(83, 230);
             this.chkXmlRpc.Name = "chkXmlRpc";
             this.chkXmlRpc.Size = new System.Drawing.Size(227, 17);
             this.chkXmlRpc.TabIndex = 6;
@@ -205,7 +206,7 @@ partial class ConnectControl
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(20, 217);
+            this.label4.Location = new System.Drawing.Point(20, 257);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(60, 13);
@@ -215,7 +216,7 @@ partial class ConnectControl
             // udXmlRpcPort
             // 
             this.udXmlRpcPort.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.udXmlRpcPort.Location = new System.Drawing.Point(83, 214);
+            this.udXmlRpcPort.Location = new System.Drawing.Point(83, 254);
             this.udXmlRpcPort.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -228,7 +229,7 @@ partial class ConnectControl
             // lblConnected
             // 
             this.lblConnected.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblConnected.Location = new System.Drawing.Point(83, 571);
+            this.lblConnected.Location = new System.Drawing.Point(83, 611);
             this.lblConnected.Name = "lblConnected";
             this.lblConnected.Size = new System.Drawing.Size(194, 25);
             this.lblConnected.TabIndex = 19;
@@ -240,7 +241,7 @@ partial class ConnectControl
             this.chkSocket.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkSocket.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.chkSocket, 2);
-            this.chkSocket.Location = new System.Drawing.Point(83, 125);
+            this.chkSocket.Location = new System.Drawing.Point(83, 165);
             this.chkSocket.Name = "chkSocket";
             this.chkSocket.Size = new System.Drawing.Size(200, 17);
             this.chkSocket.TabIndex = 4;
@@ -251,7 +252,7 @@ partial class ConnectControl
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 152);
+            this.label5.Location = new System.Drawing.Point(20, 192);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 13);
@@ -261,7 +262,7 @@ partial class ConnectControl
             // udSocketPort
             // 
             this.udSocketPort.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.udSocketPort.Location = new System.Drawing.Point(83, 149);
+            this.udSocketPort.Location = new System.Drawing.Point(83, 189);
             this.udSocketPort.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -276,7 +277,7 @@ partial class ConnectControl
             this.chkRTDE.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.chkRTDE.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.chkRTDE, 2);
-            this.chkRTDE.Location = new System.Drawing.Point(83, 370);
+            this.chkRTDE.Location = new System.Drawing.Point(83, 410);
             this.chkRTDE.Name = "chkRTDE";
             this.chkRTDE.Size = new System.Drawing.Size(222, 17);
             this.chkRTDE.TabIndex = 12;
@@ -286,7 +287,7 @@ partial class ConnectControl
             // btnRtdeOutputs
             // 
             this.btnRtdeOutputs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRtdeOutputs.Location = new System.Drawing.Point(83, 444);
+            this.btnRtdeOutputs.Location = new System.Drawing.Point(83, 484);
             this.btnRtdeOutputs.Name = "btnRtdeOutputs";
             this.btnRtdeOutputs.Size = new System.Drawing.Size(194, 29);
             this.btnRtdeOutputs.TabIndex = 15;
@@ -298,7 +299,7 @@ partial class ConnectControl
             // 
             this.lblFrequency.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblFrequency.AutoSize = true;
-            this.lblFrequency.Location = new System.Drawing.Point(17, 422);
+            this.lblFrequency.Location = new System.Drawing.Point(17, 462);
             this.lblFrequency.Margin = new System.Windows.Forms.Padding(0);
             this.lblFrequency.Name = "lblFrequency";
             this.lblFrequency.Size = new System.Drawing.Size(63, 13);
@@ -332,7 +333,7 @@ partial class ConnectControl
             // btnRtdeInputs
             // 
             this.btnRtdeInputs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRtdeInputs.Location = new System.Drawing.Point(83, 479);
+            this.btnRtdeInputs.Location = new System.Drawing.Point(83, 519);
             this.btnRtdeInputs.Name = "btnRtdeInputs";
             this.btnRtdeInputs.Size = new System.Drawing.Size(194, 29);
             this.btnRtdeInputs.TabIndex = 16;
@@ -344,7 +345,7 @@ partial class ConnectControl
             // 
             this.lblRtdeOutputs.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRtdeOutputs.AutoSize = true;
-            this.lblRtdeOutputs.Location = new System.Drawing.Point(283, 452);
+            this.lblRtdeOutputs.Location = new System.Drawing.Point(283, 492);
             this.lblRtdeOutputs.Name = "lblRtdeOutputs";
             this.lblRtdeOutputs.Size = new System.Drawing.Size(16, 13);
             this.lblRtdeOutputs.TabIndex = 0;
@@ -354,7 +355,7 @@ partial class ConnectControl
             // 
             this.lblRtdeInputs.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblRtdeInputs.AutoSize = true;
-            this.lblRtdeInputs.Location = new System.Drawing.Point(283, 487);
+            this.lblRtdeInputs.Location = new System.Drawing.Point(283, 527);
             this.lblRtdeInputs.Name = "lblRtdeInputs";
             this.lblRtdeInputs.Size = new System.Drawing.Size(16, 13);
             this.lblRtdeInputs.TabIndex = 0;
@@ -378,39 +379,42 @@ partial class ConnectControl
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 18);
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 19);
-            this.tableLayoutPanel1.Controls.Add(this.lblConnected, 1, 24);
+            this.tableLayoutPanel1.Controls.Add(this.chkInterpreterMode, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 20);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 21);
+            this.tableLayoutPanel1.Controls.Add(this.lblConnected, 1, 26);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtIP, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.udSocketPort, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.udSocketPort, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.chkPrimaryInterface, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkDashboard, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.udXmlRpcPort, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 14);
-            this.tableLayoutPanel1.Controls.Add(this.chkSocket, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.chkXmlRpc, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 10);
-            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 15);
-            this.tableLayoutPanel1.Controls.Add(this.chkSsh, 1, 13);
-            this.tableLayoutPanel1.Controls.Add(this.chkSftp, 1, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 14);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 15);
-            this.tableLayoutPanel1.Controls.Add(this.btnRtdeInputs, 1, 21);
-            this.tableLayoutPanel1.Controls.Add(this.btnRtdeOutputs, 1, 20);
-            this.tableLayoutPanel1.Controls.Add(this.lblRtdeInputs, 2, 21);
-            this.tableLayoutPanel1.Controls.Add(this.lblRtdeOutputs, 2, 20);
-            this.tableLayoutPanel1.Controls.Add(this.lblFrequency, 0, 19);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 23);
-            this.tableLayoutPanel1.Controls.Add(this.chkRTDE, 1, 17);
+            this.tableLayoutPanel1.Controls.Add(this.udXmlRpcPort, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 16);
+            this.tableLayoutPanel1.Controls.Add(this.chkSocket, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.chkXmlRpc, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.txtPassword, 1, 17);
+            this.tableLayoutPanel1.Controls.Add(this.chkSsh, 1, 15);
+            this.tableLayoutPanel1.Controls.Add(this.chkSftp, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 16);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 17);
+            this.tableLayoutPanel1.Controls.Add(this.btnRtdeInputs, 1, 23);
+            this.tableLayoutPanel1.Controls.Add(this.btnRtdeOutputs, 1, 22);
+            this.tableLayoutPanel1.Controls.Add(this.lblRtdeInputs, 2, 23);
+            this.tableLayoutPanel1.Controls.Add(this.lblRtdeOutputs, 2, 22);
+            this.tableLayoutPanel1.Controls.Add(this.lblFrequency, 0, 21);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 25);
+            this.tableLayoutPanel1.Controls.Add(this.chkRTDE, 1, 19);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 26;
+            this.tableLayoutPanel1.RowCount = 28;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -433,7 +437,7 @@ partial class ConnectControl
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 610);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 669);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // flowLayoutPanel2
@@ -441,7 +445,7 @@ partial class ConnectControl
             this.flowLayoutPanel2.Controls.Add(this.radioV1);
             this.flowLayoutPanel2.Controls.Add(this.radioV2);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(80, 391);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(80, 431);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(200, 25);
@@ -480,7 +484,7 @@ partial class ConnectControl
             this.flowLayoutPanel1.Controls.Add(this.lblHz);
             this.flowLayoutPanel1.Controls.Add(this.lnkMaxFrequency);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 416);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(80, 456);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(458, 25);
@@ -501,10 +505,21 @@ partial class ConnectControl
             this.panel1.Controls.Add(this.btnConnect);
             this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(83, 539);
+            this.panel1.Location = new System.Drawing.Point(83, 579);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(194, 29);
             this.panel1.TabIndex = 12;
+            // 
+            // chkInterpreterMode
+            // 
+            this.chkInterpreterMode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkInterpreterMode.AutoSize = true;
+            this.chkInterpreterMode.Location = new System.Drawing.Point(83, 125);
+            this.chkInterpreterMode.Name = "chkInterpreterMode";
+            this.chkInterpreterMode.Size = new System.Drawing.Size(138, 17);
+            this.chkInterpreterMode.TabIndex = 10;
+            this.chkInterpreterMode.Text = "Enable interpreter mode";
+            this.chkInterpreterMode.UseVisualStyleBackColor = true;
             // 
             // ConnectControl
             // 
@@ -564,4 +579,5 @@ partial class ConnectControl
     private System.Windows.Forms.RadioButton radioV1;
     private System.Windows.Forms.RadioButton radioV2;
     private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+    private System.Windows.Forms.CheckBox chkInterpreterMode;
 }
