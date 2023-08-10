@@ -34,13 +34,17 @@ public partial class InterpreterModeControl : UserControl, IUserControl
     private void Log(CommandResponse response)
     {
         txtConsole.AppendText(response.Command);
-        if (response.Status!= CommandResponseStatus.Error)
+        if (response.Status == CommandResponseStatus.Error)
         {
-            txtConsole.SelectionColor = Color.Green;
+            txtConsole.SelectionColor = Color.Red;
+        }
+        else if (response.Status == CommandResponseStatus.Discard)
+        {
+            txtConsole.SelectionColor = Color.Orange;
         }
         else
         {
-            txtConsole.SelectionColor = Color.Red;
+            txtConsole.SelectionColor = Color.Green;
         }
         
         txtConsole.AppendText("\r\n  Status: ");
