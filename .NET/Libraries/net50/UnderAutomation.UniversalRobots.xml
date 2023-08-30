@@ -4814,6 +4814,12 @@
             Recipe Identifier of input sent data
             </summary>
         </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rtde.Internal.RtdeClientBase.InputRecipeIsValid">
+            <summary>
+            Indicates that the recipe is valid, i.e. that all the registers have been found and are not already reserved for writing by another RTDE client. 
+            Check event SetupInputsReceived to see which registers are NOT_FOUND or IN_USE
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.Internal.RtdeClientBase.MeasuredFrequency">
             <summary>
             Measured output data packet frequency. "Timestamp" output data shoud be part of output setup to measure frequency.
@@ -5215,6 +5221,22 @@
         <member name="F:UnderAutomation.UniversalRobots.Rtde.RtdeVersions.V2">
             <summary>
             Rtde version 2
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeControlPackageSetupInputsEventArgs.InputRecipeId">
+            <summary>
+            Recipe Identifier of input sent data
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeControlPackageSetupInputsEventArgs.VariableTypes">
+            <summary>
+            Status of each registers. Contains the type or the status IN_USE / NOT_FOUND
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeControlPackageSetupInputsEventArgs.InputRecipeIsValid">
+            <summary>
+            Indicates that the recipe is valid, i.e. that all the registers have been found and are not already reserved for writing by another RTDE client. 
+            Check event SetupInputsReceived to see which registers are NOT_FOUND or IN_USE
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Rtde.RtdeDoubleRegistersValue.X0">
