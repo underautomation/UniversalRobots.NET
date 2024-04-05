@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
@@ -57,27 +56,15 @@ public partial class ProgramControl : UserControl, IUserControl
             return;
         }
 
-        var loadedPrograms = _ur.Dashboard.GetLoadedProgram();
-        var splitedPath = loadedPrograms.Value?.Split(new string[] { "programs/" }, System.StringSplitOptions.RemoveEmptyEntries);
-        var pathToPrograms = splitedPath is null ? loadedPrograms.Message : $"{splitedPath[0]}programs";
-
-        lblPathToPrograms.Text = $"{pathToPrograms} (use SFTP to download, upload and open files)";
-
-        if (splitedPath is object)
+        try
         {
-            try
-            {
-                var items = _ur.Sftp.ListDirectory(pathToPrograms);
-
-                var programs = items.Where(x => x.Name.EndsWith(".urp", StringComparison.InvariantCultureIgnoreCase)).Select(x => x.Name).ToArray();
-
-                cbPrograms.Items.AddRange(programs);
-                if (splitedPath.Length > 0) cbPrograms.Text = splitedPath[1];
-            }
-            catch (Exception e)
-            {
-                lblPathToPrograms.Text = $"{lblPathToPrograms.Text} ({e.Message})";
-            }
+            var programs = _ur.Sftp.EnumeratePrograms();
+            cbPrograms.Items.AddRange(programs);
+            lblPathToPrograms.Text = "";
+        }
+        catch (Exception e)
+        {
+            lblPathToPrograms.Text = $"{lblPathToPrograms.Text} ({e.Message})";
         }
     }
     #endregion

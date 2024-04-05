@@ -55,13 +55,15 @@ partial class ConnectControl
             this.lblRtdeInputs = new System.Windows.Forms.Label();
             this.chkDashboard = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkInterpreterMode = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioV1 = new System.Windows.Forms.RadioButton();
             this.radioV2 = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblHz = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chkInterpreterMode = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udFrequency)).BeginInit();
@@ -406,6 +408,8 @@ partial class ConnectControl
             this.tableLayoutPanel1.Controls.Add(this.lblFrequency, 0, 21);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 25);
             this.tableLayoutPanel1.Controls.Add(this.chkRTDE, 1, 19);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 2, 16);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 2, 17);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 28;
@@ -439,6 +443,17 @@ partial class ConnectControl
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 669);
             this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // chkInterpreterMode
+            // 
+            this.chkInterpreterMode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.chkInterpreterMode.AutoSize = true;
+            this.chkInterpreterMode.Location = new System.Drawing.Point(83, 125);
+            this.chkInterpreterMode.Name = "chkInterpreterMode";
+            this.chkInterpreterMode.Size = new System.Drawing.Size(138, 17);
+            this.chkInterpreterMode.TabIndex = 10;
+            this.chkInterpreterMode.Text = "Enable interpreter mode";
+            this.chkInterpreterMode.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
             // 
@@ -510,16 +525,27 @@ partial class ConnectControl
             this.panel1.Size = new System.Drawing.Size(194, 29);
             this.panel1.TabIndex = 12;
             // 
-            // chkInterpreterMode
+            // label6
             // 
-            this.chkInterpreterMode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.chkInterpreterMode.AutoSize = true;
-            this.chkInterpreterMode.Location = new System.Drawing.Point(83, 125);
-            this.chkInterpreterMode.Name = "chkInterpreterMode";
-            this.chkInterpreterMode.Size = new System.Drawing.Size(138, 17);
-            this.chkInterpreterMode.TabIndex = 10;
-            this.chkInterpreterMode.Text = "Enable interpreter mode";
-            this.chkInterpreterMode.UseVisualStyleBackColor = true;
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(280, 347);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(219, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Default login : root (real robot)  / ur (simulator)";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(280, 372);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Default password : easybot";
             // 
             // ConnectControl
             // 
@@ -580,4 +606,6 @@ partial class ConnectControl
     private System.Windows.Forms.RadioButton radioV2;
     private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     private System.Windows.Forms.CheckBox chkInterpreterMode;
+    private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.Label label7;
 }
