@@ -8,20 +8,20 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-2022
 
     steps:
     - uses: actions/checkout@v1
     - uses: nuget/setup-nuget@v1
-    - run: nuget restore $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac_VS2019.sln
+    - run: nuget restore $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac_VS2022.sln
     - name: Build Windows Desktop
       run: |
-        cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\WindowsDesktop_VS2019.sln -p:Configuration=Release
+        cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\WindowsDesktop_VS2022.sln -p:Configuration=Release
         rm $Env:GITHUB_WORKSPACE\.NET\Examples\WindowsDesktop\obj -r -fo
     - name: Build Console example
       run: |
-        cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+        cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x86 /p:Configuration=Release /p:OutDir=bin/win-x86
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-x64 /p:Configuration=Release /p:OutDir=bin/win-x64
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\.NET\Examples\ConsoleWindowsLinuxMac\ConsoleWindowsLinuxMac.csproj /p:DeployOnBuild=true /p:PublishProfile=win-arm /p:Configuration=Release /p:OutDir=bin/win-arm
