@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <AssemblyName>ConsoleURExample</AssemblyName>
     <RootNamespace>UnderAutomation.UniversalRobots.Sample.ConsoleWindowsLinuxMac</RootNamespace>
     <ApplicationIcon>ua.ico</ApplicationIcon>
@@ -16,7 +16,7 @@
 
   <ItemGroup Condition="!$(SolutionName.EndsWith(`Dev`))">
     <Reference Include="UnderAutomation.UniversalRobots">
-      <HintPath>..\..\Libraries\netstandard2.0\UnderAutomation.UniversalRobots.dll</HintPath>
+      <HintPath>..\..\Libraries\net7.0\UnderAutomation.UniversalRobots.dll</HintPath>
     </Reference>
   </ItemGroup>
 
