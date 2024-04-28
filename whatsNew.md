@@ -1,1 +1,1 @@
-minor updates
+add .NET6, .NET7 and .NET8 support
