@@ -8783,17 +8783,11 @@
             <summary>
             Occurs when an error occurred.
             </summary>
-            <example>
-              <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient Connect ErrorOccurred" language="C#" title="Handle ErrorOccurred event" />
-            </example>
         </member>
         <member name="E:UnderAutomation.UniversalRobots.Ssh.Tools.BaseClient.HostKeyReceived">
             <summary>
             Occurs when host key received.
             </summary>
-            <example>
-              <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient Connect HostKeyReceived" language="C#" title="Handle HostKeyReceived event" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.BaseClient.#ctor(UnderAutomation.UniversalRobots.Ssh.Tools.ConnectionInfo,System.Boolean)">
             <summary>
@@ -14059,9 +14053,6 @@
             <value>
             The connection timeout. The default value is 30 seconds.
             </value>
-            <example>
-              <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient Connect Timeout" language="C#" title="Specify connection timeout" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.ConnectionInfo.ChannelCloseTimeout">
             <summary>
@@ -14105,9 +14096,6 @@
             <summary>
             Occurs when authentication banner is sent by the server.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo AuthenticationBanner" language="C#" title="Display authentication banner" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.ConnectionInfo.CurrentKeyExchangeAlgorithm">
             <summary>
@@ -14748,9 +14736,6 @@
             <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="boundPort" /> is greater than <see cref="F:System.Net.IPEndPoint.MaxPort" />.</exception>
             <exception cref="T:System.ArgumentNullException"><paramref name="host"/> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="port" /> is greater than <see cref="F:System.Net.IPEndPoint.MaxPort" />.</exception>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\ForwardedPortLocalTest.cs" region="Example SshClient AddForwardedPort Start Stop ForwardedPortLocal" language="C#" title="Local port forwarding" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.ForwardedPortLocal.#ctor(System.String,System.String,System.UInt32)">
             <summary>
@@ -14900,9 +14885,6 @@
             <param name="boundPort">The bound port.</param>
             <param name="host">The host.</param>
             <param name="port">The port.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\ForwardedPortRemoteTest.cs" region="Example SshClient AddForwardedPort Start Stop ForwardedPortRemote" language="C#" title="Remote port forwarding" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.ForwardedPortRemote.#ctor(System.String,System.UInt32,System.String,System.UInt32)">
             <summary>
@@ -15162,9 +15144,6 @@
             <value>
             The connection timeout. The default value is 30 seconds.
             </value>
-            <example>
-              <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient Connect Timeout" language="C#" title="Specify connection timeout" />
-            </example>
         </member>
         <member name="E:UnderAutomation.UniversalRobots.Ssh.Tools.IConnectionInfo.AuthenticationBanner">
             <summary>
@@ -16816,17 +16795,11 @@
             <summary>
             Provides connection information when keyboard interactive authentication method is used
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\KeyboardInteractiveConnectionInfoTest.cs" region="Example KeyboardInteractiveConnectionInfo AuthenticationPrompt" language="C#" title="Connect using interactive method" />
-            </example>
         </member>
         <member name="E:UnderAutomation.UniversalRobots.Ssh.Tools.KeyboardInteractiveConnectionInfo.AuthenticationPrompt">
             <summary>
             Occurs when server prompts for more authentication information.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\KeyboardInteractiveConnectionInfoTest.cs" region="Example KeyboardInteractiveConnectionInfo AuthenticationPrompt" language="C#" title="Connect using interactive method" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.KeyboardInteractiveConnectionInfo.#ctor(System.String,System.String)">
             <summary>
@@ -20380,19 +20353,11 @@
             <summary>
             Provides connection information when password authentication method is used
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo" language="C#" title="Connect using username and password" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo PasswordExpired" language="C#" title="Change password when connecting" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo AuthenticationBanner" language="C#" title="Display authentication banner" />
-            </example>
         </member>
         <member name="E:UnderAutomation.UniversalRobots.Ssh.Tools.PasswordConnectionInfo.PasswordExpired">
             <summary>
             Occurs when user's password has expired and needs to be changed.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo PasswordExpired" language="C#" title="Change password when connecting" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.PasswordConnectionInfo.#ctor(System.String,System.String,System.String)">
             <summary>
@@ -20401,9 +20366,6 @@
             <param name="host">Connection host.</param>
             <param name="username">Connection username.</param>
             <param name="password">Connection password.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo" language="C#" title="Connect using username and password" />
-            </example>
             <exception cref="T:System.ArgumentNullException"><paramref name="password"/> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentException"><paramref name="host"/> is invalid, or <paramref name="username"/> is <c>null</c> or contains only whitespace characters.</exception>
         </member>
@@ -20645,9 +20607,6 @@
             <summary>
             Provides connection information when private key authentication method is used
             </summary>
-            <example>
-              <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PrivateKeyConnectionInfoTest.cs" region="Example PrivateKeyConnectionInfo PrivateKeyFile" language="C#" title="Connect using private key" />
-              </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.PrivateKeyConnectionInfo.KeyFiles">
             <summary>
@@ -20661,10 +20620,6 @@
             <param name="host">Connection host.</param>
             <param name="username">Connection username.</param>
             <param name="keyFiles">Connection key files.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PrivateKeyConnectionInfoTest.cs" region="Example PrivateKeyConnectionInfo PrivateKeyFile" language="C#" title="Connect using private key" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PrivateKeyConnectionInfoTest.cs" region="Example PrivateKeyConnectionInfo PrivateKeyFile Multiple" language="C#" title="Connect using multiple private key" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.PrivateKeyConnectionInfo.#ctor(System.String,System.Int32,System.String,UnderAutomation.UniversalRobots.Ssh.Tools.PrivateKeyFile[])">
             <summary>
@@ -20771,9 +20726,6 @@
             <summary>
             Represents private key information.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Data\Key.RSA.txt" language="Text" title="Private RSA key example" />
-            </example>
             <remarks>
             <para>
             The following private keys are supported:
@@ -30838,12 +30790,6 @@
             Initializes a new instance of the <see cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.SshClient" /> class.
             </summary>
             <param name="connectionInfo">The connection info.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo" language="C#" title="Connect using PasswordConnectionInfo object" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PasswordConnectionInfoTest.cs" region="Example PasswordConnectionInfo PasswordExpired" language="C#" title="Connect using PasswordConnectionInfo object with passwod change option" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\PrivateKeyConnectionInfoTest.cs" region="Example PrivateKeyConnectionInfo PrivateKeyFile" language="C#" title="Connect using PrivateKeyConnectionInfo" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient Connect Timeout" language="C#" title="Specify connection timeout when connecting" />
-            </example>
             <exception cref="T:System.ArgumentNullException"><paramref name="connectionInfo"/> is <c>null</c>.</exception>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.SshClient.#ctor(System.String,System.Int32,System.String,System.String)">
@@ -30865,9 +30811,6 @@
             <param name="host">Connection host.</param>
             <param name="username">Authentication username.</param>
             <param name="password">Authentication password.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient(host, username) Connect" language="C#" title="Connect using username and password" />
-            </example>
             <exception cref="T:System.ArgumentNullException"><paramref name="password"/> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentException"><paramref name="host"/> is invalid, or <paramref name="username"/> is <c>null</c> or contains only whitespace characters.</exception>
         </member>
@@ -30879,10 +30822,6 @@
             <param name="port">Connection port.</param>
             <param name="username">Authentication username.</param>
             <param name="keyFiles">Authentication private key file(s) .</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient(host, username) Connect PrivateKeyFile" language="C#" title="Connect using username and private key" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient(host, username) Connect PrivateKeyFile PassPhrase" language="C#" title="Connect using username and private key and pass phrase" />
-            </example>
             <exception cref="T:System.ArgumentNullException"><paramref name="keyFiles"/> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentException"><paramref name="host"/> is invalid, -or- <paramref name="username"/> is <c>null</c> or contains only whitespace characters.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="port"/> is not within <see cref="F:System.Net.IPEndPoint.MinPort"/> and <see cref="F:System.Net.IPEndPoint.MaxPort"/>.</exception>
@@ -30894,10 +30833,6 @@
             <param name="host">Connection host.</param>
             <param name="username">Authentication username.</param>
             <param name="keyFiles">Authentication private key file(s) .</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient(host, username) Connect PrivateKeyFile" language="C#" title="Connect using private key" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshClientTest.cs" region="Example SshClient(host, username) Connect PrivateKeyFile PassPhrase" language="C#" title="Connect using private key and pass phrase" />
-            </example>
             <exception cref="T:System.ArgumentNullException"><paramref name="keyFiles"/> is <c>null</c>.</exception>
             <exception cref="T:System.ArgumentException"><paramref name="host"/> is invalid, -or- <paramref name="username"/> is <c>null</c> or contains only whitespace characters.</exception>
         </member>
@@ -30937,10 +30872,6 @@
             Adds the forwarded port.
             </summary>
             <param name="port">The port.</param>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\ForwardedPortRemoteTest.cs" region="Example SshClient AddForwardedPort Start Stop ForwardedPortRemote" language="C#" title="Remote port forwarding" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\ForwardedPortLocalTest.cs" region="Example SshClient AddForwardedPort Start Stop ForwardedPortLocal" language="C#" title="Local port forwarding" />
-            </example>
             <exception cref="T:System.InvalidOperationException">Forwarded port is already added to a different client.</exception>
             <exception cref="T:System.ArgumentNullException"><paramref name="port"/> is <c>null</c>.</exception>
             <exception cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshConnectionException">Client is not connected.</exception>
@@ -30978,10 +30909,6 @@
             <param name="commandText">The command text.</param>
             <returns>Returns an instance of <see cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand"/> with execution results.</returns>
             <remarks>This method internally uses asynchronous calls.</remarks>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand RunCommand Result" language="C#" title="Running simple command" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand RunCommand Parallel" language="C#" title="Run many commands in parallel" />
-            </example>
             <exception cref="T:System.ArgumentException">CommandText property is empty.</exception>
             <exception cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException">Invalid Operation - An existing channel was used to execute this command.</exception>
             <exception cref="T:System.InvalidOperationException">Asynchronous operation is already in progress.</exception>
@@ -31168,49 +31095,31 @@
             <value>
             The command timeout.
             </value>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Execute CommandTimeout" language="C#" title="Specify command execution timeout" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.ExitStatus">
             <summary>
             Gets the command exit status.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand RunCommand ExitStatus" language="C#" title="Get command execution exit status" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.OutputStream">
             <summary>
             Gets the output stream.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Execute OutputStream" language="C#" title="Use OutputStream to get command execution output" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.ExtendedOutputStream">
             <summary>
             Gets the extended output stream.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Execute ExtendedOutputStream" language="C#" title="Use ExtendedOutputStream to get command debug execution output" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.Result">
             <summary>
             Gets the command execution result.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand RunCommand Result" language="C#" title="Running simple command" />
-            </example>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.Error">
             <summary>
             Gets the command execution error.
             </summary>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Error" language="C#" title="Display command execution error" />
-            </example>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.#ctor(UnderAutomation.UniversalRobots.Ssh.Tools.ISession,System.String,System.Text.Encoding)">
             <summary>
@@ -31228,9 +31137,6 @@
             <returns>
             An <see cref="T:System.IAsyncResult" /> that represents the asynchronous command execution, which could still be pending.
             </returns>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand BeginExecute IsCompleted EndExecute" language="C#" title="Asynchronous Command Execution" />
-            </example>
             <exception cref="T:System.InvalidOperationException">Asynchronous operation is already in progress.</exception>
             <exception cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException">Invalid operation.</exception>
             <exception cref="T:System.ArgumentException">CommandText property is empty.</exception>
@@ -31291,9 +31197,6 @@
             </summary>
             <param name="asyncResult">The reference to the pending asynchronous request to finish.</param>
             <returns>Command execution result.</returns>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand BeginExecute IsCompleted EndExecute" language="C#" title="Asynchronous Command Execution" />
-            </example>
             <exception cref="T:System.ArgumentException">Either the IAsyncResult object did not come from the corresponding async method on this type, or EndExecute was called multiple times with the same IAsyncResult.</exception>
             <exception cref="T:System.ArgumentNullException"><paramref name="asyncResult"/> is <c>null</c>.</exception>
         </member>
@@ -31302,11 +31205,6 @@
             Executes command specified by <see cref="P:UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.CommandText"/> property.
             </summary>
             <returns>Command execution result</returns>
-            <example>
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Execute" language="C#" title="Simple command execution" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Error" language="C#" title="Display command execution error" />
-                <code source="..\..\src\UnderAutomation.UniversalRobots.Ssh.Tools.Tests\Classes\SshCommandTest.cs" region="Example SshCommand CreateCommand Execute CommandTimeout" language="C#" title="Specify command execution timeout" />
-            </example>
             <exception cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshConnectionException">Client is not connected.</exception>
             <exception cref="T:UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshOperationTimeoutException">Operation has timed out.</exception>
         </member>
