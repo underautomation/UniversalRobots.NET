@@ -7440,9 +7440,15 @@
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Internal.SftpClientBase.EnumeratePrograms">
             <summary>
-            Enumerates programs with .urp extension. It seraches programs in "/programs" if it exists, or "/home/ur/ursim-current/programs" for simulator
+            Enumerates programs with .urp extension. It searches recursively programs in "/programs" if it exists, or "/home/ur/ursim-current/programs" for simulator
             </summary>
-            <returns>Array of program name</returns>
+            <returns>Array of program relative path</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Ssh.Internal.SftpClientBase.EnumerateInstallations">
+            <summary>
+            Enumerates installations with .installation extension. It searches recursively installations in "/programs" if it exists, or "/home/ur/ursim-current/programs" for simulator
+            </summary>
+            <returns>Array of installations relative path</returns>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Ssh.Internal.SftpClientBase.BeginListDirectory(System.String,System.AsyncCallback,System.Object,System.Action{System.Int32})">
             <summary>
