@@ -32937,11 +32937,6 @@
             Remaining days of the trial period. Null if the product is licensed. It could be negative if the trial period is ended since several days.
             </summary>
         </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.EvaluationStartDate">
-            <summary>
-            The date the trial period starts. If the product is licensed, the date of the library first use.
-            </summary>
-        </member>
         <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.Licensee">
             <summary>
             Name of your organisation
@@ -32992,12 +32987,12 @@
             The pair License Identifier and License Key are incompatible, you cannot use the library
             </summary>
         </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Trial">
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.NotSpecified">
             <summary>
-            The library is in a trial period, you can use the library
+            The license has not been provided
             </summary>
         </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.ExtraTrial">
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Trial">
             <summary>
             The library is in an extra trial period, you can use the library
             </summary>
