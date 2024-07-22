@@ -74,7 +74,7 @@ partial class MainForm
             // horizontalSplitContainer.Panel2
             // 
             this.horizontalSplitContainer.Panel2.Controls.Add(this.verticalSplitContainer);
-            this.horizontalSplitContainer.Size = new System.Drawing.Size(984, 759);
+            this.horizontalSplitContainer.Size = new System.Drawing.Size(984, 889);
             this.horizontalSplitContainer.SplitterDistance = 79;
             this.horizontalSplitContainer.TabIndex = 0;
             // 
@@ -150,7 +150,7 @@ partial class MainForm
             // 
             this.verticalSplitContainer.Panel2.Controls.Add(this.mainPanel);
             this.verticalSplitContainer.Panel2.Controls.Add(this.panelTitle);
-            this.verticalSplitContainer.Size = new System.Drawing.Size(984, 676);
+            this.verticalSplitContainer.Size = new System.Drawing.Size(984, 806);
             this.verticalSplitContainer.SplitterDistance = 281;
             this.verticalSplitContainer.TabIndex = 0;
             // 
@@ -163,7 +163,7 @@ partial class MainForm
             this.leftTreeView.Location = new System.Drawing.Point(0, 0);
             this.leftTreeView.Name = "leftTreeView";
             this.leftTreeView.SelectedImageIndex = 0;
-            this.leftTreeView.Size = new System.Drawing.Size(279, 674);
+            this.leftTreeView.Size = new System.Drawing.Size(279, 804);
             this.leftTreeView.TabIndex = 0;
             this.leftTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.leftTreeView_NodeMouseClick);
             // 
@@ -179,7 +179,7 @@ partial class MainForm
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(697, 643);
+            this.mainPanel.Size = new System.Drawing.Size(697, 773);
             this.mainPanel.TabIndex = 1;
             // 
             // panelTitle
@@ -203,7 +203,7 @@ partial class MainForm
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus,
             this.lblErrors});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 759);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 889);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(984, 22);
             this.statusStrip1.TabIndex = 0;
@@ -237,7 +237,7 @@ partial class MainForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(984, 781);
+            this.ClientSize = new System.Drawing.Size(984, 911);
             this.Controls.Add(this.horizontalSplitContainer);
             this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
