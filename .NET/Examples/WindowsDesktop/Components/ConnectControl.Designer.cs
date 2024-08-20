@@ -33,6 +33,7 @@ partial class ConnectControl
             this.chkSftp = new System.Windows.Forms.CheckBox();
             this.chkSsh = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnConnect = new System.Windows.Forms.Button();
@@ -63,12 +64,6 @@ partial class ConnectControl
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtLicensee = new System.Windows.Forms.TextBox();
-            this.txtKey = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.ComboBox();
-            this.linkLicense = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.udXmlRpcPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udSocketPort)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udFrequency)).BeginInit();
@@ -146,6 +141,15 @@ partial class ConnectControl
             this.label2.TabIndex = 0;
             this.label2.Text = "Login :";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtUsername.Location = new System.Drawing.Point(83, 344);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(80, 20);
+            this.txtUsername.TabIndex = 10;
+            this.txtUsername.Text = "ur";
+            // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -171,7 +175,7 @@ partial class ConnectControl
             this.btnConnect.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnConnect.Location = new System.Drawing.Point(0, 0);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(96, 39);
+            this.btnConnect.Size = new System.Drawing.Size(96, 29);
             this.btnConnect.TabIndex = 17;
             this.btnConnect.Text = "Connect";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -182,7 +186,7 @@ partial class ConnectControl
             this.btnDisconnect.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDisconnect.Location = new System.Drawing.Point(102, 0);
             this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(92, 39);
+            this.btnDisconnect.Size = new System.Drawing.Size(92, 29);
             this.btnDisconnect.TabIndex = 18;
             this.btnDisconnect.Text = "Disconnect";
             this.btnDisconnect.UseVisualStyleBackColor = true;
@@ -227,9 +231,9 @@ partial class ConnectControl
             // lblConnected
             // 
             this.lblConnected.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblConnected.Location = new System.Drawing.Point(83, 721);
+            this.lblConnected.Location = new System.Drawing.Point(83, 611);
             this.lblConnected.Name = "lblConnected";
-            this.lblConnected.Size = new System.Drawing.Size(194, 36);
+            this.lblConnected.Size = new System.Drawing.Size(194, 25);
             this.lblConnected.TabIndex = 19;
             this.lblConnected.Text = "______";
             this.lblConnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -380,6 +384,7 @@ partial class ConnectControl
             this.tableLayoutPanel1.Controls.Add(this.chkInterpreterMode, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 20);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 1, 21);
+            this.tableLayoutPanel1.Controls.Add(this.lblConnected, 1, 26);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtIP, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.udSocketPort, 1, 9);
@@ -387,6 +392,7 @@ partial class ConnectControl
             this.tableLayoutPanel1.Controls.Add(this.chkPrimaryInterface, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.chkDashboard, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.udXmlRpcPort, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 16);
             this.tableLayoutPanel1.Controls.Add(this.chkSocket, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.chkXmlRpc, 1, 11);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 12);
@@ -400,20 +406,13 @@ partial class ConnectControl
             this.tableLayoutPanel1.Controls.Add(this.lblRtdeInputs, 2, 23);
             this.tableLayoutPanel1.Controls.Add(this.lblRtdeOutputs, 2, 22);
             this.tableLayoutPanel1.Controls.Add(this.lblFrequency, 0, 21);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 25);
             this.tableLayoutPanel1.Controls.Add(this.chkRTDE, 1, 19);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 16);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 17);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 29);
-            this.tableLayoutPanel1.Controls.Add(this.lblConnected, 1, 30);
-            this.tableLayoutPanel1.Controls.Add(this.txtUsername, 1, 16);
-            this.tableLayoutPanel1.Controls.Add(this.txtKey, 1, 27);
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 27);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 26);
-            this.tableLayoutPanel1.Controls.Add(this.txtLicensee, 1, 26);
-            this.tableLayoutPanel1.Controls.Add(this.linkLicense, 1, 25);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 31;
+            this.tableLayoutPanel1.RowCount = 28;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -439,14 +438,10 @@ partial class ConnectControl
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 757);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(538, 669);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // chkInterpreterMode
@@ -525,9 +520,9 @@ partial class ConnectControl
             this.panel1.Controls.Add(this.btnConnect);
             this.panel1.Controls.Add(this.btnDisconnect);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(83, 679);
+            this.panel1.Location = new System.Drawing.Point(83, 579);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(194, 39);
+            this.panel1.Size = new System.Drawing.Size(194, 29);
             this.panel1.TabIndex = 12;
             // 
             // label6
@@ -551,70 +546,6 @@ partial class ConnectControl
             this.label7.Size = new System.Drawing.Size(135, 13);
             this.label7.TabIndex = 21;
             this.label7.Text = "Default password : easybot";
-            // 
-            // label8
-            // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 607);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 22;
-            this.label8.Text = "Licensee :";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(49, 632);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
-            this.label9.TabIndex = 23;
-            this.label9.Text = "Key :";
-            // 
-            // txtLicensee
-            // 
-            this.txtLicensee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLicensee.Location = new System.Drawing.Point(83, 604);
-            this.txtLicensee.Name = "txtLicensee";
-            this.txtLicensee.Size = new System.Drawing.Size(194, 20);
-            this.txtLicensee.TabIndex = 24;
-            // 
-            // txtKey
-            // 
-            this.txtKey.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtKey.Location = new System.Drawing.Point(83, 629);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(194, 20);
-            this.txtKey.TabIndex = 25;
-            this.txtKey.UseSystemPasswordChar = true;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.FormattingEnabled = true;
-            this.txtUsername.Items.AddRange(new object[] {
-            "ur",
-            "root"});
-            this.txtUsername.Location = new System.Drawing.Point(83, 344);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(81, 21);
-            this.txtUsername.TabIndex = 26;
-            this.txtUsername.Text = "ur";
-            // 
-            // linkLicense
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.linkLicense, 2);
-            this.linkLicense.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.linkLicense.Location = new System.Drawing.Point(83, 576);
-            this.linkLicense.Name = "linkLicense";
-            this.linkLicense.Size = new System.Drawing.Size(452, 25);
-            this.linkLicense.TabIndex = 27;
-            this.linkLicense.TabStop = true;
-            this.linkLicense.Text = "Get your trial license here : https://underautomation.com/license";
-            this.linkLicense.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.linkLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLicense_LinkClicked);
             // 
             // ConnectControl
             // 
@@ -646,6 +577,7 @@ partial class ConnectControl
     private System.Windows.Forms.CheckBox chkSftp;
     private System.Windows.Forms.CheckBox chkSsh;
     private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.TextBox txtUsername;
     private System.Windows.Forms.Label label3;
     private System.Windows.Forms.TextBox txtPassword;
     private System.Windows.Forms.Button btnConnect;
@@ -676,10 +608,4 @@ partial class ConnectControl
     private System.Windows.Forms.CheckBox chkInterpreterMode;
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.Label label7;
-    private System.Windows.Forms.Label label9;
-    private System.Windows.Forms.Label label8;
-    private System.Windows.Forms.TextBox txtLicensee;
-    private System.Windows.Forms.TextBox txtKey;
-    private System.Windows.Forms.ComboBox txtUsername;
-    private System.Windows.Forms.LinkLabel linkLicense;
 }

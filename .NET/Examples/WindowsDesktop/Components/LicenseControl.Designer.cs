@@ -47,6 +47,7 @@
             this.txtLicenseInfo.Size = new System.Drawing.Size(459, 109);
             this.txtLicenseInfo.TabIndex = 6;
             this.txtLicenseInfo.Text = "";
+            this.txtLicenseInfo.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.txtLicenseInfo_LinkClicked);
             // 
             // gridLicense
             // 

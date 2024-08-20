@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System.Diagnostics;
+using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
 using UnderAutomation.UniversalRobots.License;
 
@@ -26,15 +27,7 @@ public partial class LicenseControl : UserControl, IUserControl
 
     public bool FeatureEnabled => _licenseValid;
 
-    public void PeriodicUpdate()
-    {
-        if (txtLicensee.Text != Config.Current.Licensee || txtKey.Text != Config.Current.Key)
-        {
-            txtLicensee.Text = Config.Current.Licensee;
-            txtKey.Text = Config.Current.Key;
-            UpdateLicenseControls();
-        }
-    }
+    public void PeriodicUpdate() { }
 
     public void OnClose() { }
 
@@ -61,5 +54,10 @@ public partial class LicenseControl : UserControl, IUserControl
         Config.Current.Licensee = txtLicensee.Text;
         Config.Current.Key = txtKey.Text;
         Config.Save();
+    }
+
+    private void txtLicenseInfo_LinkClicked(object sender, LinkClickedEventArgs e)
+    {
+        Process.Start(e.LinkText);
     }
 }

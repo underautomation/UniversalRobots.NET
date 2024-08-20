@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -43,9 +42,6 @@ public partial class ConnectControl : UserControl, IUserControl
         _rtdeInputSetup = parameters.Rtde.InputSetup;
 
         UpdateRtdeIndicators();
-
-        txtLicensee.Text = Config.Current.Licensee;
-        txtKey.Text = Config.Current.Key;
     }
 
     #region IUserControl
@@ -92,11 +88,7 @@ public partial class ConnectControl : UserControl, IUserControl
 
         // Store information
         Config.Current.ConnectParameters = parameters;
-        Config.Current.Licensee = txtLicensee.Text;
-        Config.Current.Key = txtKey.Text;
         Config.Save();
-
-        UR.RegisterLicense(txtLicensee.Text, txtKey.Text);
 
         // Connect to the robot
         _ur.Connect(parameters);
@@ -159,15 +151,5 @@ public partial class ConnectControl : UserControl, IUserControl
         lnkMaxFrequency.Enabled = enabled;
         lblHz.Enabled = enabled;
         lblFrequency.Enabled = enabled;
-    }
-
-    private void btnConnect_Click(object sender, KeyEventArgs e)
-    {
-
-    }
-
-    private void linkLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-        Process.Start("https://underautomation.com/license");
     }
 }
