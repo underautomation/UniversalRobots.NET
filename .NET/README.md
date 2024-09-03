@@ -1,1 +1,0 @@
-Read the documentation : https://underautomation.com/universal-robots/documentation/get-started-net
