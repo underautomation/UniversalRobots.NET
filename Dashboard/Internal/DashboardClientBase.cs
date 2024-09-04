@@ -292,7 +292,7 @@ namespace Dashboard.Internal {
 		/// <summary>
 		/// Loads the specified installation file (From FW 3.2.18654)
 		/// </summary>
-		/// <param name="installation">The installation to load with ist extension .installation.</param>
+		/// <param name="installation">The installation to load with its extension .installation.</param>
 		public CommandResponse LoadInstallation(string installation)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
