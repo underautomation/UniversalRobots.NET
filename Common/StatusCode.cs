@@ -63,5 +63,10 @@ namespace Common {
 		/// Error occured while writing RTDE input data
 		/// </summary>
 		WriteInputsRtdeError = 10,
+
+		/// <summary>
+		/// RTDE Event handler takes longer to execute than the time between each RTDE packets
+		/// </summary>
+		RTDEOverrun = 11,
 	}
 }
