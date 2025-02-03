@@ -51,17 +51,21 @@ A Windows Forms application demonstrating all the features of the library.
 
 📌 **Download:** [📥 UnderAutomation.UniversalRobots.Showcase.Forms.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
 
-
-🖼 **Screenshot:**  
-
-[![UnderAutomation.UniversalRobots.Showcase.Forms](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/desktop.jpg)](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
+<p align="center">
+<img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/desktop.jpg" alt="UnderAutomation.UniversalRobots.Showcase.Console"/>
+</p>
 
 ---
 
 ### 🔹 Console Applications (Multi-Platform)
+
 Precompiled console applications showcasing compilation for multiple operating systems.
 
 📌 **Downloads:**  
+
+<img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png" alt="UnderAutomation.UniversalRobots.Showcase.Console" align="right"/>
+
+
 | OS | Architecture | Download |
 |----|-------------|----------|
 | 🐧 **Linux** | ARM | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm) |
@@ -70,11 +74,6 @@ Precompiled console applications showcasing compilation for multiple operating s
 | 🍏 **macOS** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64) |
 | 🖥 **Windows** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
 | 🖥 **Windows** | x86 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
-
-🖼 **Screenshot:**  
-
-
-[![UnderAutomation.UniversalRobots.Showcase.Console](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png)](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe)
 
 ---
 
