@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
 using UnderAutomation.UniversalRobots.License;
 
@@ -58,6 +57,16 @@ public partial class LicenseControl : UserControl, IUserControl
 
     private void txtLicenseInfo_LinkClicked(object sender, LinkClickedEventArgs e)
     {
-        Process.Start(e.LinkText);
+        try
+        {
+            var ps = new ProcessStartInfo(e.LinkText)
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(ps);
+        }
+        catch { }
     }
+
 }

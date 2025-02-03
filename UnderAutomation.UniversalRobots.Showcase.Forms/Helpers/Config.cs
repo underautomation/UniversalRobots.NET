@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Reflection;
 using System.Xml.Serialization;
 using UnderAutomation.UniversalRobots;
 
@@ -12,7 +12,7 @@ public class Config
     private static readonly XmlSerializer _serializer = new XmlSerializer(typeof(Config));
 
     // Configuration file
-    private static string Path => $"{typeof(Config).Assembly.Location}.xml";
+    private static string Path => $"{(Assembly.GetEntryAssembly() ?? Assembly.GetExecutingAssembly())?.Location}.xml";
 
     // Serialize configuration file
     public static void Save()
