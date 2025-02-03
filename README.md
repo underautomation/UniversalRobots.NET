@@ -42,6 +42,42 @@ https://user-images.githubusercontent.com/47540360/143318635-6d6aaaf4-5642-457a-
 
 ---
 
+## 📥 Download Example Applications
+
+Explore the **Universal Robots SDK** with fully functional example applications and precompiled binaries for various platforms.
+
+### 🔹 Windows Forms Application (Full Feature Showcase)
+A Windows Forms application demonstrating all the features of the library.
+
+📌 **Download:** [📥 UnderAutomation.UniversalRobots.Showcase.Forms.exe](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
+
+
+🖼 **Screenshot:**  
+
+[![Connect](https://github.com/user-attachments/assets/6960f8b2-335b-4d01-b102-a792491d1b4a)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
+
+---
+
+### 🔹 Console Applications (Multi-Platform)
+Precompiled console applications showcasing compilation for multiple operating systems.
+
+📌 **Downloads:**  
+| OS | Architecture | Download |
+|----|-------------|----------|
+| 🐧 **Linux** | ARM | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm) |
+| 🐧 **Linux** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64) |
+| 🍏 **macOS** | ARM64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64) |
+| 🍏 **macOS** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64) |
+| 🖥 **Windows** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
+| 🖥 **Windows** | x86 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
+
+🖼 **Screenshot:**  
+
+
+[![image](https://github.com/user-attachments/assets/ad1b14ff-5b1e-4739-a141-bc32a1bd426d)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe)
+
+---
+
 ## 📌 Features
 
 ### 🔹 Real-Time Data Exchange (RTDE)
@@ -156,13 +192,14 @@ robot.Ssh.RunCommand("echo 'Hello' > /home/ur/Desktop/NewFile.txt");
 
 ## 🛠 Installation
 
-### 1️⃣ **Install via NuGet**
+### 1️⃣ **Get the SDK**
 
-[See on Nuget](https://www.nuget.org/packages/UnderAutomation.UniversalRobots)
+Choose the installation method that works best for you:
 
-```sh
-dotnet add package UnderAutomation.UniversalRobots
-```
+| Method | NuGet (Recommended) | Direct Download |
+|--------|---------------------|----------------|
+| **How to Install** | Install via NuGet. [See on Nuget](https://www.nuget.org/packages/UnderAutomation.UniversalRobots) | Download and reference the DLL manually |
+|  | ```dotnet add package UnderAutomation.UniversalRobots ``` | 📥 [Download ZIP](https://github.com/underautomation/UniversalRobots.NET/releases/latest/UnderAutomation.UniversalRobots.zip) |
 
 ### 2️⃣ **Reference the SDK in Your Code**
 
