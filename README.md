@@ -6,7 +6,7 @@
 [![.NET Framework](https://img.shields.io/badge/.NET_Framework-3.5+-blueviolet)](#)
 [![.NET Standard](https://img.shields.io/badge/.NET_Standard-2.0+-blueviolet)](#)
 [![.NET Core](https://img.shields.io/badge/.NET_Core-2.0+-blueviolet)](#)
-[![.NET Versions](https://img.shields.io/badge/.NET-5_6_7_8-blueviolet)](#)
+[![.NET Versions](https://img.shields.io/badge/.NET-5_6_8_9-blueviolet)](#)
 
 ### 🤖 Effortlessly Communicate with Universal Robots
 
@@ -23,7 +23,6 @@ The **Universal Robots SDK** enables seamless integration with Universal Robots 
 <p align="center">
  <a href="https://github.com/underautomation/UniversalRobots.NET/watchers"><b>👁️ Watch to be notified of latest updates !</b></a>
 </p>
-
 
 ---
 
@@ -47,6 +46,7 @@ https://user-images.githubusercontent.com/47540360/143318635-6d6aaaf4-5642-457a-
 Explore the **Universal Robots SDK** with fully functional example applications and precompiled binaries for various platforms. [See Github releases](https://github.com/underautomation/UniversalRobots.NET/releases)
 
 ### 🔹 Windows Forms Application (Full Feature Showcase)
+
 A Windows Forms application demonstrating all the features of the library.
 
 📌 **Download:** [📥 UnderAutomation.UniversalRobots.Showcase.Forms.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
@@ -61,19 +61,18 @@ A Windows Forms application demonstrating all the features of the library.
 
 Precompiled console applications showcasing compilation for multiple operating systems.
 
-📌 **Downloads:**  
+📌 **Downloads:**
 
 <img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png" alt="UnderAutomation.UniversalRobots.Showcase.Console" align="right"/>
 
-
-| OS | Architecture | Download |
-|----|-------------|----------|
-| 🐧 **Linux** | ARM | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm) |
-| 🐧 **Linux** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64) |
-| 🍏 **macOS** | ARM64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64) |
-| 🍏 **macOS** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64) |
-| 🖥 **Windows** | x64 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
-| 🖥 **Windows** | x86 | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
+| OS            | Architecture | Download                                                                                                                                                    |
+| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🐧 **Linux**  | ARM          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm)   |
+| 🐧 **Linux**  | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64)   |
+| 🍏 **macOS**  | ARM64        | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64)   |
+| 🍏 **macOS**  | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64)     |
+| 🖥 **Windows** | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
+| 🖥 **Windows** | x86          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
 
 ---
 
@@ -195,10 +194,10 @@ robot.Ssh.RunCommand("echo 'Hello' > /home/ur/Desktop/NewFile.txt");
 
 Choose the installation method that works best for you:
 
-| Method | NuGet (Recommended) | Direct Download |
-|--------|---------------------|----------------|
-| **How to Install** | Install via NuGet. [See on Nuget](https://www.nuget.org/packages/UnderAutomation.UniversalRobots) | Download and reference the DLL manually |
-|  | ```dotnet add package UnderAutomation.UniversalRobots ``` | 📥 [Download ZIP](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.zip) |
+| Method             | NuGet (Recommended)                                                                               | Direct Download                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **How to Install** | Install via NuGet. [See on Nuget](https://www.nuget.org/packages/UnderAutomation.UniversalRobots) | Download and reference the DLL manually                                                                                                |
+|                    | `dotnet add package UnderAutomation.UniversalRobots `                                             | 📥 [Download ZIP](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.zip) |
 
 ### 2️⃣ **Reference the SDK in Your Code**
 
@@ -219,7 +218,7 @@ robot.Connect(new ConnectParameters("192.168.0.1"));
 
 ✅ **Supported Robots:** UR3, UR5, UR10, UR16, UR20, UR30, CB-Series, e-Series, Polyscope, Polyscope X  
 ✅ **Operating Systems:** Windows, Linux, macOS  
-✅ **.NET Versions:** .NET Framework (≥3.5), .NET Standard, .NET Core, .NET 5/6/7/8
+✅ **.NET Versions:** .NET Framework (≥3.5), .NET Standard, .NET Core, .NET 5/6/8/9
 
 ---
 
