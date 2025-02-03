@@ -1,6 +1,6 @@
 # Universal Robots Communication SDK
 
-[![UnderAutomation Universal Robots communication SDK](https://user-images.githubusercontent.com/47540360/136141853-1ec87530-d88e-467f-adb4-ec3c46d26010.png)](https://underautomation.com)
+[![UnderAutomation Universal Robots communication SDK](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/banner.png)](https://underautomation.com)
 
 [![NuGet](https://img.shields.io/nuget/dt/UnderAutomation.UniversalRobots?label=NuGet%20Downloads&logo=nuget)](https://www.nuget.org/packages/UnderAutomation.UniversalRobots/)
 [![.NET Framework](https://img.shields.io/badge/.NET_Framework-3.5+-blueviolet)](#)
@@ -54,7 +54,7 @@ A Windows Forms application demonstrating all the features of the library.
 
 🖼 **Screenshot:**  
 
-[![Connect](https://github.com/user-attachments/assets/6960f8b2-335b-4d01-b102-a792491d1b4a)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
+[![UnderAutomation.UniversalRobots.Showcase.Forms](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/desktop.jpg)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
 
 ---
 
@@ -74,7 +74,7 @@ Precompiled console applications showcasing compilation for multiple operating s
 🖼 **Screenshot:**  
 
 
-[![image](https://github.com/user-attachments/assets/ad1b14ff-5b1e-4739-a141-bc32a1bd426d)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe)
+[![UnderAutomation.UniversalRobots.Showcase.Console](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png)](https://github.com/underautomation/UniversalRobots.NET/releases/download/latest/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe)
 
 ---
 
@@ -247,5 +247,3 @@ If you have any questions or need support:
 
 - 📖 **Check the Docs**: [Documentation](https://underautomation.com/universal-robots/documentation)
 - 📩 **Contact Us**: [Support](https://underautomation.com/contact)
-
----
