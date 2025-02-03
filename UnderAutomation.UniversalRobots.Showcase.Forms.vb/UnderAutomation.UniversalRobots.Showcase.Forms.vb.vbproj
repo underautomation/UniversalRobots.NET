@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CCD34115-EA06-096C-3E9E-EC740EE24810}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>UnderAutomation.UniversalRobots.Showcase.Desktop.My.MyApplication</StartupObject>
+    <RootNamespace>UnderAutomation.UniversalRobots.Showcase.Desktop</RootNamespace>
+    <AssemblyName>UnderAutomation.UniversalRobots.Showcase</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>UnderAutomation.UniversalRobots.Showcase.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>UnderAutomation.UniversalRobots.Showcase.xml</DocumentationFile>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>On</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ua.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UnderAutomation.UniversalRobots, Version=7.8.22.0, Culture=neutral, PublicKeyToken=a76e62f1cf6da199, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Showcase.Desktop\UnderAutomation.UniversalRobots.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\ArchiveControl.Designer.vb">
+      <DependentUpon>ArchiveControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ArchiveControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ConnectControl.Designer.vb">
+      <DependentUpon>ConnectControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ConnectControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ConnectRtdePopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ConnectRtdePopupBase.Designer.vb">
+      <DependentUpon>ConnectRtdePopupBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ConnectRtdePopupBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\DashboardControl.Designer.vb">
+      <DependentUpon>DashboardControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\DashboardControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\InterpreterModeControl.Designer.vb">
+      <DependentUpon>InterpreterModeControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\InterpreterModeControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\IUserControl.vb" />
+    <Compile Include="Components\LicenseControl.Designer.vb">
+      <DependentUpon>LicenseControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LicenseControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\LogControl.Designer.vb">
+      <DependentUpon>LogControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\LogControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfaceControl.Designer.vb">
+      <DependentUpon>PrimaryInterfaceControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfaceControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfacePackageControl.Designer.vb">
+      <DependentUpon>PrimaryInterfacePackageControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfacePackageControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfacePopup.Designer.vb">
+      <DependentUpon>PrimaryInterfacePopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\PrimaryInterfacePopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\ProgramControl.Designer.vb">
+      <DependentUpon>ProgramControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ProgramControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\RtdeControl.Designer.vb">
+      <DependentUpon>RtdeControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\RtdeControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SftpControl.Designer.vb">
+      <DependentUpon>SftpControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SftpControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SocketControl.Designer.vb">
+      <DependentUpon>SocketControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SocketControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\SshControl.Designer.vb">
+      <DependentUpon>SshControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SshControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\ToolsControl.Designer.vb">
+      <DependentUpon>ToolsControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ToolsControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\XmlRpcControl.Designer.vb">
+      <DependentUpon>XmlRpcControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\XmlRpcControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\XmlRpcPopup.Designer.vb">
+      <DependentUpon>XmlRpcPopup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Components\XmlRpcPopup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\Config.vb" />
+    <Compile Include="Helpers\Explorer.vb" />
+    <Compile Include="Helpers\ListViewExtension.vb" />
+    <Compile Include="Helpers\ScreenshotsGenerator.vb" />
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Components\ArchiveControl.resx">
+      <DependentUpon>ArchiveControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ConnectControl.resx">
+      <DependentUpon>ConnectControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ConnectRtdePopupBase.resx">
+      <DependentUpon>ConnectRtdePopupBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\DashboardControl.resx">
+      <DependentUpon>DashboardControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\InterpreterModeControl.resx">
+      <DependentUpon>InterpreterModeControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LicenseControl.resx">
+      <DependentUpon>LicenseControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\LogControl.resx">
+      <DependentUpon>LogControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\PrimaryInterfaceControl.resx">
+      <DependentUpon>PrimaryInterfaceControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\PrimaryInterfacePackageControl.resx">
+      <DependentUpon>PrimaryInterfacePackageControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\PrimaryInterfacePopup.resx">
+      <DependentUpon>PrimaryInterfacePopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ProgramControl.resx">
+      <DependentUpon>ProgramControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\RtdeControl.resx">
+      <DependentUpon>RtdeControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SftpControl.resx">
+      <DependentUpon>SftpControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SocketControl.resx">
+      <DependentUpon>SocketControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\SshControl.resx">
+      <DependentUpon>SshControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\ToolsControl.resx">
+      <DependentUpon>ToolsControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\XmlRpcControl.resx">
+      <DependentUpon>XmlRpcControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\XmlRpcPopup.resx">
+      <DependentUpon>XmlRpcPopup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Resources\all instructions.urp" />
+    <None Include="Resources\program.urp" />
+    <None Include="Samples\socket_sample.urp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Samples\xml_rpc_sample.urp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Resources\arrow-right-line.png" />
+    <Content Include="Resources\arrow-right-line1.png" />
+    <Content Include="Resources\arrow-right-line2.png" />
+    <Content Include="Resources\arrow-up-line.png" />
+    <Content Include="Resources\arrow-up-line1.png" />
+    <Content Include="Resources\arrow-up-line2.png" />
+    <Content Include="Resources\check-line.png" />
+    <Content Include="Resources\close-line.png" />
+    <Content Include="Resources\delete-bin-5-line.png" />
+    <Content Include="Resources\delete-bin-5-line1.png" />
+    <Content Include="Resources\delete-bin-5-line2.png" />
+    <Content Include="Resources\download-2-line.png" />
+    <Content Include="Resources\download-2-line1.png" />
+    <Content Include="Resources\download-2-line2.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\file-edit-line.png" />
+    <Content Include="Resources\file-edit-line1.png" />
+    <Content Include="Resources\file-edit-line2.png" />
+    <Content Include="Resources\file-line.png" />
+    <Content Include="Resources\file-line1.png" />
+    <Content Include="Resources\file-line2.png" />
+    <Content Include="Resources\folder-add-line.png" />
+    <Content Include="Resources\folder-add-line1.png" />
+    <Content Include="Resources\folder-add-line2.png" />
+    <Content Include="Resources\folder-line.png" />
+    <Content Include="Resources\folder-line1.png" />
+    <Content Include="Resources\folder-line2.png" />
+    <Content Include="Resources\folder-shared-line.png" />
+    <Content Include="Resources\folder-shared-line1.png" />
+    <Content Include="Resources\folder-shared-line2.png" />
+    <Content Include="Resources\info.png" />
+    <Content Include="Resources\pause.png" />
+    <Content Include="Resources\play.png" />
+    <Content Include="Resources\refresh-line.png" />
+    <Content Include="Resources\save-3-fill.png" />
+    <Content Include="Resources\socket_sample.JPG" />
+    <Content Include="Resources\tools-line.png" />
+    <Content Include="Resources\ua.ico" />
+    <Content Include="Resources\UnderAutomation132.png" />
+    <Content Include="Resources\upload-2-line.png" />
+    <Content Include="Resources\warning.png" />
+    <Content Include="Resources\xml_rpc_sample.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

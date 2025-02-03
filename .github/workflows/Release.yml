@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: nuget/setup-nuget@v1
+      - run: nuget restore $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots_VS2022.sln
+      - name: zip libraries
+        run: |
+          cd "$Env:GITHUB_WORKSPACE\Libraries\"
+          7z a -tzip -mx=9 $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots.zip *
+      - name: Build Windows Showcase Forms example
+        run: |
+          cd $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots.Showcase.Forms
+          dotnet publish -p:PublishProfile=FolderProfile
+      - name: Build Console examples
+        run: |
+          cd $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots.Showcase.Console
+          dotnet publish -p:PublishProfile=linux-arm
+          dotnet publish -p:PublishProfile=linux-x64
+          dotnet publish -p:PublishProfile=osx-arm64
+          dotnet publish -p:PublishProfile=osx-x64
+          dotnet publish -p:PublishProfile=win-x64
+          dotnet publish -p:PublishProfile=win-x86
+          rm $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots.Showcase.Console\obj -r -fo
+          cd $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots.Showcase.Console\bin\publish
+          mv linux-arm/UnderAutomation.UniversalRobots.Showcase.Console linux-arm/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm
+          mv linux-x64/UnderAutomation.UniversalRobots.Showcase.Console linux-x64/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64
+          mv win-x64/UnderAutomation.UniversalRobots.Showcase.Console.exe win-x64/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe
+          mv win-x86/UnderAutomation.UniversalRobots.Showcase.Console.exe win-x86/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe
+          mv osx-arm64/UnderAutomation.UniversalRobots.Showcase.Console osx-arm64/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64
+          mv osx-x64/UnderAutomation.UniversalRobots.Showcase.Console osx-x64/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: |
+            UnderAutomation.UniversalRobots.zip
+            **/publish/**/UnderAutomation.UniversalRobots.Showcase.*.exe
+            **/UnderAutomation.UniversalRobots.Showcase.Console.linux-*
+            **/UnderAutomation.UniversalRobots.Showcase.Console.osx-*
+          token: ${{ secrets.GITHUB_TOKEN }}
