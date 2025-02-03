@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 public partial class ContactControl : UserControl, IUserControl
 {
@@ -31,29 +33,39 @@ public partial class ContactControl : UserControl, IUserControl
         txtMessage.Text = message;
     }
 
-    private void btnSend_Click(object sender, System.EventArgs e)
+    private async void btnSend_Click(object sender, System.EventArgs e)
     {
-    /*    var payloadObject = new { email = txtEmail.Text, subject = "Universal Robots Desktop showcase", message = txtMessage.Text };
-        string payload = new JavaScriptSerializer().Serialize(payloadObject);
-
-        using (WebClient client = new WebClient())
+        var payloadObject = new
         {
-            client.Headers[HttpRequestHeader.ContentType] = "application/json";
-            client.Encoding = Encoding.UTF8; 
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)0x00000C00; // TLS 1.2
+            email = txtEmail.Text,
+            subject = $"Universal Robots Desktop showcase - {DateTime.UtcNow.ToString("yyMMddHHmmss")}",
+            message = txtMessage.Text
+        };
 
-            byte[] data = Encoding.UTF8.GetBytes(payload);
+        string payload = JsonSerializer.Serialize(payloadObject);
+        var content = new StringContent(payload, Encoding.UTF8, "application/json");
 
-            try
+        try
+        {
+            using (var client = new HttpClient())
             {
-                 client.UploadData("https://formspree.io/f/mleawvqb", "POST", data);
-                MessageBox.Show("Message sent ! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                HttpResponseMessage response = await client.PostAsync("https://formspree.io/f/mleawvqb", content);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Message sent! ", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Error: {response.StatusCode}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (WebException ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }*/
+        }
+        catch (HttpRequestException ex)
+        {
+            MessageBox.Show($"Request error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
     }
 
     private void txtEmail_TextChanged(object sender, System.EventArgs e)
