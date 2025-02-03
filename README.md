@@ -13,7 +13,7 @@
 The **Universal Robots SDK** enables seamless integration with Universal Robots for automation, data exchange, and remote control. Ideal for industrial automation, research, and advanced robotics applications.
 
 🔗 **More Information:** [https://underautomation.com/universal-robots](https://underautomation.com/universal-robots)  
-🔗 Also available for **[LabVIEW](https://github.com/underautomation/UniversalRobots.vi)** & **[Python](https://github.com/underautomation/UniversalRobots.vi)**
+🔗 Also available for **[LabVIEW](https://github.com/underautomation/UniversalRobots.vi)** & **[Python](https://github.com/underautomation/UniversalRobots.py)**
 
 ---
 
