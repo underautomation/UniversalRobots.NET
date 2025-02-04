@@ -16,6 +16,6 @@ namespace XmlRpc {
 		/// <summary>
 		/// Determines the class of this message
 		/// </summary>
-		public override XmlRpcType Type { get; }
+		public override XmlRpcType Type => default;
 	}
 }

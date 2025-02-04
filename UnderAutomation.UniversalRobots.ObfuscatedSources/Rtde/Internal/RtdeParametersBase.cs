@@ -11,6 +11,17 @@ namespace Rtde.Internal {
 	public abstract class RtdeParametersBase {
 
 		/// <summary>
+		/// Default RTDE TCP port used (30004)
+		/// </summary>
+		public const int DEFAULT_PORT = 30004;
+
+
+		protected RtdeParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
 		/// For RTDE version 2, you can specify a frequency for output received data. Maximum frequency depends on your robot version.
 		/// If you set frequency to 0, maximum frequency will be choosen
 		/// Default value is 10Hz
@@ -32,11 +43,6 @@ namespace Rtde.Internal {
 		/// List of all input data you can send to the robot
 		/// </summary>
 		public RtdeInputSetup InputSetup { get; set; }
-
-		/// <summary>
-		/// Default RTDE TCP port used (30004)
-		/// </summary>
-		public const int DEFAULT_PORT = 30004;
 
 		/// <summary>
 		/// TCP port used for RTDE connection. Default : 30004

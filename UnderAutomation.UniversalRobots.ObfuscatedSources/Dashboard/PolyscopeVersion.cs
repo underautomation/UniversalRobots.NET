@@ -32,5 +32,11 @@ namespace Dashboard {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		public PolyscopeVersion()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

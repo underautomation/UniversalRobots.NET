@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolModeInfoPackageEventArgs : PackageEventArgs {
 
+
+		public ToolModeInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Digital output mode
 		/// </summary>

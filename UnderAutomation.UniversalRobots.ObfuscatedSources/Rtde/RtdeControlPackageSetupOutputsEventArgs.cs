@@ -9,6 +9,12 @@ namespace Rtde {
 	public class RtdeControlPackageSetupOutputsEventArgs : PackageEventArgs {
 
 
+		public RtdeControlPackageSetupOutputsEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public byte OutputRecipeId { get; set; }
 
 

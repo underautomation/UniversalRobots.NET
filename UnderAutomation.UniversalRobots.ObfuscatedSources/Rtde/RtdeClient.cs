@@ -19,5 +19,11 @@ namespace Rtde {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		public RtdeClient()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

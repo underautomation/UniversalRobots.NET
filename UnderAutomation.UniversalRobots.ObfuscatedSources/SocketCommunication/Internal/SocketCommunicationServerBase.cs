@@ -32,11 +32,6 @@ namespace SocketCommunication.Internal {
 		public delegate void SocketRequestEventHandler(object sender, SocketRequestEventArgs request);
 
 		/// <summary>
-		/// List of all connected clients. One robot can open multiple sockets.
-		/// </summary>
-		public SocketClient[] ConnectedClients { get; }
-
-		/// <summary>
 		/// Starts socket server. Robot can connect with URScript function socket_open()
 		/// </summary>
 		/// <param name="port">Socket server port</param>
@@ -44,6 +39,34 @@ namespace SocketCommunication.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Disable local socket server and disconnect all connected clients
+		/// </summary>
+		public void Stop()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Write a socket message to the robot. The robot should be connected with socket_open()
+		/// </summary>
+		/// <param name="message">Message to send to the robot</param>
+		public void SocketWrite(string message)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
+		public SocketCommunicationServerBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// List of all connected clients. One robot can open multiple sockets.
+		/// </summary>
+		public SocketClient[] ConnectedClients { get; }
 
 		/// <summary>
 		/// Is the socket server enabled
@@ -74,22 +97,5 @@ namespace SocketCommunication.Internal {
 		/// Event raised when the robot socket disconnects
 		/// </summary>
 		public event SocketCommunicationServerBase.SocketClientDisconnectionEventHandler SocketClientDisconnection;
-
-		/// <summary>
-		/// Disable local socket server and disconnect all connected clients
-		/// </summary>
-		public void Stop()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Write a socket message to the robot. The robot should be connected with socket_open()
-		/// </summary>
-		/// <param name="message">Message to send to the robot</param>
-		public void SocketWrite(string message)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
 	}
 }

@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class VersionEventArgs : PackageEventArgs {
 
+
+		public VersionEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// URControl project
 		/// </summary>

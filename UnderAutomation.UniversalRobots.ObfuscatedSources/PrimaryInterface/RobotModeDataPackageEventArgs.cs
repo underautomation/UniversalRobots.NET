@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class RobotModeDataPackageEventArgs : PackageEventArgs {
 
+
+		public RobotModeDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Timespan since the robot controller has started
 		/// </summary>

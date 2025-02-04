@@ -13,5 +13,11 @@ namespace Common {
 		/// The date the data has been received
 		/// </summary>
 		public DateTime ReceiveDate;
+
+
+		protected PackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

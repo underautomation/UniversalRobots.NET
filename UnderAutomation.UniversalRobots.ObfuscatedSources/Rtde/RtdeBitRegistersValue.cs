@@ -335,6 +335,6 @@ namespace Rtde {
 		public bool X127 { get; set; }
 
 
-		public override int LowerRangeIndex { get; }
+		public override int LowerRangeIndex => default;
 	}
 }

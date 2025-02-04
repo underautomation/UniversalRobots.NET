@@ -9,6 +9,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class JointConfiguration {
 
+
+		public JointConfiguration()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Minimum angular position in rad
 		/// </summary>

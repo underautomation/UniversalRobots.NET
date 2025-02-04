@@ -9,6 +9,12 @@ namespace Common {
 	/// </summary>
 	public class GlobalVariable : GlobalVariableValue {
 
+
+		public GlobalVariable()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Variable name
 		/// </summary>

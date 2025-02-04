@@ -8,6 +8,12 @@ using System.Collections;
 
 namespace Rtde {
 
-	public class RtdeInputSetup : RtdeSetup<RtdeInputSetupItem, RtdeInputData>, IList<RtdeInputSetupItem>, ICollection<RtdeInputSetupItem>, IEnumerable<RtdeInputSetupItem>, IList, ICollection, IEnumerable {
+	public class RtdeInputSetup : RtdeSetup<RtdeInputSetupItem, RtdeInputData>, IList<RtdeInputSetupItem>, ICollection<RtdeInputSetupItem>, IList, ICollection, IReadOnlyList<RtdeInputSetupItem>, IReadOnlyCollection<RtdeInputSetupItem>, IEnumerable<RtdeInputSetupItem>, IEnumerable {
+
+
+		public RtdeInputSetup()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

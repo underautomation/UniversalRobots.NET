@@ -11,6 +11,9 @@ namespace Files {
 	/// </summary>
 	public class URInstallation : URArchive {
 
+
+		public const string EXTENSION = ".installation";
+
 		/// <summary>
 		/// Create a URProgram from its XML definition
 		/// </summary>
@@ -18,18 +21,6 @@ namespace Files {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-
-		public const string EXTENSION = ".installation";
-
-
-		protected override string NameAttribute { get; }
-
-
-		protected override string RootElement { get; }
-
-
-		protected override string Extension { get; }
 
 		/// <summary>
 		/// Load an installation file from stream
@@ -48,5 +39,14 @@ namespace Files {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected override string NameAttribute => default;
+
+
+		protected override string RootElement => default;
+
+
+		protected override string Extension => default;
 	}
 }

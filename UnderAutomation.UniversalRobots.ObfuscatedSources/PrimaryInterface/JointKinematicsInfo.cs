@@ -9,6 +9,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class JointKinematicsInfo {
 
+
+		public JointKinematicsInfo()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Joint checksum
 		/// </summary>

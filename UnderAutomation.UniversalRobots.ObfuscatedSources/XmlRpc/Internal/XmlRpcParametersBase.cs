@@ -7,6 +7,12 @@ namespace XmlRpc.Internal {
 
 	public abstract class XmlRpcParametersBase {
 
+
+		protected XmlRpcParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Choose local port to start XML-RPC server 
 		/// Default value is 50000

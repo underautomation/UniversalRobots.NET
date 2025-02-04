@@ -28,21 +28,6 @@ namespace Common {
 		}
 
 		/// <summary>
-		/// RX rotation in degrees or °/s
-		/// </summary>
-		public double RxDegrees { get; set; }
-
-		/// <summary>
-		/// RY rotation in degrees or °/s
-		/// </summary>
-		public double RyDegrees { get; set; }
-
-		/// <summary>
-		/// RZ rotation in degrees or °/s
-		/// </summary>
-		public double RzDegrees { get; set; }
-
-		/// <summary>
 		/// Consider this pose as a Rotation Vector And convert it to a new RPY position
 		/// </summary>
 		public Pose FromRotationVectorToRPY()
@@ -119,5 +104,20 @@ namespace Common {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+		/// <summary>
+		/// RX rotation in degrees or °/s
+		/// </summary>
+		public double RxDegrees { get; set; }
+
+		/// <summary>
+		/// RY rotation in degrees or °/s
+		/// </summary>
+		public double RyDegrees { get; set; }
+
+		/// <summary>
+		/// RZ rotation in degrees or °/s
+		/// </summary>
+		public double RzDegrees { get; set; }
 	}
 }

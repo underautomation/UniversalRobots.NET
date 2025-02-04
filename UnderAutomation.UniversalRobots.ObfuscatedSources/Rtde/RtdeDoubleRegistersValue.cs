@@ -255,6 +255,6 @@ namespace Rtde {
 		public double X47 { get; set; }
 
 
-		public override int LowerRangeIndex { get; }
+		public override int LowerRangeIndex => default;
 	}
 }

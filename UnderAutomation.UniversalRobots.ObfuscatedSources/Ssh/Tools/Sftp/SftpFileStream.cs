@@ -8,61 +8,7 @@ namespace Ssh.Tools.Sftp {
 	/// <summary>
 	/// Exposes a <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> around a remote SFTP file, supporting both synchronous and asynchronous read and write operations.
 	/// </summary>
-	public class SftpFileStream : Stream, IDisposable {
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports reading.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports reading; otherwise, <code>false</code>.</returns>
-		public override bool CanRead { get; }
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports seeking.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports seeking; otherwise, <code>false</code>.</returns>
-		public override bool CanSeek { get; }
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports writing.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports writing; otherwise, <code>false</code>.</returns>
-		public override bool CanWrite { get; }
-
-		/// <summary>
-		/// Indicates whether timeout properties are usable for <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
-		/// </summary>
-		/// <returns><code>true</code> in all cases.</returns>
-		public override bool CanTimeout { get; }
-
-		/// <summary>
-		/// Gets the length in bytes of the stream.
-		/// </summary>
-		/// <returns>A long value representing the length of the stream in bytes.</returns>
-		public override long Length { get; }
-
-		/// <summary>
-		/// Gets or sets the position within the current stream.
-		/// </summary>
-		/// <returns>The current position within the stream.</returns>
-		public override long Position { get; set; }
-
-		/// <summary>
-		/// Gets the name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
-		/// </summary>
-		/// <returns>The name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.</returns>
-		public string Name { get; }
-
-		/// <summary>
-		/// Gets the operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.
-		/// </summary>
-		/// <returns>The operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.</returns>
-		public virtual byte[] Handle { get; }
-
-		/// <summary>
-		/// Gets or sets the operation timeout.
-		/// </summary>
-		/// <returns>The timeout.</returns>
-		public TimeSpan Timeout { get; set; }
+	public class SftpFileStream : Stream, IDisposable, IAsyncDisposable {
 
 		/// <summary>
 		/// Clears all buffers for this stream and causes any buffered data to be written to the file.
@@ -146,5 +92,59 @@ namespace Ssh.Tools.Sftp {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports reading.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports reading; otherwise, <code>false</code>.</returns>
+		public override bool CanRead => default;
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports seeking.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports seeking; otherwise, <code>false</code>.</returns>
+		public override bool CanSeek => default;
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports writing.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports writing; otherwise, <code>false</code>.</returns>
+		public override bool CanWrite => default;
+
+		/// <summary>
+		/// Indicates whether timeout properties are usable for <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
+		/// </summary>
+		/// <returns><code>true</code> in all cases.</returns>
+		public override bool CanTimeout => default;
+
+		/// <summary>
+		/// Gets the length in bytes of the stream.
+		/// </summary>
+		/// <returns>A long value representing the length of the stream in bytes.</returns>
+		public override long Length => default;
+
+		/// <summary>
+		/// Gets or sets the position within the current stream.
+		/// </summary>
+		/// <returns>The current position within the stream.</returns>
+		public override long Position { get; set; }
+
+		/// <summary>
+		/// Gets the name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
+		/// </summary>
+		/// <returns>The name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.</returns>
+		public string Name { get; }
+
+		/// <summary>
+		/// Gets the operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.
+		/// </summary>
+		/// <returns>The operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.</returns>
+		public virtual byte[] Handle { get; }
+
+		/// <summary>
+		/// Gets or sets the operation timeout.
+		/// </summary>
+		/// <returns>The timeout.</returns>
+		public TimeSpan Timeout { get; set; }
 	}
 }

@@ -3,119 +3,28 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using Internal;
-using System;
 using PrimaryInterface;
-using Common;
 using System.Net;
+using System;
+using Common;
 
 namespace PrimaryInterface.Internal {
 
 	public class PrimaryInterfaceClientBase : URServiceBase {
 
-		/// <summary>
-		/// Robot mode data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<RobotModeDataPackageEventArgs> RobotModeDataReceived;
+
+		protected void InternalConnect(string ip, Interfaces port)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 
 		/// <summary>
-		/// Joint data (Raised every 100ms)
+		/// Stops data streaming and the possibility to send scripts to the robot.
 		/// </summary>
-		public event EventHandler<JointDataPackageEventArgs> JointDataReceived;
-
-		/// <summary>
-		/// Tool data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<ToolDataPackageEventArgs> ToolDataReceived;
-
-		/// <summary>
-		/// Masterboard data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<MasterboardDataPackageEventArgs> MasterboardDataReceived;
-
-		/// <summary>
-		/// Cartesian inforlation (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<CartesianInfoPackageEventArgs> CartesianInfoReceived;
-
-		/// <summary>
-		/// Kinematics information data (Raised when connection opened)
-		/// </summary>
-		public event EventHandler<KinematicsInfoPackageEventArgs> KinematicsInfoReceived;
-
-		/// <summary>
-		/// Configuration data (Raised when connection opened)
-		/// </summary>
-		public event EventHandler<ConfigurationDataPackageEventArgs> ConfigurationDataReceived;
-
-		/// <summary>
-		/// Force mode data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<ForceModeDataPackageEventArgs> ForceModeDataReceived;
-
-		/// <summary>
-		/// Additional (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<AdditionalInfoPackageEventArgs> AdditionalInfoReceived;
-
-		/// <summary>
-		/// Calibration data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<CalibrationDataPackageEventArgs> CalibrationDataReceived;
-
-		/// <summary>
-		/// Safety data (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<SafetyDataPackageEventArgs> SafetyDataReceived;
-
-		/// <summary>
-		/// Tool communication information (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<ToolCommunicationInfoPackageEventArgs> ToolCommunicationInfoReceived;
-
-		/// <summary>
-		/// Tool mode information (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<ToolModeInfoPackageEventArgs> ToolModeInfoReceived;
-
-		/// <summary>
-		/// Singularity information (Raised every 100ms)
-		/// </summary>
-		public event EventHandler<SingularityInfoPackageEventArgs> SingularityInfoReceived;
-
-		/// <summary>
-		/// Generic event raised each time a package is received
-		/// </summary>
-		public event EventHandler<PackageEventArgs> PackageReceived;
-
-		/// <summary>
-		/// Program threads changed
-		/// </summary>
-		public event EventHandler<ProgramThreadsEventArgs> ProgramThreadsReceived;
-
-		/// <summary>
-		/// Robot information and FW version
-		/// </summary>
-		public event EventHandler<VersionEventArgs> VersionReceived;
-
-		/// <summary>
-		/// Internal robot events (such as starting or stopping a program)
-		/// </summary>
-		public event EventHandler<KeyMessageEventArgs> KeyMessageReceived;
-
-		/// <summary>
-		/// Popup message that appears with the Assignment instruction or the URScript popup() function
-		/// </summary>
-		public event EventHandler<PopupMessageEventArgs> PopupMessageReceived;
-
-		/// <summary>
-		/// Log message sent with URScript instruction textmsg()
-		/// </summary>
-		public event EventHandler<TextMessageEventArgs> TextMessageReceived;
-
-		/// <summary>
-		/// Reports an error in the execution of the program
-		/// </summary>
-		public event EventHandler<RuntimeExceptionMessageEventArgs> RuntimeExceptionMessageReceived;
+		public void Disconnect()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 
 		/// <summary>
 		/// Last Robot mode data received
@@ -242,20 +151,6 @@ namespace PrimaryInterface.Internal {
 		/// </summary>
 		public Interfaces Port { get; }
 
-
-		protected void InternalConnect(string ip, Interfaces port)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Stops data streaming and the possibility to send scripts to the robot.
-		/// </summary>
-		public void Disconnect()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
 		/// <summary>
 		/// Return True if the connection to the robot is active
 		/// </summary>
@@ -265,5 +160,110 @@ namespace PrimaryInterface.Internal {
 		/// Indicates the current local endpoint (i.e. IP Address) used to communicate with the robot. You can use this IP in your UR script in the function rpc_factory()
 		/// </summary>
 		public IPEndPoint LocalEndPoint { get; }
+
+		/// <summary>
+		/// Robot mode data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<RobotModeDataPackageEventArgs> RobotModeDataReceived;
+
+		/// <summary>
+		/// Joint data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<JointDataPackageEventArgs> JointDataReceived;
+
+		/// <summary>
+		/// Tool data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<ToolDataPackageEventArgs> ToolDataReceived;
+
+		/// <summary>
+		/// Masterboard data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<MasterboardDataPackageEventArgs> MasterboardDataReceived;
+
+		/// <summary>
+		/// Cartesian inforlation (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<CartesianInfoPackageEventArgs> CartesianInfoReceived;
+
+		/// <summary>
+		/// Kinematics information data (Raised when connection opened)
+		/// </summary>
+		public event EventHandler<KinematicsInfoPackageEventArgs> KinematicsInfoReceived;
+
+		/// <summary>
+		/// Configuration data (Raised when connection opened)
+		/// </summary>
+		public event EventHandler<ConfigurationDataPackageEventArgs> ConfigurationDataReceived;
+
+		/// <summary>
+		/// Force mode data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<ForceModeDataPackageEventArgs> ForceModeDataReceived;
+
+		/// <summary>
+		/// Additional (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<AdditionalInfoPackageEventArgs> AdditionalInfoReceived;
+
+		/// <summary>
+		/// Calibration data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<CalibrationDataPackageEventArgs> CalibrationDataReceived;
+
+		/// <summary>
+		/// Safety data (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<SafetyDataPackageEventArgs> SafetyDataReceived;
+
+		/// <summary>
+		/// Tool communication information (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<ToolCommunicationInfoPackageEventArgs> ToolCommunicationInfoReceived;
+
+		/// <summary>
+		/// Tool mode information (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<ToolModeInfoPackageEventArgs> ToolModeInfoReceived;
+
+		/// <summary>
+		/// Singularity information (Raised every 100ms)
+		/// </summary>
+		public event EventHandler<SingularityInfoPackageEventArgs> SingularityInfoReceived;
+
+		/// <summary>
+		/// Generic event raised each time a package is received
+		/// </summary>
+		public event EventHandler<PackageEventArgs> PackageReceived;
+
+		/// <summary>
+		/// Program threads changed
+		/// </summary>
+		public event EventHandler<ProgramThreadsEventArgs> ProgramThreadsReceived;
+
+		/// <summary>
+		/// Robot information and FW version
+		/// </summary>
+		public event EventHandler<VersionEventArgs> VersionReceived;
+
+		/// <summary>
+		/// Internal robot events (such as starting or stopping a program)
+		/// </summary>
+		public event EventHandler<KeyMessageEventArgs> KeyMessageReceived;
+
+		/// <summary>
+		/// Popup message that appears with the Assignment instruction or the URScript popup() function
+		/// </summary>
+		public event EventHandler<PopupMessageEventArgs> PopupMessageReceived;
+
+		/// <summary>
+		/// Log message sent with URScript instruction textmsg()
+		/// </summary>
+		public event EventHandler<TextMessageEventArgs> TextMessageReceived;
+
+		/// <summary>
+		/// Reports an error in the execution of the program
+		/// </summary>
+		public event EventHandler<RuntimeExceptionMessageEventArgs> RuntimeExceptionMessageReceived;
 	}
 }

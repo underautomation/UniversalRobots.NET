@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class SingularityInfoPackageEventArgs : PackageEventArgs {
 
+
+		public SingularityInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Severity of the singularity
 		/// </summary>

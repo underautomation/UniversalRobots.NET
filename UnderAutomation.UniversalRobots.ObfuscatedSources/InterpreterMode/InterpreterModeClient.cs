@@ -17,5 +17,11 @@ namespace InterpreterMode {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		public InterpreterModeClient()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

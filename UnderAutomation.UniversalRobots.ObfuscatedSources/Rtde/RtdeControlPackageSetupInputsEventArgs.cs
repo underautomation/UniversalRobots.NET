@@ -8,6 +8,12 @@ namespace Rtde {
 
 	public class RtdeControlPackageSetupInputsEventArgs : PackageEventArgs {
 
+
+		public RtdeControlPackageSetupInputsEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Recipe Identifier of input sent data
 		/// </summary>

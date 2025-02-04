@@ -4,19 +4,12 @@
 
 using Ssh.Tools.Messages.Transport;
 using System.Runtime.Serialization;
-using System.Runtime.InteropServices;
 
 namespace Ssh.Tools.Common {
 	/// <summary>
 	/// The exception that is thrown when connection was terminated.
 	/// </summary>
-	[Serializable]
-public class SshConnectionException : SshException, ISerializable {
-
-		/// <summary>
-		/// Gets the disconnect reason if provided by the server or client. Otherwise None.
-		/// </summary>
-		public DisconnectReason DisconnectReason { get; }
+	public class SshConnectionException : SshException, ISerializable {
 
 		/// <summary>
 		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshConnectionException" data-throw-if-not-resolved="false"></xref> class.
@@ -57,13 +50,8 @@ public class SshConnectionException : SshException, ISerializable {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshConnectionException" data-throw-if-not-resolved="false"></xref> class.
+		/// Gets the disconnect reason if provided by the server or client. Otherwise None.
 		/// </summary>
-		/// <param name="info">The <xref href="System.Runtime.Serialization.SerializationInfo" data-throw-if-not-resolved="false"></xref> that holds the serialized object data about the exception being thrown.</param>
-		/// <param name="context">The <xref href="System.Runtime.Serialization.StreamingContext" data-throw-if-not-resolved="false"></xref> that contains contextual information about the source or destination.</param>
-		protected SshConnectionException(SerializationInfo info, StreamingContext context)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		public DisconnectReason DisconnectReason { get; }
 	}
 }

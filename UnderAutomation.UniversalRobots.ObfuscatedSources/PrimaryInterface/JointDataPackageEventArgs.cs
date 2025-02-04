@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class JointDataPackageEventArgs : PackageEventArgs {
 
+
+		public JointDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Base joint data
 		/// </summary>

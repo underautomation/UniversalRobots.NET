@@ -9,16 +9,6 @@ namespace InterpreterMode.Internal {
 
 	public abstract class InterpreterModeClientBase : URServiceBase {
 
-		/// <summary>
-		/// IP of the robot to connect to for sending commands
-		/// </summary>
-		public string IP { get; }
-
-		/// <summary>
-		/// Interpreter mode server port
-		/// </summary>
-		public int Port { get; set; }
-
 
 		protected void ConnectInternal(string ip, int port)
 		{
@@ -135,6 +125,22 @@ namespace InterpreterMode.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		protected InterpreterModeClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// IP of the robot to connect to for sending commands
+		/// </summary>
+		public string IP { get; }
+
+		/// <summary>
+		/// Interpreter mode server port
+		/// </summary>
+		public int Port { get; set; }
 
 		/// <summary>
 		/// Indicates that the interpreter mode client is connected and ready to send commands

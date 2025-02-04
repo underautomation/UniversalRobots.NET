@@ -12,37 +12,6 @@ namespace Ssh.Tools {
 	public class Shell : IDisposable {
 
 		/// <summary>
-		/// Gets a value indicating whether this shell is started.
-		/// </summary>
-		/// <returns><code>true</code> if started is started; otherwise, <code>false</code>.</returns>
-		public bool IsStarted { get; }
-
-		/// <summary>
-		/// Occurs when shell is starting.
-		/// </summary>
-		public event EventHandler<EventArgs> Starting;
-
-		/// <summary>
-		/// Occurs when shell is started.
-		/// </summary>
-		public event EventHandler<EventArgs> Started;
-
-		/// <summary>
-		/// Occurs when shell is stopping.
-		/// </summary>
-		public event EventHandler<EventArgs> Stopping;
-
-		/// <summary>
-		/// Occurs when shell is stopped.
-		/// </summary>
-		public event EventHandler<EventArgs> Stopped;
-
-		/// <summary>
-		/// Occurs when an error occurred.
-		/// </summary>
-		public event EventHandler<ExceptionEventArgs> ErrorOccurred;
-
-		/// <summary>
 		/// Starts this shell.
 		/// </summary>
 		public void Start()
@@ -74,5 +43,36 @@ namespace Ssh.Tools {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets a value indicating whether this shell is started.
+		/// </summary>
+		/// <returns><code>true</code> if started is started; otherwise, <code>false</code>.</returns>
+		public bool IsStarted { get; }
+
+		/// <summary>
+		/// Occurs when shell is starting.
+		/// </summary>
+		public event EventHandler<EventArgs> Starting;
+
+		/// <summary>
+		/// Occurs when shell is started.
+		/// </summary>
+		public event EventHandler<EventArgs> Started;
+
+		/// <summary>
+		/// Occurs when shell is stopping.
+		/// </summary>
+		public event EventHandler<EventArgs> Stopping;
+
+		/// <summary>
+		/// Occurs when shell is stopped.
+		/// </summary>
+		public event EventHandler<EventArgs> Stopped;
+
+		/// <summary>
+		/// Occurs when an error occurred.
+		/// </summary>
+		public event EventHandler<ExceptionEventArgs> ErrorOccurred;
 	}
 }

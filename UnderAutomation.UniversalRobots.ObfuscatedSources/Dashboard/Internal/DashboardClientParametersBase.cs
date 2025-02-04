@@ -12,6 +12,12 @@ namespace Dashboard.Internal {
 		/// </summary>
 		public const int DEFAULT_PORT = 29999;
 
+
+		protected DashboardClientParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Dashboard client TCP port. Default : 29999
 		/// </summary>

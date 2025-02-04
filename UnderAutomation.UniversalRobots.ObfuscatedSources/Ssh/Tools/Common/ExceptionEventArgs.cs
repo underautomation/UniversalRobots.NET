@@ -10,11 +10,6 @@ namespace Ssh.Tools.Common {
 	public class ExceptionEventArgs : EventArgs {
 
 		/// <summary>
-		/// Gets the System.Exception that represents the error that occurred.
-		/// </summary>
-		public Exception Exception { get; }
-
-		/// <summary>
 		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ExceptionEventArgs" data-throw-if-not-resolved="false"></xref> class.
 		/// </summary>
 		/// <param name="exception">An System.Exception that represents the error that occurred.</param>
@@ -22,5 +17,10 @@ namespace Ssh.Tools.Common {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets the System.Exception that represents the error that occurred.
+		/// </summary>
+		public Exception Exception { get; }
 	}
 }

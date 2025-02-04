@@ -10,16 +10,6 @@ namespace Common {
 	public class GlobalVariableValue {
 
 		/// <summary>
-		/// Type of a variable
-		/// </summary>
-		public GlobalVariableTypes Type { get; }
-
-		/// <summary>
-		/// Value of the variable
-		/// </summary>
-		public object Value { get; }
-
-		/// <summary>
 		/// Returns a string that describes the variable, regardless of its type
 		/// </summary>
 		public override string ToString()
@@ -91,5 +81,21 @@ namespace Common {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		public GlobalVariableValue()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Type of a variable
+		/// </summary>
+		public GlobalVariableTypes Type { get; }
+
+		/// <summary>
+		/// Value of the variable
+		/// </summary>
+		public object Value { get; }
 	}
 }

@@ -9,9 +9,6 @@ namespace Rtde {
 	public class RtdeOutputValues : RtdeBaseValues<RtdeOutputData> {
 
 
-		protected override RtdeValue[] InternalValues { get; }
-
-
 		protected override RtdeValue InternaleGetValue(RtdeOutputData data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -24,6 +21,9 @@ namespace Rtde {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected override RtdeValue[] InternalValues => default;
 
 		/// <summary>
 		/// Time elapsed since the controller was started [s]

@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class PopupMessageEventArgs : PackageEventArgs {
 
+
+		public PopupMessageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Each popup has a unique ID
 		/// </summary>

@@ -9,16 +9,16 @@ namespace Dashboard {
 	/// </summary>
 	public class CommandResponse<T> : CommandResponse {
 
+		/// <summary>
+		/// Value return by the command
+		/// </summary>
+		public T Value;
+
 
 		public CommandResponse(CommandResponse command)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-		/// <summary>
-		/// Value return by the command
-		/// </summary>
-		public T Value;
 
 		/// <summary>
 		/// A human readable answer

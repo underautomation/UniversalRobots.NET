@@ -8,7 +8,7 @@ using System.Collections;
 
 namespace Rtde {
 
-	public class RtdeOutputSetup : RtdeSetup<RtdeOutputSetupItem, RtdeOutputData>, IList<RtdeOutputSetupItem>, ICollection<RtdeOutputSetupItem>, IEnumerable<RtdeOutputSetupItem>, IList, ICollection, IEnumerable {
+	public class RtdeOutputSetup : RtdeSetup<RtdeOutputSetupItem, RtdeOutputData>, IList<RtdeOutputSetupItem>, ICollection<RtdeOutputSetupItem>, IList, ICollection, IReadOnlyList<RtdeOutputSetupItem>, IReadOnlyCollection<RtdeOutputSetupItem>, IEnumerable<RtdeOutputSetupItem>, IEnumerable {
 
 
 		public RtdeOutputSetup()

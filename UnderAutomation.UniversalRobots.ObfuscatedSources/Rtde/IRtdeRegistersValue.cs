@@ -15,12 +15,12 @@ namespace Rtde {
 		}
 
 
-		int LowerRangeIndex { get; }
-
-
 		void SetValue(int index, object value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		int LowerRangeIndex { get; }
 	}
 }

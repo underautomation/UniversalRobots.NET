@@ -10,6 +10,12 @@ namespace Common {
 	/// </summary>
 	public class SshConnectParameters : SshParametersBase {
 
+
+		public SshConnectParameters()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Choose to enable SSH command line client
 		/// Default value is false

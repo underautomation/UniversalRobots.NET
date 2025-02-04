@@ -9,6 +9,12 @@ namespace Rtde {
 	public class RtdeBasicRequestEventArgs : PackageEventArgs {
 
 
+		public RtdeBasicRequestEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public bool Accepted { get; set; }
 	}
 }

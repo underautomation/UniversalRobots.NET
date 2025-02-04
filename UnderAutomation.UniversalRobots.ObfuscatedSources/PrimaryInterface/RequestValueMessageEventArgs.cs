@@ -11,6 +11,12 @@ namespace PrimaryInterface {
 	public class RequestValueMessageEventArgs : PackageEventArgs {
 
 
+		public RequestValueMessageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public uint RequestId { get; set; }
 
 

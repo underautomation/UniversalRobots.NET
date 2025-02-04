@@ -10,11 +10,6 @@ namespace Ssh.Tools.Common {
 	public struct ObjectIdentifier {
 
 		/// <summary>
-		/// Gets the object identifier.
-		/// </summary>
-		public ulong[] Identifiers { get; }
-
-		/// <summary>
 		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ObjectIdentifier" data-throw-if-not-resolved="false"></xref> class.
 		/// </summary>
 		/// <param name="identifiers">The identifiers.</param>
@@ -22,5 +17,10 @@ namespace Ssh.Tools.Common {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets the object identifier.
+		/// </summary>
+		public readonly ulong[] Identifiers { get; }
 	}
 }

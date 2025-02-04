@@ -7,5 +7,11 @@ using XmlRpc.Internal;
 namespace XmlRpc {
 
 	public class XmlRpcServer : XmlRpcServerBase {
+
+
+		public XmlRpcServer()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

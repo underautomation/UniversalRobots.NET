@@ -16,6 +16,12 @@ namespace Rtde {
 		}
 
 
+		public RtdeInputsDescription()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public ReadOnlyCollection<RtdeInputDataDescription> Items { get; }
 
 		/// <summary>

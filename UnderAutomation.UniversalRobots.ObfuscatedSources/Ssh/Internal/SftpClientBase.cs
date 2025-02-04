@@ -14,11 +14,6 @@ namespace Ssh.Internal {
 	/// </summary>
 	public abstract class SftpClientBase : URServiceBase {
 
-		/// <summary>
-		/// Gets a value indicating if this client is connected to the robot
-		/// </summary>
-		public bool Connected { get; }
-
 
 		protected void ConnectInternal(string ip, int port, string username, string password)
 		{
@@ -30,29 +25,6 @@ namespace Ssh.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-		/// <summary>
-		/// Gets or sets the operation timeout.
-		/// </summary>
-		/// <returns>The timeout to wait until an operation completes. The default value is negative
-		/// one (-1) milliseconds, which indicates an infinite timeout period.</returns>
-		public TimeSpan OperationTimeout { get; set; }
-
-		/// <summary>
-		/// Gets or sets the maximum size of the buffer in bytes.
-		/// </summary>
-		/// <returns>The size of the buffer. The default buffer size is 32768 bytes (32 KB).</returns>
-		public uint BufferSize { get; set; }
-
-		/// <summary>
-		/// Gets remote working directory.
-		/// </summary>
-		public string WorkingDirectory { get; }
-
-		/// <summary>
-		/// Gets sftp protocol version.
-		/// </summary>
-		public int ProtocolVersion { get; }
 
 		/// <summary>
 		/// Changes remote directory to path.
@@ -801,5 +773,39 @@ namespace Ssh.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected SftpClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Gets a value indicating if this client is connected to the robot
+		/// </summary>
+		public bool Connected { get; }
+
+		/// <summary>
+		/// Gets or sets the operation timeout.
+		/// </summary>
+		/// <returns>The timeout to wait until an operation completes. The default value is negative
+		/// one (-1) milliseconds, which indicates an infinite timeout period.</returns>
+		public TimeSpan OperationTimeout { get; set; }
+
+		/// <summary>
+		/// Gets or sets the maximum size of the buffer in bytes.
+		/// </summary>
+		/// <returns>The size of the buffer. The default buffer size is 32768 bytes (32 KB).</returns>
+		public uint BufferSize { get; set; }
+
+		/// <summary>
+		/// Gets remote working directory.
+		/// </summary>
+		public string WorkingDirectory { get; }
+
+		/// <summary>
+		/// Gets sftp protocol version.
+		/// </summary>
+		public int ProtocolVersion { get; }
 	}
 }

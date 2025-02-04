@@ -8,6 +8,17 @@ namespace Ssh.Internal {
 	public abstract class SshParametersBase {
 
 		/// <summary>
+		/// Default SSH server TCP port
+		/// </summary>
+		public const int DEFAULT_PORT = 22;
+
+
+		protected SshParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
 		/// Setup Linux Username for SSH connection 
 		/// Default value is "ur" for simulator and "root" for real robot
 		/// </summary>
@@ -18,11 +29,6 @@ namespace Ssh.Internal {
 		/// Default value is "easybot"
 		/// </summary>
 		public string Password { get; set; }
-
-		/// <summary>
-		/// Default SSH server TCP port
-		/// </summary>
-		public const int DEFAULT_PORT = 22;
 
 		/// <summary>
 		/// SSH and SFTP TCP port. Default : 22

@@ -10,6 +10,50 @@ namespace Ssh.Tools.Sftp {
 	public class SftpFile {
 
 		/// <summary>
+		/// Sets file  permissions.
+		/// </summary>
+		/// <param name="mode">The mode.</param>
+		public void SetPermissions(short mode)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Permanently deletes a file on remote machine.
+		/// </summary>
+		public void Delete()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Moves a specified file to a new location on remote machine, providing the option to specify a new file name.
+		/// </summary>
+		/// <param name="destFileName">The path to move the file to, which can specify a different file name.</param>
+		public void MoveTo(string destFileName)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Updates file status on the server.
+		/// </summary>
+		public void UpdateStatus()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Returns a <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.
+		/// </summary>
+		/// <returns>A <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.</returns>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Gets the file attributes.
 		/// </summary>
 		public SftpFileAttributes Attributes { get; }
@@ -162,49 +206,5 @@ namespace Ssh.Tools.Sftp {
 		/// </summary>
 		/// <returns><code>true</code> if others can execute this file; otherwise, <code>false</code>.</returns>
 		public bool OthersCanExecute { get; set; }
-
-		/// <summary>
-		/// Sets file  permissions.
-		/// </summary>
-		/// <param name="mode">The mode.</param>
-		public void SetPermissions(short mode)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Permanently deletes a file on remote machine.
-		/// </summary>
-		public void Delete()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Moves a specified file to a new location on remote machine, providing the option to specify a new file name.
-		/// </summary>
-		/// <param name="destFileName">The path to move the file to, which can specify a different file name.</param>
-		public void MoveTo(string destFileName)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Updates file status on the server.
-		/// </summary>
-		public void UpdateStatus()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Returns a <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.
-		/// </summary>
-		/// <returns>A <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.</returns>
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

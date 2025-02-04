@@ -12,6 +12,12 @@ namespace InterpreterMode.Internal {
 		/// </summary>
 		public const int DEFAULT_PORT = 30020;
 
+
+		protected InterpreterModeClientParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Interpreter Mode client TCP port. Default : 30020
 		/// </summary>

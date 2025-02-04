@@ -9,6 +9,11 @@ namespace Common {
 	/// </summary>
 	public class JointsValues<T> {
 
+		/// <summary>
+		/// Array of the 6 joint data
+		/// </summary>
+		public readonly T[] Values;
+
 
 		public override string ToString()
 		{
@@ -16,10 +21,11 @@ namespace Common {
 			return default;
 		}
 
-		/// <summary>
-		/// Array of the 6 joint data
-		/// </summary>
-		public readonly T[] Values;
+
+		public JointsValues()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 
 		/// <summary>
 		/// Joint 1 out of 6

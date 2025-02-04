@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class KeyMessageEventArgs : PackageEventArgs {
 
+
+		public KeyMessageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Message code
 		/// </summary>

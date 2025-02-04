@@ -13,55 +13,59 @@ namespace Rtde.Internal {
 	/// </summary>
 	public abstract class RtdeClientBase : URServiceBase {
 
+
+		protected void ConnectInternal(string ip, int port, RtdeOutputSetup outputSetup, RtdeInputSetup inputSetup, RtdeVersions preferedVersion, double frequency)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Pause data streaming without disconnecting client
+		/// </summary>
+		public void Pause()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Restart data streaming after a Pause
+		/// </summary>
+		public void Resume()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Write data to controller. Data must be those selected in connect parameters
+		/// </summary>
+		public void WriteInputs(RtdeInputValues inputValues)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Close the RTDE connection to the robot
+		/// </summary>
+		public void Disconnect()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
+		protected RtdeClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Last text received from the robot
 		/// </summary>
 		public RtdeTextMessageEventArgs LastTextMessage { get; }
 
 		/// <summary>
-		/// Event raised during connection when the robot specifies if asked protocol version is supported
-		/// </summary>
-		public event EventHandler<RtdeProtocolVersionEventArgs> ProtocolVersionReceived;
-
-		/// <summary>
-		/// Event raised when a RTDE message is received
-		/// </summary>
-		public event EventHandler<RtdeTextMessageEventArgs> TextMessageReceived;
-
-		/// <summary>
-		/// Event raised when data from the robot is comming at specified frequency
-		/// </summary>
-		public event EventHandler<RtdeDataPackageEventArgs> OutputDataReceived;
-
-		/// <summary>
-		/// Event raised during connection when the robot acknowledges output setup
-		/// </summary>
-		public event EventHandler<RtdeControlPackageSetupOutputsEventArgs> SetupOutputsReceived;
-
-		/// <summary>
-		/// Event raised during connection when the robot acknowledges input setup
-		/// </summary>
-		public event EventHandler<RtdeControlPackageSetupInputsEventArgs> SetupInputsReceived;
-
-		/// <summary>
-		/// Event raised as soon as data streaming starts
-		/// </summary>
-		public event EventHandler<RtdeBasicRequestEventArgs> StartReceived;
-
-		/// <summary>
-		/// Event raised when streaming is paused
-		/// </summary>
-		public event EventHandler<RtdeBasicRequestEventArgs> PauseReceived;
-
-		/// <summary>
 		/// Current RTDE state
 		/// </summary>
 		public RTDEStates State { get; }
-
-		/// <summary>
-		/// Generic event raised each time a RTDE package is received
-		/// </summary>
-		public event EventHandler<PackageEventArgs> PackageReceived;
 
 		/// <summary>
 		/// Gets a value indicating if RTDE client is connected to the robot
@@ -119,42 +123,44 @@ namespace Rtde.Internal {
 		/// </summary>
 		public RtdeOutputValues OutputDataValues { get; }
 
-
-		protected void ConnectInternal(string ip, int port, RtdeOutputSetup outputSetup, RtdeInputSetup inputSetup, RtdeVersions preferedVersion, double frequency)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		/// <summary>
+		/// Event raised during connection when the robot specifies if asked protocol version is supported
+		/// </summary>
+		public event EventHandler<RtdeProtocolVersionEventArgs> ProtocolVersionReceived;
 
 		/// <summary>
-		/// Pause data streaming without disconnecting client
+		/// Event raised when a RTDE message is received
 		/// </summary>
-		public void Pause()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		public event EventHandler<RtdeTextMessageEventArgs> TextMessageReceived;
 
 		/// <summary>
-		/// Restart data streaming after a Pause
+		/// Event raised when data from the robot is comming at specified frequency
 		/// </summary>
-		public void Resume()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		public event EventHandler<RtdeDataPackageEventArgs> OutputDataReceived;
 
 		/// <summary>
-		/// Write data to controller. Data must be those selected in connect parameters
+		/// Event raised during connection when the robot acknowledges output setup
 		/// </summary>
-		public void WriteInputs(RtdeInputValues inputValues)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		public event EventHandler<RtdeControlPackageSetupOutputsEventArgs> SetupOutputsReceived;
 
 		/// <summary>
-		/// Close the RTDE connection to the robot
+		/// Event raised during connection when the robot acknowledges input setup
 		/// </summary>
-		public void Disconnect()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
+		public event EventHandler<RtdeControlPackageSetupInputsEventArgs> SetupInputsReceived;
+
+		/// <summary>
+		/// Event raised as soon as data streaming starts
+		/// </summary>
+		public event EventHandler<RtdeBasicRequestEventArgs> StartReceived;
+
+		/// <summary>
+		/// Event raised when streaming is paused
+		/// </summary>
+		public event EventHandler<RtdeBasicRequestEventArgs> PauseReceived;
+
+		/// <summary>
+		/// Generic event raised each time a RTDE package is received
+		/// </summary>
+		public event EventHandler<PackageEventArgs> PackageReceived;
 	}
 }

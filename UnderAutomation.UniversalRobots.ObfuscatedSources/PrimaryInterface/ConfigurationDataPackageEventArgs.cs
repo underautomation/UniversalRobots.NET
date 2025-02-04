@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ConfigurationDataPackageEventArgs : PackageEventArgs {
 
+
+		public ConfigurationDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Default joint angular speed in rad/s
 		/// </summary>

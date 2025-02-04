@@ -27,6 +27,13 @@ namespace Rtde.Internal {
 		}
 
 
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
 		public int Index { get; set; }
 
 
@@ -43,12 +50,5 @@ namespace Rtde.Internal {
 
 
 		public string ProtocolType { get; }
-
-
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

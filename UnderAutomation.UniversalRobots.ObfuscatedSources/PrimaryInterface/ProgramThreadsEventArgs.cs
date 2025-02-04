@@ -11,6 +11,12 @@ namespace PrimaryInterface {
 	public class ProgramThreadsEventArgs : PackageEventArgs {
 
 
+		public ProgramThreadsEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public ProgramThread[] Threads { get; set; }
 	}
 }

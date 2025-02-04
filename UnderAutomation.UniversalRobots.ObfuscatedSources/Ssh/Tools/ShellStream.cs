@@ -3,49 +3,15 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using System.IO;
+using System.Text.RegularExpressions;
 using System;
 using Ssh.Tools.Common;
-using System.Text.RegularExpressions;
 
 namespace Ssh.Tools {
 	/// <summary>
 	/// Contains operation for working with SSH Shell.
 	/// </summary>
-	public class ShellStream : Stream, IDisposable {
-
-		/// <summary>
-		/// Occurs when data was received.
-		/// </summary>
-		public event EventHandler<ShellDataEventArgs> DataReceived;
-
-		/// <summary>
-		/// Occurs when an error occurred.
-		/// </summary>
-		public event EventHandler<ExceptionEventArgs> ErrorOccurred;
-
-		/// <summary>
-		/// Gets a value that indicates whether data is available on the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ShellStream" data-throw-if-not-resolved="false"></xref> to be read.
-		/// </summary>
-		/// <returns><code>true</code> if data is available to be read; otherwise, <code>false</code>.</returns>
-		public bool DataAvailable { get; }
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports reading.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports reading; otherwise, <code>false</code>.</returns>
-		public override bool CanRead { get; }
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports seeking.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports seeking; otherwise, <code>false</code>.</returns>
-		public override bool CanSeek { get; }
-
-		/// <summary>
-		/// Gets a value indicating whether the current stream supports writing.
-		/// </summary>
-		/// <returns><code>true</code> if the stream supports writing; otherwise, <code>false</code>.</returns>
-		public override bool CanWrite { get; }
+	public class ShellStream : Stream, IDisposable, IAsyncDisposable {
 
 		/// <summary>
 		/// Clears all buffers for this stream and causes any buffered data to be written to the underlying device.
@@ -54,18 +20,6 @@ namespace Ssh.Tools {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-		/// <summary>
-		/// Gets the length in bytes of the stream.
-		/// </summary>
-		/// <returns>A long value representing the length of the stream in bytes.</returns>
-		public override long Length { get; }
-
-		/// <summary>
-		/// Gets or sets the position within the current stream.
-		/// </summary>
-		/// <returns>The current position within the stream.</returns>
-		public override long Position { get; set; }
 
 		/// <summary>
 		/// Reads a sequence of bytes from the current stream and advances the position within the stream by the number of bytes read.
@@ -295,5 +249,51 @@ namespace Ssh.Tools {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets a value that indicates whether data is available on the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ShellStream" data-throw-if-not-resolved="false"></xref> to be read.
+		/// </summary>
+		/// <returns><code>true</code> if data is available to be read; otherwise, <code>false</code>.</returns>
+		public bool DataAvailable { get; }
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports reading.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports reading; otherwise, <code>false</code>.</returns>
+		public override bool CanRead => default;
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports seeking.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports seeking; otherwise, <code>false</code>.</returns>
+		public override bool CanSeek => default;
+
+		/// <summary>
+		/// Gets a value indicating whether the current stream supports writing.
+		/// </summary>
+		/// <returns><code>true</code> if the stream supports writing; otherwise, <code>false</code>.</returns>
+		public override bool CanWrite => default;
+
+		/// <summary>
+		/// Gets the length in bytes of the stream.
+		/// </summary>
+		/// <returns>A long value representing the length of the stream in bytes.</returns>
+		public override long Length => default;
+
+		/// <summary>
+		/// Gets or sets the position within the current stream.
+		/// </summary>
+		/// <returns>The current position within the stream.</returns>
+		public override long Position { get; set; }
+
+		/// <summary>
+		/// Occurs when data was received.
+		/// </summary>
+		public event EventHandler<ShellDataEventArgs> DataReceived;
+
+		/// <summary>
+		/// Occurs when an error occurred.
+		/// </summary>
+		public event EventHandler<ExceptionEventArgs> ErrorOccurred;
 	}
 }

@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class CartesianInfoPackageEventArgs : PackageEventArgs {
 
+
+		public CartesianInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// X axis coordinate in meter of the TCP in the current frame
 		/// </summary>

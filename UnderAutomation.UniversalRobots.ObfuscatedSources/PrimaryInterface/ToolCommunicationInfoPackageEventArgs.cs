@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolCommunicationInfoPackageEventArgs : PackageEventArgs {
 
+
+		public ToolCommunicationInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Is the tool communication interface enabled
 		/// </summary>

@@ -7,5 +7,11 @@ using System;
 namespace Common {
 
 	public class JointsDoubleValues : JointsValues<double> {
+
+
+		public JointsDoubleValues()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

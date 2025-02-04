@@ -7,6 +7,12 @@ namespace SocketCommunication.Internal {
 
 	public class SocketCommunicationParametersBase {
 
+
+		public SocketCommunicationParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Local port for socket server (default : 50001)
 		/// </summary>

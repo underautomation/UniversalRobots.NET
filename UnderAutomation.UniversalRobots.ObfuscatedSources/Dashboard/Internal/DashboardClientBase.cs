@@ -12,14 +12,9 @@ namespace Dashboard.Internal {
 	public abstract class DashboardClientBase : URServiceBase {
 
 		/// <summary>
-		/// IP of the robot to connect to for sending commands
+		/// Event raised when function <xref href="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Shutdown" data-throw-if-not-resolved="false"></xref> is called.
 		/// </summary>
-		public string IP { get; }
-
-		/// <summary>
-		/// Dashboard server port
-		/// </summary>
-		public int Port { get; set; }
+		public EventHandler BeforeShutdown;
 
 
 		protected void EnableInternal(string ip, int port)
@@ -34,11 +29,6 @@ namespace Dashboard.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
-
-		/// <summary>
-		/// Indicates that the dashboard client has been initialized and is ready to send commands
-		/// </summary>
-		public bool Initialized { get; }
 
 		/// <summary>
 		/// Start loading the specified program. (From FW 1.4)
@@ -99,11 +89,6 @@ namespace Dashboard.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
-
-		/// <summary>
-		/// Event raised when function <xref href="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Shutdown" data-throw-if-not-resolved="false"></xref> is called.
-		/// </summary>
-		public EventHandler BeforeShutdown;
 
 		/// <summary>
 		/// Shuts down and turns off robot and controller. Closes the connection. (From FW 1.4)
@@ -334,5 +319,26 @@ namespace Dashboard.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected DashboardClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// IP of the robot to connect to for sending commands
+		/// </summary>
+		public string IP { get; }
+
+		/// <summary>
+		/// Dashboard server port
+		/// </summary>
+		public int Port { get; set; }
+
+		/// <summary>
+		/// Indicates that the dashboard client has been initialized and is ready to send commands
+		/// </summary>
+		public bool Initialized { get; }
 	}
 }

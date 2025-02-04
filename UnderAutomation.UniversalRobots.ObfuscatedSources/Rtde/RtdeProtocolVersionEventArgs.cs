@@ -8,6 +8,12 @@ namespace Rtde {
 	public class RtdeProtocolVersionEventArgs : RtdeBasicRequestEventArgs {
 
 
+		public RtdeProtocolVersionEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public RtdeVersions Version { get; set; }
 	}
 }

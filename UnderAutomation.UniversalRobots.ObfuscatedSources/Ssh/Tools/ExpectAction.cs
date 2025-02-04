@@ -12,16 +12,6 @@ namespace Ssh.Tools {
 	public class ExpectAction {
 
 		/// <summary>
-		/// Gets the expected regular expression.
-		/// </summary>
-		public Regex Expect { get; }
-
-		/// <summary>
-		/// Gets the action to perform when expected expression is found.
-		/// </summary>
-		public Action<string> Action { get; }
-
-		/// <summary>
 		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ExpectAction" data-throw-if-not-resolved="false"></xref> class.
 		/// </summary>
 		/// <param name="expect">The expect regular expression.</param>
@@ -40,5 +30,15 @@ namespace Ssh.Tools {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets the expected regular expression.
+		/// </summary>
+		public Regex Expect { get; }
+
+		/// <summary>
+		/// Gets the action to perform when expected expression is found.
+		/// </summary>
+		public Action<string> Action { get; }
 	}
 }

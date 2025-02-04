@@ -6,5 +6,11 @@
 namespace Rtde {
 
 	public class RtdeClientParameters {
+
+
+		public RtdeClientParameters()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

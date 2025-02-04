@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace Rtde.Internal {
 
-	public abstract class RtdeSetup<T, U> : List<T>, IList<T>, ICollection<T>, IEnumerable<T>, IList, ICollection, IEnumerable where T : RtdeSetupItem<U>, new() where U : Enum {
+	public abstract class RtdeSetup<T, U> : List<T>, IList<T>, ICollection<T>, IList, ICollection, IReadOnlyList<T>, IReadOnlyCollection<T>, IEnumerable<T>, IEnumerable where T : RtdeSetupItem<U>, new() where U : Enum {
 
 
 		public T Add(U data)
@@ -49,6 +49,12 @@ namespace Rtde.Internal {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
+		}
+
+
+		protected RtdeSetup()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
 		}
 	}
 }

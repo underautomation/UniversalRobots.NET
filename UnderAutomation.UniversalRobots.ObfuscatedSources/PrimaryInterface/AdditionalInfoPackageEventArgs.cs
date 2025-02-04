@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class AdditionalInfoPackageEventArgs : PackageEventArgs {
 
+
+		public AdditionalInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// The free drive button is pressed
 		/// </summary>

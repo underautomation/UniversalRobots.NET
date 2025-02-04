@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class SafetyDataPackageEventArgs : PackageEventArgs {
 
+
+		public SafetyDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Irrelevent (Internal use only)
 		/// </summary>

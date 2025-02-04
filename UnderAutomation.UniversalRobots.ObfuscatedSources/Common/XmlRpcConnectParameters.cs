@@ -10,6 +10,12 @@ namespace Common {
 	/// </summary>
 	public class XmlRpcConnectParameters : XmlRpcParametersBase {
 
+
+		public XmlRpcConnectParameters()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Enable XML-RPC server
 		/// </summary>

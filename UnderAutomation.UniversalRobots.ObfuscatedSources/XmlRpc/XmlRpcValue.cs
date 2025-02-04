@@ -2,24 +2,14 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using System.Xml.Linq;
 using Common;
+using System.Xml.Linq;
 
 namespace XmlRpc {
 	/// <summary>
 	/// Base class of all elements transmitted by XML-RPC. La propriété Type donne le type dans lequel cette objet peut être casté pour obtenir la valeur
 	/// </summary>
 	public abstract class XmlRpcValue {
-
-		/// <summary>
-		/// Determines the class of this message
-		/// </summary>
-		public abstract XmlRpcType Type { get; }
-
-		/// <summary>
-		/// The XML description of the message that has been received from the robot or will be sent to the robot
-		/// </summary>
-		public XElement Xml { get; }
 
 
 		public static implicit operator XmlRpcValue(double value)
@@ -174,5 +164,21 @@ namespace XmlRpc {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected XmlRpcValue()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Determines the class of this message
+		/// </summary>
+		public abstract XmlRpcType Type { get; }
+
+		/// <summary>
+		/// The XML description of the message that has been received from the robot or will be sent to the robot
+		/// </summary>
+		public XElement Xml { get; }
 	}
 }

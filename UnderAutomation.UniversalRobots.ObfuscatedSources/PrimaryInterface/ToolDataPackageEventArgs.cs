@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolDataPackageEventArgs : PackageEventArgs {
 
+
+		public ToolDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Unit of analog input 2 (analog_in[2])
 		/// </summary>

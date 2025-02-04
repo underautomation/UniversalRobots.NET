@@ -25,16 +25,16 @@ namespace XmlRpc {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-		/// <summary>
-		/// Determines the class of this message
-		/// </summary>
-		public override XmlRpcType Type { get; }
-
 
 		public override string ToString()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+		/// <summary>
+		/// Determines the class of this message
+		/// </summary>
+		public override XmlRpcType Type => default;
 	}
 }

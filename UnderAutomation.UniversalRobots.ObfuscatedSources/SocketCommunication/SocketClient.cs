@@ -17,26 +17,6 @@ namespace SocketCommunication {
 		public readonly IPEndPoint EndPoint;
 
 		/// <summary>
-		/// Event raised when the robot calls socket_get_var()
-		/// </summary>
-		public event SocketCommunicationServerBase.SocketGetVarEventHandler SocketGetVar;
-
-		/// <summary>
-		/// Event raised when a message is received from robot
-		/// </summary>
-		public event SocketCommunicationServerBase.SocketRequestEventHandler SocketRequest;
-
-		/// <summary>
-		/// Event handler when the robot socket disconnects
-		/// </summary>
-		public event SocketCommunicationServerBase.SocketClientDisconnectionEventHandler SocketClientDisconnection;
-
-		/// <summary>
-		/// Indicates that robot socket is still active
-		/// </summary>
-		public bool Connected { get; }
-
-		/// <summary>
 		/// Closes socket communication to robot
 		/// </summary>
 		public void Disconnect()
@@ -52,5 +32,25 @@ namespace SocketCommunication {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Indicates that robot socket is still active
+		/// </summary>
+		public bool Connected { get; }
+
+		/// <summary>
+		/// Event raised when the robot calls socket_get_var()
+		/// </summary>
+		public event SocketCommunicationServerBase.SocketGetVarEventHandler SocketGetVar;
+
+		/// <summary>
+		/// Event raised when a message is received from robot
+		/// </summary>
+		public event SocketCommunicationServerBase.SocketRequestEventHandler SocketRequest;
+
+		/// <summary>
+		/// Event handler when the robot socket disconnects
+		/// </summary>
+		public event SocketCommunicationServerBase.SocketClientDisconnectionEventHandler SocketClientDisconnection;
 	}
 }

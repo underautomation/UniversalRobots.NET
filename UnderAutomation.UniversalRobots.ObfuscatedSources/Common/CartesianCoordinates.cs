@@ -37,6 +37,15 @@ namespace Common {
 		}
 
 		/// <summary>
+		/// String representation of cartesian value
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// X coordinate in meters or m/s
 		/// </summary>
 		public double X { get; set; }
@@ -65,14 +74,5 @@ namespace Common {
 		/// RZ rotation in radians or radians/s
 		/// </summary>
 		public double Rz { get; set; }
-
-		/// <summary>
-		/// String representation of cartesian value
-		/// </summary>
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

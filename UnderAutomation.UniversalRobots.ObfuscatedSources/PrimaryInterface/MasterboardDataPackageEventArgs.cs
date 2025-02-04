@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class MasterboardDataPackageEventArgs : PackageEventArgs {
 
+
+		public MasterboardDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Unit of analog input 0 (analog_in[0])
 		/// </summary>

@@ -11,42 +11,6 @@ namespace Ssh.Tools {
 	public class SshCommand : IDisposable {
 
 		/// <summary>
-		/// Gets the command text.
-		/// </summary>
-		public string CommandText { get; }
-
-		/// <summary>
-		/// Gets or sets the command timeout.
-		/// </summary>
-		/// <returns>The command timeout.</returns>
-		public TimeSpan CommandTimeout { get; set; }
-
-		/// <summary>
-		/// Gets the command exit status.
-		/// </summary>
-		public int ExitStatus { get; }
-
-		/// <summary>
-		/// Gets the output stream.
-		/// </summary>
-		public Stream OutputStream { get; }
-
-		/// <summary>
-		/// Gets the extended output stream.
-		/// </summary>
-		public Stream ExtendedOutputStream { get; }
-
-		/// <summary>
-		/// Gets the command execution result.
-		/// </summary>
-		public string Result { get; }
-
-		/// <summary>
-		/// Gets the command execution error.
-		/// </summary>
-		public string Error { get; }
-
-		/// <summary>
 		/// Begins an asynchronous command execution.
 		/// </summary>
 		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous command execution, which could still be pending.</returns>
@@ -148,5 +112,41 @@ namespace Ssh.Tools {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+		/// <summary>
+		/// Gets the command text.
+		/// </summary>
+		public string CommandText { get; }
+
+		/// <summary>
+		/// Gets or sets the command timeout.
+		/// </summary>
+		/// <returns>The command timeout.</returns>
+		public TimeSpan CommandTimeout { get; set; }
+
+		/// <summary>
+		/// Gets the command exit status.
+		/// </summary>
+		public int ExitStatus { get; }
+
+		/// <summary>
+		/// Gets the output stream.
+		/// </summary>
+		public Stream OutputStream { get; }
+
+		/// <summary>
+		/// Gets the extended output stream.
+		/// </summary>
+		public Stream ExtendedOutputStream { get; }
+
+		/// <summary>
+		/// Gets the command execution result.
+		/// </summary>
+		public string Result { get; }
+
+		/// <summary>
+		/// Gets the command execution error.
+		/// </summary>
+		public string Error { get; }
 	}
 }

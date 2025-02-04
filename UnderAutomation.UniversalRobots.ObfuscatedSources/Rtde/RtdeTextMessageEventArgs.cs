@@ -9,6 +9,12 @@ namespace Rtde {
 	public class RtdeTextMessageEventArgs : PackageEventArgs {
 
 
+		public RtdeTextMessageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public string Message { get; set; }
 
 

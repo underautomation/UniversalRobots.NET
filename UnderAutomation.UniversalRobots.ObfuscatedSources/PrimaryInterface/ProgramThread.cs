@@ -8,6 +8,12 @@ namespace PrimaryInterface {
 	public class ProgramThread {
 
 
+		public ProgramThread()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+
 		public int LineNumber { get; set; }
 
 

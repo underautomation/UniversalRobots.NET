@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class CalibrationDataPackageEventArgs : PackageEventArgs {
 
+
+		public CalibrationDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Fx calibration data
 		/// </summary>

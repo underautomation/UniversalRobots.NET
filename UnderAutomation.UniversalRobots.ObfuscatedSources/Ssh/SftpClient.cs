@@ -19,5 +19,11 @@ namespace Ssh {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		public SftpClient()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

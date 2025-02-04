@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ForceModeDataPackageEventArgs : PackageEventArgs {
 
+
+		public ForceModeDataPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// X force in tool frame in N
 		/// </summary>

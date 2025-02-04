@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class JointData {
 
+
+		public JointData()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Angular joint position in radian
 		/// </summary>

@@ -9,5 +9,11 @@ namespace SocketCommunication {
 	/// Represents a Socket Communication server to which the robot can connect
 	/// </summary>
 	public class SocketCommunicationServer : SocketCommunicationServerBase, ISocketHandler {
+
+
+		public SocketCommunicationServer()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
 	}
 }

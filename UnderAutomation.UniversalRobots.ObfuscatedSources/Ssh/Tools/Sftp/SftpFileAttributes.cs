@@ -12,6 +12,25 @@ namespace Ssh.Tools.Sftp {
 	public class SftpFileAttributes {
 
 		/// <summary>
+		/// Sets the permissions.
+		/// </summary>
+		/// <param name="mode">The mode.</param>
+		public void SetPermissions(short mode)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Returns a byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.
+		/// </summary>
+		/// <returns>A byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.</returns>
+		public byte[] GetBytes()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Gets or sets the local time the current file or directory was last accessed.
 		/// </summary>
 		/// <returns>The local time that the current file or directory was last accessed.</returns>
@@ -154,24 +173,5 @@ namespace Ssh.Tools.Sftp {
 		/// </summary>
 		/// <returns>The extensions.</returns>
 		public IDictionary<string, string> Extensions { get; }
-
-		/// <summary>
-		/// Sets the permissions.
-		/// </summary>
-		/// <param name="mode">The mode.</param>
-		public void SetPermissions(short mode)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
-
-		/// <summary>
-		/// Returns a byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.
-		/// </summary>
-		/// <returns>A byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.</returns>
-		public byte[] GetBytes()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

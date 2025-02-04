@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class KinematicsInfoPackageEventArgs : PackageEventArgs {
 
+
+		public KinematicsInfoPackageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Calibration status (0 : OK)
 		/// </summary>

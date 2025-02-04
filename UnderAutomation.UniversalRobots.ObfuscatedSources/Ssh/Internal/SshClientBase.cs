@@ -16,11 +16,6 @@ namespace Ssh.Internal {
 	/// </summary>
 	public abstract class SshClientBase : URServiceBase {
 
-		/// <summary>
-		/// Gets a value indicating if this client is connected to the robot
-		/// </summary>
-		public bool Connected { get; }
-
 
 		protected void ConnectInternal(string ip, int port, string username, string password)
 		{
@@ -208,5 +203,16 @@ namespace Ssh.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		protected SshClientBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
+		/// Gets a value indicating if this client is connected to the robot
+		/// </summary>
+		public bool Connected { get; }
 	}
 }

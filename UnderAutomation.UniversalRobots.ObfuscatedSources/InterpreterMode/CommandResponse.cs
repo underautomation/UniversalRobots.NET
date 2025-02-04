@@ -9,6 +9,13 @@ namespace InterpreterMode {
 	/// </summary>
 	public class CommandResponse {
 
+
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 		/// <summary>
 		/// Response type to check if command succeed
 		/// </summary>
@@ -33,12 +40,5 @@ namespace InterpreterMode {
 		/// Command sent to the interpreter mode
 		/// </summary>
 		public string Command { get; }
-
-
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

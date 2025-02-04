@@ -12,11 +12,6 @@ namespace PrimaryInterface {
 	public class GlobalVariables {
 
 		/// <summary>
-		/// Indicates which decoder is used used to read variables according to firmware version
-		/// </summary>
-		public GlobalVariablesFirmwareVersion FirmwareVersion { get; }
-
-		/// <summary>
 		/// Returns a list of all variables declared in the robot
 		/// </summary>
 		public GlobalVariable[] GetAll()
@@ -36,6 +31,20 @@ namespace PrimaryInterface {
 		}
 
 		/// <summary>
+		/// Return a string where each line contains type, name and variable value
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Indicates which decoder is used used to read variables according to firmware version
+		/// </summary>
+		public GlobalVariablesFirmwareVersion FirmwareVersion { get; }
+
+		/// <summary>
 		/// Event raised at 10Hz when variable values are updated
 		/// </summary>
 		public event EventHandler<GlobalVariablesEventArgs> ValuesUpdated;
@@ -44,14 +53,5 @@ namespace PrimaryInterface {
 		/// Event raised whan the variable list changed. For example, after a program starts
 		/// </summary>
 		public event EventHandler<GlobalVariablesEventArgs> ListUpdated;
-
-		/// <summary>
-		/// Return a string where each line contains type, name and variable value
-		/// </summary>
-		public override string ToString()
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-			return default;
-		}
 	}
 }

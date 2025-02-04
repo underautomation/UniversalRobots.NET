@@ -10,6 +10,12 @@ namespace PrimaryInterface.Internal {
 	/// </summary>
 	public abstract class PrimaryInterfaceParametersBase {
 
+
+		protected PrimaryInterfaceParametersBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Interface on which to connect
 		/// </summary>

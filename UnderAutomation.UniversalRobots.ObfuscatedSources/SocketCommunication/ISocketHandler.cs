@@ -11,6 +11,15 @@ namespace SocketCommunication {
 	public interface ISocketHandler {
 
 		/// <summary>
+		/// Write a socket message to the robot. The robot should be connected with socket_open()
+		/// </summary>
+		/// <param name="message">Message to send to the robot</param>
+		void SocketWrite(string message)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
+		/// <summary>
 		/// Event raised when the robot calls socket_get_var()
 		/// </summary>
 		event SocketCommunicationServerBase.SocketGetVarEventHandler SocketGetVar;
@@ -24,14 +33,5 @@ namespace SocketCommunication {
 		/// Event raised when the robot socket disconnects
 		/// </summary>
 		event SocketCommunicationServerBase.SocketClientDisconnectionEventHandler SocketClientDisconnection;
-
-		/// <summary>
-		/// Write a socket message to the robot. The robot should be connected with socket_open()
-		/// </summary>
-		/// <param name="message">Message to send to the robot</param>
-		void SocketWrite(string message)
-		{
-			// Source is hidden, a Source licence is needed to access internal code...
-		}
 	}
 }

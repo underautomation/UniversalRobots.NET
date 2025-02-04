@@ -11,28 +11,6 @@ namespace Files {
 	/// </summary>
 	public abstract class URArchive {
 
-		/// <summary>
-		/// XML description of the object
-		/// </summary>
-		public XElement XML { get; }
-
-
-		protected abstract string NameAttribute { get; }
-
-
-		protected abstract string RootElement { get; }
-
-
-		protected abstract string Extension { get; }
-
-
-		public string Name { get; set; }
-
-		/// <summary>
-		/// File name that should be used on a UR robot
-		/// </summary>
-		public string FileName { get; }
-
 
 		protected URArchive(XElement xml)
 		{
@@ -75,5 +53,27 @@ namespace Files {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+		/// <summary>
+		/// XML description of the object
+		/// </summary>
+		public XElement XML { get; }
+
+
+		protected abstract string NameAttribute { get; }
+
+
+		protected abstract string RootElement { get; }
+
+
+		protected abstract string Extension { get; }
+
+
+		public string Name { get; set; }
+
+		/// <summary>
+		/// File name that should be used on a UR robot
+		/// </summary>
+		public string FileName { get; }
 	}
 }

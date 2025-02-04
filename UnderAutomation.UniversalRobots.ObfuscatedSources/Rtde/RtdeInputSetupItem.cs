@@ -27,6 +27,6 @@ namespace Rtde {
 		}
 
 
-		public override RtdeDataDescription<RtdeInputData> Description { get; }
+		public override RtdeDataDescription<RtdeInputData> Description => default;
 	}
 }

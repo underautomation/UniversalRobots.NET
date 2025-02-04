@@ -15,9 +15,6 @@ namespace Rtde {
 		}
 
 
-		protected override RtdeValue[] InternalValues { get; }
-
-
 		protected override RtdeValue InternaleGetValue(RtdeInputData data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -54,6 +51,9 @@ namespace Rtde {
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
+
+
+		protected override RtdeValue[] InternalValues => default;
 
 		/// <summary>
 		/// 0 = don't change speed slider with this input, 1 = use speed_slider_fraction to set speed slider value

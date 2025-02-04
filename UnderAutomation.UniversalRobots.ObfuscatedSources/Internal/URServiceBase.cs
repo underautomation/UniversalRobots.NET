@@ -17,6 +17,12 @@ namespace Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
+
+		protected URServiceBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Event raised when an error occured
 		/// </summary>

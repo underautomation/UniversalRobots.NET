@@ -10,6 +10,12 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class TextMessageEventArgs : PackageEventArgs {
 
+
+		public TextMessageEventArgs()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Log message sent with URScript instruction textmsg()
 		/// </summary>

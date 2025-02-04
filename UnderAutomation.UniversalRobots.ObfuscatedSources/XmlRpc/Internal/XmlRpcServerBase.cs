@@ -33,6 +33,12 @@ namespace XmlRpc.Internal {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
+
+		protected XmlRpcServerBase()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Is the XML-RPC server enabled
 		/// </summary>

@@ -14,9 +14,6 @@ namespace Rtde {
 		}
 
 
-		public abstract int LowerRangeIndex { get; }
-
-
 		public void SetValue(int index, T value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -28,5 +25,8 @@ namespace Rtde {
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
+
+
+		public abstract int LowerRangeIndex { get; }
 	}
 }
