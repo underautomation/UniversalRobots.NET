@@ -45,4 +45,5 @@ jobs:
             **/publish/**/UnderAutomation.UniversalRobots.Showcase.*.exe
             **/UnderAutomation.UniversalRobots.Showcase.Console.linux-*
             **/UnderAutomation.UniversalRobots.Showcase.Console.osx-*
+          bodyFile: "whatsNew.md"
           token: ${{ secrets.GITHUB_TOKEN }}
