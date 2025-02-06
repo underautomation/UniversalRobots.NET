@@ -17,12 +17,9 @@ The **Universal Robots SDK** enables seamless integration with Universal Robots 
 
 ---
 
-<p align="center">
- <a href="https://github.com/underautomation/UniversalRobots.NET/stargazers"><b>⭐ Star if you like it !</b></a>
-</p>
-<p align="center">
- <a href="https://github.com/underautomation/UniversalRobots.NET/watchers"><b>👁️ Watch to be notified of latest updates !</b></a>
-</p>
+[⭐ Star if you like it !](https://github.com/underautomation/UniversalRobots.NET/stargazers)
+
+[👁️ Watch to be notified of latest updates !](https://github.com/underautomation/UniversalRobots.NET/watchers)
 
 ---
 
@@ -35,7 +32,7 @@ The **Universal Robots SDK** enables seamless integration with Universal Robots 
 ✔️ **Multi-Platform** – Works on Windows, Linux, and macOS  
 ✔️ **Commercial License** – Deploy with no royalties
 
-📹 **Watch Introduction Video :**
+📹 **Watch Introduction Video**
 
 https://user-images.githubusercontent.com/47540360/143318635-6d6aaaf4-5642-457a-8ff1-4322f2defe82.mp4
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -139,7 +140,16 @@ I have this exception that prevents me from using the full capabilities of the S
     // Open browser to documentation page
     private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-        System.Diagnostics.Process.Start("https://underautomation.com/universal-robots/documentation?f");
+        try
+        {
+            var ps = new ProcessStartInfo("https://underautomation.com/universal-robots")
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(ps);
+        }
+        catch { }
     }
     #endregion
 
