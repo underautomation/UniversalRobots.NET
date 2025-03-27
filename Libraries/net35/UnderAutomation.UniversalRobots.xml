@@ -210,6 +210,16 @@
             UR16 controller box
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.ControllerBoxTypes.UR20">
+            <summary>
+            UR20 controller box
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.ControllerBoxTypes.UR30">
+            <summary>
+            UR30 controller box
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.RobotSubTypes">
             <summary>
             Robot sub type (e-Serie or CB-Serie)

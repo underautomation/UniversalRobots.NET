@@ -10,15 +10,21 @@ namespace Common {
 	public enum RobotModels {
 
 
-		UR3 = 3,
-
-
 		UR5 = 1,
 
 
 		UR10 = 2,
 
 
+		UR3 = 3,
+
+
 		UR16 = 4,
+
+
+		UR20 = 5,
+
+
+		UR30 = 6,
 	}
 }

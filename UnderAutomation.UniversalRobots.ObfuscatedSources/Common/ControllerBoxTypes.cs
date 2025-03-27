@@ -28,5 +28,15 @@ namespace Common {
 		/// UR16 controller box
 		/// </summary>
 		UR16 = 16,
+
+		/// <summary>
+		/// UR20 controller box
+		/// </summary>
+		UR20 = 20,
+
+		/// <summary>
+		/// UR30 controller box
+		/// </summary>
+		UR30 = 30,
 	}
 }
