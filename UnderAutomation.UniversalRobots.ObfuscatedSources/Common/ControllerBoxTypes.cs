@@ -32,11 +32,11 @@ namespace Common {
 		/// <summary>
 		/// UR20 controller box
 		/// </summary>
-		UR20 = 20,
+		UR20 = 10,
 
 		/// <summary>
 		/// UR30 controller box
 		/// </summary>
-		UR30 = 30,
+		UR30 = 11,
 	}
 }

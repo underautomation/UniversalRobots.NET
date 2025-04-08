@@ -22,9 +22,9 @@ namespace Common {
 		UR16 = 4,
 
 
-		UR20 = 5,
+		UR20 = 7,
 
 
-		UR30 = 6,
+		UR30 = 8,
 	}
 }
