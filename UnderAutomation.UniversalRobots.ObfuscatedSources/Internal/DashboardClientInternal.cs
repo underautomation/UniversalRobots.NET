@@ -11,7 +11,7 @@ namespace Internal {
 		/// <summary>
 		/// Enable Dashboard client connection
 		/// </summary>
-		public void Enable(int port = 29999)
+		public void Enable(int port = 29999, int receiveTimeoutMs = 2000, int sendTimeoutMs = 500)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}

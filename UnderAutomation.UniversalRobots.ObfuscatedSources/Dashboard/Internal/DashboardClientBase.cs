@@ -16,8 +16,10 @@ namespace Dashboard.Internal {
 		/// </summary>
 		public EventHandler BeforeShutdown;
 
-
-		protected void EnableInternal(string ip, int port)
+		/// <summary>
+		/// Enable dashboard client
+		/// </summary>
+		protected void EnableInternal(string ip, int port, int receiveTimeoutMs, int sendTimeoutMs)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
@@ -334,7 +336,17 @@ namespace Dashboard.Internal {
 		/// <summary>
 		/// Dashboard server port
 		/// </summary>
-		public int Port { get; set; }
+		public int Port { get; }
+
+		/// <summary>
+		/// Receive timeout in milliseconds
+		/// </summary>
+		public int ReceiveTimeoutMs { get; }
+
+		/// <summary>
+		/// Send timeout in milliseconds
+		/// </summary>
+		public int SendTimeoutMs { get; }
 
 		/// <summary>
 		/// Indicates that the dashboard client has been initialized and is ready to send commands

@@ -768,12 +768,14 @@
             A human readable answer
             </summary>
         </member>
-        <member name="M:UnderAutomation.UniversalRobots.Dashboard.DashboardClient.Enable(System.String,System.Int32)">
+        <member name="M:UnderAutomation.UniversalRobots.Dashboard.DashboardClient.Enable(System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Specifies the IP address of the robot. No TCP connection is maintained. A new connection is created when sending each command.
             </summary>
             <param name="ip">IP of the robot</param>
             <param name="port">Robot dashboard server port. Default : 29999</param>
+            <param name="receiveTimeoutMs">Receive timeout in milliseconds. Default : 2000 ms</param>
+            <param name="sendTimeoutMs">Send timeout in milliseconds. Default : 500 ms</param>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Dashboard.OperationalModes">
             <summary>
@@ -853,6 +855,21 @@
         <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Port">
             <summary>
             Dashboard server port
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.ReceiveTimeoutMs">
+            <summary>
+            Receive timeout in milliseconds
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.SendTimeoutMs">
+            <summary>
+            Send timeout in milliseconds
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.EnableInternal(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Enable dashboard client
             </summary>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Disable">
@@ -1046,9 +1063,29 @@
             Default Dashboard server TCP port
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase.DEFAULT_RECEIVE_TIMEOUT_MS">
+            <summary>
+            Default receive timeout in milliseconds
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase.DEFAULT_SEND_TIMEOUT_MS">
+            <summary>
+            Default send timeout in milliseconds
+            </summary>
+        </member>
         <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase.Port">
             <summary>
             Dashboard client TCP port. Default : 29999
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase.ReceiveTimeoutMs">
+            <summary>
+            Receive timeout in milliseconds. Default : 2000 ms
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase.SendTimeoutMs">
+            <summary>
+            Send timeout in milliseconds. Default : 500 ms
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Dashboard.PolyscopeVersion">
@@ -2982,7 +3019,7 @@
             <param name="unixtime">The Unix time stamp you want to convert to DateTime.</param>
             <returns>Returns a DateTime object that represents value of the Unix time.</returns>
         </member>
-        <member name="M:UnderAutomation.UniversalRobots.Internal.DashboardClientInternal.Enable(System.Int32)">
+        <member name="M:UnderAutomation.UniversalRobots.Internal.DashboardClientInternal.Enable(System.Int32,System.Int32,System.Int32)">
             <summary>
             Enable Dashboard client connection
             </summary>

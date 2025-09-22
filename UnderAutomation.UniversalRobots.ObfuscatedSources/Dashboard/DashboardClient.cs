@@ -13,7 +13,9 @@ namespace Dashboard {
 		/// </summary>
 		/// <param name="ip">IP of the robot</param>
 		/// <param name="port">Robot dashboard server port. Default : 29999</param>
-		public void Enable(string ip, int port = 29999)
+		/// <param name="receiveTimeoutMs">Receive timeout in milliseconds. Default : 2000 ms</param>
+		/// <param name="sendTimeoutMs">Send timeout in milliseconds. Default : 500 ms</param>
+		public void Enable(string ip, int port = 29999, int receiveTimeoutMs = 2000, int sendTimeoutMs = 500)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
