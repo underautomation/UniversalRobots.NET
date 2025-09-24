@@ -80,7 +80,7 @@ public partial class MainForm : Form
             return;
         }
 
-       if( MessageBox.Show($"{e?.Message}\r\n\r\nWould you like to report this error?", "An error occurred", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
+        if (MessageBox.Show($"{e?.Message}\r\n\r\nWould you like to report this error?", "An error occurred", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Error) == DialogResult.Yes)
         {
             SelectNode<ContactControl>()?.SetMessage($@"Hi,
 
@@ -99,7 +99,7 @@ I have this exception that prevents me from using the full capabilities of the S
 
     internal T SelectNode<T>() where T : class, IUserControl
     {
-        var node = Instance.leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is T);
+        var node = leftTreeView.Nodes.OfType<TreeNode>().FirstOrDefault(n => n.Tag is T);
         var control = node.Tag as T;
         SelectNode(node);
         return control;
@@ -126,6 +126,8 @@ I have this exception that prevents me from using the full capabilities of the S
             return;
         }
 
+        lnkSource.Text = $"View C# page source\n{control.GetType().Name}.cs";
+
         panelTitle.Text = (node.Tag as IUserControl)?.Title;
 
         mainPanel.Controls.Add(control);
@@ -138,12 +140,11 @@ I have this exception that prevents me from using the full capabilities of the S
         mainPanel.Controls.OfType<IUserControl>().FirstOrDefault()?.PeriodicUpdate();
     }
 
-    // Open browser to documentation page
-    private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    private void OpenUrl(string url)
     {
         try
         {
-            var ps = new ProcessStartInfo("https://underautomation.com/universal-robots")
+            var ps = new ProcessStartInfo(url)
             {
                 UseShellExecute = true,
                 Verb = "open"
@@ -151,6 +152,12 @@ I have this exception that prevents me from using the full capabilities of the S
             Process.Start(ps);
         }
         catch { }
+    }
+
+    // Open browser to documentation page
+    private void lblLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        OpenUrl((sender as LinkLabel)?.Text);
     }
     #endregion
 
@@ -258,4 +265,10 @@ I have this exception that prevents me from using the full capabilities of the S
         tmrError.Enabled = true;
     }
     #endregion
+
+    private void lnkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        var name = mainPanel.Controls.OfType<IUserControl>().FirstOrDefault().GetType().Name;
+        OpenUrl($"https://github.com/underautomation/UniversalRobots.NET/blob/main/UnderAutomation.UniversalRobots.Showcase.Forms/Components/{name}.cs");
+    }
 }

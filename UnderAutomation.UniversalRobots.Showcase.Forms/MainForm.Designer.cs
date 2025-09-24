@@ -27,235 +27,298 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.horizontalSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblLink = new System.Windows.Forms.LinkLabel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.titlePictureBox = new System.Windows.Forms.PictureBox();
-            this.verticalSplitContainer = new System.Windows.Forms.SplitContainer();
-            this.leftTreeView = new System.Windows.Forms.TreeView();
-            this.imgLst = new System.Windows.Forms.ImageList(this.components);
-            this.mainPanel = new System.Windows.Forms.Panel();
-            this.panelTitle = new System.Windows.Forms.Label();
-            this.tmrPeriodicUpdate = new System.Windows.Forms.Timer(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblErrors = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tmrError = new System.Windows.Forms.Timer(this.components);
-            this.horizontalSplitContainer.Panel1.SuspendLayout();
-            this.horizontalSplitContainer.Panel2.SuspendLayout();
-            this.horizontalSplitContainer.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.titlePictureBox)).BeginInit();
-            this.verticalSplitContainer.Panel1.SuspendLayout();
-            this.verticalSplitContainer.Panel2.SuspendLayout();
-            this.verticalSplitContainer.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // horizontalSplitContainer
-            // 
-            this.horizontalSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.horizontalSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.horizontalSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.horizontalSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.horizontalSplitContainer.Name = "horizontalSplitContainer";
-            this.horizontalSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // horizontalSplitContainer.Panel1
-            // 
-            this.horizontalSplitContainer.Panel1.Controls.Add(this.panel1);
-            this.horizontalSplitContainer.Panel1.Controls.Add(this.lblTitle);
-            this.horizontalSplitContainer.Panel1.Controls.Add(this.titlePictureBox);
-            // 
-            // horizontalSplitContainer.Panel2
-            // 
-            this.horizontalSplitContainer.Panel2.Controls.Add(this.verticalSplitContainer);
-            this.horizontalSplitContainer.Size = new System.Drawing.Size(984, 779);
-            this.horizontalSplitContainer.SplitterDistance = 79;
-            this.horizontalSplitContainer.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblLink);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(597, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(385, 77);
-            this.panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(385, 57);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Universal Robots Communication SDK Library demo software";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblLink
-            // 
-            this.lblLink.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblLink.Location = new System.Drawing.Point(0, 57);
-            this.lblLink.Name = "lblLink";
-            this.lblLink.Size = new System.Drawing.Size(385, 20);
-            this.lblLink.TabIndex = 2;
-            this.lblLink.TabStop = true;
-            this.lblLink.Text = "https://underautomation.com/universal-robots/documentation";
-            this.lblLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblLink_LinkClicked);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(113, 0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(254, 77);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "UnderAutomation";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // titlePictureBox
-            // 
-            this.titlePictureBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.titlePictureBox.Image = global::UnderAutomation.UniversalRobots.Showcase.Forms.Properties.Resources.UnderAutomation132;
-            this.titlePictureBox.Location = new System.Drawing.Point(0, 0);
-            this.titlePictureBox.Name = "titlePictureBox";
-            this.titlePictureBox.Size = new System.Drawing.Size(113, 77);
-            this.titlePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.titlePictureBox.TabIndex = 0;
-            this.titlePictureBox.TabStop = false;
-            this.titlePictureBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.titlePictureBox_MouseDoubleClick);
-            // 
-            // verticalSplitContainer
-            // 
-            this.verticalSplitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.verticalSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.verticalSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.verticalSplitContainer.Location = new System.Drawing.Point(0, 0);
-            this.verticalSplitContainer.Name = "verticalSplitContainer";
-            // 
-            // verticalSplitContainer.Panel1
-            // 
-            this.verticalSplitContainer.Panel1.Controls.Add(this.leftTreeView);
-            // 
-            // verticalSplitContainer.Panel2
-            // 
-            this.verticalSplitContainer.Panel2.Controls.Add(this.mainPanel);
-            this.verticalSplitContainer.Panel2.Controls.Add(this.panelTitle);
-            this.verticalSplitContainer.Size = new System.Drawing.Size(984, 696);
-            this.verticalSplitContainer.SplitterDistance = 281;
-            this.verticalSplitContainer.TabIndex = 0;
-            // 
-            // leftTreeView
-            // 
-            this.leftTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftTreeView.HideSelection = false;
-            this.leftTreeView.ImageIndex = 0;
-            this.leftTreeView.ImageList = this.imgLst;
-            this.leftTreeView.Location = new System.Drawing.Point(0, 0);
-            this.leftTreeView.Name = "leftTreeView";
-            this.leftTreeView.SelectedImageIndex = 0;
-            this.leftTreeView.Size = new System.Drawing.Size(279, 694);
-            this.leftTreeView.TabIndex = 0;
-            this.leftTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.leftTreeView_NodeMouseClick);
-            // 
-            // imgLst
-            // 
-            this.imgLst.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgLst.ImageStream")));
-            this.imgLst.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgLst.Images.SetKeyName(0, "OFF");
-            this.imgLst.Images.SetKeyName(1, "ON");
-            // 
-            // mainPanel
-            // 
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 31);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(697, 663);
-            this.mainPanel.TabIndex = 1;
-            // 
-            // panelTitle
-            // 
-            this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTitle.Location = new System.Drawing.Point(0, 0);
-            this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(697, 31);
-            this.panelTitle.TabIndex = 0;
-            this.panelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tmrPeriodicUpdate
-            // 
-            this.tmrPeriodicUpdate.Enabled = true;
-            this.tmrPeriodicUpdate.Interval = 200;
-            this.tmrPeriodicUpdate.Tick += new System.EventHandler(this.tmrPeriodicUpdate_Tick);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatus,
-            this.lblErrors});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 779);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(984, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(79, 17);
-            this.lblStatus.Text = "Disconnected";
-            // 
-            // lblErrors
-            // 
-            this.lblErrors.ActiveLinkColor = System.Drawing.Color.DarkRed;
-            this.lblErrors.IsLink = true;
-            this.lblErrors.LinkColor = System.Drawing.Color.Red;
-            this.lblErrors.Name = "lblErrors";
-            this.lblErrors.Size = new System.Drawing.Size(16, 17);
-            this.lblErrors.Text = "...";
-            this.lblErrors.Visible = false;
-            this.lblErrors.VisitedLinkColor = System.Drawing.Color.Red;
-            this.lblErrors.Click += new System.EventHandler(this.lblErrors_Click);
-            // 
-            // tmrError
-            // 
-            this.tmrError.Interval = 10000;
-            this.tmrError.Tick += new System.EventHandler(this.tmrError_Tick);
-            // 
-            // MainForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(984, 801);
-            this.Controls.Add(this.horizontalSplitContainer);
-            this.Controls.Add(this.statusStrip1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainForm";
-            this.Text = "UnderAutomation - Universal Robots communication SDK";
-            this.horizontalSplitContainer.Panel1.ResumeLayout(false);
-            this.horizontalSplitContainer.Panel2.ResumeLayout(false);
-            this.horizontalSplitContainer.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.titlePictureBox)).EndInit();
-            this.verticalSplitContainer.Panel1.ResumeLayout(false);
-            this.verticalSplitContainer.Panel2.ResumeLayout(false);
-            this.verticalSplitContainer.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+        components = new System.ComponentModel.Container();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+        horizontalSplitContainer = new SplitContainer();
+        panel1 = new Panel();
+        label1 = new Label();
+        lblLinkGithub = new LinkLabel();
+        lblLinkDocumentation = new LinkLabel();
+        lblTitle = new Label();
+        titlePictureBox = new PictureBox();
+        verticalSplitContainer = new SplitContainer();
+        leftTreeView = new TreeView();
+        imgLst = new ImageList(components);
+        mainPanel = new Panel();
+        panel2 = new Panel();
+        panelTitle = new Label();
+        lnkSource = new LinkLabel();
+        tmrPeriodicUpdate = new System.Windows.Forms.Timer(components);
+        statusStrip1 = new StatusStrip();
+        lblStatus = new ToolStripStatusLabel();
+        lblErrors = new ToolStripStatusLabel();
+        tmrError = new System.Windows.Forms.Timer(components);
+        ((System.ComponentModel.ISupportInitialize)horizontalSplitContainer).BeginInit();
+        horizontalSplitContainer.Panel1.SuspendLayout();
+        horizontalSplitContainer.Panel2.SuspendLayout();
+        horizontalSplitContainer.SuspendLayout();
+        panel1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize)titlePictureBox).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)verticalSplitContainer).BeginInit();
+        verticalSplitContainer.Panel1.SuspendLayout();
+        verticalSplitContainer.Panel2.SuspendLayout();
+        verticalSplitContainer.SuspendLayout();
+        panel2.SuspendLayout();
+        statusStrip1.SuspendLayout();
+        SuspendLayout();
+        // 
+        // horizontalSplitContainer
+        // 
+        horizontalSplitContainer.BorderStyle = BorderStyle.FixedSingle;
+        horizontalSplitContainer.Dock = DockStyle.Fill;
+        horizontalSplitContainer.FixedPanel = FixedPanel.Panel1;
+        horizontalSplitContainer.Location = new Point(0, 0);
+        horizontalSplitContainer.Margin = new Padding(4, 3, 4, 3);
+        horizontalSplitContainer.Name = "horizontalSplitContainer";
+        horizontalSplitContainer.Orientation = Orientation.Horizontal;
+        // 
+        // horizontalSplitContainer.Panel1
+        // 
+        horizontalSplitContainer.Panel1.Controls.Add(panel1);
+        horizontalSplitContainer.Panel1.Controls.Add(lblTitle);
+        horizontalSplitContainer.Panel1.Controls.Add(titlePictureBox);
+        // 
+        // horizontalSplitContainer.Panel2
+        // 
+        horizontalSplitContainer.Panel2.Controls.Add(verticalSplitContainer);
+        horizontalSplitContainer.Size = new Size(1148, 902);
+        horizontalSplitContainer.SplitterDistance = 91;
+        horizontalSplitContainer.SplitterWidth = 5;
+        horizontalSplitContainer.TabIndex = 0;
+        // 
+        // panel1
+        // 
+        panel1.Controls.Add(label1);
+        panel1.Controls.Add(lblLinkGithub);
+        panel1.Controls.Add(lblLinkDocumentation);
+        panel1.Dock = DockStyle.Right;
+        panel1.Location = new Point(697, 0);
+        panel1.Margin = new Padding(4, 3, 4, 3);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(449, 89);
+        panel1.TabIndex = 3;
+        // 
+        // label1
+        // 
+        label1.Dock = DockStyle.Fill;
+        label1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+        label1.Location = new Point(0, 0);
+        label1.Margin = new Padding(4, 0, 4, 0);
+        label1.Name = "label1";
+        label1.Size = new Size(449, 43);
+        label1.TabIndex = 3;
+        label1.Text = "Universal Robots Communication SDK Library demo software";
+        label1.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // lblLinkGithub
+        // 
+        lblLinkGithub.Cursor = Cursors.Hand;
+        lblLinkGithub.Dock = DockStyle.Bottom;
+        lblLinkGithub.ImageAlign = ContentAlignment.TopCenter;
+        lblLinkGithub.Location = new Point(0, 43);
+        lblLinkGithub.Margin = new Padding(4, 0, 4, 0);
+        lblLinkGithub.Name = "lblLinkGithub";
+        lblLinkGithub.Size = new Size(449, 23);
+        lblLinkGithub.TabIndex = 4;
+        lblLinkGithub.TabStop = true;
+        lblLinkGithub.Text = "https://github.com/underautomation/UniversalRobots.NET";
+        lblLinkGithub.TextAlign = ContentAlignment.MiddleLeft;
+        lblLinkGithub.LinkClicked += lblLink_LinkClicked;
+        // 
+        // lblLinkDocumentation
+        // 
+        lblLinkDocumentation.Cursor = Cursors.Hand;
+        lblLinkDocumentation.Dock = DockStyle.Bottom;
+        lblLinkDocumentation.ImageAlign = ContentAlignment.TopCenter;
+        lblLinkDocumentation.Location = new Point(0, 66);
+        lblLinkDocumentation.Margin = new Padding(4, 0, 4, 0);
+        lblLinkDocumentation.Name = "lblLinkDocumentation";
+        lblLinkDocumentation.Size = new Size(449, 23);
+        lblLinkDocumentation.TabIndex = 2;
+        lblLinkDocumentation.TabStop = true;
+        lblLinkDocumentation.Text = "https://underautomation.com/universal-robots/documentation";
+        lblLinkDocumentation.TextAlign = ContentAlignment.MiddleLeft;
+        lblLinkDocumentation.LinkClicked += lblLink_LinkClicked;
+        // 
+        // lblTitle
+        // 
+        lblTitle.Dock = DockStyle.Left;
+        lblTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        lblTitle.Location = new Point(132, 0);
+        lblTitle.Margin = new Padding(4, 0, 4, 0);
+        lblTitle.Name = "lblTitle";
+        lblTitle.Size = new Size(296, 89);
+        lblTitle.TabIndex = 1;
+        lblTitle.Text = "UnderAutomation";
+        lblTitle.TextAlign = ContentAlignment.MiddleLeft;
+        // 
+        // titlePictureBox
+        // 
+        titlePictureBox.Dock = DockStyle.Left;
+        titlePictureBox.Image = UnderAutomation.UniversalRobots.Showcase.Forms.Properties.Resources.UnderAutomation132;
+        titlePictureBox.Location = new Point(0, 0);
+        titlePictureBox.Margin = new Padding(4, 3, 4, 3);
+        titlePictureBox.Name = "titlePictureBox";
+        titlePictureBox.Size = new Size(132, 89);
+        titlePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+        titlePictureBox.TabIndex = 0;
+        titlePictureBox.TabStop = false;
+        titlePictureBox.MouseDoubleClick += titlePictureBox_MouseDoubleClick;
+        // 
+        // verticalSplitContainer
+        // 
+        verticalSplitContainer.BorderStyle = BorderStyle.FixedSingle;
+        verticalSplitContainer.Dock = DockStyle.Fill;
+        verticalSplitContainer.FixedPanel = FixedPanel.Panel1;
+        verticalSplitContainer.Location = new Point(0, 0);
+        verticalSplitContainer.Margin = new Padding(4, 3, 4, 3);
+        verticalSplitContainer.Name = "verticalSplitContainer";
+        // 
+        // verticalSplitContainer.Panel1
+        // 
+        verticalSplitContainer.Panel1.Controls.Add(leftTreeView);
+        // 
+        // verticalSplitContainer.Panel2
+        // 
+        verticalSplitContainer.Panel2.Controls.Add(mainPanel);
+        verticalSplitContainer.Panel2.Controls.Add(panel2);
+        verticalSplitContainer.Size = new Size(1148, 806);
+        verticalSplitContainer.SplitterDistance = 328;
+        verticalSplitContainer.SplitterWidth = 5;
+        verticalSplitContainer.TabIndex = 0;
+        // 
+        // leftTreeView
+        // 
+        leftTreeView.Dock = DockStyle.Fill;
+        leftTreeView.HideSelection = false;
+        leftTreeView.ImageIndex = 0;
+        leftTreeView.ImageList = imgLst;
+        leftTreeView.Location = new Point(0, 0);
+        leftTreeView.Margin = new Padding(4, 3, 4, 3);
+        leftTreeView.Name = "leftTreeView";
+        leftTreeView.SelectedImageIndex = 0;
+        leftTreeView.Size = new Size(326, 804);
+        leftTreeView.TabIndex = 0;
+        leftTreeView.NodeMouseClick += leftTreeView_NodeMouseClick;
+        // 
+        // imgLst
+        // 
+        imgLst.ColorDepth = ColorDepth.Depth8Bit;
+        imgLst.ImageStream = (ImageListStreamer)resources.GetObject("imgLst.ImageStream");
+        imgLst.TransparentColor = Color.Transparent;
+        imgLst.Images.SetKeyName(0, "OFF");
+        imgLst.Images.SetKeyName(1, "ON");
+        // 
+        // mainPanel
+        // 
+        mainPanel.Dock = DockStyle.Fill;
+        mainPanel.Location = new Point(0, 58);
+        mainPanel.Margin = new Padding(4, 3, 4, 3);
+        mainPanel.Name = "mainPanel";
+        mainPanel.Size = new Size(813, 746);
+        mainPanel.TabIndex = 1;
+        // 
+        // panel2
+        // 
+        panel2.Controls.Add(panelTitle);
+        panel2.Controls.Add(lnkSource);
+        panel2.Dock = DockStyle.Top;
+        panel2.Location = new Point(0, 0);
+        panel2.Name = "panel2";
+        panel2.Size = new Size(813, 58);
+        panel2.TabIndex = 2;
+        // 
+        // panelTitle
+        // 
+        panelTitle.Dock = DockStyle.Fill;
+        panelTitle.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+        panelTitle.Location = new Point(0, 0);
+        panelTitle.Margin = new Padding(4, 0, 4, 0);
+        panelTitle.Name = "panelTitle";
+        panelTitle.Size = new Size(683, 58);
+        panelTitle.TabIndex = 0;
+        panelTitle.Text = "...";
+        panelTitle.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // lnkSource
+        // 
+        lnkSource.Cursor = Cursors.Hand;
+        lnkSource.Dock = DockStyle.Right;
+        lnkSource.Location = new Point(683, 0);
+        lnkSource.Name = "lnkSource";
+        lnkSource.Size = new Size(130, 58);
+        lnkSource.TabIndex = 1;
+        lnkSource.TabStop = true;
+        lnkSource.Text = "View C# page source\r\naaa.cs";
+        lnkSource.TextAlign = ContentAlignment.MiddleCenter;
+        lnkSource.LinkClicked += lnkSource_LinkClicked;
+        // 
+        // tmrPeriodicUpdate
+        // 
+        tmrPeriodicUpdate.Enabled = true;
+        tmrPeriodicUpdate.Interval = 200;
+        tmrPeriodicUpdate.Tick += tmrPeriodicUpdate_Tick;
+        // 
+        // statusStrip1
+        // 
+        statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus, lblErrors });
+        statusStrip1.Location = new Point(0, 902);
+        statusStrip1.Name = "statusStrip1";
+        statusStrip1.Padding = new Padding(1, 0, 16, 0);
+        statusStrip1.Size = new Size(1148, 22);
+        statusStrip1.TabIndex = 0;
+        statusStrip1.Text = "statusStrip1";
+        // 
+        // lblStatus
+        // 
+        lblStatus.Name = "lblStatus";
+        lblStatus.Size = new Size(79, 17);
+        lblStatus.Text = "Disconnected";
+        // 
+        // lblErrors
+        // 
+        lblErrors.ActiveLinkColor = Color.DarkRed;
+        lblErrors.IsLink = true;
+        lblErrors.LinkColor = Color.Red;
+        lblErrors.Name = "lblErrors";
+        lblErrors.Size = new Size(16, 17);
+        lblErrors.Text = "...";
+        lblErrors.Visible = false;
+        lblErrors.VisitedLinkColor = Color.Red;
+        lblErrors.Click += lblErrors_Click;
+        // 
+        // tmrError
+        // 
+        tmrError.Interval = 10000;
+        tmrError.Tick += tmrError_Tick;
+        // 
+        // MainForm
+        // 
+        AutoScaleDimensions = new SizeF(7F, 15F);
+        AutoScaleMode = AutoScaleMode.Font;
+        BackColor = SystemColors.Window;
+        ClientSize = new Size(1148, 924);
+        Controls.Add(horizontalSplitContainer);
+        Controls.Add(statusStrip1);
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Margin = new Padding(4, 3, 4, 3);
+        Name = "MainForm";
+        Text = "UnderAutomation - Universal Robots communication SDK";
+        horizontalSplitContainer.Panel1.ResumeLayout(false);
+        horizontalSplitContainer.Panel2.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)horizontalSplitContainer).EndInit();
+        horizontalSplitContainer.ResumeLayout(false);
+        panel1.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)titlePictureBox).EndInit();
+        verticalSplitContainer.Panel1.ResumeLayout(false);
+        verticalSplitContainer.Panel2.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)verticalSplitContainer).EndInit();
+        verticalSplitContainer.ResumeLayout(false);
+        panel2.ResumeLayout(false);
+        statusStrip1.ResumeLayout(false);
+        statusStrip1.PerformLayout();
+        ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
@@ -269,12 +332,15 @@ partial class MainForm
     private System.Windows.Forms.PictureBox titlePictureBox;
     private System.Windows.Forms.Label lblTitle;
     private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.LinkLabel lblLink;
+    private System.Windows.Forms.LinkLabel lblLinkDocumentation;
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.TreeView leftTreeView;
     private System.Windows.Forms.StatusStrip statusStrip1;
     private System.Windows.Forms.ToolStripStatusLabel lblStatus;
     private System.Windows.Forms.ToolStripStatusLabel lblErrors;
     private System.Windows.Forms.Timer tmrError;
+    private Panel panel2;
+    private LinkLabel lnkSource;
+    private LinkLabel lblLinkGithub;
 }
 
