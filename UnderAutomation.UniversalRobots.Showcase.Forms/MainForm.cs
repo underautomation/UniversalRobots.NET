@@ -39,6 +39,7 @@ public partial class MainForm : Form
         AddNode(new SocketControl(_ur));
         AddNode(new SftpControl(_ur));
         AddNode(new SshControl(_ur));
+        AddNode(new KinematicsControl(_ur));
         AddNode(new ToolsControl());
         AddNode(new ArchiveControl(_ur));
         AddNode(new LicenseControl());
