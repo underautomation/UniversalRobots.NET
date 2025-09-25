@@ -140,6 +140,22 @@ robot.Dashboard.LoadProgram("prg1.urp");
 robot.Dashboard.Play();
 ```
 
+### 🔹 Inverse Kinematics - Forward Kinematics
+
+Calculates joint positions corresponding to a cartesian position and vice versa. Uses a purely algebraic and optimized algorithm.
+
+```csharp
+// Get default DH parameters for UR3e robot model²
+IUrDhParameters dhParameters = KinematicsUtils.GetDhParametersFromModel(RobotModelsExtended.UR3e);
+
+// Calculate forward kinematics for given joint angles in radians
+KinematicsResult fkResult = KinematicsUtils.ForwardKinematics(new double[] { 0, -1.57, 1.57, 0, 0, 0 }, dhParameters);
+
+// Calculate inverse kinematics for given cartesian pose
+var matrix = vectorPose.FromRotationVectorTo4x4Matrix();
+double[][] ikSolutions = KinematicsUtils.InverseKinematics(matrix, dhParameters);
+```
+
 ### 🔹 XML-RPC – Call .NET Functions from URScript
 
 Enable remote function calls from your robot program.
