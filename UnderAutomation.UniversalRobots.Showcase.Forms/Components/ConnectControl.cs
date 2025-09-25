@@ -1,11 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using UnderAutomation.UniversalRobots;
-using UnderAutomation.UniversalRobots.Files;
+﻿using UnderAutomation.UniversalRobots;
 using UnderAutomation.UniversalRobots.Rtde;
 
 public partial class ConnectControl : UserControl, IUserControl

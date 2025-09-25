@@ -1,7 +1,7 @@
 ﻿using System;
+using UnderAutomation.UniversalRobots.Common;
 using UnderAutomation.UniversalRobots.PrimaryInterface;
 using UnderAutomation.UniversalRobots.XmlRpc;
-using UnderAutomation.UniversalRobots.Common;
 
 namespace UnderAutomation.UniversalRobots.Showcase.Console
 {
@@ -67,7 +67,7 @@ namespace UnderAutomation.UniversalRobots.Showcase.Console
             // Clear console and display cartesian info every 200ms
 
             if ((DateTime.Now - _lastReceived).TotalMilliseconds < 200) return;
-             _lastReceived = DateTime.Now;
+            _lastReceived = DateTime.Now;
 
             System.Console.Clear();
             System.Console.WriteLine($"X = {e.X.ToString("0.00")}mm");
