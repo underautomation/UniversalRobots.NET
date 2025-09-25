@@ -245,6 +245,11 @@
             Model of a UR robot
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Common.RobotModelsExtended">
+            <summary>
+            Model of a UR robot (including e-Series and extended payload models)
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.OutputModes">
             <summary>
             Digital output modes
@@ -499,6 +504,41 @@
             Default value is false
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Common.IUrDhParameters">
+            <summary>
+            Denavit–Hartenberg (DH) parameters for Universal Robots with only the relevant parameters
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.A2">
+            <summary>
+            DH parameter a2 (Shoulder)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.A3">
+            <summary>
+            DH parameter a3 (Elbow)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.D1">
+            <summary>
+            DH parameter d1 (Base)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.D4">
+            <summary>
+            DH parameter d4 (Wrist1)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.D5">
+            <summary>
+            DH parameter d5 (Wrist2)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.IUrDhParameters.D6">
+            <summary>
+            DH parameter d6 (Wrist3/Tool)
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.JointsValues`1">
             <summary>
             Vector 6 of double values representing each robot joint
@@ -665,6 +705,16 @@
         <member name="M:UnderAutomation.UniversalRobots.Common.Pose.FromQuaternionToRotationVector(System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Converts a quaternion to UR rotation vector
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Common.Pose.From4x4MatrixToRotationVector(System.Double[0:,0:])">
+            <summary>
+            Convert a transformation 4x4 matrix to rotation vector 
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Common.Pose.From4x4MatrixToRPY(System.Double[0:,0:])">
+            <summary>
+            Convert a transformation 4x4 matrix to RPY pose 
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.PrimaryInterfaceConnectParameters">
@@ -3236,6 +3286,162 @@
             <param name="ip">IP of the robot</param>
             <param name="port">Robot interpreter mode port. Default : 30020</param>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.KinematicsResult">
+            <summary>
+            Result of a forward kinematics calculation
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.KinematicsResult.ToolTransform">
+            <summary>
+            4x4 transformation matrix of the tool
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.KinematicsResult.IndividualLocalTransforms">
+            <summary>
+            Individual local transformation matrices of each joint
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.KinematicsResult.CumulativeGlobalTransforms">
+            <summary>
+            Cumulative local transformation matrices of each joint
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils">
+             <summary>
+             =========================================================================================================
+             Implementation notes :
+             ---------------------------------------------------------------------------------------------------------
+             This class implements forward and inverse kinematics for a 6-DOF serial cobot using the analytical method
+             described in Chen et al., IEEE ICASI 2017 ("A general analytical algorithm for collaborative robot (cobot)
+             with 6 DOF"). The DH convention and the closed-form inverse steps follow the paper's derivations.
+            
+             References (equation numbers below refer to the paper):
+               - DH homogeneous transform (Eq. (1.1)).
+               - Forward kinematics chain product T_0^6 = Π_i T_{i-1}^i (Eq. (1.2)).
+               - Inverse kinematics main steps:
+                   q1  from Eq. (1.12) ; q5 from Eq. (1.15) ; q6 from Eq. (1.17) ; q234 from Eq. (1.20) ;
+                   q2  from Eq. (1.25) ; q3 and q4 from Eq. (1.27).
+            
+             Singularity check equation used (paper text):
+               det(J) ∝ s3 * s5 * a2 * a3 * (c2*a2 + c23*a3 + s234*d5)
+            
+             Paper: Chen, S., Luo, M., Abdelaziz, O., Jiang, G. "A General Analytical Algorithm for Collaborative Robot
+             (cobot) with 6 DOF", IEEE ICASI 2017.
+             =========================================================================================================
+             </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.eps">
+            <summary>Small value for numerical stability (epsilon).</summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.DHTransform(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Denavit–Hartenberg homogeneous transform 
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.HomogeneousMultiply(System.Double[0:,0:],System.Double[0:,0:])">
+            <summary>
+            Homogeneous matrix multiplication optimized for DH transforms.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.NormalizeAngle(System.Double)">
+            <summary>Normalize an angle to (-π, π]</summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.ForwardKinematics(System.Double[],UnderAutomation.UniversalRobots.Common.IUrDhParameters)">
+            <summary>
+            Forward kinematics : compute tool transform and intermediate transforms from joint angles (radians) and DH parameters.
+            </summary>
+            <param name="jointAnglesRad">Array of 6 joint angles in radians.</param>
+            <param name="dhParameters">Robot DH parameters.</param>
+            <returns>Tool transform and intermediate transforms.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.GetNearestSolution(System.Double[][],System.Double[])">
+            <summary>
+            Pick the solution nearest to a reference joint vector (L1 distance). Null if invalid inputs.
+            </summary>
+            <param name="jointSolutions">Array of candidate joint angles (6 elements each).</param>
+            <param name="jointReference">Reference joint angles (6 elements).</param>
+            <returns>Nearest joint angles (6 elements) or null.</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.InverseKinematics(System.Double[0:,0:],UnderAutomation.UniversalRobots.Common.IUrDhParameters)">
+            <summary>
+            Analytical inverse kinematics
+            Returns a list of candidate joint vectors; filters out singularities.
+            </summary>
+            <param name="toolTransform">4×4 tool transform matrix.</param>
+            <param name="dhParameters">Robot DH parameters.</param>
+            <returns>Array of candidate joint angles (6 elements each).</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.GetSingularity(System.Double,System.Double,System.Double,System.Double,UnderAutomation.UniversalRobots.Common.IUrDhParameters)">
+            <summary>
+            Singularity detection using det(J) factors: s5≈0 (wrist), s3≈0 (elbow),
+            and c2*a2 + c23*a3 + s234*d5≈0 (shoulder).
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.GetDhParametersFromModel(UnderAutomation.UniversalRobots.Common.RobotModelsExtended)">
+            <summary>
+            Get the DH parameters for a given robot model.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.SingularityType">
+            <summary>
+            Types of singularities
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Kinematics.SingularityType.None">
+            <summary>
+            No singularity
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Kinematics.SingularityType.Wrist">
+            <summary>
+            Wrist singularity
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Kinematics.SingularityType.Elbow">
+            <summary>
+            Elbow singularity
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Kinematics.SingularityType.Shoulder">
+            <summary>
+            Shoulder singularity
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.TransformationSet">
+            <summary>
+            Set of transformation matrices for each joint
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Base">
+            <summary>
+            4x4 transformation matrix of the base joint 1
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Shoulder">
+            <summary>
+            4x4 transformation matrix of the shoulder joint 2
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Elbow">
+            <summary>
+            4x4 transformation matrix of the elbow joint 3
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Wrist1">
+            <summary>
+            4x4 transformation matrix of the wrist1 joint 4
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Wrist2">
+            <summary>
+            4x4 transformation matrix of the wrist2 joint 5
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.TransformationSet.Wrist3">
+            <summary>
+            4x4 transformation matrix of the wrist3 (Tool) joint 6
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.AdditionalInfoPackageEventArgs">
             <summary>
             Additional information
@@ -3356,6 +3562,16 @@
             RZ position of the TCP in the flange frame in rad
             </summary>
         </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.CartesianInfoPackageEventArgs.AsPose">
+            <summary>
+            Returns the current cartesian position as a Pose object
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.PrimaryInterface.CartesianInfoPackageEventArgs.AsTCPOffsetPose">
+            <summary>
+            Returns the TCP offset as a Pose object
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs">
             <summary>
             Joint configuration
@@ -3434,6 +3650,36 @@
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.Wrist3">
             <summary>
             Wrist3 (Tool) joint configuration
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.A2">
+            <summary>
+            DH parameter a2 (Shoulder.DHa)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.A3">
+            <summary>
+            DH parameter a3 (Elbow.DHa)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.D1">
+            <summary>
+            DH parameter d1 (Base.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.D4">
+            <summary>
+            DH parameter d4 (Wrist1.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.D5">
+            <summary>
+            DH parameter d5 (Wrist2.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.D6">
+            <summary>
+            DH parameter d6 (Wrist3.DHd)
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.ForceModeDataPackageEventArgs">
@@ -4191,6 +4437,36 @@
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.Wrist3">
             <summary>
             Wrist3 (Tool) kinematics info
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.A2">
+            <summary>
+            DH parameter a2 (Shoulder.DHa)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.A3">
+            <summary>
+            DH parameter a3 (Elbow.DHa)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.D1">
+            <summary>
+            DH parameter d1 (Base.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.D4">
+            <summary>
+            DH parameter d4 (Wrist1.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.D5">
+            <summary>
+            DH parameter d5 (Wrist2.DHd)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.KinematicsInfoPackageEventArgs.D6">
+            <summary>
+            DH parameter d6 (Wrist3.DHd)
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.MasterboardDataPackageEventArgs">

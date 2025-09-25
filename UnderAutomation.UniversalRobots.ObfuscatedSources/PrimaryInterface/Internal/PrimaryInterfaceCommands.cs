@@ -12,6 +12,12 @@ namespace PrimaryInterface.Internal {
 	/// </summary>
 	public class PrimaryInterfaceCommands {
 
+
+		public void Test()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Power on the robot
 		/// </summary>

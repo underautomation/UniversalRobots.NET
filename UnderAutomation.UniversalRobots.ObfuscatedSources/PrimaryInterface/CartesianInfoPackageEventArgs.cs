@@ -10,6 +10,24 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class CartesianInfoPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns the current cartesian position as a Pose object
+		/// </summary>
+		public Pose AsPose()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns the TCP offset as a Pose object
+		/// </summary>
+		public Pose AsTCPOffsetPose()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public CartesianInfoPackageEventArgs()
 		{

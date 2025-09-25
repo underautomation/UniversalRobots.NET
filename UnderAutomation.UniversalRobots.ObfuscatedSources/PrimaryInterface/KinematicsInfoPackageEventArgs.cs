@@ -8,7 +8,7 @@ namespace PrimaryInterface {
 	/// <summary>
 	/// Kinematics info
 	/// </summary>
-	public class KinematicsInfoPackageEventArgs : PackageEventArgs {
+	public class KinematicsInfoPackageEventArgs : PackageEventArgs, IUrDhParameters {
 
 
 		public KinematicsInfoPackageEventArgs()
@@ -57,5 +57,35 @@ public JointKinematicsInfo Wrist2 { get; set; }
 		/// </summary>
 		[PackageDescription("Wrist3 (Tool) kinematics info")]
 public JointKinematicsInfo Wrist3 { get; set; }
+
+		/// <summary>
+		/// DH parameter a2 (Shoulder.DHa)
+		/// </summary>
+		public double A2 { get; }
+
+		/// <summary>
+		/// DH parameter a3 (Elbow.DHa)
+		/// </summary>
+		public double A3 { get; }
+
+		/// <summary>
+		/// DH parameter d1 (Base.DHd)
+		/// </summary>
+		public double D1 { get; }
+
+		/// <summary>
+		/// DH parameter d4 (Wrist1.DHd)
+		/// </summary>
+		public double D4 { get; }
+
+		/// <summary>
+		/// DH parameter d5 (Wrist2.DHd)
+		/// </summary>
+		public double D5 { get; }
+
+		/// <summary>
+		/// DH parameter d6 (Wrist3.DHd)
+		/// </summary>
+		public double D6 { get; }
 	}
 }

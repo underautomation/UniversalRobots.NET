@@ -27,6 +27,12 @@ namespace Common {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
+
+		public Pose(Pose pose)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+		}
+
 		/// <summary>
 		/// Consider this pose as a Rotation Vector And convert it to a new RPY position
 		/// </summary>
@@ -100,6 +106,24 @@ namespace Common {
 		/// Converts a quaternion to UR rotation vector
 		/// </summary>
 		public static Pose FromQuaternionToRotationVector(double x, double y, double z, double w)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Convert a transformation 4x4 matrix to rotation vector
+		/// </summary>
+		public static Pose From4x4MatrixToRotationVector(double[,] matrixTransform)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Convert a transformation 4x4 matrix to RPY pose
+		/// </summary>
+		public static Pose From4x4MatrixToRPY(double[,] matrixTransform)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
