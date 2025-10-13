@@ -19,9 +19,9 @@ public partial class KinematicsControl : UserControl, IUserControl
         }
         cbModele.SelectedIndex = 0;
 
-        gridJointsFK.SelectedObject = new double[] { 0, 0, 0, 0, 0, 0 };
-        gridDH.SelectedObject = new CustomUrDhParameters(0, 0, 0, 0, 0, 0);
-        gridCartesianIK.SelectedObject = new Pose(0, 0, 0, 0, 0, 0);
+        gridJointsFK.SelectedObject = new double[] { 1.57, -1.57, 1.57, 1.57, 1.57, 0 };
+        gridDH.SelectedObject = new Ur3eDhParameters();
+        gridCartesianIK.SelectedObject = new Pose(300, 0, 0, 0, 0, 0);
 
         lstIKResults.Items.Clear();
     }
@@ -44,7 +44,7 @@ public partial class KinematicsControl : UserControl, IUserControl
             jointData.Shoulder.Position,
             jointData.Elbow.Position,
             jointData.Wrist1.Position,
-            _ur.PrimaryInterface.JointData.Wrist2.Position,
+            jointData.Wrist2.Position,
             jointData.Wrist3.Position,
         };
 
