@@ -26,7 +26,7 @@ namespace Kinematics {
 		public TransformationSet IndividualLocalTransforms { get; set; }
 
 		/// <summary>
-		/// Cumulative local transformation matrices of each joint
+		/// Cumulative global transformation matrices of each joint
 		/// </summary>
 		public TransformationSet CumulativeGlobalTransforms { get; set; }
 	}

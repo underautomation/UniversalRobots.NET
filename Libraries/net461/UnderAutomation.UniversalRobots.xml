@@ -3303,7 +3303,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Kinematics.KinematicsResult.CumulativeGlobalTransforms">
             <summary>
-            Cumulative local transformation matrices of each joint
+            Cumulative global transformation matrices of each joint
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils">
