@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.Common;
 using UnderAutomation.UniversalRobots.PrimaryInterface;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public partial class PrimaryInterfaceControl : UserControl, IUserControl
 {
@@ -16,6 +17,32 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
 
         _ur.PrimaryInterface.PopupMessageReceived += _ur_PopupMessageReceived;
         _ur.PrimaryInterface.RuntimeExceptionMessageReceived += _ur_RuntimeExceptionMessageReceived;
+        _ur.PrimaryInterface.MasterboardDataReceived += _ur_MasterboardDataReceived;
+    }
+
+    private SafetyStatus _lastSafetyStatus = SafetyStatus.Normal;
+    private void _ur_MasterboardDataReceived(object? sender, MasterboardDataPackageEventArgs e)
+    {
+        if (e.Safetymode != _lastSafetyStatus)
+        {
+            if (e.Safetymode == SafetyStatus.Normal)
+            {
+                MainForm.InvokeOnMainForm(new Action(() =>
+                {
+                    if (_popup != null && !_popup.IsDisposed)
+                    {
+                        _popup.Close();
+                    }
+                }));
+            }
+            else
+            {
+                ShowPopup("Safety fault", System.Text.RegularExpressions.Regex.Replace(e.Safetymode.ToString(), "(?<!^)([A-Z])", " $1"), false, true, RequestedTypes.None, 0, true);
+            }
+
+            _lastSafetyStatus = e.Safetymode;
+        }
+
     }
 
     private void _ur_RuntimeExceptionMessageReceived(object sender, RuntimeExceptionMessageEventArgs e)
@@ -28,13 +55,19 @@ public partial class PrimaryInterfaceControl : UserControl, IUserControl
         ShowPopup(e.PopupMessageTitle, $"{e.PopupTextMessage ?? $"Enter {e.RequestedType}"}", e.Warning, e.Error, e.RequestedType, e.RequestId);
     }
 
-    private void ShowPopup(string title, string message, bool warning, bool error, RequestedTypes type, uint id)
+    private PrimaryInterfacePopup _popup;
+    private void ShowPopup(string title, string message, bool warning, bool error, RequestedTypes type, uint id, bool isSafety=false)
     {
         MainForm.InvokeOnMainForm(new Action(() =>
             {
-                var popup = new PrimaryInterfacePopup(_ur, title, message, warning, error, type, id);
+                if(_popup != null && !_popup.IsDisposed)
+                {
+                    _popup.Close();
+                }
 
-                popup.ShowDialog(MainForm.Instance);
+                _popup = new PrimaryInterfacePopup(_ur, title, message, warning, error, type, id, isSafety);
+
+                _popup.ShowDialog(MainForm.Instance);
             }));
     }
 

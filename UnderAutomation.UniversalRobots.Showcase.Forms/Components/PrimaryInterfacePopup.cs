@@ -10,8 +10,9 @@ public partial class PrimaryInterfacePopup : Form
 
     private RequestedTypes _type;
     private uint _id;
+    private bool _isSafety;
 
-    public PrimaryInterfacePopup(UR ur, string title, string message, bool warning, bool error, RequestedTypes type, uint id)
+    public PrimaryInterfacePopup(UR ur, string title, string message, bool warning, bool error, RequestedTypes type, uint id, bool isSafety)
     {
         InitializeComponent();
 
@@ -24,16 +25,26 @@ public partial class PrimaryInterfacePopup : Form
 
         _id = id;
 
+        _isSafety = isSafety;
+
         if (warning) img.BackgroundImage = Resources.warning;
         else if (error) img.BackgroundImage = Resources.error;
     }
 
     private void btnClose_Click(object sender, EventArgs e)
     {
-        _ur.Dashboard.ClosePopup();
-        if (_type != RequestedTypes.None)
+        if (_isSafety)
         {
-            _ur.PrimaryInterface.Commands.ReplyPopup(_id, txtAnswer.Text, _type);
+            _ur.Dashboard.CloseSafetyPopup();
+            _ur.Dashboard.UnlockProtectiveStop();
+        }
+        else
+        {
+            _ur.Dashboard.ClosePopup();
+            if (_type != RequestedTypes.None)
+            {
+                _ur.PrimaryInterface.Commands.ReplyPopup(_id, txtAnswer.Text, _type);
+            }
         }
         this.Close();
     }
