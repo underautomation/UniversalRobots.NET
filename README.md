@@ -29,6 +29,7 @@ The **Universal Robots SDK** enables seamless integration with Universal Robots 
 ✔️ **Send URScript Commands** – Control robots in real-time  
 ✔️ **Dashboard Server** – Manage power, programs, and states  
 ✔️ **Secure Connections** – SSH & SFTP support  
+✔️ **Forward & Inverse kinematics**  
 ✔️ **Multi-Platform** – Works on Windows, Linux, and macOS  
 ✔️ **Commercial License** – Deploy with no royalties
 
