@@ -1,3 +1,6 @@
-[![UnderAutomation Universal Robots communication SDK](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/banner.png)](https://underautomation.com)
+This version is a **maintenance release** focused on improving the codebase foundation rather than adding new features.
 
-- Improve Invert Kinematics and do not filter position with singularities
+## Key Changes:
+
+- **Code Restructuring**: Performed a minimal internal reorganization to improve project maintainability and clarity.
+- **Bug Fixes**: Resolved several minor issues to enhance overall stability and performance.

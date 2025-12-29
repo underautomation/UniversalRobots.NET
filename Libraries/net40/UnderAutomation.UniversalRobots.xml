@@ -3442,6 +3442,134 @@
             4x4 transformation matrix of the wrist3 (Tool) joint 6
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.License.LicenseInfo">
+            <summary>
+            Information about a license key
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.#ctor(System.String,System.String)">
+            <summary>
+            Create a new LicenseInfo instance to retrieve informations about a pair of identifier/key
+            This class should not be used to register your product. Please use static function RegisterLicense to specify your license.
+            </summary>
+            <param name="licenseIdentifier">The name of your organization (null for trial version)</param>
+            <param name="licenseKey">The key, associated to the identifier, supplied by UnderAutomation (null for trial version)</param>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.AssertIsLicensed">
+            <summary>
+            Throw a InvalidLicenseException if the license is not valid
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.LicenseKey">
+            <summary>
+            The license key supplied by UnderAutomation (null for trial period)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.Product">
+            <summary>
+            Commercial name of this .NET Software library
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.EvaluationDaysLeft">
+            <summary>
+            Remaining days of the trial period. Null if the product is licensed. It could be negative if the trial period is ended since several days.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.EvaluationStartDate">
+            <summary>
+            The date the trial period starts. If the product is licensed, the date of the library first use.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.Licensee">
+            <summary>
+            Name of your organisation
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.TrialPeriodExpirationDate">
+            <summary>
+            The date the product will expire. Null if the product is licensed.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.State">
+            <summary>
+            The current license state
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.ProductReleaseDate">
+            <summary>
+            The date this version of the product was released.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.MaintenanceYears">
+            <summary>
+            Number of maintenance years included in your license
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.LicenseIssuedDate">
+            <summary>
+            The date you get the license
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.MaintenanceExpirationDate">
+            <summary>
+            The date your maintenance contract end and you no longer can use this license with newer versions.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.ToString">
+            <summary>
+            A human description of the license
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.License.LicenseState">
+            <summary>
+            States that can take a license
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.None">
+            <summary>
+            No license has been provided
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Invalid">
+            <summary>
+            The pair License Identifier and License Key are incompatible, you cannot use the library
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Trial">
+            <summary>
+            The library is in a trial period, you can use the library
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.ExtraTrial">
+            <summary>
+            The library is in an extra trial period, you can use the library
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Expired">
+            <summary>
+            The trial period as expired, you no more can use the library
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.MaintenanceNeeded">
+            <summary>
+            Your license does not allow you to use such a recent release. Please buy maintenance to use this version
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Licensed">
+            <summary>
+            Congratulations, the library is licensed.
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.License.InvalidLicenseException">
+            <summary>
+            Exception thrown while using the product if the license is not valid.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.InvalidLicenseException.LicenseInfo">
+            <summary>
+            The license that causes this exception
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.AdditionalInfoPackageEventArgs">
             <summary>
             Additional information
@@ -33321,134 +33449,6 @@
             The XML description of the message that has been received from the robot or will be sent to the robot
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:UnderAutomation.UniversalRobots.License.LicenseInfo">
-            <summary>
-            Information about a license key
-            </summary>
-        </member>
-        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.#ctor(System.String,System.String)">
-            <summary>
-            Create a new LicenseInfo instance to retrieve informations about a pair of identifier/key
-            This class should not be used to register your product. Please use static function RegisterLicense to specify your license.
-            </summary>
-            <param name="licenseIdentifier">The name of your organization (null for trial version)</param>
-            <param name="licenseKey">The key, associated to the identifier, supplied by UnderAutomation (null for trial version)</param>
-        </member>
-        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.AssertIsLicensed">
-            <summary>
-            Throw a InvalidLicenseException if the license is not valid
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.LicenseKey">
-            <summary>
-            The license key supplied by UnderAutomation (null for trial period)
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.Product">
-            <summary>
-            Commercial name of this .NET Software library
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.EvaluationDaysLeft">
-            <summary>
-            Remaining days of the trial period. Null if the product is licensed. It could be negative if the trial period is ended since several days.
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.EvaluationStartDate">
-            <summary>
-            The date the trial period starts. If the product is licensed, the date of the library first use.
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.Licensee">
-            <summary>
-            Name of your organisation
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.TrialPeriodExpirationDate">
-            <summary>
-            The date the product will expire. Null if the product is licensed.
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.State">
-            <summary>
-            The current license state
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.ProductReleaseDate">
-            <summary>
-            The date this version of the product was released.
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.MaintenanceYears">
-            <summary>
-            Number of maintenance years included in your license
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.LicenseIssuedDate">
-            <summary>
-            The date you get the license
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.MaintenanceExpirationDate">
-            <summary>
-            The date your maintenance contract end and you no longer can use this license with newer versions.
-            </summary>
-        </member>
-        <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.ToString">
-            <summary>
-            A human description of the license
-            </summary>
-        </member>
-        <member name="T:UnderAutomation.UniversalRobots.License.LicenseState">
-            <summary>
-            States that can take a license
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.None">
-            <summary>
-            No license has been provided
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Invalid">
-            <summary>
-            The pair License Identifier and License Key are incompatible, you cannot use the library
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Trial">
-            <summary>
-            The library is in a trial period, you can use the library
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.ExtraTrial">
-            <summary>
-            The library is in an extra trial period, you can use the library
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Expired">
-            <summary>
-            The trial period as expired, you no more can use the library
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.MaintenanceNeeded">
-            <summary>
-            Your license does not allow you to use such a recent release. Please buy maintenance to use this version
-            </summary>
-        </member>
-        <member name="F:UnderAutomation.UniversalRobots.License.LicenseState.Licensed">
-            <summary>
-            Congratulations, the library is licensed.
-            </summary>
-        </member>
-        <member name="T:UnderAutomation.UniversalRobots.License.InvalidLicenseException">
-            <summary>
-            Exception thrown while using the product if the license is not valid.
-            </summary>
-        </member>
-        <member name="P:UnderAutomation.UniversalRobots.License.InvalidLicenseException.LicenseInfo">
-            <summary>
-            The license that causes this exception
-            </summary>
         </member>
     </members>
 </doc>
