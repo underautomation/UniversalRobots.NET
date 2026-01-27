@@ -27,7 +27,7 @@ The **Universal Robots SDK** enables seamless integration with Universal Robots 
 
 ✔️ **Full RTDE Support** – Read & write at up to **500Hz**  
 ✔️ **Send URScript Commands** – Control robots in real-time  
-✔️ **Dashboard Server** – Manage power, programs, and states  
+✔️ **Dashboard Server** + **REST API** – Manage power, programs, and states  
 ✔️ **Secure Connections** – SSH & SFTP support  
 ✔️ **Forward & Inverse kinematics**  
 ✔️ **Multi-Platform** – Works on Windows, Linux, and macOS  
@@ -63,12 +63,12 @@ Precompiled console applications showcasing compilation for multiple operating s
 
 <img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png" alt="UnderAutomation.UniversalRobots.Showcase.Console" align="right"/>
 
-| OS            | Architecture | Download                                                                                                                                                    |
-| ------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🐧 **Linux**  | ARM          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm)   |
-| 🐧 **Linux**  | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64)   |
-| 🍏 **macOS**  | ARM64        | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64)   |
-| 🍏 **macOS**  | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64)     |
+| OS             | Architecture | Download                                                                                                                                                    |
+| -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🐧 **Linux**   | ARM          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm)   |
+| 🐧 **Linux**   | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64)   |
+| 🍏 **macOS**   | ARM64        | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64)   |
+| 🍏 **macOS**   | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64)     |
 | 🖥 **Windows** | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
 | 🖥 **Windows** | x86          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
 
@@ -130,15 +130,22 @@ GlobalVariable myVar = robot.PrimaryInterface.GlobalVariables.GetByName("myVar")
 GlobalVariable[] variables =  robot.PrimaryInterface.GlobalVariables.GetAll();
 ```
 
-### 🔹 Dashboard Server – Remote Robot Control
+### 🔹 Remote Robot Control
 
 Manage power, brakes, program execution, and more.
 
 ```csharp
+// For cobots with Polyscope
 robot.Dashboard.PowerOn();
 robot.Dashboard.ReleaseBrake();
 robot.Dashboard.LoadProgram("prg1.urp");
 robot.Dashboard.Play();
+
+// For robots with Polyscope X
+robot.Rest.PowerOn();
+robot.Rest.ReleaseBrake();
+robot.Rest.LoadProgram("prg1.urp");
+robot.Rest.Play();
 ```
 
 ### 🔹 Inverse Kinematics - Forward Kinematics
