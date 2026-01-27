@@ -81,7 +81,7 @@ partial class MainForm
         // horizontalSplitContainer.Panel2
         // 
         horizontalSplitContainer.Panel2.Controls.Add(verticalSplitContainer);
-        horizontalSplitContainer.Size = new Size(1148, 902);
+        horizontalSplitContainer.Size = new Size(1148, 919);
         horizontalSplitContainer.SplitterDistance = 91;
         horizontalSplitContainer.SplitterWidth = 5;
         horizontalSplitContainer.TabIndex = 0;
@@ -182,7 +182,7 @@ partial class MainForm
         // 
         verticalSplitContainer.Panel2.Controls.Add(mainPanel);
         verticalSplitContainer.Panel2.Controls.Add(panel2);
-        verticalSplitContainer.Size = new Size(1148, 806);
+        verticalSplitContainer.Size = new Size(1148, 823);
         verticalSplitContainer.SplitterDistance = 328;
         verticalSplitContainer.SplitterWidth = 5;
         verticalSplitContainer.TabIndex = 0;
@@ -197,7 +197,7 @@ partial class MainForm
         leftTreeView.Margin = new Padding(4, 3, 4, 3);
         leftTreeView.Name = "leftTreeView";
         leftTreeView.SelectedImageIndex = 0;
-        leftTreeView.Size = new Size(326, 804);
+        leftTreeView.Size = new Size(326, 821);
         leftTreeView.TabIndex = 0;
         leftTreeView.NodeMouseClick += leftTreeView_NodeMouseClick;
         // 
@@ -215,7 +215,7 @@ partial class MainForm
         mainPanel.Location = new Point(0, 58);
         mainPanel.Margin = new Padding(4, 3, 4, 3);
         mainPanel.Name = "mainPanel";
-        mainPanel.Size = new Size(813, 746);
+        mainPanel.Size = new Size(813, 763);
         mainPanel.TabIndex = 1;
         // 
         // panel2
@@ -262,7 +262,7 @@ partial class MainForm
         // statusStrip1
         // 
         statusStrip1.Items.AddRange(new ToolStripItem[] { lblStatus, lblErrors });
-        statusStrip1.Location = new Point(0, 902);
+        statusStrip1.Location = new Point(0, 919);
         statusStrip1.Name = "statusStrip1";
         statusStrip1.Padding = new Padding(1, 0, 16, 0);
         statusStrip1.Size = new Size(1148, 22);
@@ -297,7 +297,7 @@ partial class MainForm
         AutoScaleDimensions = new SizeF(7F, 15F);
         AutoScaleMode = AutoScaleMode.Font;
         BackColor = SystemColors.Window;
-        ClientSize = new Size(1148, 924);
+        ClientSize = new Size(1148, 941);
         Controls.Add(horizontalSplitContainer);
         Controls.Add(statusStrip1);
         Icon = (Icon)resources.GetObject("$this.Icon");

@@ -20,6 +20,7 @@ public partial class ConnectControl : UserControl, IUserControl
         txtIP.Text = parameters.IP ?? "192.168.0.1";
         chkPrimaryInterface.Checked = parameters.PrimaryInterface.Enable;
         chkDashboard.Checked = parameters.Dashboard.Enable;
+        chkRest.Checked = parameters.Rest.Enable;
         chkInterpreterMode.Checked = parameters.InterpreterMode.Enable;
         chkXmlRpc.Checked = parameters.XmlRpc.Enable;
         udXmlRpcPort.Value = parameters.XmlRpc.Port;
@@ -68,6 +69,7 @@ public partial class ConnectControl : UserControl, IUserControl
         parameters.IP = txtIP.Text;
         parameters.PrimaryInterface.Enable = chkPrimaryInterface.Checked;
         parameters.Dashboard.Enable = chkDashboard.Checked;
+        parameters.Rest.Enable = chkRest.Checked;
         parameters.InterpreterMode.Enable = chkInterpreterMode.Checked;
         parameters.XmlRpc.Enable = chkXmlRpc.Checked;
         parameters.XmlRpc.Port = (int)udXmlRpcPort.Value;

@@ -33,17 +33,20 @@ public partial class PrimaryInterfacePopup : Form
 
     private void btnClose_Click(object sender, EventArgs e)
     {
-        if (_isSafety)
+        if (!string.IsNullOrEmpty(_ur.Dashboard.IP))
         {
-            _ur.Dashboard.CloseSafetyPopup();
-            _ur.Dashboard.UnlockProtectiveStop();
-        }
-        else
-        {
-            _ur.Dashboard.ClosePopup();
-            if (_type != RequestedTypes.None)
+            if (_isSafety)
             {
-                _ur.PrimaryInterface.Commands.ReplyPopup(_id, txtAnswer.Text, _type);
+                _ur.Dashboard.CloseSafetyPopup();
+                _ur.Dashboard.UnlockProtectiveStop();
+            }
+            else
+            {
+                _ur.Dashboard.ClosePopup();
+                if (_type != RequestedTypes.None)
+                {
+                    _ur.PrimaryInterface.Commands.ReplyPopup(_id, txtAnswer.Text, _type);
+                }
             }
         }
         this.Close();

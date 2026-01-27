@@ -223,6 +223,16 @@ namespace UnderAutomation.UniversalRobots.Showcase.Forms.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap remote_polyscopex {
+            get {
+                object obj = ResourceManager.GetObject("remote-polyscopex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap save_3_fill {
             get {
                 object obj = ResourceManager.GetObject("save-3-fill", resourceCulture);

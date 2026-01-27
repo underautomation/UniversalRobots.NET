@@ -37,6 +37,9 @@
 
 
   <ItemGroup>
+    <Compile Update="Components\RestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Components\KinematicsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

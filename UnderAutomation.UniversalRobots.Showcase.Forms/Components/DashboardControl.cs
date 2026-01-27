@@ -22,7 +22,7 @@ public partial class DashboardControl : UserControl, IUserControl
     }
 
     #region IUserControl
-    public string Title => "Dashboard (Remote send commands)";
+    public string Title => "Dashboard (Polyscope legacy)";
 
     public bool FeatureEnabled => !string.IsNullOrEmpty(_ur.Dashboard.IP);
 
