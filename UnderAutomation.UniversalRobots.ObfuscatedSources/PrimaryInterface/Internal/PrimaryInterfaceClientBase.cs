@@ -237,6 +237,11 @@ namespace PrimaryInterface.Internal {
 		public event EventHandler<PackageEventArgs> PackageReceived;
 
 		/// <summary>
+		/// Generic event raised for each raw package received
+		/// </summary>
+		public event EventHandler<RawPackageReceivedEventArgs> RawPackageReceived;
+
+		/// <summary>
 		/// Program threads changed
 		/// </summary>
 		public event EventHandler<ProgramThreadsEventArgs> ProgramThreadsReceived;

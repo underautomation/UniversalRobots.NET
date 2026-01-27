@@ -4045,6 +4045,11 @@
             Generic event raised each time a package is received
             </summary>
         </member>
+        <member name="E:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceClientBase.RawPackageReceived">
+            <summary>
+            Generic event raised for each raw package received
+            </summary>
+        </member>
         <member name="E:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceClientBase.ProgramThreadsReceived">
             <summary>
             Program threads changed
@@ -4213,6 +4218,21 @@
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceClientBase.LocalEndPoint">
             <summary>
             Indicates the current local endpoint (i.e. IP Address) used to communicate with the robot. You can use this IP in your UR script in the function rpc_factory()
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.RawPackageReceivedEventArgs">
+            <summary>
+            Event args for raw package received
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.RawPackageReceivedEventArgs.Data">
+            <summary>
+            Full raw packet data (including header)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.RawPackageReceivedEventArgs.Type">
+            <summary>
+            Package Type
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.PrimaryInterface.Internal.PrimaryInterfaceCommands">

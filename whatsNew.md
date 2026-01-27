@@ -1,3 +1,25 @@
+## Raw Package Received Event
+
+A new event `RawPackageReceived` has been added to the `PrimaryInterface`. This event is raised for every package received from the robot before any decoding happens, giving you access to the raw data.
+
+### Example
+
+```csharp
+var robot = new UR();
+robot.PrimaryInterface.RawPackageReceived += (sender, e) => 
+{
+    // Access raw data
+    byte[] rawData = e.Data;
+    DateTime receiveDate = e.ReceiveDate;
+    byte type = e.Type;
+    
+    Console.WriteLine($"Received {rawData.Length} bytes of type {type}");
+};
+robot.Connect("192.168.0.1");
+```
+
+---
+
 ## REST API Support for PolyscopeX
 
 This release introduces full support for the **Universal Robots REST API**, available exclusively on **PolyscopeX** robots. The REST API is the modern replacement for the legacy `Dashboard Server` on new UR controllers running PolyscopeX.
