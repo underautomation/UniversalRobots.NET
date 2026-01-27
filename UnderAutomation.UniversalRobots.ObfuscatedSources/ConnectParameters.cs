@@ -48,5 +48,10 @@ namespace UnderAutomation.UniversalRobots {
 
 
 		public InterpreterModeConnectParameters InterpreterMode { get; set; }
+
+		/// <summary>
+		/// REST API connection parameters (PolyscopeX only)
+		/// </summary>
+		public RestConnectParameters Rest { get; set; }
 	}
 }
