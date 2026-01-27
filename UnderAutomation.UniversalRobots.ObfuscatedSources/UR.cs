@@ -95,6 +95,11 @@ namespace UnderAutomation.UniversalRobots {
 		public InterpreterModeClientInternal InterpreterMode { get; }
 
 		/// <summary>
+		/// Interact with robot via REST API (PolyscopeX only)
+		/// </summary>
+		public RestClientInternal Rest { get; }
+
+		/// <summary>
 		/// Robot IP address, null is robot is disconnected
 		/// </summary>
 		public string IP { get; }

@@ -728,6 +728,17 @@
             Default value is true
             </summary>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Common.RestConnectParameters">
+            <summary>
+            Configuration parameters for REST API connection (PolyscopeX only)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Common.RestConnectParameters.Enable">
+            <summary>
+            Enable REST API client communication.
+            Default value is false because REST API is only available on PolyscopeX robots.
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.RtdeConnectParameters">
             <summary>
             Setup RTDE (Real-Time Data Exchange) client communication
@@ -780,6 +791,11 @@
         <member name="T:UnderAutomation.UniversalRobots.ConnectParameters">
             <summary>
             Contains parameters to connect to the robot
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.ConnectParameters.Rest">
+            <summary>
+            REST API connection parameters (PolyscopeX only)
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Dashboard.CommandResponse`1">
@@ -3090,6 +3106,19 @@
             </summary>
             <param name="port">Interface to connect to</param>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Internal.RestClientInternal">
+            <summary>
+            Internal REST client for use within the UR class
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Internal.RestClientInternal.Enable(System.Int32,UnderAutomation.UniversalRobots.Rest.RestApiVersion,System.Int32)">
+            <summary>
+            Enable REST client connection using the IP from the parent UR instance
+            </summary>
+            <param name="port">HTTP port for REST API. Default: 80</param>
+            <param name="version">REST API version to use. Default: Latest</param>
+            <param name="timeoutMs">Request timeout in milliseconds. Default: 5000ms</param>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Internal.SftpClientInternal">
             <summary>
             Implementation of the SSH File Transfer Protocol (SFTP) over SSH for transfering files to the robot controller
@@ -5183,6 +5212,318 @@
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.VersionEventArgs.Version">
             <summary>
             Version of the firmware
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase">
+            <summary>
+            Base implementation of the REST API client for PolyscopeX robots
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.IP">
+            <summary>
+            IP address of the robot
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Port">
+            <summary>
+            HTTP port for REST API
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Version">
+            <summary>
+            REST API version being used
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.TimeoutMs">
+            <summary>
+            Request timeout in milliseconds
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Initialized">
+            <summary>
+            Indicates whether the REST client has been initialized
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.EnableInternal(System.String,System.Int32,UnderAutomation.UniversalRobots.Rest.RestApiVersion,System.Int32)">
+            <summary>
+            Enable the REST client
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Disable">
+            <summary>
+            Disable the REST client
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.ChangeRobotState(UnderAutomation.UniversalRobots.Rest.RobotStateAction)">
+            <summary>
+            Change the robot's operational state.
+            PUT /robotstate/v1/state
+            </summary>
+            <param name="action">The state action to perform</param>
+            <returns>API response indicating success or failure</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.UnlockProtectiveStop">
+            <summary>
+            Unlock the robot from protective stop state.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.RestartSafety">
+            <summary>
+            Restart the safety system.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.PowerOff">
+            <summary>
+            Power off the robot.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.PowerOn">
+            <summary>
+            Power on the robot.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.BrakeRelease">
+            <summary>
+            Release the robot brakes.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.LoadProgram(System.String)">
+            <summary>
+            Load a program by name.
+            PUT /program/v1/load
+            </summary>
+            <param name="programName">Name of the program to load (without .urp extension)</param>
+            <returns>API response indicating success or failure</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.ChangeProgramState(UnderAutomation.UniversalRobots.Rest.ProgramStateAction)">
+            <summary>
+            Change the program state.
+            PUT /program/v1/state
+            </summary>
+            <param name="action">The program action to perform</param>
+            <returns>API response indicating success or failure</returns>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Play">
+            <summary>
+            Start playing the loaded program.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Pause">
+            <summary>
+            Pause the running program.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Stop">
+            <summary>
+            Stop the running program.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.Resume">
+            <summary>
+            Resume a paused program.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.GetProgramState">
+            <summary>
+            Get the current program state.
+            GET /program/v1/state
+            </summary>
+            <returns>API response with the current program state</returns>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase">
+            <summary>
+            Base parameters for REST API client configuration
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase.DEFAULT_PORT">
+            <summary>
+            Default REST API HTTP port
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase.DEFAULT_TIMEOUT_MS">
+            <summary>
+            Default request timeout in milliseconds
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase.Port">
+            <summary>
+            REST API HTTP port. Default: 80
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase.Version">
+            <summary>
+            REST API version to use. Default: Latest
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.Internal.RestClientParametersBase.TimeoutMs">
+            <summary>
+            Request timeout in milliseconds. Default: 5000ms
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.ProgramStateAction">
+            <summary>
+            Actions available for changing the program state via REST API
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.ProgramStateAction.play">
+            <summary>
+            Start or resume playing the program
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.ProgramStateAction.pause">
+            <summary>
+            Pause the running program
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.ProgramStateAction.stop">
+            <summary>
+            Stop the running program
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.ProgramStateAction.resume">
+            <summary>
+            Resume a paused program
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RestProgramState">
+            <summary>
+            Program state values returned by the REST API
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestProgramState.Unknown">
+            <summary>
+            Unknown state
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestProgramState.Stopped">
+            <summary>
+            Program is stopped
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestProgramState.Playing">
+            <summary>
+            Program is playing
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestProgramState.Paused">
+            <summary>
+            Program is paused
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.ProgramStateResponse">
+            <summary>
+            Response from GET /program/v1/state endpoint
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.ProgramStateResponse.State">
+            <summary>
+            Current state of the program
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RestApiResponse">
+            <summary>
+            Response from a REST API call
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.RestApiResponse.Succeed">
+            <summary>
+            Indicates whether the API call succeeded (HTTP 200)
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.RestApiResponse.StatusCode">
+            <summary>
+            HTTP status code returned by the API
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.RestApiResponse.Message">
+            <summary>
+            Response message or error description
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.RestApiResponse.RawResponse">
+            <summary>
+            Raw JSON response body
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RestApiResponse`1">
+            <summary>
+            Generic response from a REST API call with typed value
+            </summary>
+            <typeparam name="T">Type of the response value</typeparam>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.RestApiResponse`1.#ctor">
+            <summary>
+            Creates a new RestApiResponse from a base response
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.RestApiResponse`1.#ctor(UnderAutomation.UniversalRobots.Rest.RestApiResponse)">
+            <summary>
+            Creates a new RestApiResponse from a base response
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Rest.RestApiResponse`1.Value">
+            <summary>
+            Typed value from the response
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RestApiVersion">
+            <summary>
+            REST API version for PolyscopeX robots
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestApiVersion.V1">
+            <summary>
+            API Version 1
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RestApiVersion.Latest">
+            <summary>
+            Latest API version (currently V1)
+            </summary>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RestClient">
+            <summary>
+            Standalone REST API client for PolyscopeX robots.
+            Use this class when you want to interact with the REST API independently from the main UR class.
+            </summary>
+        </member>
+        <member name="M:UnderAutomation.UniversalRobots.Rest.RestClient.Enable(System.String,System.Int32,UnderAutomation.UniversalRobots.Rest.RestApiVersion,System.Int32)">
+            <summary>
+            Enable the REST client with the specified connection parameters.
+            </summary>
+            <param name="ip">IP address of the robot</param>
+            <param name="port">HTTP port for REST API. Default: 80</param>
+            <param name="version">REST API version to use. Default: Latest</param>
+            <param name="timeoutMs">Request timeout in milliseconds. Default: 5000ms</param>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Rest.RobotStateAction">
+            <summary>
+            Actions available for changing the robot's operational state via REST API
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RobotStateAction.UNLOCK_PROTECTIVE_STOP">
+            <summary>
+            Unlocks the robot from a protective stop state
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RobotStateAction.RESTART_SAFETY">
+            <summary>
+            Restarts the safety system
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RobotStateAction.POWER_OFF">
+            <summary>
+            Powers off the robot
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RobotStateAction.POWER_ON">
+            <summary>
+            Powers on the robot
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Rest.RobotStateAction.BRAKE_RELEASE">
+            <summary>
+            Releases the robot brakes
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Rtde.Internal.RtdeClientBase">
@@ -33211,6 +33552,11 @@
         <member name="P:UnderAutomation.UniversalRobots.UR.InterpreterMode">
             <summary>
             Interact with robot via SFTP
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.UR.Rest">
+            <summary>
+            Interact with robot via REST API (PolyscopeX only)
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.UR.IP">
