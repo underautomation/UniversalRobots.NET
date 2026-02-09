@@ -4,6 +4,11 @@
         <name>UnderAutomation.UniversalRobots</name>
     </assembly>
     <members>
+        <member name="T:UnderAutomation.UniversalRobots.Common.ConnectException">
+            <summary>
+            Exception thrown when connection to the robot fails
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.DashboardConnectParameters">
             <summary>
             Setup Dashboard Client
@@ -3487,6 +3492,11 @@
         <member name="M:UnderAutomation.UniversalRobots.License.LicenseInfo.AssertIsLicensed">
             <summary>
             Throw a InvalidLicenseException if the license is not valid
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.IsLicensed">
+            <summary>
+            True if the license state is Licensed, Trial or ExtraTrial ; false otherwise
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.License.LicenseInfo.LicenseKey">
