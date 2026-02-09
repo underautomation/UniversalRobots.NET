@@ -30,7 +30,9 @@ public partial class LicenseControl : UserControl, IUserControl
 
     public void OnClose() { }
 
-    public void OnOpen() { }
+    public void OnOpen()
+    {
+    }
     #endregion
 
     private void UpdateLicenseControls()
@@ -57,16 +59,11 @@ public partial class LicenseControl : UserControl, IUserControl
 
     private void txtLicenseInfo_LinkClicked(object sender, LinkClickedEventArgs e)
     {
-        try
-        {
-            var ps = new ProcessStartInfo(e.LinkText)
-            {
-                UseShellExecute = true,
-                Verb = "open"
-            };
-            Process.Start(ps);
-        }
-        catch { }
+        MainForm.Instance.OpenUrl(e.LinkText);
     }
 
+    private void lnkOrder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+        MainForm.Instance.OpenUrl($"{(sender as Control).Text}?sdk=ur");
+    }
 }

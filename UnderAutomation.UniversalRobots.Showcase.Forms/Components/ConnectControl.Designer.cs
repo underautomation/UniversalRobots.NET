@@ -65,6 +65,7 @@ partial class ConnectControl
         label6 = new Label();
         label7 = new Label();
         chkRest = new CheckBox();
+        lblLicense = new Label();
         ((System.ComponentModel.ISupportInitialize)udXmlRpcPort).BeginInit();
         ((System.ComponentModel.ISupportInitialize)udSocketPort).BeginInit();
         ((System.ComponentModel.ISupportInitialize)udFrequency).BeginInit();
@@ -421,6 +422,7 @@ partial class ConnectControl
         tableLayoutPanel1.Controls.Add(label6, 2, 18);
         tableLayoutPanel1.Controls.Add(label7, 2, 19);
         tableLayoutPanel1.Controls.Add(chkRest, 1, 6);
+        tableLayoutPanel1.Controls.Add(lblLicense, 2, 27);
         tableLayoutPanel1.Location = new Point(4, 3);
         tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -578,6 +580,16 @@ partial class ConnectControl
         chkRest.Text = "Enable REST API (PolyscopeX only)";
         chkRest.UseVisualStyleBackColor = true;
         // 
+        // lblLicense
+        // 
+        lblLicense.Anchor = AnchorStyles.Left;
+        lblLicense.AutoSize = true;
+        lblLicense.Location = new Point(329, 721);
+        lblLicense.Name = "lblLicense";
+        lblLicense.Size = new Size(16, 15);
+        lblLicense.TabIndex = 23;
+        lblLicense.Text = "...";
+        // 
         // ConnectControl
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -640,4 +652,5 @@ partial class ConnectControl
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.Label label7;
     private CheckBox chkRest;
+    private Label lblLicense;
 }

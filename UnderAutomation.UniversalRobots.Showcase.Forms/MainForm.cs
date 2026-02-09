@@ -141,8 +141,9 @@ I have this exception that prevents me from using the full capabilities of the S
         mainPanel.Controls.OfType<IUserControl>().FirstOrDefault()?.PeriodicUpdate();
     }
 
-    private void OpenUrl(string url)
+    internal void OpenUrl(string url)
     {
+        if (string.IsNullOrEmpty(url)) return;
         try
         {
             var ps = new ProcessStartInfo(url)

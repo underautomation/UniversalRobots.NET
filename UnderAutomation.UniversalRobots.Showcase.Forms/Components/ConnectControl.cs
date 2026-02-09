@@ -1,4 +1,6 @@
-﻿using UnderAutomation.UniversalRobots;
+﻿using System.ComponentModel;
+using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.License;
 using UnderAutomation.UniversalRobots.Rtde;
 
 public partial class ConnectControl : UserControl, IUserControl
@@ -49,7 +51,10 @@ public partial class ConnectControl : UserControl, IUserControl
 
     public void OnClose() { }
 
-    public void OnOpen() { }
+    public void OnOpen()
+    {
+        ValidateLicense();
+    }
 
     public void PeriodicUpdate()
     {
@@ -60,6 +65,16 @@ public partial class ConnectControl : UserControl, IUserControl
         lblConnected.ForeColor = connected ? Color.Green : Color.Red;
     }
     #endregion
+
+
+    public void ValidateLicense()
+    {
+        var licenseInfo = UR.LicenseInfo;
+        var isActiveLicense = licenseInfo.State == LicenseState.Licensed || licenseInfo.State == LicenseState.Trial || licenseInfo.State == LicenseState.ExtraTrial;
+
+        lblLicense.Text = "License state : " + UR.LicenseInfo.State;
+        lblLicense.ForeColor = isActiveLicense ? Color.Green : Color.Black;
+    }
 
     private void btnConnect_Click(object sender, EventArgs e)
     {
@@ -89,8 +104,16 @@ public partial class ConnectControl : UserControl, IUserControl
         Config.Current.ConnectParameters = parameters;
         Config.Save();
 
-        // Connect to the robot
-        _ur.Connect(parameters);
+        try
+        {
+            // Connect to the robot
+            _ur.Connect(parameters);
+        }
+        catch (InvalidLicenseException)
+        {
+            MessageBox.Show("Your licence is invalid. Please obtain a Trial Licence or enter the licence key you receive after purchasing the SDK", "License error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MainForm.Instance.SelectNode<LicenseControl>();
+        }
     }
 
     private void btnDisconnect_Click(object sender, EventArgs e)
