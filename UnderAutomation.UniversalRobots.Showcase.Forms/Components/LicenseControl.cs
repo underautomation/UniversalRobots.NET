@@ -41,7 +41,7 @@ public partial class LicenseControl : UserControl, IUserControl
         var info = UR.LicenseInfo;
         txtLicenseInfo.Text = info.ToString();
         gridLicense.SelectedObject = info;
-        _licenseValid = info.State != LicenseState.Invalid && info.State != LicenseState.Expired;
+        _licenseValid = info.IsLicensed;
     }
 
     private void btnSetLicense_Click(object sender, System.EventArgs e)
