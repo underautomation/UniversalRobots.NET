@@ -8,7 +8,10 @@ using Common;
 using System;
 
 namespace Dashboard.Internal {
-
+	/// <summary>
+	/// Abstract base class providing Dashboard Server command implementations for the Universal Robots controller.
+	/// Sends text-based commands over TCP and parses responses. A new TCP connection is created for each command.
+	/// </summary>
 	public abstract class DashboardClientBase : URServiceBase {
 
 		/// <summary>

@@ -10,13 +10,20 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class PackageDescriptionAttribute : DescriptionAttribute {
 
-
+		/// <summary>
+		/// Initializes a new instance with no physical unit.
+		/// </summary>
+		/// <param name="description">Human-readable description of the field.</param>
 		public PackageDescriptionAttribute(string description)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Initializes a new instance with a specified physical unit.
+		/// </summary>
+		/// <param name="description">Human-readable description of the field.</param>
+		/// <param name="unit">Physical unit of the measured value.</param>
 		public PackageDescriptionAttribute(string description, PackageUnit unit)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class RobotModeDataPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the robot mode data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public RobotModeDataPackageEventArgs()
 		{

@@ -6,7 +6,9 @@ using SocketCommunication.Internal;
 using SocketCommunication;
 
 namespace Internal {
-
+	/// <summary>
+	/// Internal implementation of the socket communication server used for bidirectional data exchange with UR scripts.
+	/// </summary>
 	public class SocketCommunicationServerInternal : SocketCommunicationServerBase, ISocketHandler {
 	}
 }

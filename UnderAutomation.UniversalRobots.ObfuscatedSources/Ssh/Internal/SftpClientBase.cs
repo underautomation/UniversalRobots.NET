@@ -14,13 +14,21 @@ namespace Ssh.Internal {
 	/// </summary>
 	public abstract class SftpClientBase : URServiceBase {
 
-
+		/// <summary>
+		/// Connects to the robot's SFTP server.
+		/// </summary>
+		/// <param name="ip">Robot IP address.</param>
+		/// <param name="port">SSH/SFTP TCP port.</param>
+		/// <param name="username">Linux username on the robot controller.</param>
+		/// <param name="password">Password for the specified username.</param>
 		protected void ConnectInternal(string ip, int port, string username, string password)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Disconnects this client from the SFTP server.
+		/// </summary>
 		public void Disconnect()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

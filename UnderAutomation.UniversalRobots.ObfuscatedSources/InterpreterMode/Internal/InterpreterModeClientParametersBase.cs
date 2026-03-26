@@ -4,7 +4,9 @@
 
 
 namespace InterpreterMode.Internal {
-
+	/// <summary>
+	/// Base class for Interpreter Mode connection parameters.
+	/// </summary>
 	public abstract class InterpreterModeClientParametersBase {
 
 		/// <summary>

@@ -5,7 +5,9 @@
 using System;
 
 namespace Common {
-
+	/// <summary>
+	/// Represents a set of 6 integer values, one per robot joint. Typically used for joint modes, statuses, or other discrete joint data.
+	/// </summary>
 	public class JointsIntValues : JointsValues<int> {
 
 

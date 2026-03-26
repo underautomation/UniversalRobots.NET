@@ -26,6 +26,24 @@ namespace Dashboard {
 			return default;
 		}
 
+		/// <summary>
+		/// Determines whether the specified object is equal to this program state.
+		/// </summary>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this program state.
+		/// </summary>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public ProgramState()
 		{

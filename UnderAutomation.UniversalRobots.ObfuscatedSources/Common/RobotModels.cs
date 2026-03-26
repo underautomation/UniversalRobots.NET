@@ -9,22 +9,34 @@ namespace Common {
 	/// </summary>
 	public enum RobotModels {
 
-
+		/// <summary>
+		/// UR5 robot model.
+		/// </summary>
 		UR5 = 1,
 
-
+		/// <summary>
+		/// UR10 robot model.
+		/// </summary>
 		UR10 = 2,
 
-
+		/// <summary>
+		/// UR3 robot model.
+		/// </summary>
 		UR3 = 3,
 
-
+		/// <summary>
+		/// UR16 robot model.
+		/// </summary>
 		UR16 = 4,
 
-
+		/// <summary>
+		/// UR20 robot model.
+		/// </summary>
 		UR20 = 7,
 
-
+		/// <summary>
+		/// UR30 robot model.
+		/// </summary>
 		UR30 = 8,
 	}
 }

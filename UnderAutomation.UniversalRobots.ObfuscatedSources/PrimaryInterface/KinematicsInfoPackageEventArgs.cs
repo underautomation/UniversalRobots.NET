@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class KinematicsInfoPackageEventArgs : PackageEventArgs, IUrDhParameters {
 
+		/// <summary>
+		/// Returns a string representation of the kinematics info data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public KinematicsInfoPackageEventArgs()
 		{

@@ -6,10 +6,15 @@ using Internal;
 using License;
 
 namespace UnderAutomation.UniversalRobots {
-
+	/// <summary>
+	/// Main entry point for connecting to and interacting with a Universal Robots controller.
+	/// Provides access to all communication interfaces: Primary Interface, Dashboard, RTDE, SSH, SFTP, XML-RPC, Socket Communication, Interpreter Mode, and REST API.
+	/// </summary>
 	public class UR : URServiceBase {
 
-
+		/// <summary>
+		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> class and creates all communication clients.
+		/// </summary>
 		public UR()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -90,7 +95,7 @@ namespace UnderAutomation.UniversalRobots {
 		public SftpClientInternal Sftp { get; }
 
 		/// <summary>
-		/// Interact with robot via SFTP
+		/// Interact with robot via Interpreter Mode
 		/// </summary>
 		public InterpreterModeClientInternal InterpreterMode { get; }
 

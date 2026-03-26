@@ -9,7 +9,9 @@ namespace Common {
 	/// </summary>
 	public class CartesianCoordinates {
 
-
+		/// <summary>
+		/// Underlying array of 6 double values storing X, Y, Z, Rx, Ry, Rz in that order.
+		/// </summary>
 		public readonly double[] Values;
 
 		/// <summary>
@@ -37,6 +39,27 @@ namespace Common {
 		}
 
 		/// <summary>
+		/// Determines whether the specified object is equal to the current cartesian coordinates.
+		/// </summary>
+		/// <param name="obj">The object to compare with.</param>
+		/// <returns><code>true</code> if coordinates are equal; otherwise, <code>false</code>.</returns>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this cartesian coordinates instance.
+		/// </summary>
+		/// <returns>A hash code based on all six coordinate values.</returns>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// String representation of cartesian value
 		/// </summary>
 		public override string ToString()
@@ -51,12 +74,12 @@ namespace Common {
 		public double X { get; set; }
 
 		/// <summary>
-		/// X coordinate in meters or m/s
+		/// Y coordinate in meters or m/s
 		/// </summary>
 		public double Y { get; set; }
 
 		/// <summary>
-		/// X coordinate in meters or m/s
+		/// Z coordinate in meters or m/s
 		/// </summary>
 		public double Z { get; set; }
 

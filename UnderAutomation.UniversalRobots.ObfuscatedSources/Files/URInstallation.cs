@@ -11,12 +11,15 @@ namespace Files {
 	/// </summary>
 	public class URInstallation : URArchive {
 
-
+		/// <summary>
+		/// File extension for UR installation files.
+		/// </summary>
 		public const string EXTENSION = ".installation";
 
 		/// <summary>
-		/// Create a URProgram from its XML definition
+		/// Creates a URInstallation from its XML definition.
 		/// </summary>
+		/// <param name="xml">The XML element representing the installation content.</param>
 		public URInstallation(XElement xml) : base(default)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -40,13 +43,46 @@ namespace Files {
 			return default;
 		}
 
+		/// <summary>
+		/// Returns the file name of this installation.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 
+		/// <summary>
+		/// Determines whether the specified object is equal to this installation.
+		/// </summary>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this installation.
+		/// </summary>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Gets the XML attribute name used to store the archive name.
+		/// </summary>
 		protected override string NameAttribute => default;
 
-
+		/// <summary>
+		/// Gets the expected root XML element name for this archive type.
+		/// </summary>
 		protected override string RootElement => default;
 
-
+		/// <summary>
+		/// Gets the file extension for this archive type (e.g., ".urp" or ".installation").
+		/// </summary>
 		protected override string Extension => default;
 	}
 }

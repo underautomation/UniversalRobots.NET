@@ -54,10 +54,14 @@ namespace Common {
 		/// </summary>
 		Fault = 9,
 
-
+		/// <summary>
+		/// Automatic mode safeguard stop is active.
+		/// </summary>
 		AutomaticModeSafeguardStop = 10,
 
-
+		/// <summary>
+		/// System three-position enabling device stop is active.
+		/// </summary>
 		SystemThreePositionEnablingStop = 11,
 	}
 }

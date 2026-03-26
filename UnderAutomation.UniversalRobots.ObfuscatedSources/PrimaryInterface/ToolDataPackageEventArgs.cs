@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolDataPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the tool data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public ToolDataPackageEventArgs()
 		{
@@ -61,7 +70,7 @@ public float ToolCurrent { get; set; }
 		/// <summary>
 		/// Tool Temperature in °C
 		/// </summary>
-		[PackageDescription("Tool Temperature in °C", PackageUnit.CelciusDegree)]
+		[PackageDescription("Tool Temperature in °C", PackageUnit.CelsiusDegree)]
 public float ToolTemperature { get; set; }
 
 		/// <summary>

@@ -4,7 +4,9 @@
 
 
 namespace SocketCommunication.Internal {
-
+	/// <summary>
+	/// Base parameters for socket communication server configuration
+	/// </summary>
 	public class SocketCommunicationParametersBase {
 
 

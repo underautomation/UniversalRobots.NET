@@ -35,5 +35,14 @@ namespace XmlRpc {
 		/// Response to be provided to the robot by the user
 		/// </summary>
 		public XmlRpcValue Answer;
+
+		/// <summary>
+		/// Returns a string describing the method name and argument count.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 	}
 }

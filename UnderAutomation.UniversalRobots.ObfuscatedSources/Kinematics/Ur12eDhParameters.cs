@@ -5,7 +5,9 @@
 using Common;
 
 namespace Kinematics {
-
+	/// <summary>
+	/// Denavit-Hartenberg parameters for the UR12e robot (e-Series). Shares the same DH values as the UR10e.
+	/// </summary>
 	public class Ur12eDhParameters : Ur10eDhParameters, IUrDhParameters {
 
 

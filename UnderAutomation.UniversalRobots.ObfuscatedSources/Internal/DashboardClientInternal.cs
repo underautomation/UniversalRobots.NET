@@ -5,7 +5,9 @@
 using Dashboard.Internal;
 
 namespace Internal {
-
+	/// <summary>
+	/// Internal implementation of the Dashboard Server client that delegates connection to the parent <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> instance.
+	/// </summary>
 	public class DashboardClientInternal : DashboardClientBase {
 
 		/// <summary>

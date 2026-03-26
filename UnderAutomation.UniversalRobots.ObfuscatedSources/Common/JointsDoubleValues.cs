@@ -5,7 +5,9 @@
 using System;
 
 namespace Common {
-
+	/// <summary>
+	/// Represents a set of 6 double-precision values, one per robot joint. Typically used for angles (radians), velocities, currents, etc.
+	/// </summary>
 	public class JointsDoubleValues : JointsValues<double> {
 
 

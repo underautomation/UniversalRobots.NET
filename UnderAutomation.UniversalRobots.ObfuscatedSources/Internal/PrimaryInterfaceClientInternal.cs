@@ -6,7 +6,9 @@ using PrimaryInterface.Internal;
 using PrimaryInterface;
 
 namespace Internal {
-
+	/// <summary>
+	/// Internal implementation of the Primary Interface client that delegates connection to the parent <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> instance.
+	/// </summary>
 	public class PrimaryInterfaceClientInternal : PrimaryInterfaceClientBase {
 
 		/// <summary>

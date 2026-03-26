@@ -5,7 +5,9 @@
 using InterpreterMode.Internal;
 
 namespace InterpreterMode {
-
+	/// <summary>
+	/// Client for the Universal Robots Interpreter Mode, allowing real-time execution of URScript commands over TCP.
+	/// </summary>
 	public class InterpreterModeClient : InterpreterModeClientBase {
 
 		/// <summary>

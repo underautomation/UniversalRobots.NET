@@ -10,7 +10,12 @@ namespace PrimaryInterface.Internal {
 	/// </summary>
 	public class RawPackageReceivedEventArgs : PackageEventArgs {
 
-
+		/// <summary>
+		/// Initializes a new instance with the raw packet data, receive timestamp, and package type.
+		/// </summary>
+		/// <param name="data">Full raw packet bytes including header.</param>
+		/// <param name="receiveDate">UTC timestamp when the packet was received.</param>
+		/// <param name="type">Primary Interface package type identifier byte.</param>
 		public RawPackageReceivedEventArgs(byte[] data, DateTime receiveDate, byte type)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

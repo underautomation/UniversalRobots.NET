@@ -4,7 +4,9 @@
 
 
 namespace Ssh.Internal {
-
+	/// <summary>
+	/// Base class for SSH and SFTP connection parameters, including credentials and port configuration.
+	/// </summary>
 	public abstract class SshParametersBase {
 
 		/// <summary>

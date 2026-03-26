@@ -4,7 +4,9 @@
 
 
 namespace Rtde {
-
+	/// <summary>
+	/// Strongly-typed RTDE variable value of type <code class="typeparamref">T</code>.
+	/// </summary>
 	public class RtdeValue<T> : RtdeValue {
 
 
@@ -14,7 +16,9 @@ namespace Rtde {
 			return default;
 		}
 
-
+		/// <summary>
+		/// Gets the current strongly-typed value.
+		/// </summary>
 		public T Value { get; }
 	}
 }

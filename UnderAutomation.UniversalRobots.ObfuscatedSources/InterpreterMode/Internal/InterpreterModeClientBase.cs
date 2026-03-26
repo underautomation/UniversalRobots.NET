@@ -6,10 +6,16 @@ using Internal;
 using InterpreterMode;
 
 namespace InterpreterMode.Internal {
-
+	/// <summary>
+	/// Base class for the Interpreter Mode client, providing TCP communication and built-in interpreter commands.
+	/// </summary>
 	public abstract class InterpreterModeClientBase : URServiceBase {
 
-
+		/// <summary>
+		/// Connects to the interpreter mode server at the specified IP and port.
+		/// </summary>
+		/// <param name="ip">Robot IP address.</param>
+		/// <param name="port">Interpreter mode port number.</param>
 		protected void ConnectInternal(string ip, int port)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

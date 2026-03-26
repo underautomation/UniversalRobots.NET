@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class AdditionalInfoPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the additional info data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public AdditionalInfoPackageEventArgs()
 		{

@@ -42,12 +42,12 @@ namespace PrimaryInterface {
 		/// <summary>
 		/// m/s²
 		/// </summary>
-		MeterPersSecondSquared = 6,
+		MetersPerSecondSquared = 6,
 
 		/// <summary>
 		/// °C
 		/// </summary>
-		CelciusDegree = 7,
+		CelsiusDegree = 7,
 
 		/// <summary>
 		/// V

@@ -6,9 +6,18 @@ using Common;
 
 namespace PrimaryInterface {
 	/// <summary>
-	/// Tool data
+	/// Version information from the robot controller firmware
 	/// </summary>
 	public class VersionEventArgs : PackageEventArgs {
+
+		/// <summary>
+		/// Returns a string representation of the version information.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 
 
 		public VersionEventArgs()

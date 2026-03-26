@@ -34,6 +34,15 @@ namespace SocketCommunication {
 		}
 
 		/// <summary>
+		/// Returns the remote endpoint address and port of the connected robot.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Indicates that robot socket is still active
 		/// </summary>
 		public bool Connected { get; }

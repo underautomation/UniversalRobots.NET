@@ -9,10 +9,17 @@ using System;
 using Common;
 
 namespace PrimaryInterface.Internal {
-
+	/// <summary>
+	/// Base class for the Primary/Secondary Interface client. Manages the TCP connection,
+	/// decodes incoming binary data packets, and raises events for each decoded sub-package.
+	/// </summary>
 	public class PrimaryInterfaceClientBase : URServiceBase {
 
-
+		/// <summary>
+		/// Connects to the robot primary interface at the specified IP and port.
+		/// </summary>
+		/// <param name="ip">Robot IP address.</param>
+		/// <param name="port">Primary interface port to connect to.</param>
 		protected void InternalConnect(string ip, Interfaces port)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

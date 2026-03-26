@@ -6,9 +6,16 @@ using Common;
 
 namespace PrimaryInterface {
 	/// <summary>
-	/// Program threads
+	/// Event data containing information about currently running program threads.
 	/// </summary>
 	public class ProgramThreadsEventArgs : PackageEventArgs {
+
+
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 
 
 		public ProgramThreadsEventArgs()
@@ -16,7 +23,9 @@ namespace PrimaryInterface {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Array of currently running program threads.
+		/// </summary>
 		public ProgramThread[] Threads { get; set; }
 	}
 }

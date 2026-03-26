@@ -5,7 +5,9 @@
 using System;
 
 namespace Rtde {
-
+	/// <summary>
+	/// RTDE bit register array (64 registers, indices 64–127) for exchanging boolean flags with the robot.
+	/// </summary>
 	public class RtdeBitRegistersValue : RtdeRegistersValue<bool>, IRtdeRegistersValue {
 
 
@@ -334,7 +336,9 @@ namespace Rtde {
 		/// </summary>
 		public bool X127 { get; set; }
 
-
+		/// <summary>
+		/// Gets the lower-bound register index for this register range.
+		/// </summary>
 		public override int LowerRangeIndex => default;
 	}
 }

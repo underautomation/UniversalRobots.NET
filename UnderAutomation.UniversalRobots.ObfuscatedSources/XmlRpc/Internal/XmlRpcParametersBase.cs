@@ -4,7 +4,9 @@
 
 
 namespace XmlRpc.Internal {
-
+	/// <summary>
+	/// Base class for XML-RPC connection parameters.
+	/// </summary>
 	public abstract class XmlRpcParametersBase {
 
 

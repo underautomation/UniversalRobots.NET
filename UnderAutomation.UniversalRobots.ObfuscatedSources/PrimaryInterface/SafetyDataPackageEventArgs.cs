@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class SafetyDataPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the safety data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public SafetyDataPackageEventArgs()
 		{
@@ -17,7 +26,7 @@ namespace PrimaryInterface {
 		}
 
 		/// <summary>
-		/// Irrelevent (Internal use only)
+		/// Irrelevant (Internal use only)
 		/// </summary>
 		public byte[] Data { get; set; }
 	}

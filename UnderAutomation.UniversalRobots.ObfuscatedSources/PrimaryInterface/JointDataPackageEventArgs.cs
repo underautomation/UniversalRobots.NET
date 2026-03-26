@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class JointDataPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the joint data for all six joints.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public JointDataPackageEventArgs()
 		{

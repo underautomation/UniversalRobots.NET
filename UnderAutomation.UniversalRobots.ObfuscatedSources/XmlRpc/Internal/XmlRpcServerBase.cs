@@ -6,7 +6,9 @@ using Internal;
 using XmlRpc;
 
 namespace XmlRpc.Internal {
-
+	/// <summary>
+	/// Base class providing XML-RPC server functionality for receiving remote procedure calls from a Universal Robots controller.
+	/// </summary>
 	public abstract class XmlRpcServerBase : URServiceBase {
 
 		/// <summary>

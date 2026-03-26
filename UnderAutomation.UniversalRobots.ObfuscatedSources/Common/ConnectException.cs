@@ -10,10 +10,14 @@ namespace Common {
 	/// </summary>
 	public class ConnectException : Exception, ISerializable {
 
-
+		/// <summary>
+		/// Name of the robot service that failed to connect (e.g. Dashboard, RTDE, PrimaryInterface).
+		/// </summary>
 		public string Service { get; }
 
-
+		/// <summary>
+		/// IP address of the robot that the connection was attempted to.
+		/// </summary>
 		public string RobotIp { get; }
 	}
 }

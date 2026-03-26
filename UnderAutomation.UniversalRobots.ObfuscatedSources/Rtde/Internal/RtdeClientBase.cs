@@ -13,7 +13,15 @@ namespace Rtde.Internal {
 	/// </summary>
 	public abstract class RtdeClientBase : URServiceBase {
 
-
+		/// <summary>
+		/// Connects to the robot RTDE server and sets up input/output recipes.
+		/// </summary>
+		/// <param name="ip">Robot IP address.</param>
+		/// <param name="port">RTDE port number (default 30004).</param>
+		/// <param name="outputSetup">Output variables to subscribe to.</param>
+		/// <param name="inputSetup">Input variables to send to the robot.</param>
+		/// <param name="preferedVersion">Preferred RTDE protocol version.</param>
+		/// <param name="frequency">Desired data exchange frequency in Hz.</param>
 		protected void ConnectInternal(string ip, int port, RtdeOutputSetup outputSetup, RtdeInputSetup inputSetup, RtdeVersions preferedVersion, double frequency)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

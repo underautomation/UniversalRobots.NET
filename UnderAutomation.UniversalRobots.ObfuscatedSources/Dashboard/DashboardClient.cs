@@ -5,7 +5,10 @@
 using Dashboard.Internal;
 
 namespace Dashboard {
-
+	/// <summary>
+	/// Client for the Universal Robots Dashboard Server protocol.
+	/// Enables remote control of the robot (load/play/stop programs, power on/off, etc.) via TCP commands on port 29999.
+	/// </summary>
 	public class DashboardClient : DashboardClientBase {
 
 		/// <summary>

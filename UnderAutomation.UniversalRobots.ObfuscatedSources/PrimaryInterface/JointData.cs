@@ -11,6 +11,27 @@ namespace PrimaryInterface {
 	public class JointData {
 
 
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+
 		public JointData()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -41,15 +62,15 @@ public double ActualSpeed { get; set; }
 public float Current { get; set; }
 
 		/// <summary>
-		/// Motor votage in Volts
+		/// Motor voltage in Volts
 		/// </summary>
-		[PackageDescription("Motor votage in Volts", PackageUnit.Volt)]
+		[PackageDescription("Motor voltage in Volts", PackageUnit.Volt)]
 public float Voltage { get; set; }
 
 		/// <summary>
 		/// Joint temperature in °C
 		/// </summary>
-		[PackageDescription("Joint temperature in °C", PackageUnit.CelciusDegree)]
+		[PackageDescription("Joint temperature in °C", PackageUnit.CelsiusDegree)]
 public float Temperature { get; set; }
 
 		/// <summary>

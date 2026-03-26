@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolModeInfoPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the tool mode info.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public ToolModeInfoPackageEventArgs()
 		{

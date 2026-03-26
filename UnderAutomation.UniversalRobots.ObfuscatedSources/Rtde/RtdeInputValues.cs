@@ -5,54 +5,83 @@
 using Common;
 
 namespace Rtde {
-
+	/// <summary>
+	/// Holds the current values for all RTDE input variables (client-to-robot). Use this to prepare data before calling <xref href="UnderAutomation.UniversalRobots.Rtde.Internal.RtdeClientBase.WriteInputs(UnderAutomation.UniversalRobots.Rtde.RtdeInputValues)" data-throw-if-not-resolved="false"></xref>.
+	/// </summary>
 	public class RtdeInputValues : RtdeBaseValues<RtdeInputData> {
 
-
+		/// <summary>
+		/// Initializes a new instance with default values for all input variables.
+		/// </summary>
 		public RtdeInputValues()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Gets the <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref> wrapper for the specified variable.
+		/// </summary>
+		/// <param name="data">The RTDE variable identifier.</param>
+		/// <returns>The corresponding <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref>.</returns>
 		protected override RtdeValue InternaleGetValue(RtdeInputData data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
 
-
+		/// <summary>
+		/// Sets the value for the input variable described by a setup item.
+		/// </summary>
+		/// <param name="item">The input setup item identifying the variable and register index.</param>
+		/// <param name="value">The value to assign.</param>
 		public void SetValue(RtdeInputSetupItem item, object value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Sets the value for the specified RTDE input variable.
+		/// </summary>
+		/// <param name="data">The input variable identifier.</param>
+		/// <param name="value">The value to assign.</param>
 		public void SetValue(RtdeInputData data, object value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Sets the value for the specified RTDE input variable at a given register index.
+		/// </summary>
+		/// <param name="data">The input variable identifier.</param>
+		/// <param name="index">The absolute register index.</param>
+		/// <param name="value">The value to assign.</param>
 		public void SetValue(RtdeInputData data, int index, object value)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Gets the current value for the input variable described by a setup item.
+		/// </summary>
+		/// <param name="item">The input setup item identifying the variable and register index.</param>
+		/// <returns>The current value.</returns>
 		public object GetValue(RtdeInputSetupItem item)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
 
-
+		/// <summary>
+		/// Resets all input values to their defaults.
+		/// </summary>
 		public void Reset()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Gets the internal array of all RTDE values.
+		/// </summary>
 		protected override RtdeValue[] InternalValues => default;
 
 		/// <summary>

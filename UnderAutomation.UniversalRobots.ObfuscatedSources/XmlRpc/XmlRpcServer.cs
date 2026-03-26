@@ -5,7 +5,9 @@
 using XmlRpc.Internal;
 
 namespace XmlRpc {
-
+	/// <summary>
+	/// XML-RPC server that receives remote procedure calls from the robot's URScript programs.
+	/// </summary>
 	public class XmlRpcServer : XmlRpcServerBase {
 
 

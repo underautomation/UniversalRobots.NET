@@ -4,7 +4,9 @@
 
 
 namespace Rtde {
-
+	/// <summary>
+	/// Parameters for configuring the standalone <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeClient" data-throw-if-not-resolved="false"></xref> connection to a Universal Robots controller via the RTDE protocol.
+	/// </summary>
 	public class RtdeClientParameters {
 
 

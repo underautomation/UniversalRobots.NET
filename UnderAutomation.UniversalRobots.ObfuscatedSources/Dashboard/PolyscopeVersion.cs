@@ -5,7 +5,7 @@
 
 namespace Dashboard {
 	/// <summary>
-	/// Describe a Polysciope version (Robot firmware)
+	/// Describes a Polyscope version (robot controller firmware).
 	/// </summary>
 	public class PolyscopeVersion {
 
@@ -28,6 +28,24 @@ namespace Dashboard {
 		/// Returns Description of the version
 		/// </summary>
 		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Determines whether the specified object is equal to this Polyscope version.
+		/// </summary>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this Polyscope version.
+		/// </summary>
+		public override int GetHashCode()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

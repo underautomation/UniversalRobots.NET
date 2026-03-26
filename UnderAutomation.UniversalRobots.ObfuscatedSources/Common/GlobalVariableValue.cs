@@ -74,6 +74,25 @@ namespace Common {
 		}
 
 		/// <summary>
+		/// Determines whether the specified object is a <xref href="UnderAutomation.UniversalRobots.Common.GlobalVariableValue" data-throw-if-not-resolved="false"></xref> with the same type and value.
+		/// </summary>
+		/// <param name="obj">The object to compare with.</param>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code based on the variable type and value.
+		/// </summary>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Estimate variable value from its string representation
 		/// </summary>
 		public static GlobalVariableValue Parse(string message)

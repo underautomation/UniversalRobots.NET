@@ -5,24 +5,36 @@
 using Common;
 
 namespace Rtde {
-
+	/// <summary>
+	/// Holds the current values for all RTDE output variables (robot-to-client). Updated automatically when data is received from the robot.
+	/// </summary>
 	public class RtdeOutputValues : RtdeBaseValues<RtdeOutputData> {
 
-
+		/// <summary>
+		/// Gets the <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref> wrapper for the specified variable.
+		/// </summary>
+		/// <param name="data">The RTDE variable identifier.</param>
+		/// <returns>The corresponding <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref>.</returns>
 		protected override RtdeValue InternaleGetValue(RtdeOutputData data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
 
-
+		/// <summary>
+		/// Gets the current value for the output variable described by a setup item.
+		/// </summary>
+		/// <param name="item">The output setup item identifying the variable and register index.</param>
+		/// <returns>The current value.</returns>
 		public object GetValue(RtdeOutputSetupItem item)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
 		}
 
-
+		/// <summary>
+		/// Gets the internal array of all RTDE values.
+		/// </summary>
 		protected override RtdeValue[] InternalValues => default;
 
 		/// <summary>

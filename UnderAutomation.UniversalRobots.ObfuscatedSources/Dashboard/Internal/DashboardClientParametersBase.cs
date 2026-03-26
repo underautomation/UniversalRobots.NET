@@ -4,7 +4,9 @@
 
 
 namespace Dashboard.Internal {
-
+	/// <summary>
+	/// Abstract base class for Dashboard Server connection parameters, providing default port and timeout values.
+	/// </summary>
 	public abstract class DashboardClientParametersBase {
 
 		/// <summary>

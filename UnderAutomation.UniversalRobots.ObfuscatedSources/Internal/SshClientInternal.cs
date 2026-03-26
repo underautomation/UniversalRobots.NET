@@ -13,6 +13,7 @@ namespace Internal {
 		/// <summary>
 		/// Connects to the SSH robot server
 		/// </summary>
+		/// <param name="port">SSH port number.</param>
 		/// <param name="username">Robot linux username (default username is admin)</param>
 		/// <param name="password">Associated user password (default is easybot)</param>
 		public void Connect(int port, string username, string password)

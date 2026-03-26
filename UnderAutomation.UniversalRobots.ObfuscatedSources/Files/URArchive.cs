@@ -11,7 +11,10 @@ namespace Files {
 	/// </summary>
 	public abstract class URArchive {
 
-
+		/// <summary>
+		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.Files.URArchive" data-throw-if-not-resolved="false"></xref> from the specified XML element.
+		/// </summary>
+		/// <param name="xml">The XML element representing the archive content.</param>
 		protected URArchive(XElement xml)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -59,16 +62,24 @@ namespace Files {
 		/// </summary>
 		public XElement XML { get; }
 
-
+		/// <summary>
+		/// Gets the XML attribute name used to store the archive name.
+		/// </summary>
 		protected abstract string NameAttribute { get; }
 
-
+		/// <summary>
+		/// Gets the expected root XML element name for this archive type.
+		/// </summary>
 		protected abstract string RootElement { get; }
 
-
+		/// <summary>
+		/// Gets the file extension for this archive type (e.g., ".urp" or ".installation").
+		/// </summary>
 		protected abstract string Extension { get; }
 
-
+		/// <summary>
+		/// Gets or sets the name of this archive, stored as an XML attribute.
+		/// </summary>
 		public string Name { get; set; }
 
 		/// <summary>

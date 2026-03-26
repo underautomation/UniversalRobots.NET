@@ -5,7 +5,9 @@
 using System;
 
 namespace Rtde {
-
+	/// <summary>
+	/// RTDE integer register array (48 registers, indices 0–47) for exchanging 32-bit integer values with the robot.
+	/// </summary>
 	public class RtdeIntRegistersValue : RtdeRegistersValue<int>, IRtdeRegistersValue {
 
 
@@ -254,7 +256,9 @@ namespace Rtde {
 		/// </summary>
 		public int X47 { get; set; }
 
-
+		/// <summary>
+		/// Gets the lower-bound register index for this register range.
+		/// </summary>
 		public override int LowerRangeIndex => default;
 	}
 }

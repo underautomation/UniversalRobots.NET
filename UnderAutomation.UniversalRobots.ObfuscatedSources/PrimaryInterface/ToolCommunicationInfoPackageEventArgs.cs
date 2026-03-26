@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ToolCommunicationInfoPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the tool communication info.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public ToolCommunicationInfoPackageEventArgs()
 		{
@@ -23,9 +32,9 @@ namespace PrimaryInterface {
 public bool ToolCommunicationIsEnabled { get; set; }
 
 		/// <summary>
-		/// Baude rate
+		/// Baud rate for tool serial communication
 		/// </summary>
-		[PackageDescription("Baude rate")]
+		[PackageDescription("Baud rate")]
 public int BaudRate { get; set; }
 
 		/// <summary>

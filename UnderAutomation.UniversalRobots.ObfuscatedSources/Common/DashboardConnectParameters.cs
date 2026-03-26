@@ -11,8 +11,8 @@ namespace Common {
 	public class DashboardConnectParameters : DashboardClientParametersBase {
 
 		/// <summary>
-		/// Enable aDashboard client communication
-		/// Default value is true
+		/// Enable Dashboard client communication.
+		/// Default value is true.
 		/// </summary>
 		public bool Enable { get; set; }
 	}

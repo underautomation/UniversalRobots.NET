@@ -5,7 +5,7 @@
 
 namespace Dashboard {
 	/// <summary>
-	/// Answer return by a command which contains a value
+	/// Answer returned by a command which contains a typed value.
 	/// </summary>
 	public class CommandResponse<T> : CommandResponse {
 
@@ -14,7 +14,10 @@ namespace Dashboard {
 		/// </summary>
 		public T Value;
 
-
+		/// <summary>
+		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.Dashboard.CommandResponse%601" data-throw-if-not-resolved="false"></xref> by copying the base response data.
+		/// </summary>
+		/// <param name="command">The base command response to copy from.</param>
 		public CommandResponse(CommandResponse command)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -24,6 +27,24 @@ namespace Dashboard {
 		/// A human readable answer
 		/// </summary>
 		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Determines whether the specified object is equal to this response.
+		/// </summary>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this response.
+		/// </summary>
+		public override int GetHashCode()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

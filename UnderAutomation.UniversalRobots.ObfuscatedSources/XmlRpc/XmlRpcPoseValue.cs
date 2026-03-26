@@ -28,6 +28,26 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
+		/// Determines whether the specified object is equal to this instance.
+		/// </summary>
+		/// <param name="obj">The object to compare with.</param>
+		/// <returns><code>true</code> if the specified object is an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcPoseValue" data-throw-if-not-resolved="false"></xref> with the same pose; otherwise, <code>false</code>.</returns>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this instance.
+		/// </summary>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
 		/// Pose Value
 		/// </summary>
 		public Pose Value { get; }

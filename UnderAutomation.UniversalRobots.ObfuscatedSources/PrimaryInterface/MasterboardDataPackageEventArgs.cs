@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class MasterboardDataPackageEventArgs : PackageEventArgs {
 
+		/// <summary>
+		/// Returns a string representation of the masterboard data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public MasterboardDataPackageEventArgs()
 		{
@@ -47,9 +56,9 @@ public double AnalogInput1 { get; set; }
 public AnalogRanges AnalogOutputDomain0 { get; set; }
 
 		/// <summary>
-		/// Unit of analog output 1 (analog_out[1)
+		/// Unit of analog output 1 (analog_out[1])
 		/// </summary>
-		[PackageDescription("Unit of analog output 1 (analog_out[1)")]
+		[PackageDescription("Unit of analog output 1 (analog_out[1])")]
 public AnalogRanges AnalogOutputDomain1 { get; set; }
 
 		/// <summary>
@@ -67,7 +76,7 @@ public double AnalogOutput1 { get; set; }
 		/// <summary>
 		/// Temperature of masterboard in °C
 		/// </summary>
-		[PackageDescription("Temperature of masterboard in °C", PackageUnit.CelciusDegree)]
+		[PackageDescription("Temperature of masterboard in °C", PackageUnit.CelsiusDegree)]
 public float MasterboardTemperature { get; set; }
 
 		/// <summary>
@@ -143,9 +152,9 @@ public int EuromapInputBits { get; set; }
 public int EuromapOutputBits { get; set; }
 
 		/// <summary>
-		/// Euromap votage
+		/// Euromap voltage
 		/// </summary>
-		[PackageDescription("Euromap votage", PackageUnit.Volt)]
+		[PackageDescription("Euromap voltage", PackageUnit.Volt)]
 public float EuromapVoltage { get; set; }
 
 		/// <summary>

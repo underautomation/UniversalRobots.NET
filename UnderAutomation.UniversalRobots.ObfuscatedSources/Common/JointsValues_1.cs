@@ -21,6 +21,27 @@ namespace Common {
 			return default;
 		}
 
+		/// <summary>
+		/// Determines whether the specified object is equal to the current joint values.
+		/// </summary>
+		/// <param name="obj">The object to compare with.</param>
+		/// <returns><code>true</code> if all joint values are equal; otherwise, <code>false</code>.</returns>
+		public override bool Equals(object obj)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns a hash code for this joint values instance.
+		/// </summary>
+		/// <returns>A hash code based on all six joint values.</returns>
+		public override int GetHashCode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public JointsValues()
 		{

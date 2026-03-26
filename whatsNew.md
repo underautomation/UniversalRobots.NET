@@ -1,23 +1,13 @@
-## Improved Connection Error Messages
+## Improved Documentation
 
-Connection errors now include a clear indication of **which protocol** failed to connect. Each protocol's internal connect method is wrapped with a specific `ConnectException` that identifies the service name, IP, and port.
+All **public classes**, **enums**, **properties**, and **fields** now include XML documentation comments, providing better IntelliSense support and clearer API reference documentation.
 
-### Affected Protocols
+## Naming Corrections
 
-| Protocol             | Service Name             |
-| -------------------- | ------------------------ |
-| Primary Interface    | `"Primary Interface"`    |
-| RTDE                 | `"RTDE"`                 |
-| SSH                  | `"SSH"`                  |
-| SFTP                 | `"SFTP"`                 |
-| Interpreter Mode     | `"Interpreter Mode"`     |
-| XML-RPC              | `"XML-RPC"`              |
-| Socket Communication | `"Socket Communication"` |
+Several public API names have been corrected to fix typos. If you reference these symbols in your code, please update them accordingly.
 
-### Example
-
-When a connection to a specific protocol fails, the exception message now clearly states which one:
-
-```
-Failed to connect to RTDE of Universal Robots cobot "192.168.0.1:30004" : No connection could be made because the target machine actively refused it.
-```
+| Before (deprecated)                  | After (corrected)                    |
+| ------------------------------------ | ------------------------------------ |
+| `JointModes.Bootloder`               | `JointModes.Bootloader`              |
+| `PackageUnit.MeterPersSecondSquared` | `PackageUnit.MetersPerSecondSquared` |
+| `PackageUnit.CelciusDegree`          | `PackageUnit.CelsiusDegree`          |

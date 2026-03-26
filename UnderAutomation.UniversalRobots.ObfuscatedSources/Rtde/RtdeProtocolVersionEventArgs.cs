@@ -4,8 +4,17 @@
 
 
 namespace Rtde {
-
+	/// <summary>
+	/// Event arguments indicating which RTDE protocol version was negotiated with the robot.
+	/// </summary>
 	public class RtdeProtocolVersionEventArgs : RtdeBasicRequestEventArgs {
+
+
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 
 
 		public RtdeProtocolVersionEventArgs()
@@ -13,7 +22,9 @@ namespace Rtde {
 			// Source is hidden, a Source licence is needed to access internal code...
 		}
 
-
+		/// <summary>
+		/// Gets or sets the negotiated RTDE protocol version.
+		/// </summary>
 		public RtdeVersions Version { get; set; }
 	}
 }

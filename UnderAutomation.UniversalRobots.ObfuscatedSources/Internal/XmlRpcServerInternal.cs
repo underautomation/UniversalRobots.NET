@@ -5,7 +5,9 @@
 using XmlRpc.Internal;
 
 namespace Internal {
-
+	/// <summary>
+	/// Internal implementation of the XML-RPC server used to expose methods callable by URScript programs on the robot.
+	/// </summary>
 	public class XmlRpcServerInternal : XmlRpcServerBase {
 	}
 }

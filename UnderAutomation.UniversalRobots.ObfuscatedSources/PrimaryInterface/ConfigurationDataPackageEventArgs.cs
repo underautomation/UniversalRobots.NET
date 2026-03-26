@@ -10,6 +10,15 @@ namespace PrimaryInterface {
 	/// </summary>
 	public class ConfigurationDataPackageEventArgs : PackageEventArgs, IUrDhParameters {
 
+		/// <summary>
+		/// Returns a string representation of the configuration data.
+		/// </summary>
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
 
 		public ConfigurationDataPackageEventArgs()
 		{
@@ -37,7 +46,7 @@ public double VToolDefault { get; set; }
 		/// <summary>
 		/// Default TCP acceleration speed in m/s²
 		/// </summary>
-		[PackageDescription("Default TCP acceleration speed in m/s²", PackageUnit.MeterPersSecondSquared)]
+		[PackageDescription("Default TCP acceleration speed in m/s²", PackageUnit.MetersPerSecondSquared)]
 public double AToolDefault { get; set; }
 
 		/// <summary>
@@ -65,9 +74,9 @@ public ControllerBoxTypes ControllerBoxType { get; set; }
 public RobotModels RobotType { get; set; }
 
 		/// <summary>
-		/// Robot serie
+		/// Robot series (e-Series, CB-Series, etc.)
 		/// </summary>
-		[PackageDescription("Robot serie")]
+		[PackageDescription("Robot series")]
 public RobotSubTypes RobotSubType { get; set; }
 
 		/// <summary>

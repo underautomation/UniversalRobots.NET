@@ -5,8 +5,17 @@
 using Common;
 
 namespace Rtde {
-
+	/// <summary>
+	/// Event arguments raised when the robot acknowledges the RTDE input recipe setup.
+	/// </summary>
 	public class RtdeControlPackageSetupInputsEventArgs : PackageEventArgs {
+
+
+		public override string ToString()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
 
 
 		public RtdeControlPackageSetupInputsEventArgs()

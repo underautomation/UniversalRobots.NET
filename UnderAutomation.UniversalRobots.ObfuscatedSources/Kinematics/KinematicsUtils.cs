@@ -30,8 +30,13 @@ namespace Kinematics {
 	public static class KinematicsUtils {
 
 		/// <summary>
-		/// Denavit–Hartenberg homogeneous transform
+		/// Computes the 4×4 Denavit-Hartenberg homogeneous transformation matrix for one joint.
 		/// </summary>
+		/// <param name="theta">Joint angle in radians.</param>
+		/// <param name="d">Link offset along the previous z-axis, in meters.</param>
+		/// <param name="a">Link length along the rotated x-axis, in meters.</param>
+		/// <param name="alpha">Link twist angle in radians.</param>
+		/// <returns>A 4×4 homogeneous transformation matrix.</returns>
 		public static double[,] DHTransform(double theta, double d, double a, double alpha)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -39,8 +44,11 @@ namespace Kinematics {
 		}
 
 		/// <summary>
-		/// Homogeneous matrix multiplication optimized for DH transforms.
+		/// Multiplies two 4×4 homogeneous transformation matrices, optimized for DH transforms.
 		/// </summary>
+		/// <param name="A">Left 4×4 matrix.</param>
+		/// <param name="B">Right 4×4 matrix.</param>
+		/// <returns>Product 4×4 matrix A × B.</returns>
 		public static double[,] HomogeneousMultiply(double[,] A, double[,] B)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -85,9 +93,15 @@ namespace Kinematics {
 		}
 
 		/// <summary>
-		/// Singularity detection using det(J) factors: s5≈0 (wrist), s3≈0 (elbow),
-		/// and c2*a2 + c23*a3 + s234*d5≈0 (shoulder).
+		/// Detects singularities using Jacobian determinant factors: sin(q5)≈0 (wrist), sin(q3)≈0 (elbow),
+		/// and c2·a2 + c23·a3 + s234·d5 ≈ 0 (shoulder).
 		/// </summary>
+		/// <param name="elbow">Joint angle q2 in radians (shoulder joint in UR convention).</param>
+		/// <param name="shoulder">Joint angle q3 in radians (elbow joint in UR convention).</param>
+		/// <param name="wrist1">Joint angle q4 in radians (wrist 1).</param>
+		/// <param name="wrist2">Joint angle q5 in radians (wrist 2).</param>
+		/// <param name="dhParameters">Robot DH parameters.</param>
+		/// <returns>Flags indicating which singularities, if any, are present.</returns>
 		public static SingularityType GetSingularity(double elbow, double shoulder, double wrist1, double wrist2, IUrDhParameters dhParameters)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -95,8 +109,10 @@ namespace Kinematics {
 		}
 
 		/// <summary>
-		/// Get the DH parameters for a given robot model.
+		/// Returns the factory Denavit-Hartenberg parameters for a given UR robot model.
 		/// </summary>
+		/// <param name="model">UR robot model identifier.</param>
+		/// <returns>DH parameters for the specified model.</returns>
 		public static IUrDhParameters GetDhParametersFromModel(RobotModelsExtended model)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

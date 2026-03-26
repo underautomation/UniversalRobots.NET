@@ -5,7 +5,9 @@
 using Common;
 
 namespace Kinematics {
-
+	/// <summary>
+	/// Denavit-Hartenberg parameters for the UR30 robot.
+	/// </summary>
 	public class Ur30DhParameters : IUrDhParameters {
 
 

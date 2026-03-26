@@ -4,7 +4,9 @@
 
 
 namespace Rtde {
-
+	/// <summary>
+	/// Describes a single RTDE output variable (robot-to-client), including its protocol name, type, and array information.
+	/// </summary>
 	public class RtdeOutputDataDescription : RtdeDataDescription<RtdeOutputData> {
 	}
 }

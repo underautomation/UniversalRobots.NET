@@ -5,7 +5,9 @@
 using Ssh.Internal;
 
 namespace Ssh {
-
+	/// <summary>
+	/// Provides a client for transferring files to and from the Universal Robots controller using the SFTP protocol.
+	/// </summary>
 	public class SftpClient : SftpClientBase {
 
 		/// <summary>
