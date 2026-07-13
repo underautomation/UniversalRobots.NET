@@ -68,7 +68,7 @@ public int MasterboardVersion { get; set; }
 public ControllerBoxTypes ControllerBoxType { get; set; }
 
 		/// <summary>
-		/// Model of the robot (UR3, UR5, UR10, UR16)
+		/// Model of the robot (UR3, UR5, UR10, UR16, ...)
 		/// </summary>
 		[PackageDescription("Model of the robot")]
 public RobotModels RobotType { get; set; }

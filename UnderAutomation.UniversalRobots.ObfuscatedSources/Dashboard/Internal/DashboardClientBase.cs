@@ -317,7 +317,7 @@ namespace Dashboard.Internal {
 		}
 
 		/// <summary>
-		/// Returns the robot model (UR3, UR5, UR10 or UR16). (FW 3.12 and from FW 5.6)
+		/// Returns the robot model (UR3, UR5, UR10, UR16, ...). (FW 3.12 and from FW 5.6)
 		/// </summary>
 		public CommandResponse<RobotModels> GetRobotModel()
 		{

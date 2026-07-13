@@ -45,28 +45,38 @@ namespace Common {
 		UR15 = 6,
 
 		/// <summary>
+		/// UR18 robot model.
+		/// </summary>
+		UR18 = 7,
+
+		/// <summary>
 		/// UR20 robot model.
 		/// </summary>
-		UR20 = 7,
+		UR20 = 8,
 
 		/// <summary>
 		/// UR30 robot model.
 		/// </summary>
-		UR30 = 8,
+		UR30 = 9,
+
+		/// <summary>
+		/// UR8 Long robot model.
+		/// </summary>
+		UR8Long = 10,
 
 		/// <summary>
 		/// UR3 (CB-Series).
 		/// </summary>
-		UR3 = 9,
+		UR3 = 11,
 
 		/// <summary>
 		/// UR5 (CB-Series).
 		/// </summary>
-		UR5 = 10,
+		UR5 = 12,
 
 		/// <summary>
 		/// UR10 (CB-Series).
 		/// </summary>
-		UR10 = 11,
+		UR10 = 13,
 	}
 }

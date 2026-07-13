@@ -387,6 +387,16 @@
             UR30 robot model.
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.RobotModels.UR8L">
+            <summary>
+            UR8 Long robot model.        
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.RobotModels.UR18">
+            <summary>
+            UR18 robot model.
+            </summary>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Common.RobotModelsExtended">
             <summary>
             Model of a UR robot (including e-Series and extended payload models)
@@ -427,6 +437,11 @@
             UR15 robot model.
             </summary>
         </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.RobotModelsExtended.UR18">
+            <summary>
+            UR18 robot model.
+            </summary>
+        </member>
         <member name="F:UnderAutomation.UniversalRobots.Common.RobotModelsExtended.UR20">
             <summary>
             UR20 robot model.
@@ -435,6 +450,11 @@
         <member name="F:UnderAutomation.UniversalRobots.Common.RobotModelsExtended.UR30">
             <summary>
             UR30 robot model.
+            </summary>
+        </member>
+        <member name="F:UnderAutomation.UniversalRobots.Common.RobotModelsExtended.UR8Long">
+            <summary>
+            UR8 Long robot model.
             </summary>
         </member>
         <member name="F:UnderAutomation.UniversalRobots.Common.RobotModelsExtended.UR3">
@@ -1603,7 +1623,7 @@
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.GetRobotModel">
             <summary>
-            Returns the robot model (UR3, UR5, UR10 or UR16). (FW 3.12 and from FW 5.6)
+            Returns the robot model (UR3, UR5, UR10, UR16, ...). (FW 3.12 and from FW 5.6)
             </summary>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientParametersBase">
@@ -4597,6 +4617,29 @@
         <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur16eDhParameters.D6">
             <inheritdoc/>
         </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters">
+            <summary>
+            Denavit-Hartenberg parameters for the UR8 Long robot.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.A2">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.A3">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.D1">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.D4">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.D5">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur8LongDhParameters.D6">
+            <inheritdoc/>
+        </member>
         <member name="T:UnderAutomation.UniversalRobots.Kinematics.Ur15DhParameters">
             <summary>
             Denavit-Hartenberg parameters for the UR15 robot.
@@ -4618,6 +4661,29 @@
             <inheritdoc/>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur15DhParameters.D6">
+            <inheritdoc/>
+        </member>
+        <member name="T:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters">
+            <summary>
+            Denavit-Hartenberg parameters for the UR18 robot.
+            </summary>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.A2">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.A3">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.D1">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.D4">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.D5">
+            <inheritdoc/>
+        </member>
+        <member name="P:UnderAutomation.UniversalRobots.Kinematics.Ur18DhParameters.D6">
             <inheritdoc/>
         </member>
         <member name="T:UnderAutomation.UniversalRobots.Kinematics.Ur20DhParameters">
@@ -5095,7 +5161,7 @@
         </member>
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.RobotType">
             <summary>
-            Model of the robot (UR3, UR5, UR10, UR16)
+            Model of the robot (UR3, UR5, UR10, UR16, ...)
             </summary>
         </member>
         <member name="P:UnderAutomation.UniversalRobots.PrimaryInterface.ConfigurationDataPackageEventArgs.RobotSubType">

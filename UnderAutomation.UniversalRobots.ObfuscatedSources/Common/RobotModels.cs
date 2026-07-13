@@ -38,5 +38,15 @@ namespace Common {
 		/// UR30 robot model.
 		/// </summary>
 		UR30 = 8,
+
+		/// <summary>
+		/// UR8 Long robot model.
+		/// </summary>
+		UR8L = 6,
+
+		/// <summary>
+		/// UR18 robot model.
+		/// </summary>
+		UR18 = 5,
 	}
 }
