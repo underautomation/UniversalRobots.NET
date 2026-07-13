@@ -237,7 +237,7 @@ robot.Connect(new ConnectParameters("192.168.0.1"));
 
 ## 🔍 Compatibility
 
-✅ **Supported Robots:** UR3, UR5, UR10, UR16, UR20, UR30, CB-Series, e-Series, Polyscope, Polyscope X  
+✅ **Supported Robots:** UR3, UR5, UR10, UR16, UR18, UR20, UR30, UR8L, CB-Series, e-Series, Polyscope, Polyscope X  
 ✅ **Operating Systems:** Windows, Linux, macOS  
 ✅ **.NET Versions:** .NET Framework (≥3.5), .NET Standard, .NET Core, .NET 5/6/8/9
 
