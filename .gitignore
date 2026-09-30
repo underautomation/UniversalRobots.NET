@@ -349,3 +349,6 @@ MigrationBackup/
 .ionide/
 *.lvlps
 *.aliases
+
+# Release artifacts
+*.zip

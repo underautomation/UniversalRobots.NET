@@ -10,7 +10,7 @@ jobs:
     runs-on: windows-2022
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v7
       - uses: nuget/setup-nuget@v1
       - run: nuget restore $Env:GITHUB_WORKSPACE\UnderAutomation.UniversalRobots_VS2022.sln
       - name: zip libraries

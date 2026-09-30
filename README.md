@@ -1,268 +1,286 @@
-# Universal Robots Communication SDK
+# Universal Robots Communication SDK for .NET
 
-[![UnderAutomation Universal Robots communication SDK](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/banner.png)](https://underautomation.com)
+[![UnderAutomation Universal Robots communication SDK](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/banner.png)](https://underautomation.com/universal-robots)
 
-[![NuGet](https://img.shields.io/nuget/dt/UnderAutomation.UniversalRobots?label=NuGet%20Downloads&logo=nuget)](https://www.nuget.org/packages/UnderAutomation.UniversalRobots/)
-[![.NET Framework](https://img.shields.io/badge/.NET_Framework-3.5+-blueviolet)](#)
-[![.NET Standard](https://img.shields.io/badge/.NET_Standard-2.0+-blueviolet)](#)
-[![.NET Core](https://img.shields.io/badge/.NET_Core-2.0+-blueviolet)](#)
-[![.NET Versions](https://img.shields.io/badge/.NET-5_6_8_9-blueviolet)](#)
+[![NuGet](https://img.shields.io/nuget/v/UnderAutomation.UniversalRobots?label=NuGet&logo=nuget)](https://www.nuget.org/packages/UnderAutomation.UniversalRobots/)
+[![NuGet downloads](https://img.shields.io/nuget/dt/UnderAutomation.UniversalRobots?label=Downloads&logo=nuget)](https://www.nuget.org/packages/UnderAutomation.UniversalRobots/)
+[![.NET Framework](https://img.shields.io/badge/.NET_Framework-3.5+-blueviolet)](#compatibility)
+[![.NET Standard](https://img.shields.io/badge/.NET_Standard-2.0_2.1-blueviolet)](#compatibility)
+[![.NET](https://img.shields.io/badge/.NET-5_to_10-blueviolet)](#compatibility)
+[![License](https://img.shields.io/badge/license-commercial-blue)](https://underautomation.com/universal-robots/eula)
 
-### 🤖 Effortlessly Communicate with Universal Robots
+**UnderAutomation.UniversalRobots** is a fully managed .NET SDK that communicates with Universal Robots
+cobots (CB-Series, e-Series and the newer models, PolyScope and PolyScope X) through the standard
+interfaces of the controller: RTDE, Primary Interface, Dashboard Server, REST API, XML-RPC, sockets,
+Interpreter Mode, SSH and SFTP. It also computes the forward and inverse kinematics offline. No URCap and no
+option is needed on the robot.
 
-The **Universal Robots SDK** enables seamless integration with Universal Robots for automation, data exchange, and remote control. Ideal for industrial automation, research, and advanced robotics applications.
+It works with real robots and with the URSim simulator.
 
-🔗 **More Information:** [https://underautomation.com/universal-robots](https://underautomation.com/universal-robots)  
-🔗 Also available for **[🟨 LabVIEW](https://github.com/underautomation/UniversalRobots.vi)** & **[🐍 Python](https://github.com/underautomation/UniversalRobots.py)** & [🧊 Unity](https://github.com/underautomation/UniversalRobots.Unity)
+- Product page: [underautomation.com/universal-robots](https://underautomation.com/universal-robots)
+- Documentation: [underautomation.com/universal-robots/documentation](https://underautomation.com/universal-robots/documentation)
+- Also available for [Python](https://github.com/underautomation/UniversalRobots.py), [LabVIEW](https://github.com/underautomation/UniversalRobots.vi) and [Unity](https://github.com/underautomation/UniversalRobots.Unity)
 
----
-
-[⭐ Star if you like it !](https://github.com/underautomation/UniversalRobots.NET/stargazers)
-
-[👁️ Watch to be notified of latest updates !](https://github.com/underautomation/UniversalRobots.NET/watchers)
-
----
-
-## 🚀 TL;DR (Too Long; Didn’t Read)
-
-✔️ **Full RTDE Support** – Read & write at up to **500Hz**  
-✔️ **Send URScript Commands** – Control robots in real-time  
-✔️ **Dashboard Server** + **REST API** – Manage power, programs, and states  
-✔️ **Secure Connections** – SSH & SFTP support  
-✔️ **Forward & Inverse kinematics**  
-✔️ **Multi-Platform** – Works on Windows, Linux, and macOS  
-✔️ **Commercial License** – Deploy with no royalties
-
-📹 **Watch Introduction Video**
+Introduction video:
 
 https://user-images.githubusercontent.com/47540360/143318635-6d6aaaf4-5642-457a-8ff1-4322f2defe82.mp4
 
----
+## What you can do
 
-## 📥 Download Example Applications
+- **RTDE:** read the robot data and write inputs and registers, at up to 500 Hz.
+- **Primary Interface:** send URScript commands, read the robot state about 10 times per second, read the
+  global variables of the program.
+- **Dashboard Server** (PolyScope) and **REST API** (PolyScope X): power, brakes, programs and robot
+  state.
+- **XML-RPC:** answer the function calls of a URScript program from your .NET code.
+- **Socket communication:** exchange messages with a URScript program.
+- **Interpreter Mode:** send URScript lines to a running program.
+- **SSH and SFTP:** run commands on the controller, upload, download and delete files.
+- **Kinematics:** forward and inverse kinematics for every UR model, without connection.
+- **Files:** read `.urp` programs, `.installation` files and archives.
 
-Explore the **Universal Robots SDK** with fully functional example applications and precompiled binaries for various platforms. [See Github releases](https://github.com/underautomation/UniversalRobots.NET/releases)
+## Example applications
 
-### 🔹 Windows Forms Application (Full Feature Showcase)
+The release page of this repository gives ready-to-run applications. Their source code is in this
+repository.
 
-A Windows Forms application demonstrating all the features of the library.
+### Windows Forms application
 
-📌 **Download:** [📥 UnderAutomation.UniversalRobots.Showcase.Forms.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Forms.exe)
+[`UnderAutomation.UniversalRobots.Showcase.Forms`](UnderAutomation.UniversalRobots.Showcase.Forms) shows every
+feature of the SDK. A Visual Basic version is in
+[`UnderAutomation.UniversalRobots.Showcase.Forms.vb`](UnderAutomation.UniversalRobots.Showcase.Forms.vb).
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/desktop.jpg" alt="UnderAutomation.UniversalRobots.Showcase.Console"/>
-</p>
+**Download:** [UnderAutomation.UniversalRobots.Showcase.Forms.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Forms.exe) ([all releases](https://github.com/underautomation/UniversalRobots.NET/releases))
 
----
+![Windows Forms application](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/desktop.jpg)
 
-### 🔹 Console Applications (Multi-Platform)
+### Console application for Linux, macOS and Windows
 
-Precompiled console applications showcasing compilation for multiple operating systems.
+[`UnderAutomation.UniversalRobots.Showcase.Console`](UnderAutomation.UniversalRobots.Showcase.Console) is
+built for 6 platforms. Each file runs alone, without the .NET runtime installed. Use it to try the SDK on
+Linux, macOS or an ARM board without writing code.
 
-📌 **Downloads:**
+| OS | Architecture | Download |
+| --- | --- | --- |
+| Linux | ARM | [UnderAutomation.UniversalRobots.Showcase.Console.linux-arm](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm) |
+| Linux | x64 | [UnderAutomation.UniversalRobots.Showcase.Console.linux-x64](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64) |
+| macOS | ARM64 | [UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64) |
+| macOS | x64 | [UnderAutomation.UniversalRobots.Showcase.Console.osx-x64](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64) |
+| Windows | x64 | [UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
+| Windows | x86 | [UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
 
-<img src="https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png" alt="UnderAutomation.UniversalRobots.Showcase.Console" align="right"/>
+On Linux and macOS, make the file executable first (`chmod +x <file>`).
 
-| OS             | Architecture | Download                                                                                                                                                    |
-| -------------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🐧 **Linux**   | ARM          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-arm)   |
-| 🐧 **Linux**   | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.linux-x64)   |
-| 🍏 **macOS**   | ARM64        | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-arm64)   |
-| 🍏 **macOS**   | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.osx-x64)     |
-| 🖥 **Windows** | x64          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x64.exe) |
-| 🖥 **Windows** | x86          | [📥 Download](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.Showcase.Console.win-x86.exe) |
+![Console application](https://raw.githubusercontent.com/underautomation/UniversalRobots.NET/refs/heads/main/.github/assets/console.png)
 
----
+## Installation
 
-## 📌 Features
+```bash
+dotnet add package UnderAutomation.UniversalRobots
+```
 
-### 🔹 Real-Time Data Exchange (RTDE)
+Or with the NuGet Package Manager console:
 
-Communicate with your robot at **500Hz**, read live data, and control its behavior.
+```
+Install-Package UnderAutomation.UniversalRobots
+```
+
+You can also download [UnderAutomation.UniversalRobots.zip](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.zip)
+from the [releases page](https://github.com/underautomation/UniversalRobots.NET/releases). It contains one
+folder per target framework. On Windows, unblock the zip file before you extract it (right-click,
+"Properties", "Unblock"), then reference the DLL of your framework.
+
+## Getting started
+
+```csharp
+using UnderAutomation.UniversalRobots;
+
+// The SDK runs in trial mode for 30 days. Register your key to remove the trial limit.
+UR.RegisterLicense("Your Company", "your-license-key");
+
+var robot = new UR();
+
+var parameters = new ConnectParameters("192.168.0.1");
+parameters.Dashboard.Enable = true;
+parameters.PrimaryInterface.Enable = true;
+
+robot.Connect(parameters);
+
+Console.WriteLine(robot.Dashboard.GetRobotMode().Value);
+
+robot.Disconnect();
+```
+
+Enable only the interfaces you need in `ConnectParameters`: `Rtde`, `PrimaryInterface`, `Dashboard`,
+`Rest`, `XmlRpc`, `SocketCommunication`, `InterpreterMode`, `Ssh`.
+
+## Features
+
+### Real-Time Data Exchange (RTDE)
+
+Read the robot data and write inputs at up to 500 Hz.
 
 ```csharp
 var robot = new UR();
 
-var param = new ConnectParameters("192.168.0.1");
+var parameters = new ConnectParameters("192.168.0.1");
+parameters.Rtde.Enable = true;
+parameters.Rtde.Frequency = 500; // Hz
 
-// Enable RTDE
-param.Rtde.Enable = true;
+// Data written to the controller
+parameters.Rtde.InputSetup.Add(RtdeInputData.StandardAnalogOutput0);
+parameters.Rtde.InputSetup.Add(RtdeInputData.InputIntRegisters, 0);
 
-// Exchange data at 500Hz
-param.Rtde.Frequency = 500;
+// Data sent by the robot
+parameters.Rtde.OutputSetup.Add(RtdeOutputData.ActualTcpPose);
+parameters.Rtde.OutputSetup.Add(RtdeOutputData.ToolOutputVoltage);
+parameters.Rtde.OutputSetup.Add(RtdeOutputData.OutputDoubleRegisters, 10);
 
-// Select data you want to write in robot controller
-param.Rtde.InputSetup.Add(RtdeInputData.StandardAnalogOutput0);
-param.Rtde.InputSetup.Add(RtdeInputData.InputIntRegisters, 0);
+robot.Connect(parameters);
 
-// Select data you want the robot to send
-param.Rtde.OutputSetup.Add(RtdeOutputData.ActualTcpPose);
-param.Rtde.OutputSetup.Add(RtdeOutputData.ToolOutputVoltage);
-param.Rtde.OutputSetup.Add(RtdeOutputData.OutputDoubleRegisters, 10);
+// Raised for each sample
+robot.Rtde.OutputDataReceived += (sender, e) =>
+    Console.WriteLine(robot.Rtde.OutputDataValues.ActualTcpPose);
 
-// Connect to robot
-robot.Connect(param);
-
-// Be notified at 500Hz when data is received
-robot.Rtde.OutputDataReceived += Rtde_OutputDataReceived;
-
-// Write input values in robot
+// Write inputs
 var inputValues = new RtdeInputValues();
 inputValues.StandardAnalogOutput0 = 0.2;
 inputValues.InputIntRegisters.X0 = 12;
 robot.Rtde.WriteInputs(inputValues);
 ```
 
-### 🔹 Primary Interface
+### Primary Interface
 
-Send URScript commands and monitor robot state at **10Hz**.
+Send URScript commands and read the robot state about 10 times per second.
 
 ```csharp
-// Send script
 robot.PrimaryInterface.Script.Send("movej([-1.5,-1.5,-2,-0.5,1.8,0], a=1.4, v=1.05)");
 
-// Get data
 double x = robot.PrimaryInterface.CartesianInfo.TCPOffsetX;
 double shoulderSpeed = robot.PrimaryInterface.JointData.Shoulder.ActualSpeed;
 
-// Read program variables
+// Global variables of the running program
 GlobalVariable myVar = robot.PrimaryInterface.GlobalVariables.GetByName("myVar");
-GlobalVariable[] variables =  robot.PrimaryInterface.GlobalVariables.GetAll();
+GlobalVariable[] variables = robot.PrimaryInterface.GlobalVariables.GetAll();
 ```
 
-### 🔹 Remote Robot Control
+### Remote control
 
-Manage power, brakes, program execution, and more.
+Power, brakes and programs.
 
 ```csharp
-// For cobots with Polyscope
+// PolyScope: Dashboard Server
 robot.Dashboard.PowerOn();
 robot.Dashboard.ReleaseBrake();
 robot.Dashboard.LoadProgram("prg1.urp");
 robot.Dashboard.Play();
 
-// For robots with Polyscope X
+// PolyScope X: REST API
 robot.Rest.PowerOn();
-robot.Rest.ReleaseBrake();
-robot.Rest.LoadProgram("prg1.urp");
+robot.Rest.BrakeRelease();
+robot.Rest.LoadProgram("prg1");
 robot.Rest.Play();
 ```
 
-### 🔹 Inverse Kinematics - Forward Kinematics
+### Forward and inverse kinematics
 
-Calculates joint positions corresponding to a cartesian position and vice versa. Uses a purely algebraic and optimized algorithm.
+Computes the joint positions of a Cartesian pose, and the reverse, with an analytical algorithm. No
+connection is needed.
 
 ```csharp
-// Get default DH parameters for UR3e robot model²
+// Default DH parameters of a UR3e
 IUrDhParameters dhParameters = KinematicsUtils.GetDhParametersFromModel(RobotModelsExtended.UR3e);
 
-// Calculate forward kinematics for given joint angles in radians
+// Forward kinematics, joint angles in radians
 KinematicsResult fkResult = KinematicsUtils.ForwardKinematics(new double[] { 0, -1.57, 1.57, 0, 0, 0 }, dhParameters);
 
-// Calculate inverse kinematics for given cartesian pose
-var matrix = vectorPose.FromRotationVectorTo4x4Matrix();
-double[][] ikSolutions = KinematicsUtils.InverseKinematics(matrix, dhParameters);
+// Inverse kinematics of a pose (x, y, z in m, rotation vector in rad)
+var pose = new Pose(0.3, 0.1, 0.4, 0, 3.14, 0);
+double[][] ikSolutions = KinematicsUtils.InverseKinematics(pose.FromRotationVectorTo4x4Matrix(), dhParameters);
 ```
 
-### 🔹 XML-RPC – Call .NET Functions from URScript
+### XML-RPC: call .NET functions from URScript
 
-Enable remote function calls from your robot program.
+The URScript program calls a function:
 
 ```ruby
 rpc := rpc_factory("xmlrpc", "http://192.168.0.10:50000")
 answer := rpc.GetPose(100)
 ```
 
+Your .NET code answers:
+
 ```csharp
-// Answer sent to the robot
 robot.XmlRpc.XmlRpcServerRequest += (o, request) =>
-  {
-    if(request.MethodName == "GetPose") request.Answer = new Pose(request.Arguments[0], 200, 100, 0, 0, 0);
-  };
+{
+    if (request.MethodName == "GetPose") request.Answer = new Pose(request.Arguments[0], 200, 100, 0, 0, 0);
+};
 ```
 
-### 🔹 Socket Communication
+### Socket communication
 
-Allow robots to send and receive custom data via sockets.
+Exchange messages with a URScript program.
 
 ```csharp
 robot.SocketCommunication.SocketWrite("Hello, Robot!");
 robot.SocketCommunication.SocketRequest += (sender, e) => Console.WriteLine(e.Message);
 ```
 
-### 🔹 Secure File Transfer (SFTP)
+### SFTP
 
-Upload, download, and manage files securely on your robot.
+Upload, download and delete files on the controller.
 
 ```csharp
-robot.Sftp.UploadFile(content, "/home/ur/ursim/programs/my-program.urp");
-robot.Sftp.Delete("/home/ur/ursim/programs/old-program.urp");
+robot.Sftp.UploadFile("my-program.urp", "/programs/my-program.urp");
+robot.Sftp.Delete("/programs/old-program.urp");
 ```
 
-### 🔹 SSH – Run Terminal Commands
+### SSH
 
-Execute shell commands remotely.
+Run shell commands on the controller.
 
 ```csharp
 robot.Ssh.RunCommand("echo 'Hello' > /home/ur/Desktop/NewFile.txt");
 ```
 
----
+## Shell sources
 
-## 🛠 Installation
+The folder [`UnderAutomation.UniversalRobots.ObfuscatedSources`](UnderAutomation.UniversalRobots.ObfuscatedSources)
+contains every public type and member of the SDK, with its XML documentation. The bodies of the methods
+are replaced by "Source is hidden". Use it to:
 
-### 1️⃣ **Get the SDK**
+- browse the public API and its documentation on GitHub;
+- jump to a definition from your code editor;
+- see the structure of the code that is delivered with a source license.
 
-Choose the installation method that works best for you:
+The source license gives the complete source code of the library, with the Visual Studio solution. See
+the [license page](https://underautomation.com/universal-robots/documentation/license) of the documentation.
 
-| Method             | NuGet (Recommended)                                                                               | Direct Download                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **How to Install** | Install via NuGet. [See on Nuget](https://www.nuget.org/packages/UnderAutomation.UniversalRobots) | Download and reference the DLL manually                                                                                                |
-|                    | `dotnet add package UnderAutomation.UniversalRobots `                                             | 📥 [Download ZIP](https://github.com/underautomation/UniversalRobots.NET/releases/latest/download/UnderAutomation.UniversalRobots.zip) |
+## Compatibility
 
-### 2️⃣ **Reference the SDK in Your Code**
+| Target framework | Supported |
+| --- | --- |
+| .NET 10.0 / 9.0 / 8.0 / 6.0 / 5.0 | yes |
+| .NET Core 3.0 | yes |
+| .NET Standard 2.1 / 2.0 | yes |
+| .NET Framework 4.0 to 4.8 | yes |
+| .NET Framework 3.5 | yes |
 
-```csharp
-using UnderAutomation.UniversalRobots;
-```
+- **Operating systems:** Windows, Linux, macOS.
+- **No native dependency**, no NuGet dependency (except `System.Text.Encoding.CodePages` for .NET Standard 2.0).
+- **Robots:** UR3, UR5, UR10 (CB-Series), UR3e, UR5e, UR7e, UR10e, UR12e, UR16e (e-Series), UR8 Long, UR15,
+  UR18, UR20, UR30, with PolyScope or PolyScope X, and URSim.
 
-### 3️⃣ **Connect to Your Robot**
+## License
 
-```csharp
-var robot = new UR();
-robot.Connect(new ConnectParameters("192.168.0.1"));
-```
+This SDK needs a commercial license. A 30-day trial starts at the first use, no key needed.
 
----
+- License agreement: [underautomation.com/universal-robots/eula](https://underautomation.com/universal-robots/eula) and [License.md](License.md)
+- Trial, license key and source license: [underautomation.com/universal-robots/documentation/license](https://underautomation.com/universal-robots/documentation/license)
+- Prices and quote: [underautomation.com/universal-robots](https://underautomation.com/universal-robots)
 
-## 🔍 Compatibility
+## Support
 
-✅ **Supported Robots:** UR3, UR5, UR10, UR16, UR18, UR20, UR30, UR8L, CB-Series, e-Series, Polyscope, Polyscope X  
-✅ **Operating Systems:** Windows, Linux, macOS  
-✅ **.NET Versions:** .NET Framework (≥3.5), .NET Standard, .NET Core, .NET 5/6/8/9
-
----
-
-## 📢 Contributing
-
-We welcome contributions! Feel free to:
-
-- Report issues via [GitHub Issues](https://github.com/underautomation/UniversalRobots/issues)
-- Submit pull requests with improvements
-- Share feedback & feature requests
-
----
-
-## 📜 License
-
-**⚠️ This SDK requires a commercial license.**  
-🔗 Learn more: [UnderAutomation Licensing](https://underautomation.com/universal-robots/eula)
-
----
-
-## 📬 Need Help?
-
-If you have any questions or need support:
-
-- 📖 **Check the Docs**: [Documentation](https://underautomation.com/universal-robots/documentation)
-- 📩 **Contact Us**: [Support](https://underautomation.com/contact)
+- Documentation: [underautomation.com/universal-robots/documentation](https://underautomation.com/universal-robots/documentation)
+- Issues: [GitHub Issues](https://github.com/underautomation/UniversalRobots.NET/issues)
+- Contact: [underautomation.com/contact](https://underautomation.com/contact)
