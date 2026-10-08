@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Ssh.Tools.Sftp {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Sftp {
 	/// <summary>
 	/// Represents SFTP file information
 	/// </summary>
@@ -44,9 +44,9 @@ namespace Ssh.Tools.Sftp {
 		}
 
 		/// <summary>
-		/// Returns a <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.
+		/// Returns a <see cref="System.String"/> that represents this instance.
 		/// </summary>
-		/// <returns>A <xref href="System.String" data-throw-if-not-resolved="false"></xref> that represents this instance.</returns>
+		/// <returns>A <see cref="System.String"/> that represents this instance.</returns>
 		public override string ToString()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

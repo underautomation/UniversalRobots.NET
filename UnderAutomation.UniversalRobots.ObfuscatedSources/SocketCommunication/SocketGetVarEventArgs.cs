@@ -4,7 +4,7 @@
 
 using System;
 
-namespace SocketCommunication {
+namespace UnderAutomation.UniversalRobots.SocketCommunication {
 	/// <summary>
 	/// Event args raised when a socket message sent with socket_get_var() is received
 	/// </summary>

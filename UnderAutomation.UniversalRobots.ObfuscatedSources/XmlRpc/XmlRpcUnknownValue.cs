@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// Represents an unknown XML-RPC argument that has been received from the robot
 	/// You can decode it yourself with the XML property
@@ -28,7 +28,7 @@ namespace XmlRpc {
 		/// Determines whether the specified object is equal to this instance.
 		/// </summary>
 		/// <param name="obj">The object to compare with.</param>
-		/// <returns><code>true</code> if the specified object is an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcUnknownValue" data-throw-if-not-resolved="false"></xref> with the same additional information; otherwise, <code>false</code>.</returns>
+		/// <returns><code>true</code> if the specified object is an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcUnknownValue"/> with the same additional information; otherwise, <code>false</code>.</returns>
 		public override bool Equals(object obj)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

@@ -2,19 +2,19 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Rtde.Internal;
+using UnderAutomation.UniversalRobots.Rtde.Internal;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Generic abstract base class for getting and setting RTDE variable values identified by enum <code class="typeparamref">T</code>.
 	/// </summary>
 	public abstract class RtdeBaseValues<T> : RtdeBaseValues where T : Enum {
 
 		/// <summary>
-		/// Gets the <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref> wrapper for the specified variable.
+		/// Gets the <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeValue"/> wrapper for the specified variable.
 		/// </summary>
 		/// <param name="data">The RTDE variable identifier.</param>
-		/// <returns>The corresponding <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref>.</returns>
+		/// <returns>The corresponding <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeValue"/>.</returns>
 		protected abstract RtdeValue InternaleGetValue(T data);
 
 		/// <summary>

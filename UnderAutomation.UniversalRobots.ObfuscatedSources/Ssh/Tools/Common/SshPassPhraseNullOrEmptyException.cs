@@ -4,14 +4,14 @@
 
 using System.Runtime.Serialization;
 
-namespace Ssh.Tools.Common {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Common {
 	/// <summary>
 	/// The exception that is thrown when pass phrase for key file is empty or null
 	/// </summary>
 	public class SshPassPhraseNullOrEmptyException : SshException, ISerializable {
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException"/> class.
 		/// </summary>
 		public SshPassPhraseNullOrEmptyException()
 		{
@@ -19,7 +19,7 @@ namespace Ssh.Tools.Common {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException"/> class.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		public SshPassPhraseNullOrEmptyException(string message)
@@ -28,7 +28,7 @@ namespace Ssh.Tools.Common {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshPassPhraseNullOrEmptyException"/> class.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		/// <param name="innerException">The inner exception.</param>

@@ -4,7 +4,7 @@
 
 using System.Collections;
 
-namespace PrimaryInterface {
+namespace UnderAutomation.UniversalRobots.PrimaryInterface {
 	/// <summary>
 	/// Represents the state of digital I/O pins on the UR controller masterboard,
 	/// including standard digital, configurable, and tool digital pins.

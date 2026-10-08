@@ -4,7 +4,7 @@
 
 using System.Net;
 
-namespace Rest {
+namespace UnderAutomation.UniversalRobots.Rest {
 	/// <summary>
 	/// Response from a REST API call
 	/// </summary>

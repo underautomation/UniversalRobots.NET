@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Common {
+namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
 	/// Represents a set of 6 double-precision values, one per robot joint. Typically used for angles (radians), velocities, currents, etc.
 	/// </summary>

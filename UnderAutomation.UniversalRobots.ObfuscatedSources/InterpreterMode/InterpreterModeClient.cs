@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using InterpreterMode.Internal;
+using UnderAutomation.UniversalRobots.InterpreterMode.Internal;
 
-namespace InterpreterMode {
+namespace UnderAutomation.UniversalRobots.InterpreterMode {
 	/// <summary>
 	/// Client for the Universal Robots Interpreter Mode, allowing real-time execution of URScript commands over TCP.
 	/// </summary>

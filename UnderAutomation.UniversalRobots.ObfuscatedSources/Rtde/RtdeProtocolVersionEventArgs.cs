@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Event arguments indicating which RTDE protocol version was negotiated with the robot.
 	/// </summary>

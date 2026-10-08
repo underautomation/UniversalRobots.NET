@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Event arguments for an RTDE output data package received from the robot at the subscribed frequency.
 	/// </summary>
@@ -34,7 +34,7 @@ namespace Rtde {
 		public RtdeOutputValues OutputDataValues { get; set; }
 
 		/// <summary>
-		/// Gets or sets the measured frequency in Hz, computed from successive <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.Timestamp" data-throw-if-not-resolved="false"></xref> values.
+		/// Gets or sets the measured frequency in Hz, computed from successive <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeOutputData.Timestamp"/> values.
 		/// </summary>
 		public double MeasuredFrequency { get; set; }
 	}

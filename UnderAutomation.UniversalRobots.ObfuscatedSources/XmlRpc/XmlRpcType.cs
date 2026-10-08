@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// All supported types that can be transmitted by XML-RPC
 	/// </summary>

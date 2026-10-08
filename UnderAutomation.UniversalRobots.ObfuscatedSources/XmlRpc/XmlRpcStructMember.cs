@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// Member of a structure exchanged via XML-RPC
 	/// </summary>
@@ -50,7 +50,7 @@ namespace XmlRpc {
 		/// Determines whether the specified object is equal to this instance.
 		/// </summary>
 		/// <param name="obj">The object to compare with.</param>
-		/// <returns><code>true</code> if the specified object is an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStructMember" data-throw-if-not-resolved="false"></xref> with the same name and value; otherwise, <code>false</code>.</returns>
+		/// <returns><code>true</code> if the specified object is an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStructMember"/> with the same name and value; otherwise, <code>false</code>.</returns>
 		public override bool Equals(object obj)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

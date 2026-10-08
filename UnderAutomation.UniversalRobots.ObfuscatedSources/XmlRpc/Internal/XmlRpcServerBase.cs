@@ -2,10 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using XmlRpc;
+using UnderAutomation.UniversalRobots.Internal;
 
-namespace XmlRpc.Internal {
+namespace UnderAutomation.UniversalRobots.XmlRpc.Internal {
 	/// <summary>
 	/// Base class providing XML-RPC server functionality for receiving remote procedure calls from a Universal Robots controller.
 	/// </summary>

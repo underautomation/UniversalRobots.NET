@@ -2,19 +2,19 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Holds the current values for all RTDE output variables (robot-to-client). Updated automatically when data is received from the robot.
 	/// </summary>
 	public class RtdeOutputValues : RtdeBaseValues<RtdeOutputData> {
 
 		/// <summary>
-		/// Gets the <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref> wrapper for the specified variable.
+		/// Gets the <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeValue"/> wrapper for the specified variable.
 		/// </summary>
 		/// <param name="data">The RTDE variable identifier.</param>
-		/// <returns>The corresponding <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref>.</returns>
+		/// <returns>The corresponding <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeValue"/>.</returns>
 		protected override RtdeValue InternaleGetValue(RtdeOutputData data)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

@@ -3,9 +3,9 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using System;
-using Ssh.Tools.Common;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Common;
 
-namespace Ssh.Tools {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools {
 	/// <summary>
 	/// Represents instance of the SSH shell object
 	/// </summary>

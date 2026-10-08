@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Ssh.Tools.Common {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Common {
 	/// <summary>
 	/// Specifies the initial assignments of the opcode values that are used in the 'encoded terminal modes' valu
 	/// </summary>

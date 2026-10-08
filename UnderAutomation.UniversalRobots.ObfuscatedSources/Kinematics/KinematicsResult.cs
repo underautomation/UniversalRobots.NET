@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Kinematics {
+namespace UnderAutomation.UniversalRobots.Kinematics {
 	/// <summary>
 	/// Result of a forward kinematics calculation
 	/// </summary>

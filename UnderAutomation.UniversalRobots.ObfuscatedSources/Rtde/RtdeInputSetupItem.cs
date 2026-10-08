@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Rtde.Internal;
+using UnderAutomation.UniversalRobots.Rtde.Internal;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Represents a single RTDE input variable (client-to-robot) in an input recipe.
 	/// </summary>

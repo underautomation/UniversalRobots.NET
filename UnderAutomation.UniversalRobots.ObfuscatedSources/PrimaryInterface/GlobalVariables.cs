@@ -2,10 +2,10 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 using System;
 
-namespace PrimaryInterface {
+namespace UnderAutomation.UniversalRobots.PrimaryInterface {
 	/// <summary>
 	/// List of all global variables
 	/// </summary>

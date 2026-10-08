@@ -5,7 +5,7 @@
 using System.Xml.Linq;
 using System.IO;
 
-namespace Files {
+namespace UnderAutomation.UniversalRobots.Files {
 	/// <summary>
 	/// Functions to encode and decode a *.installation file
 	/// </summary>

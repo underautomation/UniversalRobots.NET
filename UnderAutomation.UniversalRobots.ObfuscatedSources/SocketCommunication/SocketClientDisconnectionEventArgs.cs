@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace SocketCommunication {
+namespace UnderAutomation.UniversalRobots.SocketCommunication {
 	/// <summary>
 	/// Event args raised when a socket client disconnects
 	/// </summary>

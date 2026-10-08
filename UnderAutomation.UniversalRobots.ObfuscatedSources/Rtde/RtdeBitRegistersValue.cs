@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// RTDE bit register array (64 registers, indices 64–127) for exchanging boolean flags with the robot.
 	/// </summary>

@@ -2,12 +2,11 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using Dashboard;
-using Common;
+using UnderAutomation.UniversalRobots.Internal;
+using UnderAutomation.UniversalRobots.Common;
 using System;
 
-namespace Dashboard.Internal {
+namespace UnderAutomation.UniversalRobots.Dashboard.Internal {
 	/// <summary>
 	/// Abstract base class providing Dashboard Server command implementations for the Universal Robots controller.
 	/// Sends text-based commands over TCP and parses responses. A new TCP connection is created for each command.
@@ -15,7 +14,7 @@ namespace Dashboard.Internal {
 	public abstract class DashboardClientBase : URServiceBase {
 
 		/// <summary>
-		/// Event raised when function <xref href="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Shutdown" data-throw-if-not-resolved="false"></xref> is called.
+		/// Event raised when function <see cref="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Shutdown"/> is called.
 		/// </summary>
 		public EventHandler BeforeShutdown;
 

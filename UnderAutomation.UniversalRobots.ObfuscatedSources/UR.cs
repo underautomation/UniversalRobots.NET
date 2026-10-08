@@ -2,8 +2,8 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using License;
+using UnderAutomation.UniversalRobots.Internal;
+using UnderAutomation.UniversalRobots.License;
 
 namespace UnderAutomation.UniversalRobots {
 	/// <summary>
@@ -13,7 +13,7 @@ namespace UnderAutomation.UniversalRobots {
 	public class UR : URServiceBase {
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> class and creates all communication clients.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.UR"/> class and creates all communication clients.
 		/// </summary>
 		public UR()
 		{

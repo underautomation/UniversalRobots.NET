@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// Represents a structure that can be exchange with the robot via XML-RPC
 	/// </summary>
@@ -45,7 +45,7 @@ namespace XmlRpc {
 		/// Determines whether the specified object is equal to this instance.
 		/// </summary>
 		/// <param name="obj">The object to compare with.</param>
-		/// <returns><code>true</code> if the specified object is an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStructValue" data-throw-if-not-resolved="false"></xref> with the same members; otherwise, <code>false</code>.</returns>
+		/// <returns><code>true</code> if the specified object is an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStructValue"/> with the same members; otherwise, <code>false</code>.</returns>
 		public override bool Equals(object obj)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

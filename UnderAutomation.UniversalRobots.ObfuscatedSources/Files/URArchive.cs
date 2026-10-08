@@ -5,14 +5,14 @@
 using System.Xml.Linq;
 using System.IO;
 
-namespace Files {
+namespace UnderAutomation.UniversalRobots.Files {
 	/// <summary>
 	/// Contains basic methods to encode and decode a UR archive
 	/// </summary>
 	public abstract class URArchive {
 
 		/// <summary>
-		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.Files.URArchive" data-throw-if-not-resolved="false"></xref> from the specified XML element.
+		/// Initializes a new instance of <see cref="UnderAutomation.UniversalRobots.Files.URArchive"/> from the specified XML element.
 		/// </summary>
 		/// <param name="xml">The XML element representing the archive content.</param>
 		protected URArchive(XElement xml)

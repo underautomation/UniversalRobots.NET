@@ -2,17 +2,17 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 using System.Xml.Linq;
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
-	/// Base class of all elements transmitted by XML-RPC. The <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue.Type" data-throw-if-not-resolved="false"></xref> property indicates the type into which this object can be cast to obtain the value.
+	/// Base class of all elements transmitted by XML-RPC. The <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue.Type"/> property indicates the type into which this object can be cast to obtain the value.
 	/// </summary>
 	public abstract class XmlRpcValue {
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.Double" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcDoubleValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.Double"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcDoubleValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(double value)
 		{
@@ -21,7 +21,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcBooleanValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.Boolean"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcBooleanValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(bool value)
 		{
@@ -30,7 +30,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcIntegerValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="System.Int32"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcIntegerValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(int value)
 		{
@@ -39,7 +39,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.String" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStringValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.String"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcStringValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(string value)
 		{
@@ -48,7 +48,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="UnderAutomation.UniversalRobots.Common.Pose" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcPoseValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="UnderAutomation.UniversalRobots.Common.Pose"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcPoseValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(Pose value)
 		{
@@ -57,7 +57,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an array of <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an array of <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(XmlRpcValue[] value)
 		{
@@ -66,7 +66,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.Double" data-throw-if-not-resolved="false"></xref> array to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.Double"/> array to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(double[] value)
 		{
@@ -75,7 +75,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> array to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="System.Int32"/> array to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(int[] value)
 		{
@@ -84,7 +84,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.String" data-throw-if-not-resolved="false"></xref> array to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.String"/> array to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(string[] value)
 		{
@@ -93,7 +93,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="UnderAutomation.UniversalRobots.Common.Pose" data-throw-if-not-resolved="false"></xref> array to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="UnderAutomation.UniversalRobots.Common.Pose"/> array to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(Pose[] value)
 		{
@@ -102,7 +102,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> array to an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts a <see cref="System.Boolean"/> array to an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcArrayValue"/>.
 		/// </summary>
 		public static implicit operator XmlRpcValue(bool[] value)
 		{
@@ -111,7 +111,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Double" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.Double"/>.
 		/// </summary>
 		public static implicit operator double(XmlRpcValue value)
 		{
@@ -120,7 +120,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.Boolean"/>.
 		/// </summary>
 		public static implicit operator bool(XmlRpcValue value)
 		{
@@ -129,7 +129,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to an <see cref="System.Int32"/>.
 		/// </summary>
 		public static implicit operator int(XmlRpcValue value)
 		{
@@ -138,7 +138,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.String" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.String"/>.
 		/// </summary>
 		public static implicit operator string(XmlRpcValue value)
 		{
@@ -147,7 +147,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="UnderAutomation.UniversalRobots.Common.Pose" data-throw-if-not-resolved="false"></xref>.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="UnderAutomation.UniversalRobots.Common.Pose"/>.
 		/// </summary>
 		public static implicit operator Pose(XmlRpcValue value)
 		{
@@ -156,7 +156,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref> array.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to an <see cref="System.Int32"/> array.
 		/// </summary>
 		public static implicit operator int[](XmlRpcValue value)
 		{
@@ -165,7 +165,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Double" data-throw-if-not-resolved="false"></xref> array.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.Double"/> array.
 		/// </summary>
 		public static implicit operator double[](XmlRpcValue value)
 		{
@@ -174,7 +174,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="UnderAutomation.UniversalRobots.Common.Pose" data-throw-if-not-resolved="false"></xref> array.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="UnderAutomation.UniversalRobots.Common.Pose"/> array.
 		/// </summary>
 		public static implicit operator Pose[](XmlRpcValue value)
 		{
@@ -183,7 +183,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.String" data-throw-if-not-resolved="false"></xref> array.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.String"/> array.
 		/// </summary>
 		public static implicit operator string[](XmlRpcValue value)
 		{
@@ -192,7 +192,7 @@ namespace XmlRpc {
 		}
 
 		/// <summary>
-		/// Implicitly converts an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue" data-throw-if-not-resolved="false"></xref> to a <xref href="System.Boolean" data-throw-if-not-resolved="false"></xref> array.
+		/// Implicitly converts an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcValue"/> to a <see cref="System.Boolean"/> array.
 		/// </summary>
 		public static implicit operator bool[](XmlRpcValue value)
 		{

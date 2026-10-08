@@ -5,14 +5,14 @@
 using System.Text.RegularExpressions;
 using System;
 
-namespace Ssh.Tools {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools {
 	/// <summary>
 	/// Specifies behavior for expected expression
 	/// </summary>
 	public class ExpectAction {
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ExpectAction" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.ExpectAction"/> class.
 		/// </summary>
 		/// <param name="expect">The expect regular expression.</param>
 		/// <param name="action">The action to perform.</param>
@@ -22,7 +22,7 @@ namespace Ssh.Tools {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ExpectAction" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.ExpectAction"/> class.
 		/// </summary>
 		/// <param name="expect">The expect expression.</param>
 		/// <param name="action">The action to perform.</param>

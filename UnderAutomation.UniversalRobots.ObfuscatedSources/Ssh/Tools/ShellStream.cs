@@ -5,9 +5,9 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System;
-using Ssh.Tools.Common;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Common;
 
-namespace Ssh.Tools {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools {
 	/// <summary>
 	/// Contains operation for working with SSH Shell.
 	/// </summary>
@@ -38,7 +38,7 @@ namespace Ssh.Tools {
 		/// This method is not supported.
 		/// </summary>
 		/// <param name="offset">A byte offset relative to the <code class="paramref">origin</code> parameter.</param>
-		/// <param name="origin">A value of type <xref href="System.IO.SeekOrigin" data-throw-if-not-resolved="false"></xref> indicating the reference point used to obtain the new position.</param>
+		/// <param name="origin">A value of type <see cref="System.IO.SeekOrigin"/> indicating the reference point used to obtain the new position.</param>
 		/// <returns>The new position within the current stream.</returns>
 		public override long Seek(long offset, SeekOrigin origin)
 		{
@@ -89,7 +89,7 @@ namespace Ssh.Tools {
 		/// Begins the expect.
 		/// </summary>
 		/// <param name="expectActions">The expect actions.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginExpect(params ExpectAction[] expectActions)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -101,7 +101,7 @@ namespace Ssh.Tools {
 		/// </summary>
 		/// <param name="callback">The callback.</param>
 		/// <param name="expectActions">The expect actions.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginExpect(AsyncCallback callback, params ExpectAction[] expectActions)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -114,7 +114,7 @@ namespace Ssh.Tools {
 		/// <param name="callback">The callback.</param>
 		/// <param name="state">The state.</param>
 		/// <param name="expectActions">The expect actions.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginExpect(AsyncCallback callback, object state, params ExpectAction[] expectActions)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -128,7 +128,7 @@ namespace Ssh.Tools {
 		/// <param name="callback">The callback.</param>
 		/// <param name="state">The state.</param>
 		/// <param name="expectActions">The expect actions.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginExpect(TimeSpan timeout, AsyncCallback callback, object state, params ExpectAction[] expectActions)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -242,7 +242,7 @@ namespace Ssh.Tools {
 		}
 
 		/// <summary>
-		/// Releases the unmanaged resources used by the <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> and optionally releases the managed resources.
+		/// Releases the unmanaged resources used by the <see cref="System.IO.Stream"/> and optionally releases the managed resources.
 		/// </summary>
 		/// <param name="disposing"><code>true</code> to release both managed and unmanaged resources; <code>false</code> to release only unmanaged resources.</param>
 		protected override void Dispose(bool disposing)
@@ -251,7 +251,7 @@ namespace Ssh.Tools {
 		}
 
 		/// <summary>
-		/// Gets a value that indicates whether data is available on the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.ShellStream" data-throw-if-not-resolved="false"></xref> to be read.
+		/// Gets a value that indicates whether data is available on the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.ShellStream"/> to be read.
 		/// </summary>
 		/// <returns><code>true</code> if data is available to be read; otherwise, <code>false</code>.</returns>
 		public bool DataAvailable { get; }

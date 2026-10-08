@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 using System.Collections;
 
-namespace Rtde.Internal {
+namespace UnderAutomation.UniversalRobots.Rtde.Internal {
 	/// <summary>
 	/// Base class for an RTDE recipe, a collection of <code class="typeparamref">T</code> setup items that describe which RTDE variables to exchange.
 	/// </summary>
@@ -70,7 +70,7 @@ namespace Rtde.Internal {
 		}
 
 		/// <summary>
-		/// Returns a deduplicated array of setup items, removing duplicates by <xref href="UnderAutomation.UniversalRobots.Rtde.Internal.RtdeSetupItem%601.Data" data-throw-if-not-resolved="false"></xref> and <xref href="UnderAutomation.UniversalRobots.Rtde.Internal.RtdeSetupItem%601.Index" data-throw-if-not-resolved="false"></xref>.
+		/// Returns a deduplicated array of setup items, removing duplicates by <see cref="UnderAutomation.UniversalRobots.Rtde.Internal.RtdeSetupItem`1.Data"/> and <see cref="UnderAutomation.UniversalRobots.Rtde.Internal.RtdeSetupItem`1.Index"/>.
 		/// </summary>
 		/// <returns>An array of distinct setup items.</returns>
 		public T[] ToDistinctList()

@@ -4,7 +4,7 @@
 
 using System.Collections.ObjectModel;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 
 	public class RtdeOutputsDescription {
 

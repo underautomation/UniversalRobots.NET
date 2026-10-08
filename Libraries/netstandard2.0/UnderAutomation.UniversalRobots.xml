@@ -4383,21 +4383,21 @@
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.DHTransform(System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Computes the 4×4 Denavit-Hartenberg homogeneous transformation matrix for one joint.
+            Computes the 4x4 Denavit-Hartenberg homogeneous transformation matrix for one joint.
             </summary>
             <param name="theta">Joint angle in radians.</param>
             <param name="d">Link offset along the previous z-axis, in meters.</param>
             <param name="a">Link length along the rotated x-axis, in meters.</param>
             <param name="alpha">Link twist angle in radians.</param>
-            <returns>A 4×4 homogeneous transformation matrix.</returns>
+            <returns>A 4x4 homogeneous transformation matrix.</returns>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.HomogeneousMultiply(System.Double[0:,0:],System.Double[0:,0:])">
             <summary>
-            Multiplies two 4×4 homogeneous transformation matrices, optimized for DH transforms.
+            Multiplies two 4x4 homogeneous transformation matrices, optimized for DH transforms.
             </summary>
-            <param name="A">Left 4×4 matrix.</param>
-            <param name="B">Right 4×4 matrix.</param>
-            <returns>Product 4×4 matrix A × B.</returns>
+            <param name="A">Left 4x4 matrix.</param>
+            <param name="B">Right 4x4 matrix.</param>
+            <returns>Product 4x4 matrix A x B.</returns>
         </member>
         <member name="M:UnderAutomation.UniversalRobots.Kinematics.KinematicsUtils.NormalizeAngle(System.Double)">
             <summary>Normalize an angle to (-π, π]</summary>
@@ -4423,7 +4423,7 @@
             Analytical inverse kinematics
             Returns a list of candidate joint vectors; filters out singularities.
             </summary>
-            <param name="toolTransform">4×4 tool transform matrix.</param>
+            <param name="toolTransform">4x4 tool transform matrix.</param>
             <param name="dhParameters">Robot DH parameters.</param>
             <returns>Array of candidate joint angles (6 elements each).</returns>
         </member>

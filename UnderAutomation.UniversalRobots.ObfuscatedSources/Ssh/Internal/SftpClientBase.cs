@@ -2,13 +2,13 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
+using UnderAutomation.UniversalRobots.Internal;
 using System;
-using Ssh.Tools.Sftp;
+using UnderAutomation.UniversalRobots.Ssh.Tools.Sftp;
 using System.IO;
 using System.Text;
 
-namespace Ssh.Internal {
+namespace UnderAutomation.UniversalRobots.Ssh.Internal {
 	/// <summary>
 	/// Implementation of the SSH File Transfer Protocol (SFTP) over SSH for transfering files to the robot controller
 	/// </summary>
@@ -150,7 +150,7 @@ namespace Ssh.Internal {
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests.</param>
 		/// <param name="listCallback">The list callback.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginListDirectory(string path, AsyncCallback asyncCallback, object state, Action<int> listCallback = null)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -172,7 +172,7 @@ namespace Ssh.Internal {
 		/// Gets reference to remote file or directory.
 		/// </summary>
 		/// <param name="path">The path.</param>
-		/// <returns>A reference to <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFile" data-throw-if-not-resolved="false"></xref> file object.</returns>
+		/// <returns>A reference to <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFile"/> file object.</returns>
 		public SftpFile Get(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -217,7 +217,7 @@ namespace Ssh.Internal {
 		/// </summary>
 		/// <param name="path">The path.</param>
 		/// <param name="output">The output.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginDownloadFile(string path, Stream output)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -230,7 +230,7 @@ namespace Ssh.Internal {
 		/// <param name="path">The path.</param>
 		/// <param name="output">The output.</param>
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginDownloadFile(string path, Stream output, AsyncCallback asyncCallback)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -245,7 +245,7 @@ namespace Ssh.Internal {
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests.</param>
 		/// <param name="downloadCallback">The download callback.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginDownloadFile(string path, Stream output, AsyncCallback asyncCallback, object state, Action<ulong> downloadCallback = null)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -300,7 +300,7 @@ namespace Ssh.Internal {
 		/// </summary>
 		/// <param name="input">Data input stream.</param>
 		/// <param name="path">Remote file path.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginUploadFile(Stream input, string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -313,7 +313,7 @@ namespace Ssh.Internal {
 		/// <param name="input">Data input stream.</param>
 		/// <param name="path">Remote file path.</param>
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginUploadFile(Stream input, string path, AsyncCallback asyncCallback)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -328,7 +328,7 @@ namespace Ssh.Internal {
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests.</param>
 		/// <param name="uploadCallback">The upload callback.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginUploadFile(Stream input, string path, AsyncCallback asyncCallback, object state, Action<ulong> uploadCallback = null)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -344,7 +344,7 @@ namespace Ssh.Internal {
 		/// <param name="asyncCallback">The method to be called when the asynchronous write operation is completed.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous write request from other requests.</param>
 		/// <param name="uploadCallback">The upload callback.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that references the asynchronous operation.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that references the asynchronous operation.</returns>
 		public IAsyncResult BeginUploadFile(Stream input, string path, bool canOverride, AsyncCallback asyncCallback, object state, Action<ulong> uploadCallback = null)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -364,7 +364,7 @@ namespace Ssh.Internal {
 		/// Gets status using statvfs@openssh.com request.
 		/// </summary>
 		/// <param name="path">The path.</param>
-		/// <returns>A <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileSytemInformation" data-throw-if-not-resolved="false"></xref> instance that contains file status information.</returns>
+		/// <returns>A <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileSytemInformation"/> instance that contains file status information.</returns>
 		public SftpFileSytemInformation GetStatus(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -414,11 +414,11 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Creates a <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that appends UTF-8 encoded text to the specified file,
+		/// Creates a <see cref="System.IO.StreamWriter"/> that appends UTF-8 encoded text to the specified file,
 		/// creating the file if it does not already exist.
 		/// </summary>
 		/// <param name="path">The path to the file to append to.</param>
-		/// <returns>A <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that appends text to a file using UTF-8 encoding without a
+		/// <returns>A <see cref="System.IO.StreamWriter"/> that appends text to a file using UTF-8 encoding without a
 		/// Byte-Order Mark (BOM).</returns>
 		public StreamWriter AppendText(string path)
 		{
@@ -427,12 +427,12 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Creates a <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that appends text to a file using the specified
+		/// Creates a <see cref="System.IO.StreamWriter"/> that appends text to a file using the specified
 		/// encoding, creating the file if it does not already exist.
 		/// </summary>
 		/// <param name="path">The path to the file to append to.</param>
 		/// <param name="encoding">The character encoding to use.</param>
-		/// <returns>A <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that appends text to a file using the specified encoding.</returns>
+		/// <returns>A <see cref="System.IO.StreamWriter"/> that appends text to a file using the specified encoding.</returns>
 		public StreamWriter AppendText(string path, Encoding encoding)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -443,7 +443,7 @@ namespace Ssh.Internal {
 		/// Creates or overwrites a file in the specified path.
 		/// </summary>
 		/// <param name="path">The path and name of the file to create.</param>
-		/// <returns>A <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> that provides read/write access to the file specified in path.</returns>
+		/// <returns>A <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> that provides read/write access to the file specified in path.</returns>
 		public SftpFileStream Create(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -455,7 +455,7 @@ namespace Ssh.Internal {
 		/// </summary>
 		/// <param name="path">The path and name of the file to create.</param>
 		/// <param name="bufferSize">The maximum number of bytes buffered for reads and writes to the file.</param>
-		/// <returns>A <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> that provides read/write access to the file specified in path.</returns>
+		/// <returns>A <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> that provides read/write access to the file specified in path.</returns>
 		public SftpFileStream Create(string path, int bufferSize)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -466,7 +466,7 @@ namespace Ssh.Internal {
 		/// Creates or opens a file for writing UTF-8 encoded text.
 		/// </summary>
 		/// <param name="path">The file to be opened for writing.</param>
-		/// <returns>A <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that writes text to a file using UTF-8 encoding without
+		/// <returns>A <see cref="System.IO.StreamWriter"/> that writes text to a file using UTF-8 encoding without
 		/// a Byte-Order Mark (BOM).</returns>
 		public StreamWriter CreateText(string path)
 		{
@@ -479,7 +479,7 @@ namespace Ssh.Internal {
 		/// </summary>
 		/// <param name="path">The file to be opened for writing.</param>
 		/// <param name="encoding">The character encoding to use.</param>
-		/// <returns>A <xref href="System.IO.StreamWriter" data-throw-if-not-resolved="false"></xref> that writes to a file using the specified encoding.</returns>
+		/// <returns>A <see cref="System.IO.StreamWriter"/> that writes to a file using the specified encoding.</returns>
 		public StreamWriter CreateText(string path, Encoding encoding)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -499,7 +499,7 @@ namespace Ssh.Internal {
 		/// Returns the date and time the specified file or directory was last accessed.
 		/// </summary>
 		/// <param name="path">The file or directory for which to obtain access date and time information.</param>
-		/// <returns>A <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> structure set to the date and time that the specified file or directory was last accessed.
+		/// <returns>A <see cref="System.DateTime"/> structure set to the date and time that the specified file or directory was last accessed.
 		/// This value is expressed in local time.</returns>
 		public DateTime GetLastAccessTime(string path)
 		{
@@ -511,7 +511,7 @@ namespace Ssh.Internal {
 		/// Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last accessed.
 		/// </summary>
 		/// <param name="path">The file or directory for which to obtain access date and time information.</param>
-		/// <returns>A <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> structure set to the date and time that the specified file or directory was last accessed.
+		/// <returns>A <see cref="System.DateTime"/> structure set to the date and time that the specified file or directory was last accessed.
 		/// This value is expressed in UTC time.</returns>
 		public DateTime GetLastAccessTimeUtc(string path)
 		{
@@ -523,7 +523,7 @@ namespace Ssh.Internal {
 		/// Returns the date and time the specified file or directory was last written to.
 		/// </summary>
 		/// <param name="path">The file or directory for which to obtain write date and time information.</param>
-		/// <returns>A <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> structure set to the date and time that the specified file or directory was last written to.
+		/// <returns>A <see cref="System.DateTime"/> structure set to the date and time that the specified file or directory was last written to.
 		/// This value is expressed in local time.</returns>
 		public DateTime GetLastWriteTime(string path)
 		{
@@ -535,7 +535,7 @@ namespace Ssh.Internal {
 		/// Returns the date and time, in coordinated universal time (UTC), that the specified file or directory was last written to.
 		/// </summary>
 		/// <param name="path">The file or directory for which to obtain write date and time information.</param>
-		/// <returns>A <xref href="System.DateTime" data-throw-if-not-resolved="false"></xref> structure set to the date and time that the specified file or directory was last written to.
+		/// <returns>A <see cref="System.DateTime"/> structure set to the date and time that the specified file or directory was last written to.
 		/// This value is expressed in UTC time.</returns>
 		public DateTime GetLastWriteTimeUtc(string path)
 		{
@@ -544,11 +544,11 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Opens a <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> on the specified path with read/write access.
+		/// Opens a <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> on the specified path with read/write access.
 		/// </summary>
 		/// <param name="path">The file to open.</param>
-		/// <param name="mode">A <xref href="System.IO.FileMode" data-throw-if-not-resolved="false"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</param>
-		/// <returns>An unshared <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> that provides access to the specified file, with the specified mode and read/write access.</returns>
+		/// <param name="mode">A <see cref="System.IO.FileMode"/> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</param>
+		/// <returns>An unshared <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> that provides access to the specified file, with the specified mode and read/write access.</returns>
 		public SftpFileStream Open(string path, FileMode mode)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -556,12 +556,12 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Opens a <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> on the specified path, with the specified mode and access.
+		/// Opens a <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> on the specified path, with the specified mode and access.
 		/// </summary>
 		/// <param name="path">The file to open.</param>
-		/// <param name="mode">A <xref href="System.IO.FileMode" data-throw-if-not-resolved="false"></xref> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</param>
-		/// <param name="access">A <xref href="System.IO.FileAccess" data-throw-if-not-resolved="false"></xref> value that specifies the operations that can be performed on the file.</param>
-		/// <returns>An unshared <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> that provides access to the specified file, with the specified mode and access.</returns>
+		/// <param name="mode">A <see cref="System.IO.FileMode"/> value that specifies whether a file is created if one does not exist, and determines whether the contents of existing files are retained or overwritten.</param>
+		/// <param name="access">A <see cref="System.IO.FileAccess"/> value that specifies the operations that can be performed on the file.</param>
+		/// <returns>An unshared <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> that provides access to the specified file, with the specified mode and access.</returns>
 		public SftpFileStream Open(string path, FileMode mode, FileAccess access)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -572,7 +572,7 @@ namespace Ssh.Internal {
 		/// Opens an existing file for reading.
 		/// </summary>
 		/// <param name="path">The file to be opened for reading.</param>
-		/// <returns>A read-only <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> on the specified path.</returns>
+		/// <returns>A read-only <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> on the specified path.</returns>
 		public SftpFileStream OpenRead(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -583,7 +583,7 @@ namespace Ssh.Internal {
 		/// Opens an existing UTF-8 encoded text file for reading.
 		/// </summary>
 		/// <param name="path">The file to be opened for reading.</param>
-		/// <returns>A <xref href="System.IO.StreamReader" data-throw-if-not-resolved="false"></xref> on the specified path.</returns>
+		/// <returns>A <see cref="System.IO.StreamReader"/> on the specified path.</returns>
 		public StreamReader OpenText(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -594,7 +594,7 @@ namespace Ssh.Internal {
 		/// Opens a file for writing.
 		/// </summary>
 		/// <param name="path">The file to be opened for writing.</param>
-		/// <returns>An unshared <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> object on the specified path with <xref href="System.IO.FileAccess.Write" data-throw-if-not-resolved="false"></xref> access.</returns>
+		/// <returns>An unshared <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> object on the specified path with <see cref="System.IO.FileAccess.Write"/> access.</returns>
 		public SftpFileStream OpenWrite(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -723,10 +723,10 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Gets the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref> of the file on the path.
+		/// Gets the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/> of the file on the path.
 		/// </summary>
 		/// <param name="path">The path to the file.</param>
-		/// <returns>The <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref> of the file on the path.</returns>
+		/// <returns>The <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/> of the file on the path.</returns>
 		public SftpFileAttributes GetAttributes(string path)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -734,10 +734,10 @@ namespace Ssh.Internal {
 		}
 
 		/// <summary>
-		/// Sets the specified <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref> of the file on the specified path.
+		/// Sets the specified <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/> of the file on the specified path.
 		/// </summary>
 		/// <param name="path">The path to the file.</param>
-		/// <param name="fileAttributes">The desired <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.</param>
+		/// <param name="fileAttributes">The desired <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/>.</param>
 		public void SetAttributes(string path, SftpFileAttributes fileAttributes)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -764,7 +764,7 @@ namespace Ssh.Internal {
 		/// <param name="searchPattern">The search pattern.</param>
 		/// <param name="asyncCallback">The async callback.</param>
 		/// <param name="state">The state.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous directory synchronization.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that represents the asynchronous directory synchronization.</returns>
 		public IAsyncResult BeginSynchronizeDirectories(string sourcePath, string destinationPath, string searchPattern, AsyncCallback asyncCallback, object state)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Ssh.Tools.Sftp {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Sftp {
 	/// <summary>
 	/// Contains File system information exposed by statvfs@openssh.com request.
 	/// </summary>

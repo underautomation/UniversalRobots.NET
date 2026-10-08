@@ -2,11 +2,11 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using InterpreterMode.Internal;
+using UnderAutomation.UniversalRobots.InterpreterMode.Internal;
 
-namespace Internal {
+namespace UnderAutomation.UniversalRobots.Internal {
 	/// <summary>
-	/// Internal implementation of the Interpreter Mode client that delegates connection to the parent <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> instance.
+	/// Internal implementation of the Interpreter Mode client that delegates connection to the parent <see cref="UnderAutomation.UniversalRobots.UR"/> instance.
 	/// </summary>
 	public class InterpreterModeClientInternal : InterpreterModeClientBase {
 

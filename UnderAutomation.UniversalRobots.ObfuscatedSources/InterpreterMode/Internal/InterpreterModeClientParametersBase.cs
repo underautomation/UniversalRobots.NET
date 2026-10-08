@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace InterpreterMode.Internal {
+namespace UnderAutomation.UniversalRobots.InterpreterMode.Internal {
 	/// <summary>
 	/// Base class for Interpreter Mode connection parameters.
 	/// </summary>

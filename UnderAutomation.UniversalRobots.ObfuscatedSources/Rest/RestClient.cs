@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Rest.Internal;
+using UnderAutomation.UniversalRobots.Rest.Internal;
 
-namespace Rest {
+namespace UnderAutomation.UniversalRobots.Rest {
 	/// <summary>
 	/// Standalone REST API client for PolyscopeX robots.
 	/// Use this class when you want to interact with the REST API independently from the main UR class.

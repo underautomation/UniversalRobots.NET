@@ -2,7 +2,7 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
 namespace UnderAutomation.UniversalRobots {
 	/// <summary>
@@ -11,7 +11,7 @@ namespace UnderAutomation.UniversalRobots {
 	public class ConnectParameters {
 
 		/// <summary>
-		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.ConnectParameters" data-throw-if-not-resolved="false"></xref> with default values.
+		/// Initializes a new instance of <see cref="UnderAutomation.UniversalRobots.ConnectParameters"/> with default values.
 		/// </summary>
 		public ConnectParameters()
 		{
@@ -19,7 +19,7 @@ namespace UnderAutomation.UniversalRobots {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.ConnectParameters" data-throw-if-not-resolved="false"></xref> with the specified robot IP address.
+		/// Initializes a new instance of <see cref="UnderAutomation.UniversalRobots.ConnectParameters"/> with the specified robot IP address.
 		/// </summary>
 		/// <param name="ip">The IP address of the Universal Robots controller.</param>
 		public ConnectParameters(string ip)

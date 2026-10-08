@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace Kinematics {
+namespace UnderAutomation.UniversalRobots.Kinematics {
 	/// <summary>
 	/// Mutable Denavit-Hartenberg parameters for a Universal Robots arm, allowing custom DH values.
 	/// </summary>
@@ -25,7 +25,7 @@ namespace Kinematics {
 		}
 
 		/// <summary>
-		/// Creates a new instance by copying values from an existing <xref href="UnderAutomation.UniversalRobots.Common.IUrDhParameters" data-throw-if-not-resolved="false"></xref> instance.
+		/// Creates a new instance by copying values from an existing <see cref="UnderAutomation.UniversalRobots.Common.IUrDhParameters"/> instance.
 		/// </summary>
 		/// <param name="parameters">Source DH parameters to copy.</param>
 		public CustomUrDhParameters(IUrDhParameters parameters)

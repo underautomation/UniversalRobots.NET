@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Ssh.Internal;
+using UnderAutomation.UniversalRobots.Ssh.Internal;
 
-namespace Ssh {
+namespace UnderAutomation.UniversalRobots.Ssh {
 	/// <summary>
 	/// Provides a client for transferring files to and from the Universal Robots controller using the SFTP protocol.
 	/// </summary>

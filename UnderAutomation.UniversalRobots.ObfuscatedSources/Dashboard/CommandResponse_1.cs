@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Dashboard {
+namespace UnderAutomation.UniversalRobots.Dashboard {
 	/// <summary>
 	/// Answer returned by a command which contains a typed value.
 	/// </summary>
@@ -15,7 +15,7 @@ namespace Dashboard {
 		public T Value;
 
 		/// <summary>
-		/// Initializes a new instance of <xref href="UnderAutomation.UniversalRobots.Dashboard.CommandResponse%601" data-throw-if-not-resolved="false"></xref> by copying the base response data.
+		/// Initializes a new instance of <see cref="UnderAutomation.UniversalRobots.Dashboard.CommandResponse`1"/> by copying the base response data.
 		/// </summary>
 		/// <param name="command">The base command response to copy from.</param>
 		public CommandResponse(CommandResponse command)

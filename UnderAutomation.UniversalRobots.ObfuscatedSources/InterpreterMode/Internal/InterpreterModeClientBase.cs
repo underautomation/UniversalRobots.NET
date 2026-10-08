@@ -2,10 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using InterpreterMode;
+using UnderAutomation.UniversalRobots.Internal;
 
-namespace InterpreterMode.Internal {
+namespace UnderAutomation.UniversalRobots.InterpreterMode.Internal {
 	/// <summary>
 	/// Base class for the Interpreter Mode client, providing TCP communication and built-in interpreter commands.
 	/// </summary>

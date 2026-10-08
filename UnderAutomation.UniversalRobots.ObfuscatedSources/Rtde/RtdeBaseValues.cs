@@ -3,9 +3,9 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
-	/// Abstract base class holding a collection of <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeValue" data-throw-if-not-resolved="false"></xref> instances representing RTDE variable values.
+	/// Abstract base class holding a collection of <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeValue"/> instances representing RTDE variable values.
 	/// </summary>
 	public abstract class RtdeBaseValues {
 

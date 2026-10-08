@@ -2,12 +2,12 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Rtde.Internal;
-using Rtde;
+using UnderAutomation.UniversalRobots.Rtde.Internal;
+using UnderAutomation.UniversalRobots.Rtde;
 
-namespace Internal {
+namespace UnderAutomation.UniversalRobots.Internal {
 	/// <summary>
-	/// Internal implementation of the Real-Time Data Exchange (RTDE) client that delegates connection to the parent <xref href="UnderAutomation.UniversalRobots.UR" data-throw-if-not-resolved="false"></xref> instance.
+	/// Internal implementation of the Real-Time Data Exchange (RTDE) client that delegates connection to the parent <see cref="UnderAutomation.UniversalRobots.UR"/> instance.
 	/// </summary>
 	public class RtdeClientInternal : RtdeClientBase {
 

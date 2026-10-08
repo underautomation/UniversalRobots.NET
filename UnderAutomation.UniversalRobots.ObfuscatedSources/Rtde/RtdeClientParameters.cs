@@ -3,9 +3,9 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
-	/// Parameters for configuring the standalone <xref href="UnderAutomation.UniversalRobots.Rtde.RtdeClient" data-throw-if-not-resolved="false"></xref> connection to a Universal Robots controller via the RTDE protocol.
+	/// Parameters for configuring the standalone <see cref="UnderAutomation.UniversalRobots.Rtde.RtdeClient"/> connection to a Universal Robots controller via the RTDE protocol.
 	/// </summary>
 	public class RtdeClientParameters {
 

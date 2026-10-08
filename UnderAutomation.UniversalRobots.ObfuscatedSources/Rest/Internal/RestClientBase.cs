@@ -2,10 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using Rest;
+using UnderAutomation.UniversalRobots.Internal;
 
-namespace Rest.Internal {
+namespace UnderAutomation.UniversalRobots.Rest.Internal {
 	/// <summary>
 	/// Base implementation of the REST API client for PolyscopeX robots
 	/// </summary>
@@ -29,7 +28,6 @@ namespace Rest.Internal {
 
 		/// <summary>
 		/// Change the robot's operational state.
-		/// PUT /robotstate/v1/state
 		/// </summary>
 		/// <param name="action">The state action to perform</param>
 		/// <returns>API response indicating success or failure</returns>
@@ -86,7 +84,6 @@ namespace Rest.Internal {
 
 		/// <summary>
 		/// Load a program by name.
-		/// PUT /program/v1/load
 		/// </summary>
 		/// <param name="programName">Name of the program to load (without .urp extension)</param>
 		/// <returns>API response indicating success or failure</returns>
@@ -98,7 +95,6 @@ namespace Rest.Internal {
 
 		/// <summary>
 		/// Change the program state.
-		/// PUT /program/v1/state
 		/// </summary>
 		/// <param name="action">The program action to perform</param>
 		/// <returns>API response indicating success or failure</returns>
@@ -146,7 +142,6 @@ namespace Rest.Internal {
 
 		/// <summary>
 		/// Get the current program state.
-		/// GET /program/v1/state
 		/// </summary>
 		/// <returns>API response with the current program state</returns>
 		public RestApiResponse<ProgramStateResponse> GetProgramState()

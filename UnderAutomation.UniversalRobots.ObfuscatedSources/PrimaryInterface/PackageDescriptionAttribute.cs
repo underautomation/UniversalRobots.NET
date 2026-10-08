@@ -4,7 +4,7 @@
 
 using System.ComponentModel;
 
-namespace PrimaryInterface {
+namespace UnderAutomation.UniversalRobots.PrimaryInterface {
 	/// <summary>
 	/// Describes a field of a received package
 	/// </summary>

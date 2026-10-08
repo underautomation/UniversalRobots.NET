@@ -3,14 +3,14 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Ssh.Tools.Common {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Common {
 	/// <summary>
 	/// Provides data for Shell DataReceived event
 	/// </summary>
 	public class ShellDataEventArgs : EventArgs {
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ShellDataEventArgs" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ShellDataEventArgs"/> class.
 		/// </summary>
 		/// <param name="data">The data.</param>
 		public ShellDataEventArgs(byte[] data)
@@ -19,7 +19,7 @@ namespace Ssh.Tools.Common {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ShellDataEventArgs" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.ShellDataEventArgs"/> class.
 		/// </summary>
 		/// <param name="line">The line.</param>
 		public ShellDataEventArgs(string line)

@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using SocketCommunication.Internal;
+using UnderAutomation.UniversalRobots.SocketCommunication.Internal;
 
-namespace Common {
+namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
 	/// Setup socket communication server
 	/// </summary>

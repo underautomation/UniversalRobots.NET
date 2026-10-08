@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// RTDE integer register array (48 registers, indices 0–47) for exchanging 32-bit integer values with the robot.
 	/// </summary>

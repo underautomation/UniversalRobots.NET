@@ -4,7 +4,7 @@
 
 using System.Runtime.Serialization;
 
-namespace Common {
+namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
 	/// Exception thrown when connection to the robot fails
 	/// </summary>

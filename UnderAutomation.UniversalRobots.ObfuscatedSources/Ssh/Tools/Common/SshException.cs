@@ -4,14 +4,14 @@
 
 using System.Runtime.Serialization;
 
-namespace Ssh.Tools.Common {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Common {
 	/// <summary>
 	/// The exception that is thrown when SSH exception occurs.
 	/// </summary>
 	public class SshException : Exception, ISerializable {
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException"/> class.
 		/// </summary>
 		public SshException()
 		{
@@ -19,7 +19,7 @@ namespace Ssh.Tools.Common {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException"/> class.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		public SshException(string message)
@@ -28,7 +28,7 @@ namespace Ssh.Tools.Common {
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException" data-throw-if-not-resolved="false"></xref> class.
+		/// Initializes a new instance of the <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Common.SshException"/> class.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		/// <param name="inner">The inner.</param>

@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// Represents a pose value that can be exchange with the robot via XML-RPC
 	/// </summary>
@@ -31,7 +31,7 @@ namespace XmlRpc {
 		/// Determines whether the specified object is equal to this instance.
 		/// </summary>
 		/// <param name="obj">The object to compare with.</param>
-		/// <returns><code>true</code> if the specified object is an <xref href="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcPoseValue" data-throw-if-not-resolved="false"></xref> with the same pose; otherwise, <code>false</code>.</returns>
+		/// <returns><code>true</code> if the specified object is an <see cref="UnderAutomation.UniversalRobots.XmlRpc.XmlRpcPoseValue"/> with the same pose; otherwise, <code>false</code>.</returns>
 		public override bool Equals(object obj)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

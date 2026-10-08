@@ -2,9 +2,10 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace Kinematics {
+namespace UnderAutomation.UniversalRobots.Kinematics
+{
 	/// <summary>
 	/// =========================================================================================================
 	/// Implementation notes :
@@ -27,16 +28,17 @@ namespace Kinematics {
 	/// (cobot) with 6 DOF", IEEE ICASI 2017.
 	/// =========================================================================================================
 	/// </summary>
-	public static class KinematicsUtils {
+	public static class KinematicsUtils
+	{
 
 		/// <summary>
-		/// Computes the 4×4 Denavit-Hartenberg homogeneous transformation matrix for one joint.
+		/// Computes the 4x4 Denavit-Hartenberg homogeneous transformation matrix for one joint.
 		/// </summary>
 		/// <param name="theta">Joint angle in radians.</param>
 		/// <param name="d">Link offset along the previous z-axis, in meters.</param>
 		/// <param name="a">Link length along the rotated x-axis, in meters.</param>
 		/// <param name="alpha">Link twist angle in radians.</param>
-		/// <returns>A 4×4 homogeneous transformation matrix.</returns>
+		/// <returns>A 4x4 homogeneous transformation matrix.</returns>
 		public static double[,] DHTransform(double theta, double d, double a, double alpha)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -44,11 +46,11 @@ namespace Kinematics {
 		}
 
 		/// <summary>
-		/// Multiplies two 4×4 homogeneous transformation matrices, optimized for DH transforms.
+		/// Multiplies two 4x4 homogeneous transformation matrices, optimized for DH transforms.
 		/// </summary>
-		/// <param name="A">Left 4×4 matrix.</param>
-		/// <param name="B">Right 4×4 matrix.</param>
-		/// <returns>Product 4×4 matrix A × B.</returns>
+		/// <param name="A">Left 4x4 matrix.</param>
+		/// <param name="B">Right 4x4 matrix.</param>
+		/// <returns>Product 4x4 matrix A x B.</returns>
 		public static double[,] HomogeneousMultiply(double[,] A, double[,] B)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -83,7 +85,7 @@ namespace Kinematics {
 		/// Analytical inverse kinematics
 		/// Returns a list of candidate joint vectors; filters out singularities.
 		/// </summary>
-		/// <param name="toolTransform">4×4 tool transform matrix.</param>
+		/// <param name="toolTransform">4x4 tool transform matrix.</param>
 		/// <param name="dhParameters">Robot DH parameters.</param>
 		/// <returns>Array of candidate joint angles (6 elements each).</returns>
 		public static double[][] InverseKinematics(double[,] toolTransform, IUrDhParameters dhParameters)

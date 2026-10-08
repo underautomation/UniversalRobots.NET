@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Rtde {
+namespace UnderAutomation.UniversalRobots.Rtde {
 	/// <summary>
 	/// Abstract base for a fixed-size register array of type <code class="typeparamref">T</code> exchanged through RTDE.
 	/// </summary>

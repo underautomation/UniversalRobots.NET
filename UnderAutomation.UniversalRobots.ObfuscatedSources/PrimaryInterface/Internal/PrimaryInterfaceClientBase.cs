@@ -2,13 +2,12 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Internal;
-using PrimaryInterface;
+using UnderAutomation.UniversalRobots.Internal;
 using System.Net;
 using System;
-using Common;
+using UnderAutomation.UniversalRobots.Common;
 
-namespace PrimaryInterface.Internal {
+namespace UnderAutomation.UniversalRobots.PrimaryInterface.Internal {
 	/// <summary>
 	/// Base class for the Primary/Secondary Interface client. Manages the TCP connection,
 	/// decodes incoming binary data packets, and raises events for each decoded sub-package.

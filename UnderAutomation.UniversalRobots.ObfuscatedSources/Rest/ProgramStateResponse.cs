@@ -3,9 +3,9 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Rest {
+namespace UnderAutomation.UniversalRobots.Rest {
 	/// <summary>
-	/// Response from GET /program/v1/state endpoint
+	/// State of the program, returned by <see cref="UnderAutomation.UniversalRobots.Rest.Internal.RestClientBase.GetProgramState"/>.
 	/// </summary>
 	public class ProgramStateResponse {
 

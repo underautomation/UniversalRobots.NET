@@ -4,7 +4,7 @@
 
 using System.IO;
 
-namespace Ssh.Tools {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools {
 	/// <summary>
 	/// Represents SSH command that can be executed.
 	/// </summary>
@@ -13,7 +13,7 @@ namespace Ssh.Tools {
 		/// <summary>
 		/// Begins an asynchronous command execution.
 		/// </summary>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous command execution, which could still be pending.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that represents the asynchronous command execution, which could still be pending.</returns>
 		public IAsyncResult BeginExecute()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -24,7 +24,7 @@ namespace Ssh.Tools {
 		/// Begins an asynchronous command execution.
 		/// </summary>
 		/// <param name="callback">An optional asynchronous callback, to be called when the command execution is complete.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous command execution, which could still be pending.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that represents the asynchronous command execution, which could still be pending.</returns>
 		public IAsyncResult BeginExecute(AsyncCallback callback)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -36,7 +36,7 @@ namespace Ssh.Tools {
 		/// </summary>
 		/// <param name="callback">An optional asynchronous callback, to be called when the command execution is complete.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous command execution, which could still be pending.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that represents the asynchronous command execution, which could still be pending.</returns>
 		public IAsyncResult BeginExecute(AsyncCallback callback, object state)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -49,7 +49,7 @@ namespace Ssh.Tools {
 		/// <param name="commandText">The command text.</param>
 		/// <param name="callback">An optional asynchronous callback, to be called when the command execution is complete.</param>
 		/// <param name="state">A user-provided object that distinguishes this particular asynchronous read request from other requests.</param>
-		/// <returns>An <xref href="System.IAsyncResult" data-throw-if-not-resolved="false"></xref> that represents the asynchronous command execution, which could still be pending.</returns>
+		/// <returns>An <see cref="System.IAsyncResult"/> that represents the asynchronous command execution, which could still be pending.</returns>
 		public IAsyncResult BeginExecute(string commandText, AsyncCallback callback, object state)
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -68,7 +68,7 @@ namespace Ssh.Tools {
 		}
 
 		/// <summary>
-		/// Executes command specified by <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.CommandText" data-throw-if-not-resolved="false"></xref> property.
+		/// Executes command specified by <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.SshCommand.CommandText"/> property.
 		/// </summary>
 		/// <returns>Command execution result</returns>
 		public string Execute()

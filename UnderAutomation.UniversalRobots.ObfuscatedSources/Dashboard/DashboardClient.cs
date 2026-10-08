@@ -2,9 +2,9 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Dashboard.Internal;
+using UnderAutomation.UniversalRobots.Dashboard.Internal;
 
-namespace Dashboard {
+namespace UnderAutomation.UniversalRobots.Dashboard {
 	/// <summary>
 	/// Client for the Universal Robots Dashboard Server protocol.
 	/// Enables remote control of the robot (load/play/stop programs, power on/off, etc.) via TCP commands on port 29999.

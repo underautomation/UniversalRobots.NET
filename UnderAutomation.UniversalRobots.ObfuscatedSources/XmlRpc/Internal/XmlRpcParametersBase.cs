@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace XmlRpc.Internal {
+namespace UnderAutomation.UniversalRobots.XmlRpc.Internal {
 	/// <summary>
 	/// Base class for XML-RPC connection parameters.
 	/// </summary>

@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Ssh.Tools.Sftp {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Sftp {
 	/// <summary>
 	/// Contains SFTP file attributes.
 	/// </summary>
@@ -21,9 +21,9 @@ namespace Ssh.Tools.Sftp {
 		}
 
 		/// <summary>
-		/// Returns a byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.
+		/// Returns a byte array representing the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/>.
 		/// </summary>
-		/// <returns>A byte array representing the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes" data-throw-if-not-resolved="false"></xref>.</returns>
+		/// <returns>A byte array representing the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileAttributes"/>.</returns>
 		public byte[] GetBytes()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...

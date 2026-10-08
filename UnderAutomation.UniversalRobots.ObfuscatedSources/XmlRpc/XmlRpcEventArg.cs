@@ -5,7 +5,7 @@
 using System.Xml.Linq;
 using System.Net;
 
-namespace XmlRpc {
+namespace UnderAutomation.UniversalRobots.XmlRpc {
 	/// <summary>
 	/// Represents a request that has just been received from the robot
 	/// </summary>

@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Common {
+namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
 	/// Base class of all received data packages
 	/// </summary>

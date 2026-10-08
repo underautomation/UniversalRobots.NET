@@ -2,9 +2,8 @@
 // This file is an empty shell containing only public C# items.
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
-using Rtde;
 
-namespace Rtde.Internal {
+namespace UnderAutomation.UniversalRobots.Rtde.Internal {
 	/// <summary>
 	/// Abstract base class representing a single RTDE variable in a recipe, identified by an enum value of type <code class="typeparamref">T</code> and an optional register index.
 	/// </summary>

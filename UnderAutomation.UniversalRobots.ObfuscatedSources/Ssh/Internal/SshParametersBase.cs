@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Ssh.Internal {
+namespace UnderAutomation.UniversalRobots.Ssh.Internal {
 	/// <summary>
 	/// Base class for SSH and SFTP connection parameters, including credentials and port configuration.
 	/// </summary>

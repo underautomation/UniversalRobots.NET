@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Common {
+namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
 	/// Describes a global variable
 	/// </summary>
@@ -19,7 +19,7 @@ namespace Common {
 		}
 
 		/// <summary>
-		/// Determines whether the specified object is a <xref href="UnderAutomation.UniversalRobots.Common.GlobalVariable" data-throw-if-not-resolved="false"></xref> with the same name, type, and value.
+		/// Determines whether the specified object is a <see cref="UnderAutomation.UniversalRobots.Common.GlobalVariable"/> with the same name, type, and value.
 		/// </summary>
 		public override bool Equals(object obj)
 		{

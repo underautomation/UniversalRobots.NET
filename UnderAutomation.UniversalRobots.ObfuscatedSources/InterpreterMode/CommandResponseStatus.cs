@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace InterpreterMode {
+namespace UnderAutomation.UniversalRobots.InterpreterMode {
 	/// <summary>
 	/// Type of response of an Interpreter Mode command
 	/// </summary>

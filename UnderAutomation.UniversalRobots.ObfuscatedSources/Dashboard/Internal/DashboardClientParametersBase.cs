@@ -3,7 +3,7 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 
-namespace Dashboard.Internal {
+namespace UnderAutomation.UniversalRobots.Dashboard.Internal {
 	/// <summary>
 	/// Abstract base class for Dashboard Server connection parameters, providing default port and timeout values.
 	/// </summary>

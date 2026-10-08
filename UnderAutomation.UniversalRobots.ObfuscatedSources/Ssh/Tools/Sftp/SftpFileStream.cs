@@ -4,9 +4,9 @@
 
 using System.IO;
 
-namespace Ssh.Tools.Sftp {
+namespace UnderAutomation.UniversalRobots.Ssh.Tools.Sftp {
 	/// <summary>
-	/// Exposes a <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> around a remote SFTP file, supporting both synchronous and asynchronous read and write operations.
+	/// Exposes a <see cref="System.IO.Stream"/> around a remote SFTP file, supporting both synchronous and asynchronous read and write operations.
 	/// </summary>
 	public class SftpFileStream : Stream, IDisposable, IAsyncDisposable {
 
@@ -36,7 +36,7 @@ namespace Ssh.Tools.Sftp {
 		/// <summary>
 		/// Reads a byte from the stream and advances the position within the stream by one byte, or returns -1 if at the end of the stream.
 		/// </summary>
-		/// <returns>The unsigned byte cast to an <xref href="System.Int32" data-throw-if-not-resolved="false"></xref>, or -1 if at the end of the stream.</returns>
+		/// <returns>The unsigned byte cast to an <see cref="System.Int32"/>, or -1 if at the end of the stream.</returns>
 		public override int ReadByte()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
@@ -47,7 +47,7 @@ namespace Ssh.Tools.Sftp {
 		/// Sets the position within the current stream.
 		/// </summary>
 		/// <param name="offset">A byte offset relative to the <code class="paramref">origin</code> parameter.</param>
-		/// <param name="origin">A value of type <xref href="System.IO.SeekOrigin" data-throw-if-not-resolved="false"></xref> indicating the reference point used to obtain the new position.</param>
+		/// <param name="origin">A value of type <see cref="System.IO.SeekOrigin"/> indicating the reference point used to obtain the new position.</param>
 		/// <returns>The new position within the current stream.</returns>
 		public override long Seek(long offset, SeekOrigin origin)
 		{
@@ -85,7 +85,7 @@ namespace Ssh.Tools.Sftp {
 		}
 
 		/// <summary>
-		/// Releases the unmanaged resources used by the <xref href="System.IO.Stream" data-throw-if-not-resolved="false"></xref> and optionally releases the managed resources.
+		/// Releases the unmanaged resources used by the <see cref="System.IO.Stream"/> and optionally releases the managed resources.
 		/// </summary>
 		/// <param name="disposing"><code>true</code> to release both managed and unmanaged resources; <code>false</code> to release only unmanaged resources.</param>
 		protected override void Dispose(bool disposing)
@@ -112,7 +112,7 @@ namespace Ssh.Tools.Sftp {
 		public override bool CanWrite => default;
 
 		/// <summary>
-		/// Indicates whether timeout properties are usable for <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
+		/// Indicates whether timeout properties are usable for <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/>.
 		/// </summary>
 		/// <returns><code>true</code> in all cases.</returns>
 		public override bool CanTimeout => default;
@@ -130,15 +130,15 @@ namespace Ssh.Tools.Sftp {
 		public override long Position { get; set; }
 
 		/// <summary>
-		/// Gets the name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.
+		/// Gets the name of the path that was used to construct the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/>.
 		/// </summary>
-		/// <returns>The name of the path that was used to construct the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref>.</returns>
+		/// <returns>The name of the path that was used to construct the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/>.</returns>
 		public string Name { get; }
 
 		/// <summary>
-		/// Gets the operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.
+		/// Gets the operating system file handle for the file that the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> encapsulates.
 		/// </summary>
-		/// <returns>The operating system file handle for the file that the current <xref href="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream" data-throw-if-not-resolved="false"></xref> encapsulates.</returns>
+		/// <returns>The operating system file handle for the file that the current <see cref="UnderAutomation.UniversalRobots.Ssh.Tools.Sftp.SftpFileStream"/> encapsulates.</returns>
 		public virtual byte[] Handle { get; }
 
 		/// <summary>
