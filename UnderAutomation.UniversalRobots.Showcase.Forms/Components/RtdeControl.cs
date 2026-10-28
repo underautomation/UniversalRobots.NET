@@ -33,7 +33,6 @@ public partial class RtdeControl : UserControl, IUserControl
 
         InitializeComponent();
 
-
         _vscroll = gridOutputs.Controls.OfType<Control>().FirstOrDefault(ctl => ctl.AccessibilityObject.Role == AccessibleRole.Table)?.Controls?.OfType<VScrollBar>()?.FirstOrDefault();
 
         _ur.Rtde.OutputDataReceived += Rtde_RTDEDataReceived;
@@ -59,6 +58,8 @@ public partial class RtdeControl : UserControl, IUserControl
 
         lblState.Text = _ur.Rtde.State.ToString();
         lblkVersion.Text = _ur.Rtde.Version.ToString();
+        // Robot properties read at connection (PolyScope 5.26.3 / PolyScope X 10.15 and later)
+        lblProperties.Text = $"Software: {_ur.Rtde.SoftwareVersion ?? "n/a"}   Control box: {_ur.Rtde.ControlBoxType}   Tool flange: {_ur.Rtde.ToolFlangeType}";
     }
 
     public void SetSelectedObject(object value)

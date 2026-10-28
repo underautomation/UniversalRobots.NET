@@ -29,6 +29,27 @@
         splitMain = new SplitContainer();
         txtConsole = new RichTextBox();
         pnlMain = new Panel();
+        groupBox6 = new GroupBox();
+        btnDownloadProgramToFile = new Button();
+        btnDownloadProgram = new Button();
+        btnUpdateProgramFile = new Button();
+        btnUploadProgramFile = new Button();
+        btnGetPrograms = new Button();
+        txtProgram = new TextBox();
+        groupBox4 = new GroupBox();
+        btnCloseSafetyPopup = new Button();
+        btnClosePopup = new Button();
+        btnShowPopupWithTitle = new Button();
+        btnShowPopup = new Button();
+        txtPopup = new TextBox();
+        groupBox3 = new GroupBox();
+        btnGetRobotApiVersion = new Button();
+        btnGetPolyscopeVersion = new Button();
+        btnIsInRemoteControl = new Button();
+        btnGetOperationalMode = new Button();
+        btnGetSafetyMode = new Button();
+        btnGetRobotMode = new Button();
+        btnGetLoadedProgram = new Button();
         groupBox2 = new GroupBox();
         pictureBox1 = new PictureBox();
         groupBox1 = new GroupBox();
@@ -45,11 +66,16 @@
         btnBrakeRelease = new Button();
         btnPowerOff = new Button();
         btnPowerOn = new Button();
+        openProgramDialog = new OpenFileDialog();
+        saveProgramDialog = new SaveFileDialog();
         ((System.ComponentModel.ISupportInitialize)splitMain).BeginInit();
         splitMain.Panel1.SuspendLayout();
         splitMain.Panel2.SuspendLayout();
         splitMain.SuspendLayout();
         pnlMain.SuspendLayout();
+        groupBox6.SuspendLayout();
+        groupBox4.SuspendLayout();
+        groupBox3.SuspendLayout();
         groupBox2.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
         groupBox1.SuspendLayout();
@@ -93,6 +119,9 @@
         // 
         // pnlMain
         // 
+        pnlMain.Controls.Add(groupBox6);
+        pnlMain.Controls.Add(groupBox4);
+        pnlMain.Controls.Add(groupBox3);
         pnlMain.Controls.Add(groupBox2);
         pnlMain.Controls.Add(groupBox1);
         pnlMain.Controls.Add(GroupBox5);
@@ -102,6 +131,227 @@
         pnlMain.Name = "pnlMain";
         pnlMain.Size = new Size(957, 815);
         pnlMain.TabIndex = 9;
+        // 
+        // groupBox6
+        // 
+        groupBox6.Controls.Add(btnDownloadProgramToFile);
+        groupBox6.Controls.Add(btnDownloadProgram);
+        groupBox6.Controls.Add(btnUpdateProgramFile);
+        groupBox6.Controls.Add(btnUploadProgramFile);
+        groupBox6.Controls.Add(btnGetPrograms);
+        groupBox6.Controls.Add(txtProgram);
+        groupBox6.Location = new Point(480, 250);
+        groupBox6.Name = "groupBox6";
+        groupBox6.Size = new Size(230, 198);
+        groupBox6.TabIndex = 12;
+        groupBox6.TabStop = false;
+        groupBox6.Text = "Programs";
+        // 
+        // btnDownloadProgramToFile
+        // 
+        btnDownloadProgramToFile.Location = new Point(7, 167);
+        btnDownloadProgramToFile.Name = "btnDownloadProgramToFile";
+        btnDownloadProgramToFile.Size = new Size(216, 23);
+        btnDownloadProgramToFile.TabIndex = 5;
+        btnDownloadProgramToFile.Text = "Download Program To File...";
+        btnDownloadProgramToFile.UseVisualStyleBackColor = true;
+        btnDownloadProgramToFile.Click += btnDownloadProgramToFile_Click;
+        // 
+        // btnDownloadProgram
+        // 
+        btnDownloadProgram.Location = new Point(7, 138);
+        btnDownloadProgram.Name = "btnDownloadProgram";
+        btnDownloadProgram.Size = new Size(216, 23);
+        btnDownloadProgram.TabIndex = 4;
+        btnDownloadProgram.Text = "Download Program";
+        btnDownloadProgram.UseVisualStyleBackColor = true;
+        btnDownloadProgram.Click += btnDownloadProgram_Click;
+        // 
+        // btnUpdateProgramFile
+        // 
+        btnUpdateProgramFile.Location = new Point(7, 109);
+        btnUpdateProgramFile.Name = "btnUpdateProgramFile";
+        btnUpdateProgramFile.Size = new Size(216, 23);
+        btnUpdateProgramFile.TabIndex = 3;
+        btnUpdateProgramFile.Text = "Update Program File...";
+        btnUpdateProgramFile.UseVisualStyleBackColor = true;
+        btnUpdateProgramFile.Click += btnUpdateProgramFile_Click;
+        // 
+        // btnUploadProgramFile
+        // 
+        btnUploadProgramFile.Location = new Point(7, 80);
+        btnUploadProgramFile.Name = "btnUploadProgramFile";
+        btnUploadProgramFile.Size = new Size(216, 23);
+        btnUploadProgramFile.TabIndex = 2;
+        btnUploadProgramFile.Text = "Upload Program File...";
+        btnUploadProgramFile.UseVisualStyleBackColor = true;
+        btnUploadProgramFile.Click += btnUploadProgramFile_Click;
+        // 
+        // btnGetPrograms
+        // 
+        btnGetPrograms.Location = new Point(7, 51);
+        btnGetPrograms.Name = "btnGetPrograms";
+        btnGetPrograms.Size = new Size(216, 23);
+        btnGetPrograms.TabIndex = 1;
+        btnGetPrograms.Text = "Get Programs";
+        btnGetPrograms.UseVisualStyleBackColor = true;
+        btnGetPrograms.Click += btnGetPrograms_Click;
+        // 
+        // txtProgram
+        // 
+        txtProgram.Location = new Point(7, 22);
+        txtProgram.Name = "txtProgram";
+        txtProgram.Size = new Size(216, 23);
+        txtProgram.TabIndex = 0;
+        txtProgram.Text = "my_program";
+        // 
+        // groupBox4
+        // 
+        groupBox4.Controls.Add(btnCloseSafetyPopup);
+        groupBox4.Controls.Add(btnClosePopup);
+        groupBox4.Controls.Add(btnShowPopupWithTitle);
+        groupBox4.Controls.Add(btnShowPopup);
+        groupBox4.Controls.Add(txtPopup);
+        groupBox4.Location = new Point(480, 470);
+        groupBox4.Name = "groupBox4";
+        groupBox4.Size = new Size(230, 169);
+        groupBox4.TabIndex = 11;
+        groupBox4.TabStop = false;
+        groupBox4.Text = "Popups";
+        // 
+        // btnCloseSafetyPopup
+        // 
+        btnCloseSafetyPopup.Location = new Point(7, 138);
+        btnCloseSafetyPopup.Name = "btnCloseSafetyPopup";
+        btnCloseSafetyPopup.Size = new Size(216, 23);
+        btnCloseSafetyPopup.TabIndex = 4;
+        btnCloseSafetyPopup.Text = "Close Safety Popup";
+        btnCloseSafetyPopup.UseVisualStyleBackColor = true;
+        btnCloseSafetyPopup.Click += btnCloseSafetyPopup_Click;
+        // 
+        // btnClosePopup
+        // 
+        btnClosePopup.Location = new Point(7, 109);
+        btnClosePopup.Name = "btnClosePopup";
+        btnClosePopup.Size = new Size(216, 23);
+        btnClosePopup.TabIndex = 3;
+        btnClosePopup.Text = "Close Popup";
+        btnClosePopup.UseVisualStyleBackColor = true;
+        btnClosePopup.Click += btnClosePopup_Click;
+        // 
+        // btnShowPopupWithTitle
+        // 
+        btnShowPopupWithTitle.Location = new Point(7, 80);
+        btnShowPopupWithTitle.Name = "btnShowPopupWithTitle";
+        btnShowPopupWithTitle.Size = new Size(216, 23);
+        btnShowPopupWithTitle.TabIndex = 2;
+        btnShowPopupWithTitle.Text = "Show Popup With Title";
+        btnShowPopupWithTitle.UseVisualStyleBackColor = true;
+        btnShowPopupWithTitle.Click += btnShowPopupWithTitle_Click;
+        // 
+        // btnShowPopup
+        // 
+        btnShowPopup.Location = new Point(7, 51);
+        btnShowPopup.Name = "btnShowPopup";
+        btnShowPopup.Size = new Size(216, 23);
+        btnShowPopup.TabIndex = 1;
+        btnShowPopup.Text = "Show Popup";
+        btnShowPopup.UseVisualStyleBackColor = true;
+        btnShowPopup.Click += btnShowPopup_Click;
+        // 
+        // txtPopup
+        // 
+        txtPopup.Location = new Point(7, 22);
+        txtPopup.Name = "txtPopup";
+        txtPopup.Size = new Size(216, 23);
+        txtPopup.TabIndex = 0;
+        txtPopup.Text = "Hello from the SDK";
+        // 
+        // groupBox3
+        // 
+        groupBox3.Controls.Add(btnGetRobotApiVersion);
+        groupBox3.Controls.Add(btnGetPolyscopeVersion);
+        groupBox3.Controls.Add(btnIsInRemoteControl);
+        groupBox3.Controls.Add(btnGetOperationalMode);
+        groupBox3.Controls.Add(btnGetSafetyMode);
+        groupBox3.Controls.Add(btnGetRobotMode);
+        groupBox3.Controls.Add(btnGetLoadedProgram);
+        groupBox3.Location = new Point(480, 3);
+        groupBox3.Name = "groupBox3";
+        groupBox3.Size = new Size(230, 227);
+        groupBox3.TabIndex = 10;
+        groupBox3.TabStop = false;
+        groupBox3.Text = "Information";
+        // 
+        // btnGetRobotApiVersion
+        // 
+        btnGetRobotApiVersion.Location = new Point(7, 196);
+        btnGetRobotApiVersion.Name = "btnGetRobotApiVersion";
+        btnGetRobotApiVersion.Size = new Size(216, 23);
+        btnGetRobotApiVersion.TabIndex = 6;
+        btnGetRobotApiVersion.Text = "Get Robot API Version";
+        btnGetRobotApiVersion.UseVisualStyleBackColor = true;
+        btnGetRobotApiVersion.Click += btnGetRobotApiVersion_Click;
+        // 
+        // btnGetPolyscopeVersion
+        // 
+        btnGetPolyscopeVersion.Location = new Point(7, 167);
+        btnGetPolyscopeVersion.Name = "btnGetPolyscopeVersion";
+        btnGetPolyscopeVersion.Size = new Size(216, 23);
+        btnGetPolyscopeVersion.TabIndex = 5;
+        btnGetPolyscopeVersion.Text = "Get Polyscope Version";
+        btnGetPolyscopeVersion.UseVisualStyleBackColor = true;
+        btnGetPolyscopeVersion.Click += btnGetPolyscopeVersion_Click;
+        // 
+        // btnIsInRemoteControl
+        // 
+        btnIsInRemoteControl.Location = new Point(7, 138);
+        btnIsInRemoteControl.Name = "btnIsInRemoteControl";
+        btnIsInRemoteControl.Size = new Size(216, 23);
+        btnIsInRemoteControl.TabIndex = 4;
+        btnIsInRemoteControl.Text = "Is In Remote Control?";
+        btnIsInRemoteControl.UseVisualStyleBackColor = true;
+        btnIsInRemoteControl.Click += btnIsInRemoteControl_Click;
+        // 
+        // btnGetOperationalMode
+        // 
+        btnGetOperationalMode.Location = new Point(7, 109);
+        btnGetOperationalMode.Name = "btnGetOperationalMode";
+        btnGetOperationalMode.Size = new Size(216, 23);
+        btnGetOperationalMode.TabIndex = 3;
+        btnGetOperationalMode.Text = "Get Operational Mode";
+        btnGetOperationalMode.UseVisualStyleBackColor = true;
+        btnGetOperationalMode.Click += btnGetOperationalMode_Click;
+        // 
+        // btnGetSafetyMode
+        // 
+        btnGetSafetyMode.Location = new Point(7, 80);
+        btnGetSafetyMode.Name = "btnGetSafetyMode";
+        btnGetSafetyMode.Size = new Size(216, 23);
+        btnGetSafetyMode.TabIndex = 2;
+        btnGetSafetyMode.Text = "Get Safety Mode";
+        btnGetSafetyMode.UseVisualStyleBackColor = true;
+        btnGetSafetyMode.Click += btnGetSafetyMode_Click;
+        // 
+        // btnGetRobotMode
+        // 
+        btnGetRobotMode.Location = new Point(7, 51);
+        btnGetRobotMode.Name = "btnGetRobotMode";
+        btnGetRobotMode.Size = new Size(216, 23);
+        btnGetRobotMode.TabIndex = 1;
+        btnGetRobotMode.Text = "Get Robot Mode";
+        btnGetRobotMode.UseVisualStyleBackColor = true;
+        btnGetRobotMode.Click += btnGetRobotMode_Click;
+        // 
+        // btnGetLoadedProgram
+        // 
+        btnGetLoadedProgram.Location = new Point(7, 22);
+        btnGetLoadedProgram.Name = "btnGetLoadedProgram";
+        btnGetLoadedProgram.Size = new Size(216, 23);
+        btnGetLoadedProgram.TabIndex = 0;
+        btnGetLoadedProgram.Text = "Get Loaded Program";
+        btnGetLoadedProgram.UseVisualStyleBackColor = true;
+        btnGetLoadedProgram.Click += btnGetLoadedProgram_Click;
         // 
         // groupBox2
         // 
@@ -148,7 +398,7 @@
         txtLoadProgram.Name = "txtLoadProgram";
         txtLoadProgram.Size = new Size(126, 23);
         txtLoadProgram.TabIndex = 1;
-        txtLoadProgram.Text = "prg.urp";
+        txtLoadProgram.Text = "program";
         // 
         // btnLoadProgram
         // 
@@ -276,6 +526,10 @@
         btnPowerOn.UseVisualStyleBackColor = true;
         btnPowerOn.Click += btnPowerOn_Click;
         // 
+        // openProgramDialog
+        // 
+        openProgramDialog.Filter = "All files|*.*";
+        // 
         // RestControl
         // 
         AutoScaleDimensions = new SizeF(7F, 15F);
@@ -289,6 +543,11 @@
         ((System.ComponentModel.ISupportInitialize)splitMain).EndInit();
         splitMain.ResumeLayout(false);
         pnlMain.ResumeLayout(false);
+        groupBox6.ResumeLayout(false);
+        groupBox6.PerformLayout();
+        groupBox4.ResumeLayout(false);
+        groupBox4.PerformLayout();
+        groupBox3.ResumeLayout(false);
         groupBox2.ResumeLayout(false);
         ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
         groupBox1.ResumeLayout(false);
@@ -318,4 +577,27 @@
     private Button btnPause;
     private PictureBox pictureBox1;
     private GroupBox groupBox2;
+    private GroupBox groupBox3;
+    private Button btnGetLoadedProgram;
+    private Button btnGetRobotMode;
+    private Button btnGetSafetyMode;
+    private Button btnGetOperationalMode;
+    private Button btnIsInRemoteControl;
+    private Button btnGetPolyscopeVersion;
+    private Button btnGetRobotApiVersion;
+    private GroupBox groupBox4;
+    private TextBox txtPopup;
+    private Button btnShowPopup;
+    private Button btnShowPopupWithTitle;
+    private Button btnClosePopup;
+    private Button btnCloseSafetyPopup;
+    private GroupBox groupBox6;
+    private TextBox txtProgram;
+    private Button btnGetPrograms;
+    private Button btnUploadProgramFile;
+    private Button btnUpdateProgramFile;
+    private Button btnDownloadProgram;
+    private Button btnDownloadProgramToFile;
+    private OpenFileDialog openProgramDialog;
+    private SaveFileDialog saveProgramDialog;
 }

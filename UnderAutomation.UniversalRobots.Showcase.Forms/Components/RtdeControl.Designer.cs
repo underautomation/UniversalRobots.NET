@@ -55,6 +55,8 @@ partial class RtdeControl
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.lblkVersion = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.lblProperties = new System.Windows.Forms.ToolStripLabel();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barSpeed)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -247,7 +249,9 @@ partial class RtdeControl
             this.lblState,
             this.toolStripSeparator2,
             this.toolStripLabel2,
-            this.lblkVersion});
+            this.lblkVersion,
+            this.toolStripSeparator3,
+            this.lblProperties});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(845, 25);
@@ -305,7 +309,18 @@ partial class RtdeControl
             this.lblkVersion.Name = "lblkVersion";
             this.lblkVersion.Size = new System.Drawing.Size(16, 22);
             this.lblkVersion.Text = "...";
-            // 
+            //
+            // toolStripSeparator3
+            //
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            //
+            // lblProperties
+            //
+            this.lblProperties.Name = "lblProperties";
+            this.lblProperties.Size = new System.Drawing.Size(16, 22);
+            this.lblProperties.Text = "...";
+            //
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -367,5 +382,7 @@ partial class RtdeControl
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripLabel toolStripLabel2;
     private System.Windows.Forms.ToolStripLabel lblkVersion;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+    private System.Windows.Forms.ToolStripLabel lblProperties;
     private System.Windows.Forms.Label label5;
 }

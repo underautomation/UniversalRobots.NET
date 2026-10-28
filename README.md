@@ -27,11 +27,13 @@ https://user-images.githubusercontent.com/47540360/143318635-6d6aaaf4-5642-457a-
 
 ## What you can do
 
-- **RTDE:** read the robot data and write inputs and registers, at up to 500 Hz.
+- **RTDE:** read the robot data and write inputs and registers, at up to 500 Hz. Read the software
+  version, the control box and the tool flange of the controller.
 - **Primary Interface:** send URScript commands, read the robot state about 10 times per second, read the
   global variables of the program.
-- **Dashboard Server** (PolyScope) and **REST API** (PolyScope X): power, brakes, programs and robot
-  state.
+- **Dashboard Server** (PolyScope) and **REST API** (PolyScope X): power, brakes, programs, robot and
+  safety modes, popups. One interface, `IRobotDashboard`, for both. Program files of PolyScope X: list,
+  upload and download.
 - **XML-RPC:** answer the function calls of a URScript program from your .NET code.
 - **Socket communication:** exchange messages with a URScript program.
 - **Interpreter Mode:** send URScript lines to a running program.
@@ -166,7 +168,7 @@ GlobalVariable[] variables = robot.PrimaryInterface.GlobalVariables.GetAll();
 
 ### Remote control
 
-Power, brakes and programs.
+Power, brakes, programs, robot and safety modes.
 
 ```csharp
 // PolyScope: Dashboard Server
@@ -180,6 +182,43 @@ robot.Rest.PowerOn();
 robot.Rest.BrakeRelease();
 robot.Rest.LoadProgram("prg1");
 robot.Rest.Play();
+```
+
+The two clients implement `IRobotDashboard`. Write the code once for PolyScope and PolyScope X:
+
+```csharp
+using UnderAutomation.UniversalRobots;
+using UnderAutomation.UniversalRobots.Common;
+
+bool isPolyScopeX = true;
+
+var robot = new UR();
+var parameters = new ConnectParameters("192.168.0.1");
+parameters.Dashboard.Enable = !isPolyScopeX;
+parameters.Rest.Enable = isPolyScopeX;
+robot.Connect(parameters);
+
+IRobotDashboard dashboard = isPolyScopeX ? (IRobotDashboard)robot.Rest : robot.Dashboard;
+
+dashboard.PowerOn();
+dashboard.ReleaseBrake();
+dashboard.LoadProgram("prg1");
+dashboard.Play();
+
+RobotDashboardResponse<SafetyModes> safety = dashboard.GetSafetyMode();
+Console.WriteLine(safety.Value);
+
+robot.Disconnect();
+```
+
+On PolyScope X, the REST API client also reads and writes the program files:
+
+```csharp
+foreach (RestProgramInfo program in robot.Rest.GetPrograms().Value)
+    Console.WriteLine(program.Name);
+
+robot.Rest.UploadProgramFile(@"C:\programs\pick_and_place.urpx");
+robot.Rest.DownloadProgramToFile("pick_and_place", @"C:\backup\pick_and_place.urpx");
 ```
 
 ### Forward and inverse kinematics

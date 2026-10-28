@@ -19,6 +19,8 @@ public partial class DashboardControl : UserControl, IUserControl
         cbUserRoles.SelectedItem = UserRoles.Operator;
         foreach (var value in Enum.GetValues(typeof(OperationalModes))) cbOperationalMode.Items.Add(value);
         cbOperationalMode.SelectedItem = OperationalModes.Automatic;
+        foreach (var value in Enum.GetValues(typeof(FlightReportTypes))) cbFlightReportType.Items.Add(value);
+        cbFlightReportType.SelectedIndex = 0;
     }
 
     #region IUserControl
@@ -269,6 +271,42 @@ public partial class DashboardControl : UserControl, IUserControl
         {
             Log(response, "GetVariableValue", response.Succeed ? $"{response.Value.Type} {response.Value.Name} = " : "");
         }
+    }
+
+    private void btnResume_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.Resume();
+        Log(response, "Resume");
+    }
+
+    private void btnGetSafetyMode_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.GetSafetyMode();
+        Log(response, "GetSafetyMode");
+    }
+
+    private void btnGetUserRole_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.GetUserRole();
+        Log(response, "GetUserRole");
+    }
+
+    private void btnSaveLog_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.SaveLog();
+        Log(response, "SaveLog");
+    }
+
+    private void btnGenerateFlightReport_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.GenerateFlightReport((FlightReportTypes)cbFlightReportType.SelectedItem);
+        Log(response, "GenerateFlightReport");
+    }
+
+    private void btnGenerateSupportFile_Click(object sender, EventArgs e)
+    {
+        var response = _ur.Dashboard.GenerateSupportFile(txtSupportDirectory.Text);
+        Log(response, "GenerateSupportFile");
     }
     #endregion
 
