@@ -48,5 +48,30 @@ namespace UnderAutomation.UniversalRobots.Common {
 		/// UR18 robot model.
 		/// </summary>
 		UR18 = 5,
+
+		/// <summary>
+		/// UR15 robot model.
+		/// </summary>
+		UR15 = 9,
+
+		/// <summary>
+		/// UR10 G 1750 robot model (G Series).
+		/// </summary>
+		UR10G1750 = 12,
+
+		/// <summary>
+		/// UR17 G 1300 robot model (G Series).
+		/// </summary>
+		UR17G1300 = 13,
+
+		/// <summary>
+		/// UR18 G 950 robot model (G Series).
+		/// </summary>
+		UR18G950 = 14,
+
+		/// <summary>
+		/// The model is not known. Returned by <see cref="UnderAutomation.UniversalRobots.Common.UrEnumHelper.RobotModelFromValue(System.Int32)"/> for a value this SDK does not recognize.
+		/// </summary>
+		Unknown = -128,
 	}
 }

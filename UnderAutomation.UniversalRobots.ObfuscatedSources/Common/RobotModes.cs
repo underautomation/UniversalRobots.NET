@@ -10,9 +10,14 @@ namespace UnderAutomation.UniversalRobots.Common {
 	public enum RobotModes {
 
 		/// <summary>
-		/// Robot is in an obsolete CB2 mode
+		/// The robot has no controller (value -1), or it is in an obsolete CB2 mode
 		/// </summary>
 		Other = -1,
+
+		/// <summary>
+		/// The mode is not known. Returned by <see cref="UnderAutomation.UniversalRobots.Common.UrEnumHelper.RobotModeFromValue(System.Int32)"/> for a value this SDK does not recognize.
+		/// </summary>
+		Unknown = -128,
 
 		/// <summary>
 		/// Robot is not connected to its controller

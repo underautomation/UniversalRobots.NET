@@ -3,8 +3,8 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using UnderAutomation.UniversalRobots.Internal;
-using System;
 using UnderAutomation.UniversalRobots.Common;
+using System;
 
 namespace UnderAutomation.UniversalRobots.Rtde.Internal {
 	/// <summary>
@@ -83,6 +83,25 @@ namespace UnderAutomation.UniversalRobots.Rtde.Internal {
 		/// IP address of the robot
 		/// </summary>
 		public string IP { get; }
+
+		/// <summary>
+		/// Software version of the controller (for example "5.26.3"), read automatically at connection.
+		/// Null when the controller does not provide it (PolyScope older than 5.26.3 or PolyScope X older than 10.15)
+		/// or when it could not be read.
+		/// </summary>
+		public string SoftwareVersion { get; }
+
+		/// <summary>
+		/// Type of the control box, read automatically at connection.
+		/// <see cref="UnderAutomation.UniversalRobots.Common.ControlBoxType.Unknown"/> when the controller does not provide it or when it could not be read.
+		/// </summary>
+		public ControlBoxType ControlBoxType { get; }
+
+		/// <summary>
+		/// Version of the tool flange, read automatically at connection.
+		/// <see cref="UnderAutomation.UniversalRobots.Common.ToolFlangeType.Unknown"/> when the controller does not provide it or when it could not be read.
+		/// </summary>
+		public ToolFlangeType ToolFlangeType { get; }
 
 		/// <summary>
 		/// Output data frequency requested to the robot, only for RTDE version 2

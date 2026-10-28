@@ -3,13 +3,14 @@
 // The internal code is hidden; to access it, you need to obtain a Source licence of the library.
 
 using UnderAutomation.UniversalRobots.Dashboard.Internal;
+using UnderAutomation.UniversalRobots.Common;
 
 namespace UnderAutomation.UniversalRobots.Dashboard {
 	/// <summary>
 	/// Client for the Universal Robots Dashboard Server protocol.
 	/// Enables remote control of the robot (load/play/stop programs, power on/off, etc.) via TCP commands on port 29999.
 	/// </summary>
-	public class DashboardClient : DashboardClientBase {
+	public class DashboardClient : DashboardClientBase, IRobotDashboard {
 
 		/// <summary>
 		/// Specifies the IP address of the robot. No TCP connection is maintained. A new connection is created when sending each command.

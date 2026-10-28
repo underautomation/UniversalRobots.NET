@@ -5,7 +5,8 @@
 
 namespace UnderAutomation.UniversalRobots.Common {
 	/// <summary>
-	/// Model of a UR robot (including e-Series and extended payload models)
+	/// Model of a UR robot (including e-Series and extended payload models).
+	/// The G Series models are not listed here: the factory kinematic parameters of the G Series are not published yet.
 	/// </summary>
 	public enum RobotModelsExtended {
 

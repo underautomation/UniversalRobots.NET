@@ -4,12 +4,13 @@
 
 using UnderAutomation.UniversalRobots.Rest.Internal;
 using UnderAutomation.UniversalRobots.Rest;
+using UnderAutomation.UniversalRobots.Common;
 
 namespace UnderAutomation.UniversalRobots.Internal {
 	/// <summary>
 	/// Internal REST client for use within the UR class
 	/// </summary>
-	public class RestClientInternal : RestClientBase {
+	public class RestClientInternal : RestClientBase, IRobotDashboard {
 
 		/// <summary>
 		/// Enable REST client connection using the IP from the parent UR instance

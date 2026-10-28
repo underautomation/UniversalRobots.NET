@@ -4,8 +4,7 @@
 
 using UnderAutomation.UniversalRobots.Common;
 
-namespace UnderAutomation.UniversalRobots.Kinematics
-{
+namespace UnderAutomation.UniversalRobots.Kinematics {
 	/// <summary>
 	/// =========================================================================================================
 	/// Implementation notes :
@@ -28,8 +27,7 @@ namespace UnderAutomation.UniversalRobots.Kinematics
 	/// (cobot) with 6 DOF", IEEE ICASI 2017.
 	/// =========================================================================================================
 	/// </summary>
-	public static class KinematicsUtils
-	{
+	public static class KinematicsUtils {
 
 		/// <summary>
 		/// Computes the 4x4 Denavit-Hartenberg homogeneous transformation matrix for one joint.

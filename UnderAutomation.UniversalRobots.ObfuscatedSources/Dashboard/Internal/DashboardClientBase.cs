@@ -11,7 +11,7 @@ namespace UnderAutomation.UniversalRobots.Dashboard.Internal {
 	/// Abstract base class providing Dashboard Server command implementations for the Universal Robots controller.
 	/// Sends text-based commands over TCP and parses responses. A new TCP connection is created for each command.
 	/// </summary>
-	public abstract class DashboardClientBase : URServiceBase {
+	public abstract class DashboardClientBase : URServiceBase, IRobotDashboard {
 
 		/// <summary>
 		/// Event raised when function <see cref="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Shutdown"/> is called.
@@ -71,6 +71,16 @@ namespace UnderAutomation.UniversalRobots.Dashboard.Internal {
 		/// Returns failure if the program fails to pause
 		/// </summary>
 		public CommandResponse Pause()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Resumes the paused program. Only PolyScope X robots know this command: on the other robots, use <see cref="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.Play"/> to resume a paused program.
+		/// </summary>
+		/// <returns>The answer of the robot. Succeed is false if the program cannot be resumed.</returns>
+		public CommandResponse Resume()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;
@@ -301,6 +311,58 @@ namespace UnderAutomation.UniversalRobots.Dashboard.Internal {
 		/// Returns the current safety status. (From FW 3.11 to 3.12 and from FW 5.5)
 		/// </summary>
 		public CommandResponse<SafetyStatus> GetSafetyStatus()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns the current safety mode of the robot. An answer that the SDK does not know gives <see cref="UnderAutomation.UniversalRobots.Common.SafetyModes.Unknown"/>.
+		/// </summary>
+		/// <returns>The safety mode in Value.</returns>
+		public CommandResponse<SafetyModes> GetSafetyMode()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Returns the user role of the robot. See <see cref="UnderAutomation.UniversalRobots.Dashboard.Internal.DashboardClientBase.SetUserRole(UnderAutomation.UniversalRobots.Dashboard.UserRoles)"/>.
+		/// </summary>
+		/// <returns>The user role in Value. Succeed is false if the answer is not a known role.</returns>
+		public CommandResponse<UserRoles> GetUserRole()
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Generates a flight report on the robot. This command can take a long time: the SDK waits up to 3 minutes for the answer.
+		/// </summary>
+		/// <param name="reportType">Type of the report.</param>
+		/// <returns>The identifier of the report in Value.</returns>
+		public CommandResponse<string> GenerateFlightReport(FlightReportTypes reportType)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Generates a support file on the robot. This command can take a long time: the SDK waits up to 10 minutes for the answer.
+		/// </summary>
+		/// <param name="directory">Existing directory of the robot where the file is saved. It must be inside the programs directory.</param>
+		/// <returns>The name of the support file in Value.</returns>
+		public CommandResponse<string> GenerateSupportFile(string directory)
+		{
+			// Source is hidden, a Source licence is needed to access internal code...
+			return default;
+		}
+
+		/// <summary>
+		/// Saves the log of the robot to its log history file.
+		/// </summary>
+		/// <returns>The answer of the robot.</returns>
+		public CommandResponse SaveLog()
 		{
 			// Source is hidden, a Source licence is needed to access internal code...
 			return default;

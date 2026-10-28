@@ -104,6 +104,21 @@ public float MasterIOCurrent { get; set; }
 public SafetyStatus Safetymode { get; set; }
 
 		/// <summary>
+		/// Safety mode as a <see cref="UnderAutomation.UniversalRobots.Common.SafetyModes"/> value. <see cref="UnderAutomation.UniversalRobots.Common.SafetyModes.Unknown"/> if the robot sent a value this SDK does not know.
+		/// </summary>
+		public SafetyModes SafetyModeValue { get; }
+
+		/// <summary>
+		/// True if the robot is in a protective, safeguard or enabling device stop.
+		/// </summary>
+		public bool IsProtectiveStopped { get; }
+
+		/// <summary>
+		/// True if the safety mode lets the robot move (Normal or Reduced).
+		/// </summary>
+		public bool SafetyModeAllowsExecution { get; }
+
+		/// <summary>
 		/// Robot is in reduced speed mode
 		/// </summary>
 		[PackageDescription("Robot is in reduced speed mode")]
